@@ -11,6 +11,7 @@
 		BEF063B061238131C98190AE /* DishuTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEF06626E8CC283B801A6384 /* DishuTheme.plist */; };
 		BEF0643CC3CA937BE0736A57 /* LWWuBiFullKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06037D12E412ED1847F0C /* LWWuBiFullKeyboard.m */; };
 		BEF069306002FA7C5CC700E1 /* DishuTheme.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF060F67751233F3E1C1E86 /* DishuTheme.png */; };
+		EA306DA51B7AF3F20085AC25 /* LWSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */; };
 		EA3E237B1B732B5100349A95 /* LWBaseKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235A1B732B5100349A95 /* LWBaseKBBtn.m */; };
 		EA3E237C1B732B5100349A95 /* LWCharKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235C1B732B5100349A95 /* LWCharKBBtn.m */; };
 		EA3E237D1B732B5100349A95 /* LWFullCharBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235E1B732B5100349A95 /* LWFullCharBtn.m */; };
@@ -121,6 +122,7 @@
 		BEF06C2913B1D37966CFAD2E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		BEF06E888D0180F5B2E41D1A /* doc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
 		BEF06EF45BCC3FD3BB39B661 /* LWBiHuaKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBiHuaKeyboard.h; sourceTree = "<group>"; };
+		EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSettingPopView.xib; sourceTree = "<group>"; };
 		EA3E23591B732B5100349A95 /* LWBaseKBBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseKBBtn.h; sourceTree = "<group>"; };
 		EA3E235A1B732B5100349A95 /* LWBaseKBBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseKBBtn.m; sourceTree = "<group>"; };
 		EA3E235B1B732B5100349A95 /* LWCharKBBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCharKBBtn.h; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				EA3E236F1B732B5100349A95 /* LWOftenWordsPopView.m */,
 				EA3E23701B732B5100349A95 /* LWSettingPopView.h */,
 				EA3E23711B732B5100349A95 /* LWSettingPopView.m */,
+				EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */,
 			);
 			path = PopViews;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				EA56C0AB1B42E42A0076EC00 /* InfoPlist.strings in Resources */,
 				EA3E23CF1B733C6600349A95 /* moonlight.png in Resources */,
 				EAFB53841B46A1700076DAA7 /* Images.xcassets in Resources */,
+				EA306DA51B7AF3F20085AC25 /* LWSettingPopView.xib in Resources */,
 				EA56C0AE1B42E4300076EC00 /* Localizable.strings in Resources */,
 				EA3E23BD1B732C0300349A95 /* LWEnFullKeyboard.xib in Resources */,
 				EA3E23C51B732C0300349A95 /* BubbleTheme.png in Resources */,

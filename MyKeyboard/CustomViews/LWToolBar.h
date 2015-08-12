@@ -34,11 +34,9 @@
 
 @property(nonatomic, weak) IBOutlet UIButton *logoBtn;
 @property(nonatomic, weak) IBOutlet UIButton *emojiBtn;
-@property(weak, nonatomic) IBOutlet UIButton *textInserter;
-@property(weak, nonatomic) IBOutlet UIButton *oftenWordsBtn;
-@property(nonatomic, weak) IBOutlet UIButton *hideKeyboardBtn;
-@property(nonatomic, weak) IBOutlet UIImageView *cursorMovingImageView;
-@property(nonatomic, strong) UIImageView *arrowBtn;
+@property(weak, nonatomic) IBOutlet UIButton *switchkbBtn;
+@property(weak, nonatomic) IBOutlet UIButton *skinBtn;
+@property(nonatomic, weak) IBOutlet UIButton *hideBtn;
 
 @property(nonatomic, strong) NSArray *toolBarHorizonConstraints;
 @property(nonatomic, strong) NSArray *toolBarVerticelConstraints;
