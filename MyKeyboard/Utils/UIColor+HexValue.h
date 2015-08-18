@@ -10,6 +10,8 @@
 
 @interface UIColor (HexValue)
 
++ (UIColor *)colorWithRGBAString:(NSString *)RGBAString;
+
 + (UIColor *)colorWithHexString:(NSString *)hex;
 
 +(NSString *)hexValuesFromUIColor:(UIColor *)color;

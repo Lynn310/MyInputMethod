@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>inputView.backgroundColor</key>
+	<string>0,0,0,0</string>
+	<key>inputView.backgroundImage</key>
+	<string>moonlight.png</string>
+	<key>rootWrapView.backgroundColor</key>
+	<string>0,0,0,0</string>
+	<key>keyboardWrap.backgroundColor</key>
+	<string>0,0,0,0</string>
+	<key>topView.backgroundColor</key>
+	<string>0,0,0,0</string>
+	<key>singleHandView.backgroundColor</key>
+	<string>0,0,0,0</string>
+	<key>btn.space.horizon</key>
+	<integer>1</integer>
+	<key>btn.space.verticel</key>
+	<integer>1</integer>
+	<key>btn.contentColor</key>
+	<string>127,127,127</string>
+	<key>btn.borderType</key>
+	<integer>0</integer>
+	<key>btn.borderColor</key>
+	<string>127,127,127</string>
+	<key>btn.borderWidth</key>
+	<real>1</real>
+	<key>btn.cornerRadius</key>
+	<real>5</real>
+	<key>btn.innerBorder.borderColor</key>
+	<string>127,127,127,255</string>
+	<key>btn.innerBorder.borderWidth</key>
+	<real>1</real>
+	<key>btn.innerBorder.cornerRadius</key>
+	<real>4</real>
+	<key>btn.opacity</key>
+	<integer>0</integer>
+	<key>btn.shadowType</key>
+	<string>0</string>
+	<key>btn.shadow.color</key>
+	<string>127,127,127,255</string>
+	<key>btn.shadow.offsetY</key>
+	<integer>1</integer>
+	<key>btn.innershadow.offsetY</key>
+	<integer>0</integer>
+	<key>btn.innershadow.offsetX</key>
+	<integer>0</integer>
+	<key>btn.mainLabel.fontName</key>
+	<string>Helvetica</string>
+	<key>btn.mainLabel.fontSize</key>
+	<integer>20</integer>
+	<key>btn.topLabel.fontName</key>
+	<string>Helvetica</string>
+	<key>btn.topLabel.fontSize</key>
+	<integer>10</integer>
+</dict>
+</plist>

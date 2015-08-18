@@ -8,6 +8,7 @@
 
 #import "LWBaseKBBtn.h"
 #import "LWDefines.h"
+#import "LWThemeManager.h"
 
 
 @implementation LWBaseKBBtn {
@@ -32,7 +33,7 @@
 * layout 子视图
 */
 - (void)layoutSubviews {
-    _contentView.frame = CGRectInset(self.bounds, SPACE_BTN_BG_HORIZON, SPACE_BTN_BG_VERTICAL);
+    _contentView.frame = CGRectInset(self.bounds, FloatValueFromThemeKey(@"btn.space.horizon"), FloatValueFromThemeKey(@"btn.space.verticel"));
 
     //重设阴影大小
     _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, OFFSET_SHADOWLAYER);
@@ -91,7 +92,7 @@
         _contentView = nil;
     }
 
-    _contentView = [[UIView alloc] initWithFrame:CGRectInset(self.bounds, SPACE_BTN_BG_HORIZON, SPACE_BTN_BG_VERTICAL)];
+    _contentView = [[UIView alloc] initWithFrame:CGRectInset(self.bounds, FloatValueFromThemeKey(@"btn.space.horizon"), FloatValueFromThemeKey(@"btn.space.verticel"))];
     _contentView.userInteractionEnabled = NO;
     [self addSubview:_contentView];
 

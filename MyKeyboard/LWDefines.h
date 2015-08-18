@@ -122,20 +122,22 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define Toolbar_Y ((CGFloat) ([LWKeyboardConfig predictiveMode] == Predictive_DoubleLine ? 20.0 : 0.0))
 
 
+#import "LWThemeManager.h"
+#import "UIColor+HexValue.h"
 
-//按键的background横向与纵向的半倍间隙
-#define SPACE_BTN_BG_HORIZON 3.0
-#define SPACE_BTN_BG_VERTICAL 5.0
+#define FloatValueFromThemeKey(key) (((NSNumber *)[LWThemeManager sharedInstance].theme[(key)]).floatValue)
+#define UIColorValueFromThemeKey(key) ([UIColor colorWithRGBAString:((NSString *)[LWThemeManager sharedInstance].theme[(key)])])
+#define CGColorValueFromThemeKey(key) ([UIColor colorWithRGBAString:((NSString *)[LWThemeManager sharedInstance].theme[(key)])].CGColor)
 
 //按键外边框圆角半径、宽度、颜色
-#define RADIUS_KBBTN_CONTENTVIEW 5.0
-#define WIDTH_KBBTN_CONTENTVIEW_BORDER 1.0
-#define COLOR_KBBTN_CONTENTVIEW_BORDER [UIColor grayColor].CGColor
+#define RADIUS_KBBTN_CONTENTVIEW FloatValueFromThemeKey(@"btn.cornerRadius")
+#define WIDTH_KBBTN_CONTENTVIEW_BORDER FloatValueFromThemeKey(@"btn.borderWidth")
+#define COLOR_KBBTN_CONTENTVIEW_BORDER CGColorValueFromThemeKey(@"btn.borderColor")
 
 //按键内边框宽度及颜色
-#define RADIUS_KBBTN_CONTENTVIEW_INNERBORDER 4.0
-#define WIDTH_KBBTN_CONTENTVIEW_INNERBORDER 1.0
-#define COLOR_KBBTN_CONTENTVIEW_INNERBORDER [UIColor whiteColor].CGColor
+#define RADIUS_KBBTN_CONTENTVIEW_INNERBORDER FloatValueFromThemeKey(@"btn.innerBorder.cornerRadius")
+#define WIDTH_KBBTN_CONTENTVIEW_INNERBORDER FloatValueFromThemeKey(@"btn.innerBorder.borderWidth")
+#define COLOR_KBBTN_CONTENTVIEW_INNERBORDER CGColorValueFromThemeKey(@"btn.innerBorder.borderColor")
 
 //按键背景色
 #define COLOR_KBBTN_CONTENTVIEW_BG [UIColor whiteColor].CGColor

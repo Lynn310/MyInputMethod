@@ -8,6 +8,8 @@
 
 
 #import "LWKeyboardConfig.h"
+#import "LWThemeManager.h"
+#import "UIColor+HexValue.h"
 
 @implementation LWKeyboardConfig
 

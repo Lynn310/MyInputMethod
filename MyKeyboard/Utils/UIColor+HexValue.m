@@ -9,6 +9,37 @@
 #import "UIColor+HexValue.h"
 
 @implementation UIColor (HexValue)
+
++ (UIColor *)colorWithRGBAString:(NSString *)RGBAString {
+    UIColor *color = nil;
+
+    NSArray *rgbaComponents = [RGBAString componentsSeparatedByString:@","];
+    float RED = 0.0f;
+    float GREEN = 0.0f;
+    float BLUE = 0.0f;
+    float ALPHA = 0.0f;
+
+    //string like : 127,127,127
+    if ([rgbaComponents count] == 3) {
+        RED = [(NSString*) rgbaComponents[0] floatValue]/255;
+        GREEN = [(NSString*) rgbaComponents[1] floatValue]/255;
+        BLUE = [(NSString*) rgbaComponents[2] floatValue]/255;
+
+        color = [UIColor colorWithRed:RED green:GREEN blue:BLUE alpha:1.0f];
+
+        //string like : 127,127,127,255
+    }else if ([rgbaComponents count] == 4) {
+        RED = [(NSString*) rgbaComponents[0] floatValue]/255;
+        GREEN = [(NSString*) rgbaComponents[1] floatValue]/255;
+        BLUE = [(NSString*) rgbaComponents[2] floatValue]/255;
+        ALPHA = [(NSString*) rgbaComponents[3] floatValue]/255;
+
+        color = [UIColor colorWithRed:RED green:GREEN blue:BLUE alpha:ALPHA];
+    }
+
+    return color;
+}
+
 +(UIColor *)colorWithHexString:(NSString *)hexString {
 
     if ([hexString length] != 6) {

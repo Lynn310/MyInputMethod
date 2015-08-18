@@ -5,6 +5,7 @@
 
 #import "LWPinYinLeftTabView.h"
 #import "LWDefines.h"
+#import "LWThemeManager.h"
 
 #define PinYinNine_Symbols @[@"，",@"。",@"？",@"！",@"...",@"～",@"、",@"：",@"="]
 #define DOUBLEBYTE_SYMBOLS @[@"，",@"。",@"？",@"！",@"、",@"："]
@@ -34,7 +35,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    self.contentView.frame = CGRectInset(self.bounds, SPACE_BTN_BG_HORIZON, SPACE_BTN_BG_VERTICAL);
+    self.contentView.frame = CGRectInset(self.bounds, FloatValueFromThemeKey(@"btn.space.horizon"), FloatValueFromThemeKey(@"btn.space.verticel"));
     [self.contentView reloadData];
 //    //重设置内边框、背景、高亮背景大小
 //    _innerGlow.frame = CGRectInset(self.bounds, 1, 1);
@@ -52,7 +53,7 @@
         self.contentView = nil;
     }
 
-    self.contentView = [[UITableView alloc] initWithFrame:CGRectInset(self.bounds, SPACE_BTN_BG_HORIZON, SPACE_BTN_BG_VERTICAL) style:UITableViewStylePlain];
+    self.contentView = [[UITableView alloc] initWithFrame:CGRectInset(self.bounds, FloatValueFromThemeKey(@"btn.space.horizon"), FloatValueFromThemeKey(@"btn.space.verticel")) style:UITableViewStylePlain];
     self.contentView.dataSource = self;
     self.contentView.delegate = self;
     self.contentView.showsVerticalScrollIndicator = NO;
