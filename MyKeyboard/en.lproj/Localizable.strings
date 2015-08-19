@@ -6,3 +6,8 @@
   Copyright (c) 2015年 luowei. All rights reserved.
 */
 "BreakLine" = "Return";
+
+"PinYin FullKeyboard" = "PinYin FullKeyboard";
+"PinYin NineKeyboard" = "PinYin NineKeyboard";
+"Wubi FullKeyboard" = "Wubi FullKeyboard";
+"Bihua FullKeyboard" = "Bihua FullKeyboard";

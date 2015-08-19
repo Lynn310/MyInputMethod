@@ -46,12 +46,15 @@ typedef NS_OPTIONS(NSUInteger, KeyboardType) {
 
 };
 
-typedef NS_OPTIONS(NSUInteger, PopViewType) {
-    PopView_LogoBtn = 1,              //logo设置按键弹窗
-    PopView_OftenWordsBtn = 1 << 1,   //常用语弹窗
-    PopView_EmojiBtn = 1 << 2,        //Emoji按键弹窗
-    PopView_NextBtn = 1 << 3,         //地球键切换键盘弹窗
-    PopView_FullCharBtn = 1 << 4,     //全键盘字符按键弹窗
+typedef NS_OPTIONS(NSUInteger, BtnType) {
+    ToolbarBtn_UnKnown = 0,           //未知类型
+    ToolbarBtn_Logo = 1,              //工具栏logo设置按键
+    ToolbarBtn_Emoji = 1 << 2,        //工具栏Emoji按键
+    ToolbarBtn_SwitchKB = 1 << 3,        //工具栏选择键盘按键
+    ToolbarBtn_Skin = 1 << 4,            //工具栏皮肤设置
+    ToolbarBtn_OftenWords = 1 << 5,   //常用语弹窗
+    KBBtn_Next = 1 << 6,         //地球键切换键盘弹窗
+    KBBtn_FullChar = 1 << 7,     //全键盘字符按键弹窗
 };
 
 //单手模式类型
@@ -81,7 +84,6 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
     ReturnKeyEmergencyCall,
     ReturnKeyOk,
 };
-
 
 
 // --------- 相关key名
@@ -131,44 +133,46 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define CGColorValueFromThemeKey(key) ([UIColor colorWithRGBAString:((NSString *)[LWThemeManager sharedInstance].theme[(key)])].CGColor)
 
 //按键外边框圆角半径、宽度、颜色
-#define RADIUS_KBBTN_CONTENTVIEW FloatValueFromThemeKey(@"btn.cornerRadius")
-#define WIDTH_KBBTN_CONTENTVIEW_BORDER FloatValueFromThemeKey(@"btn.borderWidth")
-#define COLOR_KBBTN_CONTENTVIEW_BORDER CGColorValueFromThemeKey(@"btn.borderColor")
+#define Radius_KBBtn_ContentView FloatValueFromThemeKey(@"btn.cornerRadius")
+#define Width_KBBtn_ContentView_Border FloatValueFromThemeKey(@"btn.borderWidth")
+#define CGColor_KBBtn_ContentView_Border CGColorValueFromThemeKey(@"btn.borderColor")
 
 //按键内边框宽度及颜色
-#define RADIUS_KBBTN_CONTENTVIEW_INNERBORDER FloatValueFromThemeKey(@"btn.innerBorder.cornerRadius")
-#define WIDTH_KBBTN_CONTENTVIEW_INNERBORDER FloatValueFromThemeKey(@"btn.innerBorder.borderWidth")
-#define COLOR_KBBTN_CONTENTVIEW_INNERBORDER CGColorValueFromThemeKey(@"btn.innerBorder.borderColor")
+#define Radius_KBBtn_ContentView_InnerBorder FloatValueFromThemeKey(@"btn.innerBorder.cornerRadius")
+#define Width_KBBtn_ContentView_InnerBorder FloatValueFromThemeKey(@"btn.innerBorder.borderWidth")
+#define CGColor_KBBtn_ContentView_InnerBorder CGColorValueFromThemeKey(@"btn.innerBorder.borderColor")
 
-//按键背景色
-#define COLOR_KBBTN_CONTENTVIEW_BG CGColorValueFromThemeKey(@"btn.content.highlightColor")
-//按键背景色不透明度
-#define OPACITY_KBBTN_CONTENTVIEW_BG_HIGHLIGHT FloatValueFromThemeKey(@"btn.content.highlightOpacity")
+//视图背景颜色
+#define Color_KBBtn_PopView_BG UIColorValueFromThemeKey(@"popView.backgroundColor")
 
-//按键图片内容的颜色
-#define COLOR_KBBTN_IMG_NORMAL UIColorValueFromThemeKey(@"btn.content.color")
-#define COLOR_KBBTN_IMG_HIGHLIGHT UIColorValueFromThemeKey(@"btn.content.highlightColor")
+//按键内容的颜色
+#define Color_KBBtn_Content_Normal UIColorValueFromThemeKey(@"btn.content.color")
+#define Color_KBBtn_Content_Highlight UIColorValueFromThemeKey(@"btn.content.highlightColor")
+#define CGColor_KBBtn_Content_Highlight CGColorValueFromThemeKey(@"btn.content.highlightColor")
+#define Opacity_KBBtn_Content_Highlight FloatValueFromThemeKey(@"btn.content.highlightOpacity")
 
 //按键阴影颜色
-#define COLOR_SHADOWLAYER CGColorValueFromThemeKey(@"btn.shadow.color")
+#define CGColor_ShadowLayer CGColorValueFromThemeKey(@"btn.shadow.color")
 //按键阴影偏移距离
-#define OFFSET_Y_SHADOWLAYER FloatValueFromThemeKey(@"btn.shadow.offsetY")
+#define Offset_Y_ShadowLayer FloatValueFromThemeKey(@"btn.shadow.offsetY")
 //按键阴影圆角半径
-#define RADIUS_SHADOWLAYER  (CGFloat)(RADIUS_KBBTN_CONTENTVIEW+OFFSET_Y_SHADOWLAYER)
+#define Radius_ShadowLayer  (CGFloat)(Radius_KBBtn_ContentView+Offset_Y_ShadowLayer)
 //按键阴影高度
-#define HEIGHT_SHADOWLAYER FloatValueFromThemeKey(@"btn.shadow.height")
+#define Height_ShadowLayer FloatValueFromThemeKey(@"btn.shadow.height")
 
 
 //按键中mainLabel的字体
-#define MAINTEXT_FONT [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]
-#define TOPTEXT_FONT [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")]
+#define MainText_Font [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]
+#define TopText_Font [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")]
+
+#define SettingBtnText_Font [UIFont fontWithName:StringValueFromThemeKey(@"settingBtn.fontName") size:FloatValueFromThemeKey(@"settingBtn.fontSize")]
 
 //字体颜色
-#define COLOR_MAINTEXT UIColorValueFromThemeKey(@"btn.content.color")
-#define COLOR_TOPTEXT UIColorValueFromThemeKey(@"btn.content.color")
+#define Color_MainText UIColorValueFromThemeKey(@"btn.content.color")
+#define Color_TopText UIColorValueFromThemeKey(@"btn.content.color")
 
 //按键中topLb与mainLb的间距
-#define SPACE_TOP_MAIN FloatValueFromThemeKey(@"btn.topAndMain.space")
+#define Space_Top_Main FloatValueFromThemeKey(@"btn.topAndMain.space")
 
 //键盘left table 的 Cell 参数
 #define Cell_Height 40.0

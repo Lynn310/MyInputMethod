@@ -97,11 +97,11 @@
         if (charTextArr.count && [charTextArr[0] isEqualToString:@"image"]) {
             NSArray *imgNameArr = [charTextArr[1] componentsSeparatedByString:@","];
 
-            UIImage *normalImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:COLOR_KBBTN_IMG_NORMAL];
+            UIImage *normalImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:Color_KBBtn_Content_Normal];
             [charKBBtn setImage:normalImg forState:UIControlStateNormal];
 
             //处理高亮图片
-            UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:COLOR_KBBTN_IMG_HIGHLIGHT];
+            UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:Color_KBBtn_Content_Highlight];
             if(imgNameArr.count > 1){
                 highlightedImg = [UIImage imageNamed:imgNameArr[1]];
             }
@@ -148,11 +148,11 @@
         if (keyTextArr.count && [keyTextArr[0] isEqualToString:@"image"]) {
             NSArray *imgNameArr = [keyTextArr[1] componentsSeparatedByString:@","];
 
-            UIImage *normalImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:COLOR_KBBTN_IMG_NORMAL];
+            UIImage *normalImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:Color_KBBtn_Content_Normal];
             [keyKBBtn setImage:normalImg forState:UIControlStateNormal];
 
             //处理高亮图片
-            UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:COLOR_KBBTN_IMG_HIGHLIGHT];
+            UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:Color_KBBtn_Content_Highlight];
             if(imgNameArr.count > 1){
                 highlightedImg = [UIImage imageNamed:imgNameArr[1]];
             }

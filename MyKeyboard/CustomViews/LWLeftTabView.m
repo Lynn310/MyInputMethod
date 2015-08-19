@@ -17,9 +17,9 @@
 - (void)layoutSubviews {
 
     //重设阴影大小
-    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, OFFSET_Y_SHADOWLAYER);
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - HEIGHT_SHADOWLAYER + OFFSET_Y_SHADOWLAYER),
-            _contentView.frame.size.width, HEIGHT_SHADOWLAYER);
+    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, Offset_Y_ShadowLayer);
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - Height_ShadowLayer + Offset_Y_ShadowLayer),
+            _contentView.frame.size.width, Height_ShadowLayer);
 
     [super layoutSubviews];
 }
@@ -38,9 +38,9 @@
 - (void)setupInnerGlow {
     if (!_innerGlow) {
         _innerGlow = [CALayer layer];
-        _innerGlow.cornerRadius = RADIUS_KBBTN_CONTENTVIEW_INNERBORDER;
-        _innerGlow.borderWidth = WIDTH_KBBTN_CONTENTVIEW_INNERBORDER;
-        _innerGlow.borderColor = COLOR_KBBTN_CONTENTVIEW_INNERBORDER;
+        _innerGlow.cornerRadius = Radius_KBBtn_ContentView_InnerBorder;
+        _innerGlow.borderWidth = Width_KBBtn_ContentView_InnerBorder;
+        _innerGlow.borderColor = CGColor_KBBtn_ContentView_InnerBorder;
         _innerGlow.opacity = 0.5;
 
         [_contentView.layer insertSublayer:_innerGlow atIndex:2];
@@ -52,9 +52,9 @@
 */
 - (void)setupBorder {
     CALayer *layer = _contentView.layer;
-    layer.cornerRadius = RADIUS_KBBTN_CONTENTVIEW;
-    layer.borderWidth = WIDTH_KBBTN_CONTENTVIEW_BORDER;
-    layer.borderColor = COLOR_KBBTN_CONTENTVIEW_BORDER;
+    layer.cornerRadius = Radius_KBBtn_ContentView;
+    layer.borderWidth = Width_KBBtn_ContentView_Border;
+    layer.borderColor = CGColor_KBBtn_ContentView_Border;
 }
 
 /**
@@ -70,11 +70,11 @@
     _shadowlayer = [CALayer layer];
     _shadowlayer.contentsScale = self.layer.contentsScale;
     _shadowlayer.contentsScale = self.layer.contentsScale;
-    _shadowlayer.backgroundColor = COLOR_SHADOWLAYER;
-    _shadowlayer.cornerRadius = RADIUS_SHADOWLAYER;
+    _shadowlayer.backgroundColor = CGColor_ShadowLayer;
+    _shadowlayer.cornerRadius = Radius_ShadowLayer;
 
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - HEIGHT_SHADOWLAYER + OFFSET_Y_SHADOWLAYER),
-            _contentView.frame.size.width, HEIGHT_SHADOWLAYER);
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - Height_ShadowLayer + Offset_Y_ShadowLayer),
+            _contentView.frame.size.width, Height_ShadowLayer);
     [self.layer insertSublayer:_shadowlayer below:_contentView.layer];
 }
 

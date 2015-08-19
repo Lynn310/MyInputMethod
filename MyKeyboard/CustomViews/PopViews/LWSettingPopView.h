@@ -10,6 +10,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LWSettingPopViewDelegate <NSObject>
+
+@end
+
+
 @interface LWSettingPopView : UIView
+
+@property (nonatomic, weak) id<LWSettingPopViewDelegate> delegate;
 
 @end

@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		BEF062B581AF72A0C7CF56CD /* LWBiHuaKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF0622E052210F1F70AC1FD /* LWBiHuaKeyboard.m */; };
+		BEF062FCD27ACDBCBC840E5F /* LWKeyboardSettingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06B180DE98F38304C3383 /* LWKeyboardSettingPopView.m */; };
 		BEF063B061238131C98190AE /* DishuTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEF06626E8CC283B801A6384 /* DishuTheme.plist */; };
 		BEF0643CC3CA937BE0736A57 /* LWWuBiFullKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06037D12E412ED1847F0C /* LWWuBiFullKeyboard.m */; };
 		BEF069306002FA7C5CC700E1 /* DishuTheme.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF060F67751233F3E1C1E86 /* DishuTheme.png */; };
+		BEF06E1444FB25AF1A8EC86A /* LWSkinSettingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06B156082199B996393A2 /* LWSkinSettingPopView.m */; };
 		EA306DA51B7AF3F20085AC25 /* LWSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */; };
 		EA3E237B1B732B5100349A95 /* LWBaseKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235A1B732B5100349A95 /* LWBaseKBBtn.m */; };
 		EA3E237C1B732B5100349A95 /* LWCharKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235C1B732B5100349A95 /* LWCharKBBtn.m */; };
@@ -69,6 +71,8 @@
 		EA56C0CC1B42F1F60076EC00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA56C0CE1B42F1F60076EC00 /* Localizable.strings */; };
 		EA60605D1B798D2300A9EC45 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = EA60605C1B798D2300A9EC45 /* UIImage+Color.m */; };
 		EA60605E1B798D2300A9EC45 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = EA60605C1B798D2300A9EC45 /* UIImage+Color.m */; };
+		EA78ABD31B842B06008F01BA /* LWKeyboardSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA78ABD21B842B06008F01BA /* LWKeyboardSettingPopView.xib */; };
+		EA78ABD61B842C08008F01BA /* LWImageTextBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA78ABD51B842C08008F01BA /* LWImageTextBtn.m */; };
 		EAA2785E1B78F9BB00730A4C /* LWWuBiFullKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA2785D1B78F9BB00730A4C /* LWWuBiFullKeyboard.xib */; };
 		EAA278601B78F9C800730A4C /* LWBiHuaKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA2785F1B78F9C800730A4C /* LWBiHuaKeyboard.xib */; };
 		EAEE59241B8325A400A5969E /* SkinableTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAEE59231B8325A400A5969E /* SkinableTheme.plist */; };
@@ -119,8 +123,12 @@
 		BEF06037D12E412ED1847F0C /* LWWuBiFullKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWuBiFullKeyboard.m; sourceTree = "<group>"; };
 		BEF060F67751233F3E1C1E86 /* DishuTheme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DishuTheme.png; sourceTree = "<group>"; };
 		BEF0622E052210F1F70AC1FD /* LWBiHuaKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBiHuaKeyboard.m; sourceTree = "<group>"; };
+		BEF063FA367C930B684721B5 /* LWSkinSettingPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSkinSettingPopView.h; sourceTree = "<group>"; };
+		BEF06439A8DD2326F2D79C91 /* LWKeyboardSettingPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKeyboardSettingPopView.h; sourceTree = "<group>"; };
 		BEF06626E8CC283B801A6384 /* DishuTheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = DishuTheme.plist; sourceTree = "<group>"; };
 		BEF066A872AC47C2FDED0371 /* LWWuBiFullKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWuBiFullKeyboard.h; sourceTree = "<group>"; };
+		BEF06B156082199B996393A2 /* LWSkinSettingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSkinSettingPopView.m; sourceTree = "<group>"; };
+		BEF06B180DE98F38304C3383 /* LWKeyboardSettingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKeyboardSettingPopView.m; sourceTree = "<group>"; };
 		BEF06C2913B1D37966CFAD2E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		BEF06E888D0180F5B2E41D1A /* doc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
 		BEF06EF45BCC3FD3BB39B661 /* LWBiHuaKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBiHuaKeyboard.h; sourceTree = "<group>"; };
@@ -230,6 +238,9 @@
 		EA56C0D01B42F2480076EC00 /* MyEmojiKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyEmojiKeyboard.entitlements; sourceTree = "<group>"; };
 		EA60605B1B798D2300A9EC45 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		EA60605C1B798D2300A9EC45 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		EA78ABD21B842B06008F01BA /* LWKeyboardSettingPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKeyboardSettingPopView.xib; sourceTree = "<group>"; };
+		EA78ABD41B842C08008F01BA /* LWImageTextBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWImageTextBtn.h; sourceTree = "<group>"; };
+		EA78ABD51B842C08008F01BA /* LWImageTextBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWImageTextBtn.m; sourceTree = "<group>"; };
 		EAA2785D1B78F9BB00730A4C /* LWWuBiFullKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWWuBiFullKeyboard.xib; sourceTree = "<group>"; };
 		EAA2785F1B78F9C800730A4C /* LWBiHuaKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWBiHuaKeyboard.xib; sourceTree = "<group>"; };
 		EAEE59231B8325A400A5969E /* SkinableTheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkinableTheme.plist; sourceTree = "<group>"; };
@@ -325,6 +336,13 @@
 				EA3E23701B732B5100349A95 /* LWSettingPopView.h */,
 				EA3E23711B732B5100349A95 /* LWSettingPopView.m */,
 				EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */,
+				BEF06439A8DD2326F2D79C91 /* LWKeyboardSettingPopView.h */,
+				BEF06B180DE98F38304C3383 /* LWKeyboardSettingPopView.m */,
+				EA78ABD21B842B06008F01BA /* LWKeyboardSettingPopView.xib */,
+				BEF063FA367C930B684721B5 /* LWSkinSettingPopView.h */,
+				BEF06B156082199B996393A2 /* LWSkinSettingPopView.m */,
+				EA78ABD41B842C08008F01BA /* LWImageTextBtn.h */,
+				EA78ABD51B842C08008F01BA /* LWImageTextBtn.m */,
 			);
 			path = PopViews;
 			sourceTree = "<group>";
@@ -730,6 +748,7 @@
 				EAA2785E1B78F9BB00730A4C /* LWWuBiFullKeyboard.xib in Resources */,
 				EA3E23CC1B73342400349A95 /* LWToolBar.xib in Resources */,
 				EA3E23C91B732C0300349A95 /* MachineTheme.png in Resources */,
+				EA78ABD31B842B06008F01BA /* LWKeyboardSettingPopView.xib in Resources */,
 				EA56C0AB1B42E42A0076EC00 /* InfoPlist.strings in Resources */,
 				EA3E23CF1B733C6600349A95 /* moonlight.png in Resources */,
 				EAFB53841B46A1700076DAA7 /* Images.xcassets in Resources */,
@@ -802,6 +821,7 @@
 				EA3E23CA1B732C0300349A95 /* UIColor+HexValue.m in Sources */,
 				EA3E237D1B732B5100349A95 /* LWFullCharBtn.m in Sources */,
 				EA3E23981B732BDC00349A95 /* MyKeyboardViewController.m in Sources */,
+				EA78ABD61B842C08008F01BA /* LWImageTextBtn.m in Sources */,
 				EA3E23881B732B5100349A95 /* LWRootWrapView.m in Sources */,
 				EA3E23811B732B5100349A95 /* LWLeftTabView.m in Sources */,
 				EA3E23921B732B6800349A95 /* LWDataConfig.m in Sources */,
@@ -811,6 +831,8 @@
 				BEF062B581AF72A0C7CF56CD /* LWBiHuaKeyboard.m in Sources */,
 				BEF0643CC3CA937BE0736A57 /* LWWuBiFullKeyboard.m in Sources */,
 				EAEE59591B833B4600A5969E /* LWThemeManager.m in Sources */,
+				BEF062FCD27ACDBCBC840E5F /* LWKeyboardSettingPopView.m in Sources */,
+				BEF06E1444FB25AF1A8EC86A /* LWSkinSettingPopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

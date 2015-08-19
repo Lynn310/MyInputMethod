@@ -14,12 +14,12 @@
 /**
 * 根据类型添加浮窗
 */
-- (void)addPopViewWithBtn:(UIView *)button type:(PopViewType)type;
+- (void)toolbarBtnTouchUpInside:(UIView *)button withType:(BtnType)type;
 
 /**
 * 删除浮窗
 */
-- (void)removePopViewWithype:(PopViewType)type;
+- (void)removePopViewByBtn:(UIView *)btn withType:(BtnType)type;
 
 /**
 * 隐藏键盘
@@ -37,13 +37,21 @@
 @property(weak, nonatomic) IBOutlet UIButton *switchkbBtn;
 @property(weak, nonatomic) IBOutlet UIButton *skinBtn;
 @property(nonatomic, weak) IBOutlet UIButton *hideBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *arrow;
 
 @property(nonatomic, strong) NSArray *toolBarHorizonConstraints;
 @property(nonatomic, strong) NSArray *toolBarVerticelConstraints;
+
+
+/**
+* 更新subViews的主题
+*/
+- (void)updateSubviewsTheme;
 
 /**
  * 给ToolBar设置约束
  */
 - (void)setupToolBarConstraints;
 
+- (void)updateArrow:(UIButton *)button;
 @end

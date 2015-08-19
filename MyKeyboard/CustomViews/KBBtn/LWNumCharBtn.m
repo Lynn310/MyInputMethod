@@ -59,8 +59,8 @@
             self.mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, boundSize.height / 8, boundSize.width, boundSize.height * 3 / 4)];
             self.mainLabel.center = CGPointMake(boundSize.width/2, boundSize.height/2);
             self.mainLabel.textAlignment = NSTextAlignmentCenter;
-            self.mainLabel.font = MAINTEXT_FONT;
-            self.mainLabel.textColor = COLOR_MAINTEXT;
+            self.mainLabel.font = MainText_Font;
+            self.mainLabel.textColor = Color_MainText;
             [self.contentView addSubview:self.mainLabel];
         }
         self.mainLabel.text = text;

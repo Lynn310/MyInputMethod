@@ -62,5 +62,11 @@
 	<string>Helvetica</string>
 	<key>btn.topLabel.fontSize</key>
 	<integer>10</integer>
+	<key>settingBtn.fontName</key>
+	<string>Helvetica</string>
+	<key>settingBtn.fontSize</key>
+	<integer>12</integer>
+	<key>popView.backgroundColor</key>
+	<string>150,160,160</string>
 </dict>
 </plist>

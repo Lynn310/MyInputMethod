@@ -5,60 +5,30 @@
 
 
 #import <UIKit/UIKit.h>
+#import "LWDefines.h"
 
 @class LWSettingPopView;
 @class LWOftenWordsPopView;
+@class LWKeyboardSettingPopView;
+
+@protocol LWRootWrapViewDelegate<NSObject>
+
+- (void)updateToolbarArrow:(UIButton *)btn;
+
+@end
 
 @interface LWRootWrapView : UIView
 
-/**
-* 添加logoPop弹窗
-*/
-- (void)addLogoPop:(UIView *)btn;
+@property (nonatomic, weak) id<LWRootWrapViewDelegate> delegate;
 
 /**
-* 删除logoPop弹窗
+* 根据按键类型添加PopView
 */
-- (void)removeLogoPop;
+- (void)addPopViewByBtn:(UIView *)btn withType:(BtnType)type;
 
 /**
-* 添加表情键盘Pop
+* 根据btn与类型移除popView
 */
-- (void)addEmojiPop:(UIView *)btn;
-
-/**
-* 删除表情键盘Pop
-*/
-- (void)removeEmojiPop;
-
-/**
-* 添加常用语Pop
-*/
-- (void)addOftenWordsPop:(UIView *)btn;
-
-/**
-* 删除常用语Pop
-*/
-- (void)removeOftenWordsPop;
-
-/**
-* 添加切换键盘Pop
-*/
-- (void)addNextPop:(UIView *)btn;
-
-/**
-* 删除切换键盘Pop
-*/
-- (void)removeNextPop;
-
-/**
-* 添加全键盘按键Pop
-*/
-- (void)addFullCharBtnPop:(UIView *)btn;
-
-/**
-* 删除全键盘按键Pop
-*/
-- (void)removeFullCharBtnPop;
+- (void)removePopViewByBtn:(UIView *)view withType:(BtnType)type;
 
 @end

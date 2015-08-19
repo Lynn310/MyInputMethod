@@ -36,9 +36,9 @@
     _contentView.frame = CGRectInset(self.bounds, FloatValueFromThemeKey(@"btn.space.horizon"), FloatValueFromThemeKey(@"btn.space.verticel"));
 
     //重设阴影大小
-    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, OFFSET_Y_SHADOWLAYER);
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - HEIGHT_SHADOWLAYER + OFFSET_Y_SHADOWLAYER),
-            _contentView.frame.size.width, HEIGHT_SHADOWLAYER);
+    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, Offset_Y_ShadowLayer);
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - Height_ShadowLayer + Offset_Y_ShadowLayer),
+            _contentView.frame.size.width, Height_ShadowLayer);
 
     //重设置内边框、背景、高亮背景大小
     _innerGlow.frame = CGRectInset(self.bounds, 1, 1);
@@ -116,7 +116,7 @@
     //创建背景图层
     if (!_backgroundLayer) {
         _backgroundLayer = [CALayer layer];
-        _backgroundLayer.cornerRadius = RADIUS_KBBTN_CONTENTVIEW;
+        _backgroundLayer.cornerRadius = Radius_KBBtn_ContentView;
         _backgroundLayer.masksToBounds = YES;
         _backgroundLayer.frame = CGRectInset(_contentView.frame, 0, 0);
         [self.layer insertSublayer:_backgroundLayer atIndex:0];
@@ -144,7 +144,7 @@
     //创建高亮背景图层
     if (!_highlightBackgroundLayer) {
         _highlightBackgroundLayer = [CALayer layer];
-        _highlightBackgroundLayer.cornerRadius = RADIUS_KBBTN_CONTENTVIEW;
+        _highlightBackgroundLayer.cornerRadius = Radius_KBBtn_ContentView;
         _highlightBackgroundLayer.frame = CGRectInset(_contentView.frame, 0, 0);
         [self.layer insertSublayer:_highlightBackgroundLayer atIndex:1];
     }
@@ -158,8 +158,8 @@
         _highlightBackgroundLayer.contentsGravity = gravity;//kCAGravityResizeAspect;
     } else {
         //否则用颜色值
-        _highlightBackgroundLayer.backgroundColor = COLOR_KBBTN_CONTENTVIEW_BG;
-        _highlightBackgroundLayer.opacity = OPACITY_KBBTN_CONTENTVIEW_BG_HIGHLIGHT;
+        _highlightBackgroundLayer.backgroundColor = CGColor_KBBtn_Content_Highlight;
+        _highlightBackgroundLayer.opacity = Opacity_KBBtn_Content_Highlight;
     }
 }
 
@@ -169,9 +169,9 @@
 - (void)setupInnerGlow {
     if (!_innerGlow) {
         _innerGlow = [CALayer layer];
-        _innerGlow.cornerRadius = RADIUS_KBBTN_CONTENTVIEW_INNERBORDER;
-        _innerGlow.borderWidth = WIDTH_KBBTN_CONTENTVIEW_INNERBORDER;
-        _innerGlow.borderColor = COLOR_KBBTN_CONTENTVIEW_INNERBORDER;
+        _innerGlow.cornerRadius = Radius_KBBtn_ContentView_InnerBorder;
+        _innerGlow.borderWidth = Width_KBBtn_ContentView_InnerBorder;
+        _innerGlow.borderColor = CGColor_KBBtn_ContentView_InnerBorder;
         _innerGlow.opacity = 0.5;
 
         [_contentView.layer insertSublayer:_innerGlow atIndex:2];
@@ -183,9 +183,9 @@
 */
 - (void)setupBorder {
     CALayer *layer = _contentView.layer;
-    layer.cornerRadius = RADIUS_KBBTN_CONTENTVIEW;
-    layer.borderWidth = WIDTH_KBBTN_CONTENTVIEW_BORDER;
-    layer.borderColor = COLOR_KBBTN_CONTENTVIEW_BORDER;
+    layer.cornerRadius = Radius_KBBtn_ContentView;
+    layer.borderWidth = Width_KBBtn_ContentView_Border;
+    layer.borderColor = CGColor_KBBtn_ContentView_Border;
 }
 
 /**
@@ -201,11 +201,11 @@
     _shadowlayer = [CALayer layer];
     _shadowlayer.contentsScale = self.layer.contentsScale;
     _shadowlayer.contentsScale = self.layer.contentsScale;
-    _shadowlayer.backgroundColor = COLOR_SHADOWLAYER;
-    _shadowlayer.cornerRadius = RADIUS_SHADOWLAYER;
+    _shadowlayer.backgroundColor = CGColor_ShadowLayer;
+    _shadowlayer.cornerRadius = Radius_ShadowLayer;
 
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - HEIGHT_SHADOWLAYER + OFFSET_Y_SHADOWLAYER),
-            _contentView.frame.size.width, HEIGHT_SHADOWLAYER);
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - Height_ShadowLayer + Offset_Y_ShadowLayer),
+            _contentView.frame.size.width, Height_ShadowLayer);
     [self.layer insertSublayer:_shadowlayer below:_contentView.layer];
 }
 
@@ -214,8 +214,8 @@
     if(!self.tipLb){
         self.tipLb = [[UILabel alloc] initWithFrame:CGRectMake(_contentView.frame.size.width-60, 0, 60, 20)];
         self.tipLb.text = tip;
-        self.tipLb.textColor = COLOR_TOPTEXT;
-        self.tipLb.font = TOPTEXT_FONT;
+        self.tipLb.textColor = Color_TopText;
+        self.tipLb.font = TopText_Font;
         [self.contentView addSubview:self.tipLb];
     }
 }

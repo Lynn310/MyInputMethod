@@ -6,3 +6,8 @@
   Copyright (c) 2015年 luowei. All rights reserved.
 */
 "BreakLine" = "换行";
+
+"PinYin FullKeyboard" = "拼音全键";
+"PinYin NineKeyboard" = "拼音九键";
+"Wubi FullKeyboard" = "五笔全键";
+"Bihua FullKeyboard" = "笔画全键";

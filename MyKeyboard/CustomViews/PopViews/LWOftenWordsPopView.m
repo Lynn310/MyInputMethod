@@ -24,7 +24,7 @@
     if (self) {
         [self setupTableView:frame];
 
-        self.backgroundColor = [UIColor colorWithRed:0.96 green:0.85 blue:0.78 alpha:1];
+        self.backgroundColor = Color_KBBtn_PopView_BG;
     }
     
     return self;
@@ -32,7 +32,7 @@
 
 - (void)setupTableView:(CGRect)frame {
 
-    CGRect tabFrame = {0, 0, frame.size.width, frame.size.height-44.0};
+    CGRect tabFrame = {0, 0, frame.size.width, (CGFloat) (frame.size.height-44.0)};
     self.tableView = [[UITableView alloc] initWithFrame:tabFrame style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

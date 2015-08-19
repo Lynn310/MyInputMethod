@@ -27,7 +27,7 @@
 #import "LWRootWrapView.h"
 
 
-@interface MyKeyboardViewController ()<LWBaseKeyboardDelegate, LWToolbarDelegate, LWLeftTabViewDelegate>
+@interface MyKeyboardViewController ()<LWRootWrapViewDelegate,LWBaseKeyboardDelegate, LWToolbarDelegate, LWLeftTabViewDelegate>
 
 //单手之外区域
 @property(nonatomic, strong) LWRootWrapView *rootWrapView;
@@ -339,61 +339,15 @@
 /**
 * 根据类型添加浮窗
 */
-- (void)addPopViewWithBtn:(UIView *)btn type:(PopViewType)type {
-    switch (type){
-        case PopView_LogoBtn:{
-            [_rootWrapView addLogoPop:btn];
-            break;
-        };
-        case PopView_OftenWordsBtn:{
-            [_rootWrapView addOftenWordsPop:btn];
-            break;
-        };
-        case PopView_EmojiBtn:{
-            [_rootWrapView addEmojiPop:btn];
-            break;
-        };
-        case PopView_NextBtn:{
-            [_rootWrapView addNextPop:btn];
-            break;
-        };
-        case PopView_FullCharBtn:{
-            [_rootWrapView addFullCharBtnPop:btn];
-            break;
-        };
-        default:
-            break;
-    }
+- (void)toolbarBtnTouchUpInside:(UIView *)btn withType:(BtnType)type {
+    [_rootWrapView addPopViewByBtn:btn withType:type];
 }
 
 /**
 * 删除浮窗
 */
-- (void)removePopViewWithype:(PopViewType)type {
-    switch (type){
-        case PopView_LogoBtn:{
-            [_rootWrapView removeLogoPop];
-            break;
-        };
-        case PopView_OftenWordsBtn:{
-            [_rootWrapView removeOftenWordsPop];
-            break;
-        };
-        case PopView_EmojiBtn:{
-            [_rootWrapView removeEmojiPop];
-            break;
-        };
-        case PopView_NextBtn:{
-            [_rootWrapView removeNextPop];
-            break;
-        };
-        case PopView_FullCharBtn:{
-            [_rootWrapView removeFullCharBtnPop];
-            break;
-        };
-        default:
-            break;
-    }
+- (void)removePopViewByBtn:(UIView *)btn withType:(BtnType)type {
+    [_rootWrapView removePopViewByBtn:btn withType:type];
 }
 
 /**
@@ -491,6 +445,13 @@
 */
 - (void)kbBtnLongPress:(UILongPressGestureRecognizer *)recognizer {
 
+}
+
+/**
+* 更新工具栏小三角
+*/
+- (void)updateToolbarArrow:(UIButton *)btn {
+    [_toolbar updateArrow:btn];
 }
 
 @end
