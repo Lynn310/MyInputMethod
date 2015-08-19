@@ -126,6 +126,7 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #import "UIColor+HexValue.h"
 
 #define FloatValueFromThemeKey(key) (((NSNumber *)[LWThemeManager sharedInstance].theme[(key)]).floatValue)
+#define StringValueFromThemeKey(key) ((NSString *)[LWThemeManager sharedInstance].theme[(key)])
 #define UIColorValueFromThemeKey(key) ([UIColor colorWithRGBAString:((NSString *)[LWThemeManager sharedInstance].theme[(key)])])
 #define CGColorValueFromThemeKey(key) ([UIColor colorWithRGBAString:((NSString *)[LWThemeManager sharedInstance].theme[(key)])].CGColor)
 
@@ -140,35 +141,34 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define COLOR_KBBTN_CONTENTVIEW_INNERBORDER CGColorValueFromThemeKey(@"btn.innerBorder.borderColor")
 
 //按键背景色
-#define COLOR_KBBTN_CONTENTVIEW_BG [UIColor whiteColor].CGColor
+#define COLOR_KBBTN_CONTENTVIEW_BG CGColorValueFromThemeKey(@"btn.content.highlightColor")
 //按键背景色不透明度
-#define OPACITY_KBBTN_CONTENTVIEW_BG 0.2
-#define OPACITY_KBBTN_CONTENTVIEW_BG_HIGHLIGHT 0.5
+#define OPACITY_KBBTN_CONTENTVIEW_BG_HIGHLIGHT FloatValueFromThemeKey(@"btn.content.highlightOpacity")
 
 //按键图片内容的颜色
-#define COLOR_KBBTN_IMG_NORMAL [UIColor colorWithRed:1 green:0.93 blue:0.78 alpha:1]
-#define COLOR_KBBTN_IMG_HIGHLIGHT [UIColor whiteColor]
+#define COLOR_KBBTN_IMG_NORMAL UIColorValueFromThemeKey(@"btn.content.color")
+#define COLOR_KBBTN_IMG_HIGHLIGHT UIColorValueFromThemeKey(@"btn.content.highlightColor")
 
 //按键阴影颜色
-#define COLOR_SHADOWLAYER [UIColor grayColor].CGColor
+#define COLOR_SHADOWLAYER CGColorValueFromThemeKey(@"btn.shadow.color")
 //按键阴影偏移距离
-#define OFFSET_SHADOWLAYER 0.5
+#define OFFSET_Y_SHADOWLAYER FloatValueFromThemeKey(@"btn.shadow.offsetY")
 //按键阴影圆角半径
-#define RADIUS_SHADOWLAYER  (CGFloat)(RADIUS_KBBTN_CONTENTVIEW+OFFSET_SHADOWLAYER)
+#define RADIUS_SHADOWLAYER  (CGFloat)(RADIUS_KBBTN_CONTENTVIEW+OFFSET_Y_SHADOWLAYER)
 //按键阴影高度
-#define HEIGHT_SHADOWLAYER 1.0
+#define HEIGHT_SHADOWLAYER FloatValueFromThemeKey(@"btn.shadow.height")
 
 
 //按键中mainLabel的字体
-#define MAINTEXT_FONT [UIFont systemFontOfSize:17]
-#define TOPTEXT_FONT [UIFont systemFontOfSize:9]
+#define MAINTEXT_FONT [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]
+#define TOPTEXT_FONT [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")]
 
 //字体颜色
-#define COLOR_MAINTEXT [UIColor colorWithRed:1 green:0.93 blue:0.78 alpha:1]
-#define COLOR_TOPTEXT [UIColor colorWithRed:1 green:0.93 blue:0.78 alpha:1]
+#define COLOR_MAINTEXT UIColorValueFromThemeKey(@"btn.content.color")
+#define COLOR_TOPTEXT UIColorValueFromThemeKey(@"btn.content.color")
 
 //按键中topLb与mainLb的间距
-#define SPACE_TOP_MAIN 0.5
+#define SPACE_TOP_MAIN FloatValueFromThemeKey(@"btn.topAndMain.space")
 
 //键盘left table 的 Cell 参数
 #define Cell_Height 40.0

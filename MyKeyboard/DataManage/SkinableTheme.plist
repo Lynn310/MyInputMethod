@@ -18,8 +18,12 @@
 	<integer>1</integer>
 	<key>btn.space.verticel</key>
 	<integer>1</integer>
-	<key>btn.contentColor</key>
-	<string>127,127,127</string>
+	<key>btn.content.color</key>
+	<string>240,208,164</string>
+	<key>btn.content.highlightColor</key>
+	<string>255,255,255</string>
+	<key>btn.content.highlightOpacity</key>
+	<real>0.5</real>
 	<key>btn.borderType</key>
 	<integer>0</integer>
 	<key>btn.borderColor</key>
@@ -41,11 +45,15 @@
 	<key>btn.shadow.color</key>
 	<string>127,127,127,255</string>
 	<key>btn.shadow.offsetY</key>
-	<integer>1</integer>
+	<real>0.5</real>
+	<key>btn.shadow.height</key>
+	<real>1</real>
 	<key>btn.innershadow.offsetY</key>
 	<integer>0</integer>
 	<key>btn.innershadow.offsetX</key>
 	<integer>0</integer>
+	<key>btn.topAndMain.space</key>
+	<real>0.5</real>
 	<key>btn.mainLabel.fontName</key>
 	<string>Helvetica</string>
 	<key>btn.mainLabel.fontSize</key>

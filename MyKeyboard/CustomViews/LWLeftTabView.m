@@ -17,8 +17,8 @@
 - (void)layoutSubviews {
 
     //重设阴影大小
-    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, OFFSET_SHADOWLAYER);
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - HEIGHT_SHADOWLAYER + OFFSET_SHADOWLAYER),
+    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, OFFSET_Y_SHADOWLAYER);
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - HEIGHT_SHADOWLAYER + OFFSET_Y_SHADOWLAYER),
             _contentView.frame.size.width, HEIGHT_SHADOWLAYER);
 
     [super layoutSubviews];
@@ -73,7 +73,7 @@
     _shadowlayer.backgroundColor = COLOR_SHADOWLAYER;
     _shadowlayer.cornerRadius = RADIUS_SHADOWLAYER;
 
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - HEIGHT_SHADOWLAYER + OFFSET_SHADOWLAYER),
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - HEIGHT_SHADOWLAYER + OFFSET_Y_SHADOWLAYER),
             _contentView.frame.size.width, HEIGHT_SHADOWLAYER);
     [self.layer insertSublayer:_shadowlayer below:_contentView.layer];
 }
