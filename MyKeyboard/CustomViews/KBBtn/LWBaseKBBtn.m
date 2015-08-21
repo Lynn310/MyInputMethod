@@ -91,7 +91,8 @@
         [_contentView removeFromSuperview];
         _contentView = nil;
     }
-
+    //如果是加入毛玻璃效果
+//    _contentView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
     _contentView = [[UIView alloc] initWithFrame:CGRectInset(self.bounds, FloatValueFromThemeKey(@"btn.space.horizon"), FloatValueFromThemeKey(@"btn.space.verticel"))];
     _contentView.userInteractionEnabled = NO;
     [self addSubview:_contentView];
