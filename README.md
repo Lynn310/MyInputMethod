@@ -52,4 +52,20 @@ https://github.com/cleverdeng/pinyin.py
 一个iOS版的基于zinnia的手写汉字识别:https://github.com/Crazylitm/HZRC
 
 
+#授权相关
+
+```
+//获得用户评分api的文档
+https://support.appannie.com/hc/en-us/articles/204208934-6-Product-Reviews-
+
+//获得用户评分数据
+curl -H "Authorization:Bearer xxxxxxxxxxxxx" "https://api.appannie.com/v1.2/apps/ios/app/990121195/ratings?page_index=0"
+
+//获得App所支持的所有国家地区代码
+curl -H "Authorization:Bearer xxxxxxxxxxxxx" "https://api.appannie.com/v1.2/meta/countries"
+
+//获得用户评论数据
+curl -H "Authorization:Bearer xxxxxxxxxxxxx" "https://api.appannie.com/v1.2/apps/ios/app/990121195/reviews?counties=US+CN&page_index=0"
+```
+
 
