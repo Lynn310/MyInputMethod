@@ -11,3 +11,11 @@
 "PinYin NineKeyboard" = "拼音九键";
 "Wubi FullKeyboard" = "五笔全键";
 "Bihua FullKeyboard" = "笔画全键";
+
+"Day Mode" = "日间模式";
+"Night Mode" = "夜间模式";
+"English Predict" = "英文补全";
+"SimplifyOrTraditional" = "繁简切换";
+"Mars Mode" = "火星文字";
+"Key Sound" = "按键声音";
+"MoreSetting Mode" = "更多设置";

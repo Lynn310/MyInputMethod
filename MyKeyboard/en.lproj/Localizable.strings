@@ -11,3 +11,11 @@
 "PinYin NineKeyboard" = "PinYin NineKeyboard";
 "Wubi FullKeyboard" = "Wubi FullKeyboard";
 "Bihua FullKeyboard" = "Bihua FullKeyboard";
+
+"Day Mode" = "DayMode";
+"Night Mode" = "NightMode";
+"English Predict" = "WordPredict";
+"SimplifyOrTraditional" = "SimplifyWord";
+"Mars Mode" = "MarsWord";
+"Key Sound" = "Key Sound";
+"MoreSetting Mode" = "MoreSetting";

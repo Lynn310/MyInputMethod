@@ -53,7 +53,7 @@
 */
 - (void)updateSubviewsTheme {
     if(!_arrow.hidden){
-        _arrow.image = [[UIImage imageNamed:@"arrow"] imageWithOverlayColor:Color_KBBtn_Content_Normal];
+        _arrow.image = [[UIImage imageNamed:@"arrow"] imageWithOverlayColor:Color_KBBtn_PopView_BG];
     }
 
     [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:Color_KBBtn_Content_Normal] forState:UIControlStateNormal];
