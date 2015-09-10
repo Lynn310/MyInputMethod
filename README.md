@@ -68,4 +68,10 @@ curl -H "Authorization:Bearer xxxxxxxxxxxxx" "https://api.appannie.com/v1.2/meta
 curl -H "Authorization:Bearer xxxxxxxxxxxxx" "https://api.appannie.com/v1.2/apps/ios/app/990121195/reviews?counties=US+CN&page_index=0"
 ```
 
+#视图相关
+纯UILabel实现文字的竖排显示:http://humin.me/archives/68
+make a vertical text UILabel and UITextView for iOS:http://stackoverflow.com/questions/28544714/how-do-you-make-a-vertical-text-uilabel-and-uitextview-for-ios-in-swift
+Vertical-Text-iOS:https://github.com/sangonz/Vertical-Text-iOS
+
+
 

@@ -24,7 +24,7 @@
     if (self) {
         [self setupTableView:frame];
 
-        self.backgroundColor = Color_KBBtn_PopView_BG;
+        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
     }
     
     return self;
@@ -57,7 +57,7 @@
 
 
     [addBtn setTitle:@"添加常用语" forState:UIControlStateNormal];
-    [addBtn setTitleColor:Color_AddOften_Text forState:UIControlStateNormal];
+    [addBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
     addBtn.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17];
 
 //    addBtn.backgroundColor = Color_AddOften_BG;

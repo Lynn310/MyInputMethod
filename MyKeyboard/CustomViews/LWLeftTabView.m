@@ -17,9 +17,9 @@
 - (void)layoutSubviews {
 
     //重设阴影大小
-    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, Offset_Y_ShadowLayer);
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - Height_ShadowLayer + Offset_Y_ShadowLayer),
-            _contentView.frame.size.width, Height_ShadowLayer);
+    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, FloatValueFromThemeKey(@"btn.shadow.offsetY"));
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - FloatValueFromThemeKey(@"btn.shadow.height") + FloatValueFromThemeKey(@"btn.shadow.offsetY")),
+            _contentView.frame.size.width, FloatValueFromThemeKey(@"btn.shadow.height"));
 
     [super layoutSubviews];
 }
@@ -38,9 +38,9 @@
 - (void)setupInnerGlow {
     if (!_innerGlow) {
         _innerGlow = [CALayer layer];
-        _innerGlow.cornerRadius = Radius_KBBtn_ContentView_InnerBorder;
-        _innerGlow.borderWidth = Width_KBBtn_ContentView_InnerBorder;
-        _innerGlow.borderColor = CGColor_KBBtn_ContentView_InnerBorder;
+        _innerGlow.cornerRadius = FloatValueFromThemeKey(@"btn.innerBorder.cornerRadius");
+        _innerGlow.borderWidth = FloatValueFromThemeKey(@"btn.innerBorder.borderWidth");
+        _innerGlow.borderColor = CGColorValueFromThemeKey(@"btn.innerBorder.borderColor");
         _innerGlow.opacity = 0.5;
 
         [_contentView.layer insertSublayer:_innerGlow atIndex:2];
@@ -52,9 +52,9 @@
 */
 - (void)setupBorder {
     CALayer *layer = _contentView.layer;
-    layer.cornerRadius = Radius_KBBtn_ContentView;
-    layer.borderWidth = Width_KBBtn_ContentView_Border;
-    layer.borderColor = CGColor_KBBtn_ContentView_Border;
+    layer.cornerRadius = FloatValueFromThemeKey(@"btn.cornerRadius");
+    layer.borderWidth = FloatValueFromThemeKey(@"btn.borderWidth");
+    layer.borderColor = CGColorValueFromThemeKey(@"btn.borderColor");
 }
 
 /**
@@ -70,11 +70,11 @@
     _shadowlayer = [CALayer layer];
     _shadowlayer.contentsScale = self.layer.contentsScale;
     _shadowlayer.contentsScale = self.layer.contentsScale;
-    _shadowlayer.backgroundColor = CGColor_ShadowLayer;
-    _shadowlayer.cornerRadius = Radius_ShadowLayer;
+    _shadowlayer.backgroundColor = CGColorValueFromThemeKey(@"btn.shadow.color");
+    _shadowlayer.cornerRadius = (CGFloat)(FloatValueFromThemeKey(@"btn.cornerRadius")+FloatValueFromThemeKey(@"btn.shadow.offsetY"));
 
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - Height_ShadowLayer + Offset_Y_ShadowLayer),
-            _contentView.frame.size.width, Height_ShadowLayer);
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - FloatValueFromThemeKey(@"btn.shadow.height") + FloatValueFromThemeKey(@"btn.shadow.offsetY")),
+            _contentView.frame.size.width, FloatValueFromThemeKey(@"btn.shadow.height"));
     [self.layer insertSublayer:_shadowlayer below:_contentView.layer];
 }
 

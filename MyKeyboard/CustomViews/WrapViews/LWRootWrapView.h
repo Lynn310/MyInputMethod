@@ -10,6 +10,7 @@
 @class LWSettingPopView;
 @class LWOftenWordsPopView;
 @class LWKeyboardSettingPopView;
+@class LWSkinSettingPopView;
 
 @protocol LWRootWrapViewDelegate<NSObject>
 

@@ -36,9 +36,9 @@
     _contentView.frame = CGRectInset(self.bounds, FloatValueFromThemeKey(@"btn.space.horizon"), FloatValueFromThemeKey(@"btn.space.verticel"));
 
     //重设阴影大小
-    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, Offset_Y_ShadowLayer);
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - Height_ShadowLayer + Offset_Y_ShadowLayer),
-            _contentView.frame.size.width, Height_ShadowLayer);
+    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, FloatValueFromThemeKey(@"btn.shadow.offsetY"));
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - FloatValueFromThemeKey(@"btn.shadow.height") + FloatValueFromThemeKey(@"btn.shadow.offsetY")),
+            _contentView.frame.size.width, FloatValueFromThemeKey(@"btn.shadow.height"));
 
     //重设置内边框、背景、高亮背景大小
     _innerGlow.frame = CGRectInset(self.bounds, 1, 1);
@@ -117,7 +117,7 @@
     //创建背景图层
     if (!_backgroundLayer) {
         _backgroundLayer = [CALayer layer];
-        _backgroundLayer.cornerRadius = Radius_KBBtn_ContentView;
+        _backgroundLayer.cornerRadius = FloatValueFromThemeKey(@"btn.cornerRadius");
         _backgroundLayer.masksToBounds = YES;
         _backgroundLayer.frame = CGRectInset(_contentView.frame, 0, 0);
         [self.layer insertSublayer:_backgroundLayer atIndex:0];
@@ -145,7 +145,7 @@
     //创建高亮背景图层
     if (!_highlightBackgroundLayer) {
         _highlightBackgroundLayer = [CALayer layer];
-        _highlightBackgroundLayer.cornerRadius = Radius_KBBtn_ContentView;
+        _highlightBackgroundLayer.cornerRadius = FloatValueFromThemeKey(@"btn.cornerRadius");
         _highlightBackgroundLayer.frame = CGRectInset(_contentView.frame, 0, 0);
         [self.layer insertSublayer:_highlightBackgroundLayer atIndex:1];
     }
@@ -159,8 +159,8 @@
         _highlightBackgroundLayer.contentsGravity = gravity;//kCAGravityResizeAspect;
     } else {
         //否则用颜色值
-        _highlightBackgroundLayer.backgroundColor = CGColor_KBBtn_Content_Highlight;
-        _highlightBackgroundLayer.opacity = Opacity_KBBtn_Content_Highlight;
+        _highlightBackgroundLayer.backgroundColor = CGColorValueFromThemeKey(@"btn.content.highlightColor");
+        _highlightBackgroundLayer.opacity = FloatValueFromThemeKey(@"btn.content.highlightOpacity");
     }
 }
 
@@ -170,9 +170,9 @@
 - (void)setupInnerGlow {
     if (!_innerGlow) {
         _innerGlow = [CALayer layer];
-        _innerGlow.cornerRadius = Radius_KBBtn_ContentView_InnerBorder;
-        _innerGlow.borderWidth = Width_KBBtn_ContentView_InnerBorder;
-        _innerGlow.borderColor = CGColor_KBBtn_ContentView_InnerBorder;
+        _innerGlow.cornerRadius = FloatValueFromThemeKey(@"btn.innerBorder.cornerRadius");
+        _innerGlow.borderWidth = FloatValueFromThemeKey(@"btn.innerBorder.borderWidth");
+        _innerGlow.borderColor = CGColorValueFromThemeKey(@"btn.innerBorder.borderColor");
         _innerGlow.opacity = 0.5;
 
         [_contentView.layer insertSublayer:_innerGlow atIndex:2];
@@ -184,9 +184,9 @@
 */
 - (void)setupBorder {
     CALayer *layer = _contentView.layer;
-    layer.cornerRadius = Radius_KBBtn_ContentView;
-    layer.borderWidth = Width_KBBtn_ContentView_Border;
-    layer.borderColor = CGColor_KBBtn_ContentView_Border;
+    layer.cornerRadius = FloatValueFromThemeKey(@"btn.cornerRadius");
+    layer.borderWidth = FloatValueFromThemeKey(@"btn.borderWidth");
+    layer.borderColor = CGColorValueFromThemeKey(@"btn.borderColor");
 }
 
 /**
@@ -202,11 +202,11 @@
     _shadowlayer = [CALayer layer];
     _shadowlayer.contentsScale = self.layer.contentsScale;
     _shadowlayer.contentsScale = self.layer.contentsScale;
-    _shadowlayer.backgroundColor = CGColor_ShadowLayer;
-    _shadowlayer.cornerRadius = Radius_ShadowLayer;
+    _shadowlayer.backgroundColor = CGColorValueFromThemeKey(@"btn.shadow.color");
+    _shadowlayer.cornerRadius = (CGFloat)(FloatValueFromThemeKey(@"btn.cornerRadius")+FloatValueFromThemeKey(@"btn.shadow.offsetY"));
 
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - Height_ShadowLayer + Offset_Y_ShadowLayer),
-            _contentView.frame.size.width, Height_ShadowLayer);
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - FloatValueFromThemeKey(@"btn.shadow.height") + FloatValueFromThemeKey(@"btn.shadow.offsetY")),
+            _contentView.frame.size.width, FloatValueFromThemeKey(@"btn.shadow.height"));
     [self.layer insertSublayer:_shadowlayer below:_contentView.layer];
 }
 
@@ -215,8 +215,8 @@
     if(!self.tipLb){
         self.tipLb = [[UILabel alloc] initWithFrame:CGRectMake(_contentView.frame.size.width-60, 0, 60, 20)];
         self.tipLb.text = tip;
-        self.tipLb.textColor = Color_TopText;
-        self.tipLb.font = TopText_Font;
+        self.tipLb.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+        self.tipLb.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")];
         [self.contentView addSubview:self.tipLb];
     }
 }

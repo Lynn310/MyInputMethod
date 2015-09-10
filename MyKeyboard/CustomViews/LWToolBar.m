@@ -25,7 +25,7 @@
 
         //添加边框
         topBorder = [CALayer layer];
-        topBorder.backgroundColor = CGColor_KBBtn_ContentView_Border;
+        topBorder.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
         topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
         [self.layer addSublayer:topBorder];
 
@@ -53,19 +53,19 @@
 */
 - (void)updateSubviewsTheme {
     if(!_arrow.hidden){
-        _arrow.image = [[UIImage imageNamed:@"arrow"] imageWithOverlayColor:Color_KBBtn_PopView_BG];
+        _arrow.image = [[UIImage imageNamed:@"arrow"] imageWithOverlayColor:UIColorValueFromThemeKey(@"popView.backgroundColor")];
     }
 
-    [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:Color_KBBtn_Content_Normal] forState:UIControlStateNormal];
-    [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:Color_KBBtn_Content_Highlight] forState:UIControlStateHighlighted];
-    [_emojiBtn setImage:[[UIImage imageNamed:@"emoji"] imageWithOverlayColor:Color_KBBtn_Content_Normal] forState:UIControlStateNormal];
-    [_emojiBtn setImage:[[UIImage imageNamed:@"emoji"] imageWithOverlayColor:Color_KBBtn_Content_Highlight] forState:UIControlStateHighlighted];
-    [_switchkbBtn setImage:[[UIImage imageNamed:@"switchkb"] imageWithOverlayColor:Color_KBBtn_Content_Normal] forState:UIControlStateNormal];
-    [_switchkbBtn setImage:[[UIImage imageNamed:@"switchkb"] imageWithOverlayColor:Color_KBBtn_Content_Highlight] forState:UIControlStateHighlighted];
-    [_skinBtn setImage:[[UIImage imageNamed:@"skin"] imageWithOverlayColor:Color_KBBtn_Content_Normal] forState:UIControlStateNormal];
-    [_skinBtn setImage:[[UIImage imageNamed:@"skin"] imageWithOverlayColor:Color_KBBtn_Content_Highlight] forState:UIControlStateHighlighted];
-    [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:Color_KBBtn_Content_Normal] forState:UIControlStateNormal];
-    [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:Color_KBBtn_Content_Highlight] forState:UIControlStateHighlighted];
+    [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
+    [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [_emojiBtn setImage:[[UIImage imageNamed:@"emoji"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
+    [_emojiBtn setImage:[[UIImage imageNamed:@"emoji"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [_switchkbBtn setImage:[[UIImage imageNamed:@"switchkb"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
+    [_switchkbBtn setImage:[[UIImage imageNamed:@"switchkb"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [_skinBtn setImage:[[UIImage imageNamed:@"skin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
+    [_skinBtn setImage:[[UIImage imageNamed:@"skin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
+    [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
 }
 
 - (void)layoutSubviews {

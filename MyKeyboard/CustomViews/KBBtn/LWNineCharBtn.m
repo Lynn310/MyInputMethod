@@ -53,7 +53,7 @@
     CGSize mainLbSize = _mainLabel.bounds.size;
 
     CGFloat mainLbY = boundSize.height / 4 + (boundSize.height * 3 / 4 - mainLbSize.height) / 2;
-    _topLabel.frame = CGRectMake((boundSize.width - topLbSize.width) / 2, (CGFloat) (mainLbY - Space_Top_Main - topLbSize.height), topLbSize.width, topLbSize.height);
+    _topLabel.frame = CGRectMake((boundSize.width - topLbSize.width) / 2, (CGFloat) (mainLbY - FloatValueFromThemeKey(@"btn.topAndMain.space") - topLbSize.height), topLbSize.width, topLbSize.height);
     _mainLabel.frame = CGRectMake((boundSize.width - mainLbSize.width) / 2, mainLbY, mainLbSize.width, mainLbSize.height);
 
     [super layoutSubviews];
@@ -70,8 +70,8 @@
             _topLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, boundSize.width, boundSize.height / 4)];
             _topLabel.textAlignment = NSTextAlignmentCenter;
 //                _topLabel.backgroundColor = [UIColor blueColor];
-            _topLabel.font = TopText_Font;
-            _topLabel.textColor = Color_TopText;
+            _topLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")];
+            _topLabel.textColor = UIColorValueFromThemeKey(@"btn.content.color");
             [self.contentView addSubview:_topLabel];
         }
         _topLabel.text = upText;
@@ -85,8 +85,8 @@
             _mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, boundSize.height / 4, boundSize.width, boundSize.height * 3 / 4)];
             _mainLabel.textAlignment = NSTextAlignmentCenter;
 //                _mainLabel.backgroundColor = [UIColor greenColor];
-            _mainLabel.font = MainText_Font;
-            _mainLabel.textColor = Color_TopText;
+            _mainLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+            _mainLabel.textColor = UIColorValueFromThemeKey(@"btn.content.color");
             [self.contentView addSubview:_mainLabel];
         }
         _mainLabel.text = text;

@@ -59,8 +59,8 @@
             self.mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, boundSize.height / 8, boundSize.width, boundSize.height * 3 / 4)];
             self.mainLabel.center = CGPointMake(boundSize.width/2, boundSize.height/2);
             self.mainLabel.textAlignment = NSTextAlignmentCenter;
-            self.mainLabel.font = MainText_Font;
-            self.mainLabel.textColor = Color_MainText;
+            self.mainLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+            self.mainLabel.textColor = UIColorValueFromThemeKey(@"btn.content.color");
             [self.contentView addSubview:self.mainLabel];
         }
         self.mainLabel.text = text;

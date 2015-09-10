@@ -132,54 +132,9 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define UIColorValueFromThemeKey(key) ([UIColor colorWithRGBAString:((NSString *)[LWThemeManager sharedInstance].theme[(key)])])
 #define CGColorValueFromThemeKey(key) ([UIColor colorWithRGBAString:((NSString *)[LWThemeManager sharedInstance].theme[(key)])].CGColor)
 
-//按键外边框圆角半径、宽度、颜色
-#define Radius_KBBtn_ContentView FloatValueFromThemeKey(@"btn.cornerRadius")
-#define Width_KBBtn_ContentView_Border FloatValueFromThemeKey(@"btn.borderWidth")
-#define CGColor_KBBtn_ContentView_Border CGColorValueFromThemeKey(@"btn.borderColor")
-
-//按键内边框宽度及颜色
-#define Radius_KBBtn_ContentView_InnerBorder FloatValueFromThemeKey(@"btn.innerBorder.cornerRadius")
-#define Width_KBBtn_ContentView_InnerBorder FloatValueFromThemeKey(@"btn.innerBorder.borderWidth")
-#define CGColor_KBBtn_ContentView_InnerBorder CGColorValueFromThemeKey(@"btn.innerBorder.borderColor")
-
-//视图背景颜色
-#define Color_KBBtn_PopView_BG UIColorValueFromThemeKey(@"popView.backgroundColor")
-
-//按键内容的颜色
-#define Color_KBBtn_Content_Normal UIColorValueFromThemeKey(@"btn.content.color")
-#define Color_KBBtn_Content_Highlight UIColorValueFromThemeKey(@"btn.content.highlightColor")
-#define CGColor_KBBtn_Content_Highlight CGColorValueFromThemeKey(@"btn.content.highlightColor")
-#define Opacity_KBBtn_Content_Highlight FloatValueFromThemeKey(@"btn.content.highlightOpacity")
-
-//按键阴影颜色
-#define CGColor_ShadowLayer CGColorValueFromThemeKey(@"btn.shadow.color")
-//按键阴影偏移距离
-#define Offset_Y_ShadowLayer FloatValueFromThemeKey(@"btn.shadow.offsetY")
-//按键阴影圆角半径
-#define Radius_ShadowLayer  (CGFloat)(Radius_KBBtn_ContentView+Offset_Y_ShadowLayer)
-//按键阴影高度
-#define Height_ShadowLayer FloatValueFromThemeKey(@"btn.shadow.height")
-
-
-//按键中mainLabel的字体
-#define MainText_Font [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]
-#define TopText_Font [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")]
-
-#define SettingBtnText_Font [UIFont fontWithName:StringValueFromThemeKey(@"settingBtn.fontName") size:FloatValueFromThemeKey(@"settingBtn.fontSize")]
-
-//字体颜色
-#define Color_MainText UIColorValueFromThemeKey(@"btn.content.color")
-#define Color_TopText UIColorValueFromThemeKey(@"btn.content.color")
-
-//按键中topLb与mainLb的间距
-#define Space_Top_Main FloatValueFromThemeKey(@"btn.topAndMain.space")
 
 //键盘left table 的 Cell 参数
 #define Cell_Height 40.0
 #define Cell_SeparatorInset UIEdgeInsetsMake(0, 5, 0, 5)
-
-
-#define Color_AddOften_Text [UIColor colorWithRed:0.04 green:0.49 blue:1 alpha:1]
-#define Color_AddOften_BG [UIColor colorWithHexValue:@"#f5f6f7"]
 
 #endif

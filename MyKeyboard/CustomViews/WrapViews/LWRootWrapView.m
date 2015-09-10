@@ -9,12 +9,14 @@
 #import "LWKeyboardConfig.h"
 #import "LWOftenWordsPopView.h"
 #import "LWKeyboardSettingPopView.h"
+#import "LWSkinSettingPopView.h"
 
 
 @interface LWRootWrapView ()
 @property(nonatomic, strong) LWSettingPopView *settingPopView;
 @property(nonatomic, strong) LWOftenWordsPopView *oftenWordsPop;
 @property(nonatomic, strong) LWKeyboardSettingPopView *keyboardSettingPopView;
+@property(nonatomic, strong) LWSkinSettingPopView *skinSettingPopView;
 @end
 
 @implementation LWRootWrapView {
@@ -71,7 +73,9 @@
             break;
         };
         case ToolbarBtn_Skin: {
-
+            _skinSettingPopView = (LWSkinSettingPopView *) [[NSBundle mainBundle] loadNibNamed:@"LWSkinSettingPopView" owner:self options:nil][0];
+            [self addSubview:_skinSettingPopView];
+            _skinSettingPopView.frame = commonPopViewFrame;
             break;
         };
         case ToolbarBtn_OftenWords: {

@@ -20,12 +20,12 @@
 
         //添加边框
         topBorder = [CALayer layer];
-        topBorder.backgroundColor = CGColor_KBBtn_ContentView_Border;
+        topBorder.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
         topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
         [self.layer addSublayer:topBorder];
 
         bottomBorder = [CALayer layer];
-        bottomBorder.backgroundColor = CGColor_KBBtn_ContentView_Border;
+        bottomBorder.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
         bottomBorder.frame = CGRectMake(0, (CGFloat) (self.bounds.size.height-0.5), self.bounds.size.width, 0.5);
         [self.layer addSublayer:bottomBorder];
     }
