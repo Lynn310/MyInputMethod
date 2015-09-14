@@ -86,7 +86,7 @@
         _textLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
         [self addSubview:_textLabel];
 
-        
+
 /*
         //方法二:
         _textLabel.transform = CGAffineTransformMakeRotation((CGFloat) ((M_PI)/2));

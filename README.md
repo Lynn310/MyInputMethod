@@ -74,4 +74,8 @@ make a vertical text UILabel and UITextView for iOS:http://stackoverflow.com/que
 Vertical-Text-iOS:https://github.com/sangonz/Vertical-Text-iOS
 
 
+#技术相关
+Method Swizzling 和 AOP 实践:http://tech.glowing.com/cn/method-swizzling-aop/
+
+
 
