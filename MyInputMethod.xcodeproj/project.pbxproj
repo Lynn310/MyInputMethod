@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60A22788C72C84D39BCEDBB7 /* Pods_MyInputMethod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6B3CBD1127161A44357F78 /* Pods_MyInputMethod.framework */; };
+		7A876E5C6B8AECE4C12E89B4 /* Pods_MyKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DEF714F9EE5C492CD362A5 /* Pods_MyKeyboard.framework */; };
 		BEF062B581AF72A0C7CF56CD /* LWBiHuaKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF0622E052210F1F70AC1FD /* LWBiHuaKeyboard.m */; };
 		BEF062FCD27ACDBCBC840E5F /* LWKeyboardSettingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06B180DE98F38304C3383 /* LWKeyboardSettingPopView.m */; };
 		BEF063B061238131C98190AE /* DishuTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEF06626E8CC283B801A6384 /* DishuTheme.plist */; };
@@ -14,7 +16,12 @@
 		BEF06628AD81D0ECBF9DBF39 /* LWHookConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF060A48F01D816DD87695C /* LWHookConfig.m */; };
 		BEF069306002FA7C5CC700E1 /* DishuTheme.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF060F67751233F3E1C1E86 /* DishuTheme.png */; };
 		BEF06CD80CD16344657CA352 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06BBDACED95498E7C3E4E /* Aspects.m */; };
-		BEF06E1444FB25AF1A8EC86A /* LWSkinSettingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06B156082199B996393A2 /* LWSkinSettingPopView.m */; };
+		EA0927291C1E59A3001C69B1 /* LWColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA09271F1C1E59A3001C69B1 /* LWColorPickerView.m */; };
+		EA09272B1C1E59A3001C69B1 /* LWColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0927201C1E59A3001C69B1 /* LWColorPickerView.xib */; };
+		EA09272D1C1E59A3001C69B1 /* LWSkinSettingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927221C1E59A3001C69B1 /* LWSkinSettingPopView.m */; };
+		EA09272F1C1E59A3001C69B1 /* LWSkinSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0927231C1E59A3001C69B1 /* LWSkinSettingPopView.xib */; };
+		EA0927311C1E59A3001C69B1 /* LWSkinSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927251C1E59A3001C69B1 /* LWSkinSettingView.m */; };
+		EA0927331C1E59A3001C69B1 /* LWTabSelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927271C1E59A3001C69B1 /* LWTabSelView.m */; };
 		EA306DA51B7AF3F20085AC25 /* LWSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */; };
 		EA3E237B1B732B5100349A95 /* LWBaseKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235A1B732B5100349A95 /* LWBaseKBBtn.m */; };
 		EA3E237C1B732B5100349A95 /* LWCharKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235C1B732B5100349A95 /* LWCharKBBtn.m */; };
@@ -55,14 +62,12 @@
 		EA3E23CF1B733C6600349A95 /* moonlight.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3E23CD1B733C6600349A95 /* moonlight.png */; };
 		EA3E23D01B733C6600349A95 /* sealight.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3E23CE1B733C6600349A95 /* sealight.png */; };
 		EA3E23D21B73652700349A95 /* waterglass.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3E23D11B73652700349A95 /* waterglass.png */; };
-		EA4F98E31BA1380500E31901 /* LWSkinSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4F98E21BA1380500E31901 /* LWSkinSettingPopView.xib */; };
 		EA56C0601B42E1140076EC00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56C05F1B42E1140076EC00 /* main.m */; };
 		EA56C0631B42E1140076EC00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56C0621B42E1140076EC00 /* AppDelegate.m */; };
 		EA56C0661B42E1140076EC00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56C0651B42E1140076EC00 /* ViewController.m */; };
 		EA56C0691B42E1140076EC00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA56C0671B42E1140076EC00 /* Main.storyboard */; };
 		EA56C06B1B42E1140076EC00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA56C06A1B42E1140076EC00 /* Images.xcassets */; };
 		EA56C06E1B42E1140076EC00 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA56C06C1B42E1140076EC00 /* LaunchScreen.xib */; };
-		EA56C07A1B42E1140076EC00 /* MyInputMethodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56C0791B42E1140076EC00 /* MyInputMethodTests.m */; };
 		EA56C0901B42E1670076EC00 /* MyKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EA56C0871B42E1670076EC00 /* MyKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA56C0A31B42E4110076EC00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA56C0A51B42E4110076EC00 /* InfoPlist.strings */; };
 		EA56C0A71B42E4190076EC00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA56C0A91B42E4190076EC00 /* Localizable.strings */; };
@@ -84,13 +89,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EA56C0741B42E1140076EC00 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EA56C0521B42E1140076EC00 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EA56C0591B42E1140076EC00;
-			remoteInfo = MyInputMethod;
-		};
 		EA56C08E1B42E1670076EC00 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EA56C0521B42E1140076EC00 /* Project object */;
@@ -123,15 +121,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0317D937E9F235D9118DF18E /* Pods-MyKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyKeyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyKeyboard/Pods-MyKeyboard.release.xcconfig"; sourceTree = "<group>"; };
+		11D1F068F9A77EB78401D357 /* Pods-MyKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyKeyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyKeyboard/Pods-MyKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
+		13DEF714F9EE5C492CD362A5 /* Pods_MyKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF06037D12E412ED1847F0C /* LWWuBiFullKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWuBiFullKeyboard.m; sourceTree = "<group>"; };
 		BEF060A48F01D816DD87695C /* LWHookConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHookConfig.m; sourceTree = "<group>"; };
 		BEF060F67751233F3E1C1E86 /* DishuTheme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DishuTheme.png; sourceTree = "<group>"; };
 		BEF0622E052210F1F70AC1FD /* LWBiHuaKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBiHuaKeyboard.m; sourceTree = "<group>"; };
-		BEF063FA367C930B684721B5 /* LWSkinSettingPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSkinSettingPopView.h; sourceTree = "<group>"; };
 		BEF06439A8DD2326F2D79C91 /* LWKeyboardSettingPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKeyboardSettingPopView.h; sourceTree = "<group>"; };
 		BEF06626E8CC283B801A6384 /* DishuTheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = DishuTheme.plist; sourceTree = "<group>"; };
 		BEF066A872AC47C2FDED0371 /* LWWuBiFullKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWuBiFullKeyboard.h; sourceTree = "<group>"; };
-		BEF06B156082199B996393A2 /* LWSkinSettingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSkinSettingPopView.m; sourceTree = "<group>"; };
 		BEF06B180DE98F38304C3383 /* LWKeyboardSettingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKeyboardSettingPopView.m; sourceTree = "<group>"; };
 		BEF06BB86E009C1D973C9D4A /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
 		BEF06BBDACED95498E7C3E4E /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
@@ -139,6 +138,17 @@
 		BEF06E888D0180F5B2E41D1A /* doc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
 		BEF06EF45BCC3FD3BB39B661 /* LWBiHuaKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBiHuaKeyboard.h; sourceTree = "<group>"; };
 		BEF06EF7E33FB5434207A149 /* LWHookConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHookConfig.h; sourceTree = "<group>"; };
+		DE5DAF5C8851C807CD3D0CD0 /* Pods-MyInputMethod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyInputMethod.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyInputMethod/Pods-MyInputMethod.debug.xcconfig"; sourceTree = "<group>"; };
+		EA09271E1C1E59A3001C69B1 /* LWColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWColorPickerView.h; sourceTree = "<group>"; };
+		EA09271F1C1E59A3001C69B1 /* LWColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWColorPickerView.m; sourceTree = "<group>"; };
+		EA0927201C1E59A3001C69B1 /* LWColorPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWColorPickerView.xib; sourceTree = "<group>"; };
+		EA0927211C1E59A3001C69B1 /* LWSkinSettingPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSkinSettingPopView.h; sourceTree = "<group>"; };
+		EA0927221C1E59A3001C69B1 /* LWSkinSettingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSkinSettingPopView.m; sourceTree = "<group>"; };
+		EA0927231C1E59A3001C69B1 /* LWSkinSettingPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSkinSettingPopView.xib; sourceTree = "<group>"; };
+		EA0927241C1E59A3001C69B1 /* LWSkinSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSkinSettingView.h; sourceTree = "<group>"; };
+		EA0927251C1E59A3001C69B1 /* LWSkinSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSkinSettingView.m; sourceTree = "<group>"; };
+		EA0927261C1E59A3001C69B1 /* LWTabSelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTabSelView.h; sourceTree = "<group>"; };
+		EA0927271C1E59A3001C69B1 /* LWTabSelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTabSelView.m; sourceTree = "<group>"; };
 		EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSettingPopView.xib; sourceTree = "<group>"; };
 		EA3E23591B732B5100349A95 /* LWBaseKBBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseKBBtn.h; sourceTree = "<group>"; };
 		EA3E235A1B732B5100349A95 /* LWBaseKBBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseKBBtn.m; sourceTree = "<group>"; };
@@ -207,7 +217,6 @@
 		EA3E23CD1B733C6600349A95 /* moonlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moonlight.png; sourceTree = "<group>"; };
 		EA3E23CE1B733C6600349A95 /* sealight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sealight.png; sourceTree = "<group>"; };
 		EA3E23D11B73652700349A95 /* waterglass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterglass.png; sourceTree = "<group>"; };
-		EA4F98E21BA1380500E31901 /* LWSkinSettingPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSkinSettingPopView.xib; sourceTree = "<group>"; };
 		EA56C05A1B42E1140076EC00 /* MyInputMethod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyInputMethod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA56C05E1B42E1140076EC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA56C05F1B42E1140076EC00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -218,7 +227,6 @@
 		EA56C0681B42E1140076EC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA56C06A1B42E1140076EC00 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EA56C06D1B42E1140076EC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EA56C0731B42E1140076EC00 /* MyInputMethodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyInputMethodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA56C0781B42E1140076EC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA56C0791B42E1140076EC00 /* MyInputMethodTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInputMethodTests.m; sourceTree = "<group>"; };
 		EA56C0871B42E1670076EC00 /* MyKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,6 +263,8 @@
 		EAEE59571B833B4600A5969E /* LWThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWThemeManager.h; sourceTree = "<group>"; };
 		EAEE59581B833B4600A5969E /* LWThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWThemeManager.m; sourceTree = "<group>"; };
 		EAFB53831B46A1700076DAA7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MyKeyboard/Images.xcassets; sourceTree = "<group>"; };
+		F69C1B070400D7145CCF2F1C /* Pods-MyInputMethod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyInputMethod.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyInputMethod/Pods-MyInputMethod.release.xcconfig"; sourceTree = "<group>"; };
+		FC6B3CBD1127161A44357F78 /* Pods_MyInputMethod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyInputMethod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,13 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EA56C0701B42E1140076EC00 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				60A22788C72C84D39BCEDBB7 /* Pods_MyInputMethod.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A876E5C6B8AECE4C12E89B4 /* Pods_MyKeyboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +294,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17F28C3A4DD98CACEEDDF0E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE5DAF5C8851C807CD3D0CD0 /* Pods-MyInputMethod.debug.xcconfig */,
+				F69C1B070400D7145CCF2F1C /* Pods-MyInputMethod.release.xcconfig */,
+				11D1F068F9A77EB78401D357 /* Pods-MyKeyboard.debug.xcconfig */,
+				0317D937E9F235D9118DF18E /* Pods-MyKeyboard.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BEF06B7F63B98F1B23953992 /* DishuTheme */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +312,23 @@
 				BEF060F67751233F3E1C1E86 /* DishuTheme.png */,
 			);
 			path = DishuTheme;
+			sourceTree = "<group>";
+		};
+		EA09271D1C1E59A3001C69B1 /* SkinSetting */ = {
+			isa = PBXGroup;
+			children = (
+				EA09271E1C1E59A3001C69B1 /* LWColorPickerView.h */,
+				EA09271F1C1E59A3001C69B1 /* LWColorPickerView.m */,
+				EA0927201C1E59A3001C69B1 /* LWColorPickerView.xib */,
+				EA0927211C1E59A3001C69B1 /* LWSkinSettingPopView.h */,
+				EA0927221C1E59A3001C69B1 /* LWSkinSettingPopView.m */,
+				EA0927231C1E59A3001C69B1 /* LWSkinSettingPopView.xib */,
+				EA0927241C1E59A3001C69B1 /* LWSkinSettingView.h */,
+				EA0927251C1E59A3001C69B1 /* LWSkinSettingView.m */,
+				EA0927261C1E59A3001C69B1 /* LWTabSelView.h */,
+				EA0927271C1E59A3001C69B1 /* LWTabSelView.m */,
+			);
+			path = SkinSetting;
 			sourceTree = "<group>";
 		};
 		EA3E23571B732B5100349A95 /* CustomViews */ = {
@@ -339,6 +372,7 @@
 		EA3E236D1B732B5100349A95 /* PopViews */ = {
 			isa = PBXGroup;
 			children = (
+				EA09271D1C1E59A3001C69B1 /* SkinSetting */,
 				EA3E236E1B732B5100349A95 /* LWOftenWordsPopView.h */,
 				EA3E236F1B732B5100349A95 /* LWOftenWordsPopView.m */,
 				EA3E23701B732B5100349A95 /* LWSettingPopView.h */,
@@ -347,9 +381,6 @@
 				BEF06439A8DD2326F2D79C91 /* LWKeyboardSettingPopView.h */,
 				BEF06B180DE98F38304C3383 /* LWKeyboardSettingPopView.m */,
 				EA78ABD21B842B06008F01BA /* LWKeyboardSettingPopView.xib */,
-				BEF063FA367C930B684721B5 /* LWSkinSettingPopView.h */,
-				BEF06B156082199B996393A2 /* LWSkinSettingPopView.m */,
-				EA4F98E21BA1380500E31901 /* LWSkinSettingPopView.xib */,
 				EA78ABD41B842C08008F01BA /* LWImageTextBtn.h */,
 				EA78ABD51B842C08008F01BA /* LWImageTextBtn.m */,
 			);
@@ -484,6 +515,8 @@
 				EA56C05B1B42E1140076EC00 /* Products */,
 				BEF06C2913B1D37966CFAD2E /* README.md */,
 				BEF06E888D0180F5B2E41D1A /* doc */,
+				17F28C3A4DD98CACEEDDF0E4 /* Pods */,
+				FCB09B6E5F3CE7E5F0CD9EFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -491,7 +524,6 @@
 			isa = PBXGroup;
 			children = (
 				EA56C05A1B42E1140076EC00 /* MyInputMethod.app */,
-				EA56C0731B42E1140076EC00 /* MyInputMethodTests.xctest */,
 				EA56C0871B42E1670076EC00 /* MyKeyboard.appex */,
 				EA56C0B71B42F1740076EC00 /* MyEmojiKeyboard.appex */,
 			);
@@ -587,6 +619,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FCB09B6E5F3CE7E5F0CD9EFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC6B3CBD1127161A44357F78 /* Pods_MyInputMethod.framework */,
+				13DEF714F9EE5C492CD362A5 /* Pods_MyKeyboard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -594,10 +635,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA56C07D1B42E1140076EC00 /* Build configuration list for PBXNativeTarget "MyInputMethod" */;
 			buildPhases = (
+				B8A6EF745A48F3A645209EF6 /* Check Pods Manifest.lock */,
 				EA56C0561B42E1140076EC00 /* Sources */,
 				EA56C0571B42E1140076EC00 /* Frameworks */,
 				EA56C0581B42E1140076EC00 /* Resources */,
 				EA56C0941B42E1670076EC00 /* Embed App Extensions */,
+				028ADEA11B72FCFB35EDC0A9 /* Embed Pods Frameworks */,
+				C377FEDC810B61220F0096FF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -610,31 +654,16 @@
 			productReference = EA56C05A1B42E1140076EC00 /* MyInputMethod.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EA56C0721B42E1140076EC00 /* MyInputMethodTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EA56C0801B42E1140076EC00 /* Build configuration list for PBXNativeTarget "MyInputMethodTests" */;
-			buildPhases = (
-				EA56C06F1B42E1140076EC00 /* Sources */,
-				EA56C0701B42E1140076EC00 /* Frameworks */,
-				EA56C0711B42E1140076EC00 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EA56C0751B42E1140076EC00 /* PBXTargetDependency */,
-			);
-			name = MyInputMethodTests;
-			productName = MyInputMethodTests;
-			productReference = EA56C0731B42E1140076EC00 /* MyInputMethodTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		EA56C0861B42E1670076EC00 /* MyKeyboard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA56C0911B42E1670076EC00 /* Build configuration list for PBXNativeTarget "MyKeyboard" */;
 			buildPhases = (
+				868B43114D0FBD675C5B282B /* Check Pods Manifest.lock */,
 				EA56C0831B42E1670076EC00 /* Sources */,
 				EA56C0841B42E1670076EC00 /* Frameworks */,
 				EA56C0851B42E1670076EC00 /* Resources */,
+				48590DBA74EADDC0CA0EED65 /* Embed Pods Frameworks */,
+				1C3083D5E712E43A28B0782B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -683,10 +712,6 @@
 							};
 						};
 					};
-					EA56C0721B42E1140076EC00 = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = EA56C0591B42E1140076EC00;
-					};
 					EA56C0861B42E1670076EC00 = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = G3A2KYKYBU;
@@ -721,7 +746,6 @@
 			projectRoot = "";
 			targets = (
 				EA56C0591B42E1140076EC00 /* MyInputMethod */,
-				EA56C0721B42E1140076EC00 /* MyInputMethodTests */,
 				EA56C0861B42E1670076EC00 /* MyKeyboard */,
 				EA56C0B61B42F1740076EC00 /* MyEmojiKeyboard */,
 			);
@@ -741,13 +765,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EA56C0711B42E1140076EC00 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EA56C0851B42E1670076EC00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -755,7 +772,6 @@
 				EAA278601B78F9C800730A4C /* LWBiHuaKeyboard.xib in Resources */,
 				EA3E23BF1B732C0300349A95 /* LWNumKeyboard.xib in Resources */,
 				EA3E23C11B732C0300349A95 /* LWPinYinFullKeyboard.xib in Resources */,
-				EA4F98E31BA1380500E31901 /* LWSkinSettingPopView.xib in Resources */,
 				EA3E23C81B732C0300349A95 /* MachineTheme.plist in Resources */,
 				EA3E23C41B732C0300349A95 /* BubbleTheme.plist in Resources */,
 				EA3E23D01B733C6600349A95 /* sealight.png in Resources */,
@@ -769,6 +785,8 @@
 				EA306DA51B7AF3F20085AC25 /* LWSettingPopView.xib in Resources */,
 				EA56C0AE1B42E4300076EC00 /* Localizable.strings in Resources */,
 				EAEE59241B8325A400A5969E /* SkinableTheme.plist in Resources */,
+				EA09272B1C1E59A3001C69B1 /* LWColorPickerView.xib in Resources */,
+				EA09272F1C1E59A3001C69B1 /* LWSkinSettingPopView.xib in Resources */,
 				EA3E23BD1B732C0300349A95 /* LWEnFullKeyboard.xib in Resources */,
 				EA3E23C51B732C0300349A95 /* BubbleTheme.png in Resources */,
 				EA3E23C31B732C0300349A95 /* LWPinYinNineKeyboard.xib in Resources */,
@@ -789,6 +807,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		028ADEA11B72FCFB35EDC0A9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyInputMethod/Pods-MyInputMethod-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1C3083D5E712E43A28B0782B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyKeyboard/Pods-MyKeyboard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48590DBA74EADDC0CA0EED65 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyKeyboard/Pods-MyKeyboard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		868B43114D0FBD675C5B282B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B8A6EF745A48F3A645209EF6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C377FEDC810B61220F0096FF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyInputMethod/Pods-MyInputMethod-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EA56C0561B42E1140076EC00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -798,14 +909,6 @@
 				EA60605D1B798D2300A9EC45 /* UIImage+Color.m in Sources */,
 				EA56C0631B42E1140076EC00 /* AppDelegate.m in Sources */,
 				EA56C0601B42E1140076EC00 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EA56C06F1B42E1140076EC00 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EA56C07A1B42E1140076EC00 /* MyInputMethodTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,9 +933,11 @@
 				EA3E238A1B732B5100349A95 /* LWTopView.m in Sources */,
 				EA3E23821B732B5100349A95 /* LWNumLeftTabView.m in Sources */,
 				EA3E23841B732B5100349A95 /* LWToolBar.m in Sources */,
+				EA0927311C1E59A3001C69B1 /* LWSkinSettingView.m in Sources */,
 				EA3E23831B732B5100349A95 /* LWPinYinLeftTabView.m in Sources */,
 				EA3E23851B732B5100349A95 /* LWOftenWordsPopView.m in Sources */,
 				EA3E23CA1B732C0300349A95 /* UIColor+HexValue.m in Sources */,
+				EA09272D1C1E59A3001C69B1 /* LWSkinSettingPopView.m in Sources */,
 				EA3E237D1B732B5100349A95 /* LWFullCharBtn.m in Sources */,
 				EA3E23981B732BDC00349A95 /* MyKeyboardViewController.m in Sources */,
 				EA78ABD61B842C08008F01BA /* LWImageTextBtn.m in Sources */,
@@ -840,13 +945,14 @@
 				EA3E23811B732B5100349A95 /* LWLeftTabView.m in Sources */,
 				EA3E23921B732B6800349A95 /* LWDataConfig.m in Sources */,
 				EA3E23871B732B5100349A95 /* LWKeyboardWrap.m in Sources */,
+				EA0927331C1E59A3001C69B1 /* LWTabSelView.m in Sources */,
 				EA3E23BE1B732C0300349A95 /* LWNumKeyboard.m in Sources */,
 				EA60605E1B798D2300A9EC45 /* UIImage+Color.m in Sources */,
 				BEF062B581AF72A0C7CF56CD /* LWBiHuaKeyboard.m in Sources */,
 				BEF0643CC3CA937BE0736A57 /* LWWuBiFullKeyboard.m in Sources */,
 				EAEE59591B833B4600A5969E /* LWThemeManager.m in Sources */,
 				BEF062FCD27ACDBCBC840E5F /* LWKeyboardSettingPopView.m in Sources */,
-				BEF06E1444FB25AF1A8EC86A /* LWSkinSettingPopView.m in Sources */,
+				EA0927291C1E59A3001C69B1 /* LWColorPickerView.m in Sources */,
 				BEF06CD80CD16344657CA352 /* Aspects.m in Sources */,
 				BEF06628AD81D0ECBF9DBF39 /* LWHookConfig.m in Sources */,
 			);
@@ -863,11 +969,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EA56C0751B42E1140076EC00 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EA56C0591B42E1140076EC00 /* MyInputMethod */;
-			targetProxy = EA56C0741B42E1140076EC00 /* PBXContainerItemProxy */;
-		};
 		EA56C08F1B42E1670076EC00 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EA56C0861B42E1670076EC00 /* MyKeyboard */;
@@ -1040,74 +1141,48 @@
 		};
 		EA56C07E1B42E1140076EC00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE5DAF5C8851C807CD3D0CD0 /* Pods-MyInputMethod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyInputMethod/MyInputMethod.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MyInputMethod/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/Headers/**";
 			};
 			name = Debug;
 		};
 		EA56C07F1B42E1140076EC00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F69C1B070400D7145CCF2F1C /* Pods-MyInputMethod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyInputMethod/MyInputMethod.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MyInputMethod/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-		EA56C0811B42E1140076EC00 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MyInputMethodTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyInputMethod.app/MyInputMethod";
-			};
-			name = Debug;
-		};
-		EA56C0821B42E1140076EC00 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MyInputMethodTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyInputMethod.app/MyInputMethod";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/Headers/**";
 			};
 			name = Release;
 		};
 		EA56C0921B42E1670076EC00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11D1F068F9A77EB78401D357 /* Pods-MyKeyboard.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MyKeyboard/MyKeyboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1118,21 +1193,25 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/Headers/**";
 			};
 			name = Debug;
 		};
 		EA56C0931B42E1670076EC00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0317D937E9F235D9118DF18E /* Pods-MyKeyboard.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MyKeyboard/MyKeyboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MyKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/Headers/**";
 			};
 			name = Release;
 		};
@@ -1185,15 +1264,6 @@
 			buildConfigurations = (
 				EA56C07E1B42E1140076EC00 /* Debug */,
 				EA56C07F1B42E1140076EC00 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EA56C0801B42E1140076EC00 /* Build configuration list for PBXNativeTarget "MyInputMethodTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EA56C0811B42E1140076EC00 /* Debug */,
-				EA56C0821B42E1140076EC00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

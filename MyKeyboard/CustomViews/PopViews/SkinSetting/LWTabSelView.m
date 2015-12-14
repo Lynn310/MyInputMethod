@@ -1,34 +1,35 @@
 //
-// Created by luowei on 15/8/19.
+// Created by luowei on 15/12/11.
 // Copyright (c) 2015 luowei. All rights reserved.
 //
 
-#import "LWSkinSettingPopView.h"
+#import "LWTabSelView.h"
 #import "LWDefines.h"
 
 
-@implementation LWSkinSettingPopView {
+@implementation LWTabSelView {
 
-}
-
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
-    if (self) {
-        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
-    }
-
-    return self;
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.backgroundColor = [UIColor clearColor];
+    _upBtn = [[LWTabSelBtn alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2) andText:NSLocalizedString(@"Select Skin", nil)];
+    _downBtn = [[LWTabSelBtn alloc] initWithFrame:CGRectMake(0, self.frame.size.height / 2, self.frame.size.width, self.frame.size.height / 2) andText:NSLocalizedString(@"Select Color", nil)];
+
+    [self addSubview:_upBtn];
+    [self addSubview:_downBtn];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _upBtn.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2);
+    _downBtn.frame = CGRectMake(0, self.frame.size.height / 2, self.frame.size.width, self.frame.size.height / 2);
 }
 
 
+
 @end
-
-
-#pragma mark --------- 左边的组件 ---------
 
 @implementation LWVerticelTextStorage
 
@@ -73,9 +74,11 @@
 
 @end
 
+
+
 @implementation LWTabSelBtn
 
-- (instancetype)initWithFrame:(CGRect)frame andText:(NSString*)text {
+- (instancetype)initWithFrame:(CGRect)frame andText:(NSString *)text {
     self = [super initWithFrame:frame];
     if (self) {
         _textLabel = [[UILabel alloc] initWithFrame:frame];
@@ -110,7 +113,7 @@
         _textView.editable = NO;
 */
 
-        
+
     }
 
     return self;
@@ -132,30 +135,3 @@
 
 @end
 
-@implementation LWTabSelView
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    self.backgroundColor = [UIColor clearColor];
-    _upBtn = [[LWTabSelBtn alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height/2) andText:NSLocalizedString(@"Select Skin", nil)];
-    _downBtn = [[LWTabSelBtn alloc]initWithFrame:CGRectMake(0, self.frame.size.height/2, self.frame.size.width, self.frame.size.height/2) andText:NSLocalizedString(@"Select Color", nil)];
-
-    [self addSubview:_upBtn];
-    [self addSubview:_downBtn];
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    _upBtn.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height/2);
-    _downBtn.frame = CGRectMake(0, self.frame.size.height/2, self.frame.size.width, self.frame.size.height/2);
-}
-
-
-@end
-
-
-#pragma mark -------- 右边的组件 --------
-
-@implementation LWSkinSettingView
-
-@end
