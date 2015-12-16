@@ -15,13 +15,18 @@
 		BEF0643CC3CA937BE0736A57 /* LWWuBiFullKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06037D12E412ED1847F0C /* LWWuBiFullKeyboard.m */; };
 		BEF06628AD81D0ECBF9DBF39 /* LWHookConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF060A48F01D816DD87695C /* LWHookConfig.m */; };
 		BEF069306002FA7C5CC700E1 /* DishuTheme.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF060F67751233F3E1C1E86 /* DishuTheme.png */; };
+		BEF06A726BAFCAAE19AD15A6 /* LWSkinSelecterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06DA748563D64AA1DAEB2 /* LWSkinSelecterView.m */; };
 		BEF06CD80CD16344657CA352 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06BBDACED95498E7C3E4E /* Aspects.m */; };
+		BEF06F68740F688C4EAA7A05 /* LWColorSelecterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06BE0A831C8302C38E875 /* LWColorSelecterView.m */; };
 		EA0927291C1E59A3001C69B1 /* LWColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA09271F1C1E59A3001C69B1 /* LWColorPickerView.m */; };
 		EA09272B1C1E59A3001C69B1 /* LWColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0927201C1E59A3001C69B1 /* LWColorPickerView.xib */; };
 		EA09272D1C1E59A3001C69B1 /* LWSkinSettingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927221C1E59A3001C69B1 /* LWSkinSettingPopView.m */; };
 		EA09272F1C1E59A3001C69B1 /* LWSkinSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0927231C1E59A3001C69B1 /* LWSkinSettingPopView.xib */; };
 		EA0927311C1E59A3001C69B1 /* LWSkinSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927251C1E59A3001C69B1 /* LWSkinSettingView.m */; };
 		EA0927331C1E59A3001C69B1 /* LWTabSelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927271C1E59A3001C69B1 /* LWTabSelView.m */; };
+		EA2837261C2106BE00927753 /* UIButton+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2837251C2106BE00927753 /* UIButton+Ext.m */; };
+		EA2837291C21300D00927753 /* UIResponder+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2837281C21300D00927753 /* UIResponder+Ext.m */; };
+		EA28372B1C21361600927753 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA28372A1C21361600927753 /* Icon.png */; };
 		EA306DA51B7AF3F20085AC25 /* LWSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */; };
 		EA3E237B1B732B5100349A95 /* LWBaseKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235A1B732B5100349A95 /* LWBaseKBBtn.m */; };
 		EA3E237C1B732B5100349A95 /* LWCharKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235C1B732B5100349A95 /* LWCharKBBtn.m */; };
@@ -125,6 +130,7 @@
 		11D1F068F9A77EB78401D357 /* Pods-MyKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyKeyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyKeyboard/Pods-MyKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
 		13DEF714F9EE5C492CD362A5 /* Pods_MyKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF06037D12E412ED1847F0C /* LWWuBiFullKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWuBiFullKeyboard.m; sourceTree = "<group>"; };
+		BEF06058D0E9E9BF86A6931D /* LWSkinSelecterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSkinSelecterView.h; sourceTree = "<group>"; };
 		BEF060A48F01D816DD87695C /* LWHookConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHookConfig.m; sourceTree = "<group>"; };
 		BEF060F67751233F3E1C1E86 /* DishuTheme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DishuTheme.png; sourceTree = "<group>"; };
 		BEF0622E052210F1F70AC1FD /* LWBiHuaKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBiHuaKeyboard.m; sourceTree = "<group>"; };
@@ -134,7 +140,10 @@
 		BEF06B180DE98F38304C3383 /* LWKeyboardSettingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKeyboardSettingPopView.m; sourceTree = "<group>"; };
 		BEF06BB86E009C1D973C9D4A /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
 		BEF06BBDACED95498E7C3E4E /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
+		BEF06BE0A831C8302C38E875 /* LWColorSelecterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWColorSelecterView.m; sourceTree = "<group>"; };
 		BEF06C2913B1D37966CFAD2E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
+		BEF06C62229319013E9057F0 /* LWColorSelecterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWColorSelecterView.h; sourceTree = "<group>"; };
+		BEF06DA748563D64AA1DAEB2 /* LWSkinSelecterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSkinSelecterView.m; sourceTree = "<group>"; };
 		BEF06E888D0180F5B2E41D1A /* doc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
 		BEF06EF45BCC3FD3BB39B661 /* LWBiHuaKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBiHuaKeyboard.h; sourceTree = "<group>"; };
 		BEF06EF7E33FB5434207A149 /* LWHookConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHookConfig.h; sourceTree = "<group>"; };
@@ -149,6 +158,11 @@
 		EA0927251C1E59A3001C69B1 /* LWSkinSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSkinSettingView.m; sourceTree = "<group>"; };
 		EA0927261C1E59A3001C69B1 /* LWTabSelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTabSelView.h; sourceTree = "<group>"; };
 		EA0927271C1E59A3001C69B1 /* LWTabSelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTabSelView.m; sourceTree = "<group>"; };
+		EA2837241C2106BE00927753 /* UIButton+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Ext.h"; sourceTree = "<group>"; };
+		EA2837251C2106BE00927753 /* UIButton+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Ext.m"; sourceTree = "<group>"; };
+		EA2837271C21300D00927753 /* UIResponder+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Ext.h"; sourceTree = "<group>"; };
+		EA2837281C21300D00927753 /* UIResponder+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Ext.m"; sourceTree = "<group>"; };
+		EA28372A1C21361600927753 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = MyInputMethod/Images.xcassets/AppIcon.appiconset/Icon.png; sourceTree = "<group>"; };
 		EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSettingPopView.xib; sourceTree = "<group>"; };
 		EA3E23591B732B5100349A95 /* LWBaseKBBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseKBBtn.h; sourceTree = "<group>"; };
 		EA3E235A1B732B5100349A95 /* LWBaseKBBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseKBBtn.m; sourceTree = "<group>"; };
@@ -327,6 +341,10 @@
 				EA0927251C1E59A3001C69B1 /* LWSkinSettingView.m */,
 				EA0927261C1E59A3001C69B1 /* LWTabSelView.h */,
 				EA0927271C1E59A3001C69B1 /* LWTabSelView.m */,
+				BEF06DA748563D64AA1DAEB2 /* LWSkinSelecterView.m */,
+				BEF06058D0E9E9BF86A6931D /* LWSkinSelecterView.h */,
+				BEF06BE0A831C8302C38E875 /* LWColorSelecterView.m */,
+				BEF06C62229319013E9057F0 /* LWColorSelecterView.h */,
 			);
 			path = SkinSetting;
 			sourceTree = "<group>";
@@ -490,6 +508,10 @@
 		EA3E23B61B732C0300349A95 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EA2837271C21300D00927753 /* UIResponder+Ext.h */,
+				EA2837281C21300D00927753 /* UIResponder+Ext.m */,
+				EA2837241C2106BE00927753 /* UIButton+Ext.h */,
+				EA2837251C2106BE00927753 /* UIButton+Ext.m */,
 				EA3E23B71B732C0300349A95 /* UIColor+HexValue.h */,
 				EA3E23B81B732C0300349A95 /* UIColor+HexValue.m */,
 				EA60605B1B798D2300A9EC45 /* UIImage+Color.h */,
@@ -503,6 +525,7 @@
 		EA56C0511B42E1140076EC00 = {
 			isa = PBXGroup;
 			children = (
+				EA28372A1C21361600927753 /* Icon.png */,
 				EA56C05C1B42E1140076EC00 /* MyInputMethod */,
 				EA56C0761B42E1140076EC00 /* MyInputMethodTests */,
 				EA56C0881B42E1670076EC00 /* MyKeyboard */,
@@ -757,6 +780,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA28372B1C21361600927753 /* Icon.png in Resources */,
 				EA56C0A71B42E4190076EC00 /* Localizable.strings in Resources */,
 				EA56C0691B42E1140076EC00 /* Main.storyboard in Resources */,
 				EA56C0A31B42E4110076EC00 /* InfoPlist.strings in Resources */,
@@ -917,6 +941,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA3E23891B732B5100349A95 /* LWSingleHandView.m in Sources */,
+				EA2837261C2106BE00927753 /* UIButton+Ext.m in Sources */,
 				EA3E23B91B732C0300349A95 /* LWHelper.m in Sources */,
 				EA3E23931B732B6800349A95 /* LWKeyboardConfig.m in Sources */,
 				EA3E23801B732B5100349A95 /* LWNumCharBtn.m in Sources */,
@@ -936,6 +961,7 @@
 				EA0927311C1E59A3001C69B1 /* LWSkinSettingView.m in Sources */,
 				EA3E23831B732B5100349A95 /* LWPinYinLeftTabView.m in Sources */,
 				EA3E23851B732B5100349A95 /* LWOftenWordsPopView.m in Sources */,
+				EA2837291C21300D00927753 /* UIResponder+Ext.m in Sources */,
 				EA3E23CA1B732C0300349A95 /* UIColor+HexValue.m in Sources */,
 				EA09272D1C1E59A3001C69B1 /* LWSkinSettingPopView.m in Sources */,
 				EA3E237D1B732B5100349A95 /* LWFullCharBtn.m in Sources */,
@@ -955,6 +981,8 @@
 				EA0927291C1E59A3001C69B1 /* LWColorPickerView.m in Sources */,
 				BEF06CD80CD16344657CA352 /* Aspects.m in Sources */,
 				BEF06628AD81D0ECBF9DBF39 /* LWHookConfig.m in Sources */,
+				BEF06A726BAFCAAE19AD15A6 /* LWSkinSelecterView.m in Sources */,
+				BEF06F68740F688C4EAA7A05 /* LWColorSelecterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

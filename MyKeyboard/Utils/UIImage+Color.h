@@ -16,3 +16,11 @@
 - (UIImage *)imageWithOverlayColor:(UIColor *)color;
 
 @end
+
+
+@interface UIImage(Cut)
+
+//根据指定矩形区,剪裁图片
+- (UIImage *)cutImageWithRect:(CGRect)cutRect;
+
+@end

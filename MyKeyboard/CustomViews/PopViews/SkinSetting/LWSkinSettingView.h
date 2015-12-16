@@ -22,16 +22,3 @@
 
 @end
 
-
-
-//皮肤选择面板
-@interface LWSkinSelecterView :UICollectionView<UICollectionViewDataSource,UICollectionViewDelegate>
-
-@end
-
-
-
-//颜色选择器面板
-@interface LWColorSelecterView :UIView
-
-@end

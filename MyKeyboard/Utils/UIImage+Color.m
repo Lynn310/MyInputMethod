@@ -41,3 +41,14 @@
 }
 
 @end
+
+
+@implementation UIImage(Cut)
+
+- (UIImage *)cutImageWithRect:(CGRect)cutRect {
+    CGImageRef cutImageRef = CGImageCreateWithImageInRect(self.CGImage, cutRect);
+    UIImage *cutImage = [UIImage imageWithCGImage:cutImageRef];
+    return cutImage;
+}
+
+@end

@@ -42,4 +42,23 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+//    if ([[url host] isEqualToString:@"soundSetting"]) {
+//        //从声音设置跳转过来
+//        [self performSelector:@selector(postNotification:) withObject:@"showAccessSettingGuide" afterDelay:.25];
+//
+//
+//    }else if([[url host] isEqualToString:@"oftenWords"]){
+//        //添加常用语
+//        [self performSelector:@selector(postNotification:) withObject:@"addOftenWords" afterDelay:.25];
+//
+//    }
+
+    return YES;
+}
+
+//- (void)postNotification:(NSString *)notificationName {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+//}
+
 @end

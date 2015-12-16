@@ -137,4 +137,9 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define Cell_Height 40.0
 #define Cell_SeparatorInset UIEdgeInsetsMake(0, 5, 0, 5)
 
+//默认的可选皮肤图片名数组
+#define Default_Skins @[@"default",@"moonlight",@"sealight",@"waterglass"]
+//用户皮肤的键值
+#define Key_User_Skins @"Key_User_Skins"
+
 #endif
