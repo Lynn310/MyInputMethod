@@ -10,7 +10,7 @@
 @protocol LWSkinGridCellDelegate;
 
 //皮肤选择面板(默认,或颜色透明)
-@interface LWSkinSelecterView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate,LWSkinGridCellDelegate>
+@interface LWSkinGridView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate,LWSkinGridCellDelegate>
 
 @property(strong, nonatomic) NSMutableArray *skins;
 

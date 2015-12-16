@@ -3,33 +3,22 @@
 // Copyright (c) 2015 luowei. All rights reserved.
 //
 
-#import "LWSkinSelecterView.h"
+#import "LWSkinGridView.h"
 #import "LWDefines.h"
 #import "UIButton+Ext.h"
 #import "UIImage+Color.h"
 #import "UIResponder+Ext.h"
 
 
-#define SkinCell @"SkinCell"
-
-#define GridView_TopInset 20.0
-
-
-#define Grid_Cell_W 60.0
-#define Grid_Cell_H 80.0
-
-//小x按钮的宽度与高度
-#define Cell_DeleteBtn_W 30.0
-#define Cell_DeleteBtn_H 30.0
-
-
 //皮肤选择面板
-@implementation LWSkinSelecterView
+@implementation LWSkinGridView
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
-    
+
+        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+
         self.contentInset = UIEdgeInsetsMake(GridView_TopInset, 0, 0, 0);
         self.delegate = self;
         self.dataSource = self;
@@ -161,6 +150,7 @@
         _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cellSize.width,cellSize.height -20)];
         _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
         _iconImageView.layer.masksToBounds = YES;
+        _iconImageView.layer.cornerRadius = FloatValueFromThemeKey(@"btn.cornerRadius");
         [self.contentView addSubview:_iconImageView];
 
         //删除小叉叉
@@ -175,7 +165,7 @@
         _titleLbl = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(-3.5, cellSize.height - self.maxCellTitleSize.height, cellSize.width + 7, self.maxCellTitleSize.height))];
         _titleLbl.text = @"title";
         _titleLbl.font = [UIFont systemFontOfSize:12];
-        _titleLbl.textColor = [UIColor blackColor];
+        _titleLbl.textColor = UIColorValueFromThemeKey(@"btn.content.color");
         _titleLbl.textAlignment = NSTextAlignmentCenter;
         _titleLbl.lineBreakMode = NSLineBreakByTruncatingTail;
         [self.contentView addSubview:_titleLbl];

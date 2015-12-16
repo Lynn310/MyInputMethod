@@ -133,6 +133,11 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define CGColorValueFromThemeKey(key) ([UIColor colorWithRGBAString:((NSString *)[LWThemeManager sharedInstance].theme[(key)])].CGColor)
 
 
+#import "UIKit/UIScreen.h"
+#define Scr_Scale [UIScreen mainScreen].scale
+//窄边框线宽度
+#define NarrowLine_W 1/Scr_Scale
+
 //键盘left table 的 Cell 参数
 #define Cell_Height 40.0
 #define Cell_SeparatorInset UIEdgeInsetsMake(0, 5, 0, 5)
@@ -141,5 +146,19 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define Default_Skins @[@"default",@"moonlight",@"sealight",@"waterglass"]
 //用户皮肤的键值
 #define Key_User_Skins @"Key_User_Skins"
+
+//皮肤宫格重用id
+#define SkinCell @"SkinCell"
+
+//皮肤宫格padding
+#define GridView_TopInset 20.0
+
+//皮肤宫格中cell的大小
+#define Grid_Cell_W 60.0
+#define Grid_Cell_H 80.0
+
+//小x按钮的宽度与高度
+#define Cell_DeleteBtn_W 30.0
+#define Cell_DeleteBtn_H 30.0
 
 #endif

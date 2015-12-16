@@ -26,7 +26,7 @@
         //添加边框
         topBorder = [CALayer layer];
         topBorder.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
-        topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
+        topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, NarrowLine_W);
         [self.layer addSublayer:topBorder];
 
     }
@@ -70,7 +70,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
+    topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, NarrowLine_W);
     [self updateArrow:selectedBtn];
 }
 

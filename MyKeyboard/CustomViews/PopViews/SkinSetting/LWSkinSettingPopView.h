@@ -7,8 +7,8 @@
 
 @class LWSkinSettingView;
 @class LWTabSelView;
-@class LWSkinSelecterView;
-@class LWColorSelecterView;
+@class LWSkinGridView;
+@class LWColorGridView;
 
 
 @interface LWSkinSettingPopView : UIView

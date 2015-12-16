@@ -5,14 +5,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class LWColorSelecterView;
-@class LWSkinSelecterView;
+@class LWColorGridView;
+@class LWSkinGridView;
 
 
 @interface LWSkinSettingView : UIView
 
-@property (strong, nonatomic) LWSkinSelecterView *skinSelecterView;
-@property (strong, nonatomic) LWColorSelecterView *colorSelecterView;
+@property (strong, nonatomic) LWSkinGridView *skinSelecterView;
+@property (strong, nonatomic) LWColorGridView *colorSelecterView;
 
 //显示皮肤选择面板
 - (void)showSkinPickerView;

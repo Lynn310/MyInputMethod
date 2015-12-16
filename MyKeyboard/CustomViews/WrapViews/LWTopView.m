@@ -21,12 +21,12 @@
         //添加边框
         topBorder = [CALayer layer];
         topBorder.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
-        topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
+        topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, NarrowLine_W);
         [self.layer addSublayer:topBorder];
 
         bottomBorder = [CALayer layer];
         bottomBorder.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
-        bottomBorder.frame = CGRectMake(0, (CGFloat) (self.bounds.size.height-0.5), self.bounds.size.width, 0.5);
+        bottomBorder.frame = CGRectMake(0, (CGFloat) (self.bounds.size.height-NarrowLine_W), self.bounds.size.width, NarrowLine_W);
         [self.layer addSublayer:bottomBorder];
     }
 
@@ -34,8 +34,8 @@
 }
 
 - (void)layoutSubviews {
-    topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
-    bottomBorder.frame = CGRectMake(0, (CGFloat) (self.bounds.size.height-0.5), self.bounds.size.width, 0.5);
+    topBorder.frame = CGRectMake(0, 0, self.bounds.size.width, NarrowLine_W);
+    bottomBorder.frame = CGRectMake(0, (CGFloat) (self.bounds.size.height-NarrowLine_W), self.bounds.size.width, NarrowLine_W);
     [super layoutSubviews];
 }
 

@@ -4,8 +4,9 @@
 //
 
 #import "LWSkinSettingView.h"
-#import "LWSkinSelecterView.h"
-#import "LWColorSelecterView.h"
+#import "LWSkinGridView.h"
+#import "LWColorGridView.h"
+#import "LWDefines.h"
 
 
 @implementation LWSkinSettingView {
@@ -16,8 +17,8 @@
     [super awakeFromNib];
     self.backgroundColor = [UIColor clearColor];
 
-    UICollectionViewLayout *layout = [UICollectionViewFlowLayout new];
-    _skinSelecterView = [[LWSkinSelecterView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+    UICollectionViewLayout *layout = [self setupGridViewLayout];
+    _skinSelecterView = [[LWSkinGridView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
 
     [self addSubview:_skinSelecterView];
 }
@@ -41,14 +42,22 @@
         _colorSelecterView = nil;
     }
     if (!_skinSelecterView) {
-        UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        layout.sectionInset = UIEdgeInsetsMake(2, 2, 2, 2);
-        layout.minimumLineSpacing = 16;
-        layout.minimumInteritemSpacing = 16;
-        layout.itemSize = CGSizeMake(100, 100);
-        _skinSelecterView = [[LWSkinSelecterView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+        UICollectionViewFlowLayout *layout = [self setupGridViewLayout];
+        _skinSelecterView = [[LWSkinGridView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
     }
+}
+
+//设置皮肤宫格的布局
+- (UICollectionViewFlowLayout *)setupGridViewLayout {
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    layout.sectionInset = UIEdgeInsetsMake(2, 12, 2, 12);
+    layout.minimumLineSpacing = 16;
+    layout.minimumInteritemSpacing = 16;
+    layout.itemSize = CGSizeMake(100, 100);
+    //设置cell的大小
+    layout.itemSize = CGSizeMake(Grid_Cell_W, Grid_Cell_H);
+    return layout;
 }
 
 
@@ -59,7 +68,7 @@
         _skinSelecterView = nil;
     }
     if (!_colorSelecterView) {
-        _colorSelecterView = [[LWColorSelecterView alloc] initWithFrame:self.bounds];
+        _colorSelecterView = [[LWColorGridView alloc] initWithFrame:self.bounds];
         [self addSubview:_colorSelecterView];
     }
 }

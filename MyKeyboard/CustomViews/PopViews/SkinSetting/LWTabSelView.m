@@ -8,7 +8,7 @@
 
 
 @implementation LWTabSelView {
-
+    CALayer *_rightLine;
 }
 
 - (void)awakeFromNib {
@@ -19,12 +19,20 @@
 
     [self addSubview:_upBtn];
     [self addSubview:_downBtn];
+
+    _rightLine = [CALayer layer];
+    _rightLine.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
+    _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W,0,NarrowLine_W,self.frame.size.height);
+    [self.layer addSublayer:_rightLine];
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     _upBtn.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2);
     _downBtn.frame = CGRectMake(0, self.frame.size.height / 2, self.frame.size.width, self.frame.size.height / 2);
+
+    _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W,0,NarrowLine_W,self.frame.size.height);
 }
 
 

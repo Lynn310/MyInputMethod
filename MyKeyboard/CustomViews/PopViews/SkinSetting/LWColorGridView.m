@@ -3,10 +3,12 @@
 // Copyright (c) 2015 luowei. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LWColorGridView.h"
 
-//颜色选择器面板
-@interface LWColorSelecterView : UIView
+
+@implementation LWColorGridView {
+
+}
 
 
 @end
