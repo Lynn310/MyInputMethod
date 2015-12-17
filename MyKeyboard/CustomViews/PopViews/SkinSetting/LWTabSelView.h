@@ -5,16 +5,31 @@
 
 #import <UIKit/UIKit.h>
 
-@class LWTabSelBtn;
-@class LWVerticelTextView;
+@protocol LWTabSelViewDelegate<NSObject>
+
+//显示皮肤选择面板
+- (void)showSkinPickerView:(UIButton *)btn;
+
+//显示颜色选择面板
+- (void)showColorPickerView:(UIButton *)btn;
+
+@end
 
 
 @interface LWTabSelView : UIView
 
-@property (strong, nonatomic) LWTabSelBtn *upBtn;
-@property (strong, nonatomic) LWTabSelBtn *downBtn;
+@property (weak, nonatomic) id<LWTabSelViewDelegate> delegate;
+
+@property (strong, nonatomic) UIButton *upBtn;
+@property (strong, nonatomic) UIButton *downBtn;
 
 @end
+
+
+
+//===========下面是其他方法实现,暂无用===========
+
+@class LWVerticelTextView;
 
 @interface LWTabSelBtn:UIButton
 

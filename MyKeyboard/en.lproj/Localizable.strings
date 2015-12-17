@@ -23,7 +23,11 @@
 "Select Skin" = "Select Skin";
 "Select Color" = "Select Color";
 
-"Add Skin" = "Add Skin";
+"Add Image" = "Add Image";
+"Add Color" = "Add Color";
+
+"Set Skin From Image" = "Set Skin From Image";
+"Set Skin From Color" = "Set Skin From Color";
 
 "moonlight" = "MoonLight";
 "sealight" = "SeaLight";

@@ -12,7 +12,8 @@
 //皮肤选择面板(默认,或颜色透明)
 @interface LWSkinGridView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate,LWSkinGridCellDelegate>
 
-@property(strong, nonatomic) NSMutableArray *skins;
+@property(strong, nonatomic) NSMutableArray<NSString *> *skins;
+@property(strong, nonatomic) NSMutableArray<UIColor *> *colors;
 
 @property(nonatomic, assign) BOOL editing;
 
@@ -41,5 +42,16 @@
 
 //cell titleLabel的最大大小
 - (CGSize)maxCellTitleSize;
+
+//刷新Cell的TttleLabel的Text大小
+- (void)updateLabelTextSize;
+
+@end
+
+
+//宫格Header
+@interface LWGridHeader:UICollectionReusableView
+
+@property(nonatomic, strong) UILabel *titleLbl;
 
 @end

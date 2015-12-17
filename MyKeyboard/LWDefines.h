@@ -133,7 +133,7 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define CGColorValueFromThemeKey(key) ([UIColor colorWithRGBAString:((NSString *)[LWThemeManager sharedInstance].theme[(key)])].CGColor)
 
 
-#import "UIKit/UIScreen.h"
+#import "UIKit/UIKit.h"
 #define Scr_Scale [UIScreen mainScreen].scale
 //窄边框线宽度
 #define NarrowLine_W 1/Scr_Scale
@@ -144,8 +144,16 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 
 //默认的可选皮肤图片名数组
 #define Default_Skins @[@"default",@"moonlight",@"sealight",@"waterglass"]
+#define Default_Colors @[[UIColor lightGrayColor],[UIColor grayColor],[UIColor darkGrayColor],\
+                        [UIColor whiteColor],[UIColor blackColor],[UIColor redColor],\
+                        [UIColor greenColor],[UIColor blueColor],[UIColor cyanColor],\
+                        [UIColor yellowColor],[UIColor magentaColor],[UIColor orangeColor],\
+                        [UIColor purpleColor],[UIColor brownColor]]
+
+
 //用户皮肤的键值
 #define Key_User_Skins @"Key_User_Skins"
+#define Key_User_Colors @"Key_User_Colors"
 
 //皮肤宫格重用id
 #define SkinCell @"SkinCell"

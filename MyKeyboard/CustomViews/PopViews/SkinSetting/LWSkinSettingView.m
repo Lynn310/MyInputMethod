@@ -5,7 +5,7 @@
 
 #import "LWSkinSettingView.h"
 #import "LWSkinGridView.h"
-#import "LWColorGridView.h"
+#import "LWStyleGridView.h"
 #import "LWDefines.h"
 
 
@@ -29,22 +29,10 @@
     if (_skinSelecterView) {
         _skinSelecterView.frame = self.bounds;
     }
-    if (_colorSelecterView) {
-        _colorSelecterView.frame = self.bounds;
+    if (_styleSelecterView) {
+        _styleSelecterView.frame = self.bounds;
     }
 
-}
-
-//显示皮肤选择面板
-- (void)showSkinPickerView {
-    if (_colorSelecterView) {
-        [_colorSelecterView removeFromSuperview];
-        _colorSelecterView = nil;
-    }
-    if (!_skinSelecterView) {
-        UICollectionViewFlowLayout *layout = [self setupGridViewLayout];
-        _skinSelecterView = [[LWSkinGridView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
-    }
 }
 
 //设置皮肤宫格的布局
@@ -52,6 +40,9 @@
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+
+    layout.headerReferenceSize = CGSizeMake(Grid_Cell_H/2,self.frame.size.height);
+
     layout.minimumLineSpacing = GridView_Padding;
     layout.minimumInteritemSpacing = GridView_Padding;
     //设置cell的大小
@@ -60,15 +51,29 @@
 }
 
 
+#pragma mark - LWTabSelViewDelegate 实现
+
+//显示皮肤选择面板
+- (void)showSkinPickerView:(UIButton *)btn {
+    if (_styleSelecterView) {
+        [_styleSelecterView removeFromSuperview];
+        _styleSelecterView = nil;
+    }
+    if (!_skinSelecterView) {
+        UICollectionViewFlowLayout *layout = [self setupGridViewLayout];
+        _skinSelecterView = [[LWSkinGridView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+    }
+}
+
 //显示颜色选择面板
-- (void)showColorPickerView {
+- (void)showColorPickerView:(UIButton *)btn {
     if (_skinSelecterView) {
         [_skinSelecterView removeFromSuperview];
         _skinSelecterView = nil;
     }
-    if (!_colorSelecterView) {
-        _colorSelecterView = [[LWColorGridView alloc] initWithFrame:self.bounds];
-        [self addSubview:_colorSelecterView];
+    if (!_styleSelecterView) {
+        _styleSelecterView = [[LWStyleGridView alloc] initWithFrame:self.bounds];
+        [self addSubview:_styleSelecterView];
     }
 }
 

@@ -6,7 +6,7 @@
 #import <UIKit/UIKit.h>
 
 //颜色选择器面板
-@interface LWColorGridView : UIView
+@interface LWStyleGridView : UIView
 
 
 @end

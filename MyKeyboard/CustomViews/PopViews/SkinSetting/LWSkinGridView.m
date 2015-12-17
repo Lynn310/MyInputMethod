@@ -23,11 +23,13 @@
         self.delegate = self;
         self.dataSource = self;
         self.scrollEnabled = YES;
+        self.showsHorizontalScrollIndicator = NO;
         self.alwaysBounceHorizontal = YES;
 //        self.alwaysBounceVertical = YES;
         self.showsVerticalScrollIndicator = NO;
 
         [self registerClass:[LWSkinGridViewCell class] forCellWithReuseIdentifier:SkinCell];
+        [self registerClass:[LWGridHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
     }
     
     return self;
@@ -37,6 +39,8 @@
 //加载皮肤源数据
 - (void)reloadData {
     [super reloadData];
+
+    //读取图片皮肤数据
     NSArray *skinArr = [[NSUserDefaults standardUserDefaults] arrayForKey:Key_User_Skins];
     if (skinArr == nil) {
         _skins = Default_Skins.mutableCopy;
@@ -46,11 +50,43 @@
     } else {
         _skins = skinArr.mutableCopy;
     }
+
+    //读取颜色皮肤数据
+    NSArray *colorArr = [[NSUserDefaults standardUserDefaults] arrayForKey:Key_User_Colors];
+    if (colorArr == nil) {
+        _colors = Default_Colors.mutableCopy;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:colorArr forKey:Key_User_Colors];
+        [userDefaults synchronize];
+    } else {
+        _colors = colorArr.mutableCopy;
+
+    }
 }
 
 #pragma mark UICollectionDataSource Implementation
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    //两个section,一个选择颜色,一个选择图片
+    return 2;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    switch (section) {
+        //选择图片
+        case 0: {
+            return _skins.count + 1;
+            break;
+        }
+        //选择颜色
+        case 1: {
+            return _colors.count + 1;
+            break;
+        }
+        default:
+            break;
+    }
+
     return _skins.count + 1;
 }
 
@@ -58,10 +94,57 @@
 
     LWSkinGridViewCell *cell = (LWSkinGridViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:SkinCell forIndexPath:indexPath];
 
+    switch (indexPath.section) {
+            //图片皮肤
+        case 0: {
+            [self setupImageSkinCell:cell WithIndexPath:indexPath];
+            break;
+        }
+            //颜色皮肤
+        case 1: {
+            [self setupColorSkinCell:cell WithIndexPath:indexPath];
+            break;
+        }
+        default:
+            break;
+    }
+
+
+    [cell updateLabelTextSize];
+    cell.delegate = self;
+
+    return cell;
+}
+
+//设置CollectionView的header,footer
+- (LWGridHeader *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    if (kind == UICollectionElementKindSectionHeader){
+        LWGridHeader *header = (LWGridHeader *)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Header" forIndexPath:indexPath];
+        switch (indexPath.section){
+            case 0:{
+                header.titleLbl.text = NSLocalizedString(@"Set Skin From Image", nil);
+                break;
+            }
+            case 1:{
+                header.titleLbl.text = NSLocalizedString(@"Set Skin From Color", nil);
+                break;
+            }
+            default:
+                break;
+        }
+
+        return header;
+    }
+    return nil;
+}
+
+
+//给指定indexPath位置的cell设置图片皮肤
+- (void)setupImageSkinCell:(LWSkinGridViewCell *)cell WithIndexPath:(NSIndexPath *)indexPath {
     //添加皮肤
     if (indexPath.item == _skins.count) {
         cell.iconImageView.image = [UIImage imageNamed:@"add_icon"];
-        cell.titleLbl.text = NSLocalizedString(@"Add Skin", nil);
+        cell.titleLbl.text = NSLocalizedString(@"Add Image", nil);
     } else {
         NSString *skinImgName = _skins[(NSUInteger) indexPath.item];
         CGFloat scale = [UIScreen mainScreen].scale;
@@ -94,27 +177,27 @@
 
 
         cell.titleLbl.text = NSLocalizedString(skinImgName, nil);
-
-        //重设titleLbl大小
-        [cell.titleLbl sizeToFit];
-
-        CGSize cellSize = cell.bounds.size;
-        CGFloat titleLblWidth = cell.titleLbl.frame.size.width;
-        titleLblWidth = titleLblWidth > cell.maxCellTitleSize.width ? cell.maxCellTitleSize.width : titleLblWidth;
-
-        cell.titleLbl.center = CGPointMake((CGFloat) (cellSize.width * 0.5), (CGFloat) (cellSize.height - cell.maxCellTitleSize.height * 0.5));
-        cell.titleLbl.bounds = CGRectMake(0, 0, titleLblWidth, cell.maxCellTitleSize.height);
     }
-
-    cell.delegate = self;
-
-//    //栅格化,让图层离屏渲染,缓存绘图结果
-//    cell.layer.shouldRasterize = YES;
-//    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
-
-    return cell;
 }
 
+
+//给指定indexPath位置的cell设置颜色皮肤
+- (void)setupColorSkinCell:(LWSkinGridViewCell *)cell WithIndexPath:(NSIndexPath *)indexPath {
+    //添加皮肤
+    if (indexPath.item == _colors.count) {
+        cell.iconImageView.image = [UIImage imageNamed:@"add_icon"];
+        cell.titleLbl.text = NSLocalizedString(@"Add Color", nil);
+    } else {
+        UIColor *color = _colors[(NSUInteger) indexPath.item];
+        CGFloat scale = [UIScreen mainScreen].scale;
+        CGSize cellImgSize = CGSizeMake(Grid_Cell_W * scale, Grid_Cell_W * scale);
+
+        UIImage *colorImage = [UIImage imageFromColor:color withRect:CGRectMake(0, 0, cellImgSize.width, cellImgSize.height)];
+        //todo:如果皮肤图片是用户自己加的
+        cell.iconImageView.image = colorImage;
+        cell.titleLbl.text = nil;
+    }
+}
 
 #pragma mark - UICollectionDelegate Implementation
 
@@ -193,6 +276,23 @@
     return self;
 }
 
+//刷新Cell的TttleLabel的Text大小
+- (void)updateLabelTextSize {
+    //重设titleLbl大小
+    [self.titleLbl sizeToFit];
+
+    CGSize cellSize = self.bounds.size;
+    CGFloat titleLblWidth = self.titleLbl.frame.size.width;
+    titleLblWidth = titleLblWidth > self.maxCellTitleSize.width ? self.maxCellTitleSize.width : titleLblWidth;
+
+    self.titleLbl.center = CGPointMake((CGFloat) (cellSize.width * 0.5), (CGFloat) (cellSize.height - self.maxCellTitleSize.height * 0.5));
+    self.titleLbl.bounds = CGRectMake(0, 0, titleLblWidth, self.maxCellTitleSize.height);
+
+//    //栅格化,让图层离屏渲染,缓存绘图结果
+//    cell.layer.shouldRasterize = YES;
+//    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
+}
+
 //cell titleLabel的最大大小
 - (CGSize)maxCellTitleSize {
     return CGSizeMake(self.frame.size.width + 7, 14);
@@ -203,6 +303,67 @@
     if ([self.delegate respondsToSelector:@selector(deleteButtonClickedInGridViewCell:)]) {
         [self.delegate deleteButtonClickedInGridViewCell:self];
     }
+
+}
+
+@end
+
+
+//宫格Header
+@implementation LWGridHeader{
+    CALayer *_rightLine;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        //文字标题
+        _titleLbl = [[UILabel alloc] init];
+        _titleLbl.text = @"title";
+        _titleLbl.font = [UIFont systemFontOfSize:12];
+        _titleLbl.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+        _titleLbl.textAlignment = NSTextAlignmentCenter;
+        _titleLbl.lineBreakMode = NSLineBreakByTruncatingTail;
+        [self addSubview:_titleLbl];
+
+//        CGRect frame = CGRectMake(0,0,200,Grid_Cell_H/2);
+//        _titleLbl.bounds = CGRectMake(0,0,frame.size.height,frame.size.width);
+//        _titleLbl.center = CGPointMake(frame.size.width/2,frame.size.height/2);
+//        _titleLbl.transform = CGAffineTransformMakeRotation(-M_PI_2);
+
+
+//        _rightLine = [CALayer layer];
+//        _rightLine.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
+//        _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W,0,NarrowLine_W,self.frame.size.height);
+//        [self.layer addSublayer:_rightLine];
+    }
+
+    return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+//    CGRect frame = CGRectMake(0,0,200,Grid_Cell_H/2);
+    CGRect frame = CGRectMake(0,0, self.frame.size.width, self.frame.size.height);
+    _titleLbl.bounds = CGRectMake(0,0,frame.size.height,frame.size.width);
+    _titleLbl.center = CGPointMake(frame.size.width/2,frame.size.height/2);
+    _titleLbl.transform = CGAffineTransformMakeRotation(-M_PI_2);
+
+//    _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W,0,NarrowLine_W,self.frame.size.height);
+}
+
+//刷新Headder的TttleLabel的Text大小
+- (void)updateLabelTextSize {
+    //重设titleLbl大小
+    [self.titleLbl sizeToFit];
+
+    CGSize cellSize = self.bounds.size;
+    CGFloat titleLblWidth = self.titleLbl.frame.size.width;
+    titleLblWidth = titleLblWidth > self.frame.size.width ? self.frame.size.width : titleLblWidth;
+
+    self.titleLbl.center = CGPointMake((CGFloat) (cellSize.width * 0.5), (CGFloat) (cellSize.height - self.frame.size.height * 0.5));
+    self.titleLbl.bounds = CGRectMake(0, 0, titleLblWidth, self.frame.size.height);
 
 }
 

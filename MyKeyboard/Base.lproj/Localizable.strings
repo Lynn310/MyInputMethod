@@ -20,10 +20,15 @@
 "Key Sound" = "按键声音";
 "MoreSetting Mode" = "更多设置";
 
-"Select Skin" = "选择皮肤";
-"Select Color" = "选择颜色";
+"Select Skin" = "皮肤";
+"Select Color" = "颜色";
 
-"Add Skin" = "添加皮肤";
+"Add Image" = "添加图片";
+"Add Color" = "添加颜色";
+
+"Set Skin From Image" = "从图片设置皮肤";
+"Set Skin From Color" = "从颜色设置皮肤";
+
 
 "moonlight" = "月光朦胧";
 "sealight" = "海暮之光";

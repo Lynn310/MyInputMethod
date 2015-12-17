@@ -3,12 +3,14 @@
 // Copyright (c) 2015 luowei. All rights reserved.
 //
 
-#import "LWColorGridView.h"
+#import "LWStyleGridView.h"
 
 
-@implementation LWColorGridView {
+@implementation LWStyleGridView {
 
 }
+
+
 
 
 @end

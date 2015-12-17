@@ -4,21 +4,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWTabSelView.h"
 
-@class LWColorGridView;
+@class LWStyleGridView;
 @class LWSkinGridView;
 
 
-@interface LWSkinSettingView : UIView
+@interface LWSkinSettingView : UIView<LWTabSelViewDelegate>
 
 @property (strong, nonatomic) LWSkinGridView *skinSelecterView;
-@property (strong, nonatomic) LWColorGridView *colorSelecterView;
-
-//显示皮肤选择面板
-- (void)showSkinPickerView;
-
-//显示颜色选择面板
-- (void)showColorPickerView;
+@property (strong, nonatomic) LWStyleGridView *styleSelecterView;
 
 @end
 

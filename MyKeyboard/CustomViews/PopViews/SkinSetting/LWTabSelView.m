@@ -14,11 +14,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.backgroundColor = [UIColor clearColor];
-    _upBtn = [[LWTabSelBtn alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2) andText:NSLocalizedString(@"Select Skin", nil)];
-    _downBtn = [[LWTabSelBtn alloc] initWithFrame:CGRectMake(0, self.frame.size.height / 2, self.frame.size.width, self.frame.size.height / 2) andText:NSLocalizedString(@"Select Color", nil)];
 
-    [self addSubview:_upBtn];
-    [self addSubview:_downBtn];
+    //设置皮肤选择面板的频道
+    [self setupChannelLabels];
+//    _upBtn.highlighted = YES;
+    _upBtn.selected = YES;
 
     _rightLine = [CALayer layer];
     _rightLine.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
@@ -27,19 +27,76 @@
 
 }
 
+
 - (void)layoutSubviews {
     [super layoutSubviews];
-    _upBtn.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2);
-    _downBtn.frame = CGRectMake(0, self.frame.size.height / 2, self.frame.size.width, self.frame.size.height / 2);
+
+    //重设置frame
+    CGRect frame = CGRectMake(0,0,self.frame.size.width,self.frame.size.height/2);
+    _upBtn.bounds = CGRectMake(0,0,frame.size.height,frame.size.width);
+    _upBtn.center = CGPointMake(frame.size.width/2,frame.size.height/2);
+    _upBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
+
+    _downBtn.bounds = CGRectMake(0,frame.size.height,frame.size.height,frame.size.width);
+    _downBtn.center = CGPointMake(frame.size.width/2,frame.size.height*3/2);
+    _downBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
 
     _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W,0,NarrowLine_W,self.frame.size.height);
 }
 
 
+- (void)setupChannelLabels {
+    _upBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _downBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_upBtn setTitle:NSLocalizedString(@"Select Skin", nil) forState:UIControlStateNormal];
+    [_downBtn setTitle:NSLocalizedString(@"Select Color", nil) forState:UIControlStateNormal];
+    [_upBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
+    [_upBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateSelected];
+    [_downBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
+    [_downBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateSelected];
+    _upBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+    _downBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+
+
+    //设置frame
+    CGRect frame = CGRectMake(0,0, self.frame.size.width, self.frame.size.height/2);
+    _upBtn.bounds = CGRectMake(0,0,frame.size.height,frame.size.width);
+    _upBtn.center = CGPointMake(frame.size.width/2,frame.size.height/2);
+    _upBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
+
+
+    _downBtn.bounds = CGRectMake(0,frame.size.height,frame.size.height,frame.size.width);
+    _downBtn.center = CGPointMake(frame.size.width/2,frame.size.height*3/2);
+    _downBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
+
+    [self addSubview:_upBtn];
+    [self addSubview:_downBtn];
+
+    [_upBtn addTarget:self action:@selector(showSkinPickerView:) forControlEvents:UIControlEventTouchDragInside];
+    [_upBtn addTarget:self action:@selector(showColorPickerView:) forControlEvents:UIControlEventTouchDragInside];
+}
+
+//显示颜色选择面板
+- (void)showSkinPickerView:(UIButton *)showSkinBtn {
+    _upBtn.selected = YES;
+    _downBtn.selected = NO;
+    [self.delegate showSkinPickerView:showSkinBtn];
+}
+
+//显示皮肤选择面板
+- (void)showColorPickerView:(UIButton *)showColorBtn {
+    _upBtn.selected = NO;
+    _downBtn.selected = YES;
+    [self.delegate showColorPickerView:showColorBtn];
+}
+
 
 @end
 
 
+
+
+//===========下面是其他方法实现,暂无用===========
 
 //竖向的按钮
 @implementation LWTabSelBtn

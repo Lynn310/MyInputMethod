@@ -17,7 +17,7 @@
 		BEF069306002FA7C5CC700E1 /* DishuTheme.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF060F67751233F3E1C1E86 /* DishuTheme.png */; };
 		BEF06A726BAFCAAE19AD15A6 /* LWSkinGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06DA748563D64AA1DAEB2 /* LWSkinGridView.m */; };
 		BEF06CD80CD16344657CA352 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06BBDACED95498E7C3E4E /* Aspects.m */; };
-		BEF06F68740F688C4EAA7A05 /* LWColorGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06BE0A831C8302C38E875 /* LWColorGridView.m */; };
+		BEF06F68740F688C4EAA7A05 /* LWStyleGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF06BE0A831C8302C38E875 /* LWStyleGridView.m */; };
 		EA0927291C1E59A3001C69B1 /* LWColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA09271F1C1E59A3001C69B1 /* LWColorPickerView.m */; };
 		EA09272B1C1E59A3001C69B1 /* LWColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0927201C1E59A3001C69B1 /* LWColorPickerView.xib */; };
 		EA09272D1C1E59A3001C69B1 /* LWSkinSettingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927221C1E59A3001C69B1 /* LWSkinSettingPopView.m */; };
@@ -140,9 +140,9 @@
 		BEF06B180DE98F38304C3383 /* LWKeyboardSettingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWKeyboardSettingPopView.m; sourceTree = "<group>"; };
 		BEF06BB86E009C1D973C9D4A /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
 		BEF06BBDACED95498E7C3E4E /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
-		BEF06BE0A831C8302C38E875 /* LWColorGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWColorGridView.m; sourceTree = "<group>"; };
+		BEF06BE0A831C8302C38E875 /* LWStyleGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWStyleGridView.m; sourceTree = "<group>"; };
 		BEF06C2913B1D37966CFAD2E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
-		BEF06C62229319013E9057F0 /* LWColorGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWColorGridView.h; sourceTree = "<group>"; };
+		BEF06C62229319013E9057F0 /* LWStyleGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWStyleGridView.h; sourceTree = "<group>"; };
 		BEF06DA748563D64AA1DAEB2 /* LWSkinGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSkinGridView.m; sourceTree = "<group>"; };
 		BEF06E888D0180F5B2E41D1A /* doc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
 		BEF06EF45BCC3FD3BB39B661 /* LWBiHuaKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBiHuaKeyboard.h; sourceTree = "<group>"; };
@@ -343,8 +343,8 @@
 				EA0927271C1E59A3001C69B1 /* LWTabSelView.m */,
 				BEF06DA748563D64AA1DAEB2 /* LWSkinGridView.m */,
 				BEF06058D0E9E9BF86A6931D /* LWSkinGridView.h */,
-				BEF06BE0A831C8302C38E875 /* LWColorGridView.m */,
-				BEF06C62229319013E9057F0 /* LWColorGridView.h */,
+				BEF06BE0A831C8302C38E875 /* LWStyleGridView.m */,
+				BEF06C62229319013E9057F0 /* LWStyleGridView.h */,
 			);
 			path = SkinSetting;
 			sourceTree = "<group>";
@@ -982,7 +982,7 @@
 				BEF06CD80CD16344657CA352 /* Aspects.m in Sources */,
 				BEF06628AD81D0ECBF9DBF39 /* LWHookConfig.m in Sources */,
 				BEF06A726BAFCAAE19AD15A6 /* LWSkinGridView.m in Sources */,
-				BEF06F68740F688C4EAA7A05 /* LWColorGridView.m in Sources */,
+				BEF06F68740F688C4EAA7A05 /* LWStyleGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
