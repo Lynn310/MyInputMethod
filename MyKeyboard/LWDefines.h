@@ -151,7 +151,7 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define SkinCell @"SkinCell"
 
 //皮肤宫格padding
-#define GridView_TopInset 20.0
+#define GridView_Padding 12.0
 
 //皮肤宫格中cell的大小
 #define Grid_Cell_W 60.0

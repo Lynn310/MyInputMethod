@@ -50,11 +50,10 @@
 //设置皮肤宫格的布局
 - (UICollectionViewFlowLayout *)setupGridViewLayout {
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    layout.sectionInset = UIEdgeInsetsMake(2, 12, 2, 12);
-    layout.minimumLineSpacing = 16;
-    layout.minimumInteritemSpacing = 16;
-    layout.itemSize = CGSizeMake(100, 100);
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    layout.minimumLineSpacing = GridView_Padding;
+    layout.minimumInteritemSpacing = GridView_Padding;
     //设置cell的大小
     layout.itemSize = CGSizeMake(Grid_Cell_W, Grid_Cell_H);
     return layout;

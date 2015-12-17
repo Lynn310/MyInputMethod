@@ -6,6 +6,7 @@
 #import <UIKit/UIKit.h>
 
 @class LWTabSelBtn;
+@class LWVerticelTextView;
 
 
 @interface LWTabSelView : UIView
@@ -13,15 +14,6 @@
 @property (strong, nonatomic) LWTabSelBtn *upBtn;
 @property (strong, nonatomic) LWTabSelBtn *downBtn;
 
-@end
-
-@interface LWVerticelTextStorage:NSTextStorage
-@end
-
-@interface LWVerticalTextContainer:NSTextContainer
-@end
-
-@interface LWVerticelTextView:UITextView
 @end
 
 @interface LWTabSelBtn:UIButton
@@ -32,4 +24,21 @@
 
 - (instancetype)initWithFrame:(CGRect)frame andText:(NSString*)text;
 
+@end
+
+
+//竖向排列的Label
+@interface LWVerticelLabel:UILabel
+
+@end
+
+//竖向排列的TextView
+@interface LWVerticelTextView:UITextView
+
+@end
+
+@interface LWVerticelTextStorage:NSTextStorage
+@end
+
+@interface LWVerticalTextContainer:NSTextContainer
 @end

@@ -19,13 +19,14 @@
 
         self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
 
-        self.contentInset = UIEdgeInsetsMake(GridView_TopInset, 0, 0, 0);
+        self.contentInset = UIEdgeInsetsMake(GridView_Padding, GridView_Padding, GridView_Padding, GridView_Padding);
         self.delegate = self;
         self.dataSource = self;
         self.scrollEnabled = YES;
-        self.alwaysBounceVertical = YES;
+        self.alwaysBounceHorizontal = YES;
+//        self.alwaysBounceVertical = YES;
         self.showsVerticalScrollIndicator = NO;
-    
+
         [self registerClass:[LWSkinGridViewCell class] forCellWithReuseIdentifier:SkinCell];
     }
     
@@ -37,12 +38,12 @@
 - (void)reloadData {
     [super reloadData];
     NSArray *skinArr = [[NSUserDefaults standardUserDefaults] arrayForKey:Key_User_Skins];
-    if(skinArr==nil){
+    if (skinArr == nil) {
         _skins = Default_Skins.mutableCopy;
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:skinArr forKey:Key_User_Skins];
         [userDefaults synchronize];
-    }else{
+    } else {
         _skins = skinArr.mutableCopy;
     }
 }
@@ -50,7 +51,7 @@
 #pragma mark UICollectionDataSource Implementation
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _skins.count+1;
+    return _skins.count + 1;
 }
 
 - (LWSkinGridViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,28 +59,37 @@
     LWSkinGridViewCell *cell = (LWSkinGridViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:SkinCell forIndexPath:indexPath];
 
     //添加皮肤
-    if(indexPath.item == _skins.count){
+    if (indexPath.item == _skins.count) {
         cell.iconImageView.image = [UIImage imageNamed:@"add_icon"];
         cell.titleLbl.text = NSLocalizedString(@"Add Skin", nil);
-    }else{
-        NSString *skinImgName = _skins[(NSUInteger) indexPath.item ];
+    } else {
+        NSString *skinImgName = _skins[(NSUInteger) indexPath.item];
+        CGFloat scale = [UIScreen mainScreen].scale;
+        CGSize cellImgSize = CGSizeMake(Grid_Cell_W * scale, Grid_Cell_W * scale);
 
-        if([@"default" isEqualToString:skinImgName]){
+        if ([@"default" isEqualToString:skinImgName]) {
+            UIImage *colorImage = [UIImage imageFromColor:[UIColor grayColor] withRect:CGRectMake(0, 0, cellImgSize.width, cellImgSize.height)];
+            //把logo图片放大
+            UIImage *logo = [[UIImage imageNamed:@"logo"] imageToscaledSize:CGSizeMake(cellImgSize.width - 10, cellImgSize.height - 10)];
 
+            //合并图片
+            CGRect logoFrame = CGRectMake((colorImage.size.width - logo.size.width) / 2, (colorImage.size.height - logo.size.height) / 2, logo.size.width, logo.size.height);
+            UIImage *combinedImg = [UIImage addImageToImage:colorImage withImage2:logo andRect:logoFrame withImageSize:cellImgSize];
+            cell.iconImageView.image = combinedImg;
 
-        }else{
+        } else {
             UIImage *skinImg = [UIImage imageNamed:skinImgName];
             //todo:如果皮肤图片是用户自己加的
 
-            CGFloat scale = [UIScreen mainScreen].scale;
-            CGSize cutImgSize = CGSizeMake(60*scale,60*scale);
-            CGRect cutImgRect = CGRectMake(skinImg.size.width/2-cutImgSize.width/2,skinImg.size.height/2-cutImgSize.height/2,
-                    cutImgSize.width,cutImgSize.height);
+//            //从大的皮肤图片中,取出一张小的预览图
+//            CGRect smallImgRect = CGRectMake(skinImg.size.width / 2 - cellImgSize.width / 2, skinImg.size.height / 2 - cellImgSize.height / 2,
+//                    cellImgSize.width, cellImgSize.height);
+//            UIImage *smallImage = [skinImg cutImageWithRect:smallImgRect];
 
-            //从大的皮肤图片中,取出一张小的预览图
-            UIImage *cutImage = [skinImg cutImageWithRect:cutImgRect];
+            //直接缩放大图
+            UIImage *smallImage = [skinImg imageToscaledSize:cellImgSize];
 
-            cell.iconImageView.image = cutImage;
+            cell.iconImageView.image = smallImage;
         }
 
 
@@ -97,6 +107,11 @@
     }
 
     cell.delegate = self;
+
+//    //栅格化,让图层离屏渲染,缓存绘图结果
+//    cell.layer.shouldRasterize = YES;
+//    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
+
     return cell;
 }
 
@@ -115,9 +130,9 @@
     LWSkinGridViewCell *cell = (LWSkinGridViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
 
     //添加皮肤
-    if(_skins.count == indexPath.item){
+    if (_skins.count == indexPath.item) {
         [self openURLWithUrl:[NSURL URLWithString:@"MyInputMethod://"]];
-    }else{
+    } else {
         //todo:选择皮肤
 
     }
@@ -128,7 +143,7 @@
 #pragma mark - LWSkinGridCellDelegate Implementation
 
 //删除一个皮肤宫格
-- (void)deleteButtonClickedInGridViewCell:(LWSkinGridViewCell *)cell{
+- (void)deleteButtonClickedInGridViewCell:(LWSkinGridViewCell *)cell {
 
 }
 
@@ -136,8 +151,7 @@
 @end
 
 
-
-@implementation LWSkinGridViewCell{
+@implementation LWSkinGridViewCell {
     UIButton *_deleteButton;
 }
 
@@ -147,7 +161,7 @@
 
         //图片
         CGSize cellSize = self.frame.size;
-        _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cellSize.width,cellSize.height -20)];
+        _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cellSize.width, cellSize.height - 20)];
         _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
         _iconImageView.layer.masksToBounds = YES;
         _iconImageView.layer.cornerRadius = FloatValueFromThemeKey(@"btn.cornerRadius");
