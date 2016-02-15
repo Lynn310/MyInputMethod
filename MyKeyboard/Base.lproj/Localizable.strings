@@ -35,3 +35,7 @@
 "waterglass" = "水珠玻璃";
 "default" = "默认皮肤";
 
+
+"Set Word Color" = "文字颜色";
+"Normal Color" = "正常颜色";
+"High Color" = "高度颜色";

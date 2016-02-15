@@ -5,8 +5,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class LWSkinSettingView;
-@class LWTabSelView;
+@class LWRightSettingView;
+@class LWLeftTabSelView;
 @class LWSkinGridView;
 @class LWStyleGridView;
 
@@ -14,8 +14,8 @@
 @interface LWSkinSettingPopView : UIView
 
 //左边的组件
-@property (weak, nonatomic) IBOutlet LWTabSelView *tabSelView;
-@property (weak, nonatomic) IBOutlet LWSkinSettingView *skinSettingView;
+@property (weak, nonatomic) IBOutlet LWLeftTabSelView *leftTabSelView;
+@property (weak, nonatomic) IBOutlet LWRightSettingView *rightSettingView;
 
 
 @end

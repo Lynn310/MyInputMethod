@@ -155,6 +155,7 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define Key_User_Skins @"Key_User_Skins"
 #define Key_User_Colors @"Key_User_Colors"
 
+
 //皮肤宫格重用id
 #define SkinCell @"SkinCell"
 
@@ -168,5 +169,11 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 //小x按钮的宽度与高度
 #define Cell_DeleteBtn_W 30.0
 #define Cell_DeleteBtn_H 30.0
+
+#define Key_Word_NormalColor @"Key_Word_NormalColor"
+#define Key_Word_HighColor @"Key_Word_HighColor"
+
+//样式宫格重用id
+#define StyleCell @"StyleCell"
 
 #endif

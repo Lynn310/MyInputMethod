@@ -4,6 +4,7 @@
 //
 
 #import "LWSkinSettingPopView.h"
+#import "LWLeftTabSelView.h"
 #import "LWDefines.h"
 
 

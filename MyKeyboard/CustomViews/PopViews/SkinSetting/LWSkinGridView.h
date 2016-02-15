@@ -5,12 +5,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class LWSkinGridViewCell;
+@class LWGridViewCell;
 
-@protocol LWSkinGridCellDelegate;
+@protocol LWGridCellDelegate;
 
 //皮肤选择面板(默认,或颜色透明)
-@interface LWSkinGridView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate,LWSkinGridCellDelegate>
+@interface LWSkinGridView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate, LWGridCellDelegate>
 
 @property(strong, nonatomic) NSMutableArray<NSString *> *skins;
 @property(strong, nonatomic) NSMutableArray<UIColor *> *colors;
@@ -21,18 +21,18 @@
 
 
 
-@protocol LWSkinGridCellDelegate <NSObject>
+@protocol LWGridCellDelegate <NSObject>
 
 //删除一个皮肤宫格
-- (void)deleteButtonClickedInGridViewCell:(LWSkinGridViewCell *)cell;
+- (void)deleteButtonClickedInGridViewCell:(LWGridViewCell *)cell;
 
 @end
 
 
 //皮肤宫格Cell
-@interface LWSkinGridViewCell : UICollectionViewCell
+@interface LWGridViewCell : UICollectionViewCell
 
-@property(nonatomic, assign) id <LWSkinGridCellDelegate> delegate;
+@property(nonatomic, assign) id <LWGridCellDelegate> delegate;
 
 @property(nonatomic, assign) BOOL editing;
 

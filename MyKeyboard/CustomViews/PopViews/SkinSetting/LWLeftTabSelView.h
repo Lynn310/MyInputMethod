@@ -5,7 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol LWTabSelViewDelegate<NSObject>
+@protocol LWLeftTabSelViewDelegate <NSObject>
 
 //显示皮肤选择面板
 - (void)showSkinPickerView:(UIButton *)btn;
@@ -16,9 +16,9 @@
 @end
 
 
-@interface LWTabSelView : UIView
+@interface LWLeftTabSelView : UIView
 
-@property (weak, nonatomic) id<LWTabSelViewDelegate> delegate;
+@property (weak, nonatomic) id<LWLeftTabSelViewDelegate> delegate;
 
 @property (strong, nonatomic) UIButton *upBtn;
 @property (strong, nonatomic) UIButton *downBtn;

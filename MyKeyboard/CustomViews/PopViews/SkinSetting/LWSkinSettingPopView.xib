@@ -12,11 +12,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kou-Gf-TBY" customClass="LWTabSelView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kou-Gf-TBY" customClass="LWLeftTabSelView">
                     <rect key="frame" x="0.0" y="0.0" width="31" height="216"/>
                     <color key="backgroundColor" red="0.7753168319" green="0.77858913330000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovZ-0w-YtN" customClass="LWSkinSettingView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovZ-0w-YtN" customClass="LWRightSettingView">
                     <rect key="frame" x="31" y="0.0" width="289" height="216"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
@@ -36,8 +36,8 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="skinSettingView" destination="ovZ-0w-YtN" id="cCG-qg-Pmy"/>
-                <outlet property="tabSelView" destination="kou-Gf-TBY" id="M0Z-Id-dvg"/>
+                <outlet property="leftTabSelView" destination="kou-Gf-TBY" id="M0Z-Id-dvg"/>
+                <outlet property="rightSettingView" destination="ovZ-0w-YtN" id="cCG-qg-Pmy"/>
             </connections>
         </view>
     </objects>

@@ -33,3 +33,7 @@
 "sealight" = "SeaLight";
 "waterglass" = "WaterGlass";
 "default" = "Default";
+
+"Set Word Color" = "Word Color";
+"Normal Color" = "Normal Color";
+"High Color" = "High Color";

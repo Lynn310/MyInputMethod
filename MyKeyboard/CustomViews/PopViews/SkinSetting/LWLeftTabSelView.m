@@ -3,11 +3,13 @@
 // Copyright (c) 2015 luowei. All rights reserved.
 //
 
-#import "LWTabSelView.h"
+#import "LWLeftTabSelView.h"
 #import "LWDefines.h"
+#import "LWRightSettingView.h"
+#import "LWSkinSettingPopView.h"
 
 
-@implementation LWTabSelView {
+@implementation LWLeftTabSelView {
     CALayer *_rightLine;
 }
 
@@ -72,22 +74,30 @@
     [self addSubview:_upBtn];
     [self addSubview:_downBtn];
 
-    [_upBtn addTarget:self action:@selector(showSkinPickerView:) forControlEvents:UIControlEventTouchDragInside];
-    [_upBtn addTarget:self action:@selector(showColorPickerView:) forControlEvents:UIControlEventTouchDragInside];
-}
-
-//显示颜色选择面板
-- (void)showSkinPickerView:(UIButton *)showSkinBtn {
-    _upBtn.selected = YES;
-    _downBtn.selected = NO;
-    [self.delegate showSkinPickerView:showSkinBtn];
+    [_upBtn addTarget:self action:@selector(showSkinPickerView:) forControlEvents:UIControlEventTouchUpInside];
+    [_downBtn addTarget:self action:@selector(showColorPickerView:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 //显示皮肤选择面板
+- (void)showSkinPickerView:(UIButton *)showSkinBtn {
+    _upBtn.selected = YES;
+    _downBtn.selected = NO;
+    if(self.superview && [self.superview isKindOfClass:[LWSkinSettingPopView class]]){
+        LWSkinSettingPopView *settingPopView = (LWSkinSettingPopView *) self.superview;
+        self.delegate = settingPopView.rightSettingView;
+        [self.delegate showSkinPickerView:showSkinBtn];
+    }
+}
+
+//显示颜色选择面板
 - (void)showColorPickerView:(UIButton *)showColorBtn {
     _upBtn.selected = NO;
     _downBtn.selected = YES;
-    [self.delegate showColorPickerView:showColorBtn];
+    if(self.superview && [self.superview isKindOfClass:[LWSkinSettingPopView class]]){
+        LWSkinSettingPopView *settingPopView = (LWSkinSettingPopView *) self.superview;
+        self.delegate = settingPopView.rightSettingView;
+        [self.delegate showColorPickerView:showColorBtn];
+    }
 }
 
 

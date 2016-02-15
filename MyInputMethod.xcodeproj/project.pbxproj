@@ -22,8 +22,8 @@
 		EA09272B1C1E59A3001C69B1 /* LWColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0927201C1E59A3001C69B1 /* LWColorPickerView.xib */; };
 		EA09272D1C1E59A3001C69B1 /* LWSkinSettingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927221C1E59A3001C69B1 /* LWSkinSettingPopView.m */; };
 		EA09272F1C1E59A3001C69B1 /* LWSkinSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0927231C1E59A3001C69B1 /* LWSkinSettingPopView.xib */; };
-		EA0927311C1E59A3001C69B1 /* LWSkinSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927251C1E59A3001C69B1 /* LWSkinSettingView.m */; };
-		EA0927331C1E59A3001C69B1 /* LWTabSelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927271C1E59A3001C69B1 /* LWTabSelView.m */; };
+		EA0927311C1E59A3001C69B1 /* LWRightSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927251C1E59A3001C69B1 /* LWRightSettingView.m */; };
+		EA0927331C1E59A3001C69B1 /* LWLeftTabSelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927271C1E59A3001C69B1 /* LWLeftTabSelView.m */; };
 		EA2837261C2106BE00927753 /* UIButton+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2837251C2106BE00927753 /* UIButton+Ext.m */; };
 		EA2837291C21300D00927753 /* UIResponder+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2837281C21300D00927753 /* UIResponder+Ext.m */; };
 		EA28372B1C21361600927753 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA28372A1C21361600927753 /* Icon.png */; };
@@ -154,10 +154,10 @@
 		EA0927211C1E59A3001C69B1 /* LWSkinSettingPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSkinSettingPopView.h; sourceTree = "<group>"; };
 		EA0927221C1E59A3001C69B1 /* LWSkinSettingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSkinSettingPopView.m; sourceTree = "<group>"; };
 		EA0927231C1E59A3001C69B1 /* LWSkinSettingPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSkinSettingPopView.xib; sourceTree = "<group>"; };
-		EA0927241C1E59A3001C69B1 /* LWSkinSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSkinSettingView.h; sourceTree = "<group>"; };
-		EA0927251C1E59A3001C69B1 /* LWSkinSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSkinSettingView.m; sourceTree = "<group>"; };
-		EA0927261C1E59A3001C69B1 /* LWTabSelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTabSelView.h; sourceTree = "<group>"; };
-		EA0927271C1E59A3001C69B1 /* LWTabSelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTabSelView.m; sourceTree = "<group>"; };
+		EA0927241C1E59A3001C69B1 /* LWRightSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRightSettingView.h; sourceTree = "<group>"; };
+		EA0927251C1E59A3001C69B1 /* LWRightSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRightSettingView.m; sourceTree = "<group>"; };
+		EA0927261C1E59A3001C69B1 /* LWLeftTabSelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWLeftTabSelView.h; sourceTree = "<group>"; };
+		EA0927271C1E59A3001C69B1 /* LWLeftTabSelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWLeftTabSelView.m; sourceTree = "<group>"; };
 		EA2837241C2106BE00927753 /* UIButton+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Ext.h"; sourceTree = "<group>"; };
 		EA2837251C2106BE00927753 /* UIButton+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Ext.m"; sourceTree = "<group>"; };
 		EA2837271C21300D00927753 /* UIResponder+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Ext.h"; sourceTree = "<group>"; };
@@ -331,20 +331,20 @@
 		EA09271D1C1E59A3001C69B1 /* SkinSetting */ = {
 			isa = PBXGroup;
 			children = (
-				EA09271E1C1E59A3001C69B1 /* LWColorPickerView.h */,
-				EA09271F1C1E59A3001C69B1 /* LWColorPickerView.m */,
-				EA0927201C1E59A3001C69B1 /* LWColorPickerView.xib */,
 				EA0927211C1E59A3001C69B1 /* LWSkinSettingPopView.h */,
 				EA0927221C1E59A3001C69B1 /* LWSkinSettingPopView.m */,
 				EA0927231C1E59A3001C69B1 /* LWSkinSettingPopView.xib */,
-				EA0927241C1E59A3001C69B1 /* LWSkinSettingView.h */,
-				EA0927251C1E59A3001C69B1 /* LWSkinSettingView.m */,
-				EA0927261C1E59A3001C69B1 /* LWTabSelView.h */,
-				EA0927271C1E59A3001C69B1 /* LWTabSelView.m */,
+				EA0927261C1E59A3001C69B1 /* LWLeftTabSelView.h */,
+				EA0927271C1E59A3001C69B1 /* LWLeftTabSelView.m */,
+				EA0927241C1E59A3001C69B1 /* LWRightSettingView.h */,
+				EA0927251C1E59A3001C69B1 /* LWRightSettingView.m */,
 				BEF06DA748563D64AA1DAEB2 /* LWSkinGridView.m */,
 				BEF06058D0E9E9BF86A6931D /* LWSkinGridView.h */,
 				BEF06BE0A831C8302C38E875 /* LWStyleGridView.m */,
 				BEF06C62229319013E9057F0 /* LWStyleGridView.h */,
+				EA09271E1C1E59A3001C69B1 /* LWColorPickerView.h */,
+				EA09271F1C1E59A3001C69B1 /* LWColorPickerView.m */,
+				EA0927201C1E59A3001C69B1 /* LWColorPickerView.xib */,
 			);
 			path = SkinSetting;
 			sourceTree = "<group>";
@@ -958,7 +958,7 @@
 				EA3E238A1B732B5100349A95 /* LWTopView.m in Sources */,
 				EA3E23821B732B5100349A95 /* LWNumLeftTabView.m in Sources */,
 				EA3E23841B732B5100349A95 /* LWToolBar.m in Sources */,
-				EA0927311C1E59A3001C69B1 /* LWSkinSettingView.m in Sources */,
+				EA0927311C1E59A3001C69B1 /* LWRightSettingView.m in Sources */,
 				EA3E23831B732B5100349A95 /* LWPinYinLeftTabView.m in Sources */,
 				EA3E23851B732B5100349A95 /* LWOftenWordsPopView.m in Sources */,
 				EA2837291C21300D00927753 /* UIResponder+Ext.m in Sources */,
@@ -971,7 +971,7 @@
 				EA3E23811B732B5100349A95 /* LWLeftTabView.m in Sources */,
 				EA3E23921B732B6800349A95 /* LWDataConfig.m in Sources */,
 				EA3E23871B732B5100349A95 /* LWKeyboardWrap.m in Sources */,
-				EA0927331C1E59A3001C69B1 /* LWTabSelView.m in Sources */,
+				EA0927331C1E59A3001C69B1 /* LWLeftTabSelView.m in Sources */,
 				EA3E23BE1B732C0300349A95 /* LWNumKeyboard.m in Sources */,
 				EA60605E1B798D2300A9EC45 /* UIImage+Color.m in Sources */,
 				BEF062B581AF72A0C7CF56CD /* LWBiHuaKeyboard.m in Sources */,

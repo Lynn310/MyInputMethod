@@ -28,7 +28,7 @@
 //        self.alwaysBounceVertical = YES;
         self.showsVerticalScrollIndicator = NO;
 
-        [self registerClass:[LWSkinGridViewCell class] forCellWithReuseIdentifier:SkinCell];
+        [self registerClass:[LWGridViewCell class] forCellWithReuseIdentifier:SkinCell];
         [self registerClass:[LWGridHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
     }
     
@@ -90,9 +90,9 @@
     return _skins.count + 1;
 }
 
-- (LWSkinGridViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (LWGridViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    LWSkinGridViewCell *cell = (LWSkinGridViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:SkinCell forIndexPath:indexPath];
+    LWGridViewCell *cell = (LWGridViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:SkinCell forIndexPath:indexPath];
 
     switch (indexPath.section) {
             //图片皮肤
@@ -140,7 +140,7 @@
 
 
 //给指定indexPath位置的cell设置图片皮肤
-- (void)setupImageSkinCell:(LWSkinGridViewCell *)cell WithIndexPath:(NSIndexPath *)indexPath {
+- (void)setupImageSkinCell:(LWGridViewCell *)cell WithIndexPath:(NSIndexPath *)indexPath {
     //添加皮肤
     if (indexPath.item == _skins.count) {
         cell.iconImageView.image = [UIImage imageNamed:@"add_icon"];
@@ -182,7 +182,7 @@
 
 
 //给指定indexPath位置的cell设置颜色皮肤
-- (void)setupColorSkinCell:(LWSkinGridViewCell *)cell WithIndexPath:(NSIndexPath *)indexPath {
+- (void)setupColorSkinCell:(LWGridViewCell *)cell WithIndexPath:(NSIndexPath *)indexPath {
     //添加皮肤
     if (indexPath.item == _colors.count) {
         cell.iconImageView.image = [UIImage imageNamed:@"add_icon"];
@@ -210,7 +210,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    LWSkinGridViewCell *cell = (LWSkinGridViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+    LWGridViewCell *cell = (LWGridViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
 
     //添加皮肤
     if (_skins.count == indexPath.item) {
@@ -226,7 +226,7 @@
 #pragma mark - LWSkinGridCellDelegate Implementation
 
 //删除一个皮肤宫格
-- (void)deleteButtonClickedInGridViewCell:(LWSkinGridViewCell *)cell {
+- (void)deleteButtonClickedInGridViewCell:(LWGridViewCell *)cell {
 
 }
 
@@ -234,7 +234,7 @@
 @end
 
 
-@implementation LWSkinGridViewCell {
+@implementation LWGridViewCell {
     UIButton *_deleteButton;
 }
 
