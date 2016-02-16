@@ -122,11 +122,11 @@
         LWGridHeader *header = (LWGridHeader *)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Header" forIndexPath:indexPath];
         switch (indexPath.section){
             case 0:{
-                header.titleLbl.text = NSLocalizedString(@"Set Skin From Image", nil);
+                header.titleLbl.text = NSLocalizedString(@"Keyboard Imamge Skin", nil);
                 break;
             }
             case 1:{
-                header.titleLbl.text = NSLocalizedString(@"Set Skin From Color", nil);
+                header.titleLbl.text = NSLocalizedString(@"Keyboard Color Skin", nil);
                 break;
             }
             default:
@@ -278,6 +278,9 @@
 
 //刷新Cell的TttleLabel的Text大小
 - (void)updateLabelTextSize {
+    if(!self.titleLbl.text || [self.titleLbl.text isEqualToString:@""]){
+        return;
+    }
     //重设titleLbl大小
     [self.titleLbl sizeToFit];
 

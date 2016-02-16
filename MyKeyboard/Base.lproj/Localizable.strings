@@ -7,11 +7,13 @@
 */
 "BreakLine" = "换行";
 
+//----键盘设置-----
 "PinYin FullKeyboard" = "拼音全键";
 "PinYin NineKeyboard" = "拼音九键";
 "Wubi FullKeyboard" = "五笔全键";
 "Bihua FullKeyboard" = "笔画全键";
 
+//----输入法设置----
 "Day Mode" = "日间模式";
 "Night Mode" = "夜间模式";
 "English Predict" = "英文补全";
@@ -20,22 +22,32 @@
 "Key Sound" = "按键声音";
 "MoreSetting Mode" = "更多设置";
 
+
+//---皮肤/样式设置----
+//皮肤
 "Select Skin" = "皮肤";
-"Select Color" = "颜色";
 
-"Add Image" = "添加图片";
-"Add Color" = "添加颜色";
-
-"Set Skin From Image" = "从图片设置皮肤";
-"Set Skin From Color" = "从颜色设置皮肤";
-
-
+"Keyboard Imamge Skin" = "键盘图片皮肤";
 "moonlight" = "月光朦胧";
 "sealight" = "海暮之光";
 "waterglass" = "水珠玻璃";
 "default" = "默认皮肤";
+"Add Image" = "添加图片";
+
+"Keyboard Color Skin" = "键盘颜色皮肤";
+"Add Color" = "添加颜色";
 
 
-"Set Word Color" = "文字颜色";
-"Normal Color" = "正常颜色";
-"High Color" = "高度颜色";
+//样式
+"Select Style" = "样式";
+
+"Button Color" = "按键颜色";
+"Button Alpha" = "按键透明度";
+"Button CornerRadius" = "按键圆角";
+"Button Border" = "按键边框";
+"Font Color" = "字体颜色";
+"Font Name" = "字体类型";
+
+
+"Normal Color" = "正常";
+"High Color" = "高度";

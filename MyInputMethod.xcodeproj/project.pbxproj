@@ -90,6 +90,9 @@
 		EAA278601B78F9C800730A4C /* LWBiHuaKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA2785F1B78F9C800730A4C /* LWBiHuaKeyboard.xib */; };
 		EAEE59241B8325A400A5969E /* SkinableTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAEE59231B8325A400A5969E /* SkinableTheme.plist */; };
 		EAEE59591B833B4600A5969E /* LWThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEE59581B833B4600A5969E /* LWThemeManager.m */; };
+		EAF2DC811C732FA700369D4B /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF2DC801C732FA700369D4B /* NSString+Ext.m */; };
+		EAF2DC821C732FA700369D4B /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF2DC801C732FA700369D4B /* NSString+Ext.m */; };
+		EAF2DC831C732FA700369D4B /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF2DC801C732FA700369D4B /* NSString+Ext.m */; };
 		EAFB53841B46A1700076DAA7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAFB53831B46A1700076DAA7 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -276,6 +279,8 @@
 		EAEE59231B8325A400A5969E /* SkinableTheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkinableTheme.plist; sourceTree = "<group>"; };
 		EAEE59571B833B4600A5969E /* LWThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWThemeManager.h; sourceTree = "<group>"; };
 		EAEE59581B833B4600A5969E /* LWThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWThemeManager.m; sourceTree = "<group>"; };
+		EAF2DC7F1C732FA700369D4B /* NSString+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ext.h"; sourceTree = "<group>"; };
+		EAF2DC801C732FA700369D4B /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ext.m"; sourceTree = "<group>"; };
 		EAFB53831B46A1700076DAA7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MyKeyboard/Images.xcassets; sourceTree = "<group>"; };
 		F69C1B070400D7145CCF2F1C /* Pods-MyInputMethod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyInputMethod.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyInputMethod/Pods-MyInputMethod.release.xcconfig"; sourceTree = "<group>"; };
 		FC6B3CBD1127161A44357F78 /* Pods_MyInputMethod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyInputMethod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -508,6 +513,8 @@
 		EA3E23B61B732C0300349A95 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EAF2DC7F1C732FA700369D4B /* NSString+Ext.h */,
+				EAF2DC801C732FA700369D4B /* NSString+Ext.m */,
 				EA2837271C21300D00927753 /* UIResponder+Ext.h */,
 				EA2837281C21300D00927753 /* UIResponder+Ext.m */,
 				EA2837241C2106BE00927753 /* UIButton+Ext.h */,
@@ -931,6 +938,7 @@
 			files = (
 				EA56C0661B42E1140076EC00 /* ViewController.m in Sources */,
 				EA60605D1B798D2300A9EC45 /* UIImage+Color.m in Sources */,
+				EAF2DC811C732FA700369D4B /* NSString+Ext.m in Sources */,
 				EA56C0631B42E1140076EC00 /* AppDelegate.m in Sources */,
 				EA56C0601B42E1140076EC00 /* main.m in Sources */,
 			);
@@ -977,6 +985,7 @@
 				BEF062B581AF72A0C7CF56CD /* LWBiHuaKeyboard.m in Sources */,
 				BEF0643CC3CA937BE0736A57 /* LWWuBiFullKeyboard.m in Sources */,
 				EAEE59591B833B4600A5969E /* LWThemeManager.m in Sources */,
+				EAF2DC821C732FA700369D4B /* NSString+Ext.m in Sources */,
 				BEF062FCD27ACDBCBC840E5F /* LWKeyboardSettingPopView.m in Sources */,
 				EA0927291C1E59A3001C69B1 /* LWColorPickerView.m in Sources */,
 				BEF06CD80CD16344657CA352 /* Aspects.m in Sources */,
@@ -991,6 +1000,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA56C0BD1B42F1740076EC00 /* EmojiKeyboardViewController.m in Sources */,
+				EAF2DC831C732FA700369D4B /* NSString+Ext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

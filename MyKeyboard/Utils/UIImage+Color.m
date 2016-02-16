@@ -51,6 +51,25 @@
     return image;
 }
 
+//根据View获得一张图片
++ (UIImage *)imageWithView:(UIView *)view {
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
+//把字符串依据指定的字体属性及大小转换成图片
++ (UIImage *)imageFromString:(NSString *)string attributes:(NSDictionary *)attributes size:(CGSize)size {
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    [string drawInRect:CGRectMake(0, 0, size.width, size.height) withAttributes:attributes];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return image;
+}
 
 @end
 

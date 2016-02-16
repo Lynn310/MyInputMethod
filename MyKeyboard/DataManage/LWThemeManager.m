@@ -31,4 +31,21 @@
 
 }
 
+//根据Key获得颜色值
++ (UIColor *)getColorWithKey:(NSString *)key {
+    UIColor *normalColor = nil;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *dat = [userDefaults objectForKey:key];
+    if (!dat) {
+        normalColor = [UIColor darkGrayColor];
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:normalColor];
+        [userDefaults setObject:data forKey:key];
+        [userDefaults synchronize];
+    }else{
+        normalColor = (UIColor *) [NSKeyedUnarchiver unarchiveObjectWithData:dat];
+    }
+    return normalColor;
+}
+
+
 @end

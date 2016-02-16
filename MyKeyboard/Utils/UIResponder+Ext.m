@@ -1,5 +1,5 @@
 //
-//  UIImage+Color.m
+//  UIResponder+Color.m
 //  MyInputMethod
 //
 //  Created by luowei on 15/8/11.

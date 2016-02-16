@@ -1,5 +1,5 @@
 //
-//  UIResponder+Color.h
+//  NSString+Ext.h
 //  MyInputMethod
 //
 //  Created by luowei on 15/8/11.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (Ext)
+@interface NSString (Ext)
 
-@property(nonatomic, assign) UIEdgeInsets hitTestEdgeInsets;
+
 
 @end

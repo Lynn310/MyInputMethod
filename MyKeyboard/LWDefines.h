@@ -85,6 +85,14 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
     ReturnKeyOk,
 };
 
+//边框阴影类型
+typedef NS_ENUM(NSInteger,BorderShadow){
+    BorderShadow_None,
+    Border_Black,
+    Border_White,
+    Shadow_All,
+    Shadow_Bottom,
+};
 
 // --------- 相关key名
 
@@ -170,8 +178,20 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define Cell_DeleteBtn_W 30.0
 #define Cell_DeleteBtn_H 30.0
 
-#define Key_Word_NormalColor @"Key_Word_NormalColor"
-#define Key_Word_HighColor @"Key_Word_HighColor"
+//按键颜色
+#define Key_Btn_NormalColor @"Key_Word_NormalColor"
+#define Key_Btn_HighColor @"Key_Word_HighColor"
+
+//按键透明度
+#define Default_Btn_Alphas @[@0,@0.1,@0.4,@0.8,@1.0]
+//按键圆角
+#define Default_Btn_CornerRadiuses @[@0,@5,@10,@16,@20]
+//按键边框阴影
+#define Default_Btn_BorderShadow @[@(BorderShadow_None),@(Border_Black),@(Border_White),@(Shadow_All),@(Shadow_Bottom)]
+//字体名称(http://iosfonts.com/)
+#define Default_FontNames @[@"HelveticaNeue",@"ArialHebrew",@"HelveticaNeue-Light",@"HelveticaNeue-Thin",\
+    @"Menlo-Regular",@"SavoyeLetPlain",@"SnellRoundhand-Bold",@"Zapfino"]
+
 
 //样式宫格重用id
 #define StyleCell @"StyleCell"

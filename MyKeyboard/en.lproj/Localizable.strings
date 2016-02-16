@@ -7,11 +7,13 @@
 */
 "BreakLine" = "Return";
 
+//----键盘设置-----
 "PinYin FullKeyboard" = "PinYin FullKeyboard";
 "PinYin NineKeyboard" = "PinYin NineKeyboard";
 "Wubi FullKeyboard" = "Wubi FullKeyboard";
 "Bihua FullKeyboard" = "Bihua FullKeyboard";
 
+//----输入法设置----
 "Day Mode" = "DayMode";
 "Night Mode" = "NightMode";
 "English Predict" = "WordPredict";
@@ -20,20 +22,31 @@
 "Key Sound" = "Key Sound";
 "MoreSetting Mode" = "MoreSetting";
 
+//---皮肤/样式设置----
+//皮肤
 "Select Skin" = "Select Skin";
-"Select Color" = "Select Color";
 
-"Add Image" = "Add Image";
-"Add Color" = "Add Color";
-
-"Set Skin From Image" = "Set Skin From Image";
-"Set Skin From Color" = "Set Skin From Color";
-
+"Keyboard Imamge Skin" = "Keyboard Imamge Skin";
 "moonlight" = "MoonLight";
 "sealight" = "SeaLight";
 "waterglass" = "WaterGlass";
 "default" = "Default";
+"Add Image" = "Add Image";
 
-"Set Word Color" = "Word Color";
-"Normal Color" = "Normal Color";
-"High Color" = "High Color";
+"Keyboard Color Skin" = "Keyboard Color Skin";
+"Add Color" = "Add Color";
+
+
+//样式
+"Select Style" = "Select Style";
+
+"Button Color" = "Button Color";
+"Button Alpha" = "Button Alpha";
+"Button CornerRadius" = "Button CornerRadius";
+"Button Border" = "Button Border";
+"Font Color" = "Font Color";
+"Font Name" = "Font Type";
+
+
+"Normal Color" = "Normal";
+"High Color" = "HighLight";

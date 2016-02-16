@@ -18,8 +18,12 @@
 	<integer>1</integer>
 	<key>btn.space.verticel</key>
 	<integer>1</integer>
+	<key>font.color</key>
+	<string>240,208,164</string>
 	<key>btn.content.color</key>
 	<string>240,208,164</string>
+	<key>btn.content.Opacity</key>
+	<integer>0</integer>
 	<key>btn.content.highlightColor</key>
 	<string>255,255,255</string>
 	<key>btn.content.highlightOpacity</key>

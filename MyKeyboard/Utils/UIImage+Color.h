@@ -18,6 +18,11 @@
 //根据颜色与矩形区生成一张图片
 + (UIImage *)imageFromColor:(UIColor *)color withRect:(CGRect)rect;
 
+//根据View获得一张图片
++ (UIImage *)imageWithView:(UIView *)view;
+
+//把字符串依据指定的字体属性及大小转换成图片
++ (UIImage *)imageFromString:(NSString *)string attributes:(NSDictionary *)attributes size:(CGSize)size;
 
 @end
 

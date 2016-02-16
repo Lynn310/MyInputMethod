@@ -51,7 +51,7 @@
     _upBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _downBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_upBtn setTitle:NSLocalizedString(@"Select Skin", nil) forState:UIControlStateNormal];
-    [_downBtn setTitle:NSLocalizedString(@"Select Color", nil) forState:UIControlStateNormal];
+    [_downBtn setTitle:NSLocalizedString(@"Select Style", nil) forState:UIControlStateNormal];
     [_upBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
     [_upBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateSelected];
     [_downBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
