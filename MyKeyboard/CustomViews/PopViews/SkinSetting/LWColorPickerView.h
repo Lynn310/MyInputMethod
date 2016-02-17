@@ -20,6 +20,10 @@
 @property (nonatomic) IBOutlet UIView *colorPatch;
 @property (nonatomic) IBOutlet UILabel *rgbLabel;
 
+@property(nonatomic, copy) void (^addColorBlock)(UIColor *);
+
+@property(nonatomic, copy) void (^updateColorBlock)(UIColor *);
+
 - (IBAction)okAction:(UIButton *)sender;
 - (IBAction)circleSwitchAction:(UISwitch *)sender;
 

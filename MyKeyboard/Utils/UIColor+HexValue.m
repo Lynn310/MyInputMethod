@@ -108,6 +108,36 @@
 
 }
 
+//从UIColor得到RGBA字符串
++(NSString *)rgbaStringFromUIColor:(UIColor *)color {
+
+    if (!color) {
+        return nil;
+    }
+
+    if (color == [UIColor whiteColor]) {
+        // Special case, as white doesn't fall into the RGB color space
+        return @"ffffff";
+    }
+
+    CGFloat red;
+    CGFloat blue;
+    CGFloat green;
+    CGFloat alpha;
+
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+
+    int redDec = (int)(red * 255);
+    int greenDec = (int)(green * 255);
+    int blueDec = (int)(blue * 255);
+    int alphaDec = (int)(alpha * 255);
+
+    NSString *returnString = [NSString stringWithFormat:@"%d,%d,%d,%d", (unsigned int)redDec, (unsigned int)greenDec, (unsigned int)blueDec,(unsigned int)alphaDec];
+
+    return returnString;
+
+}
+
 + (UIColor *)colorWithHex:(uint)hex alpha:(CGFloat)alpha {
     int red, green, blue;
 

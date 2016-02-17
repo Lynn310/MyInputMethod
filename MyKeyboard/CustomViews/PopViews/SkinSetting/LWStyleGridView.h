@@ -19,4 +19,7 @@
 @property(nonatomic, strong) NSArray<NSNumber *> *btnBorderShadow;
 @property(nonatomic, strong) UIColor *fontColor;
 @property(nonatomic, strong) NSArray<NSString *> *fontNames;
+
+@property(nonatomic, strong) LWColorPickerView *colorPickerView;
+
 @end

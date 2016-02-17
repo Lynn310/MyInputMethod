@@ -12,7 +12,9 @@
 
 
 //皮肤选择面板
-@implementation LWSkinGridView
+@implementation LWSkinGridView {
+    UILongPressGestureRecognizer *_longPressGestureRecognizer;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithFrame:frame collectionViewLayout:layout];
@@ -32,37 +34,26 @@
         [self registerClass:[LWGridViewCell class] forCellWithReuseIdentifier:SkinCell];
         [self registerClass:[LWGridHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];
     }
-    
+
+    //给CollectionView添加长按手势
+    [self addLongPressGestureRecognizers];
+
     return self;
 }
 
+- (void)dealloc {
+    [self removeLongPressGestureRecognizers];
+}
 
 //加载皮肤源数据
 - (void)reloadData {
     [super reloadData];
 
     //读取图片皮肤数据
-    NSArray *skinArr = [[NSUserDefaults standardUserDefaults] arrayForKey:Key_User_Skins];
-    if (skinArr == nil) {
-        _skins = Default_Skins.mutableCopy;
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:skinArr forKey:Key_User_Skins];
-        [userDefaults synchronize];
-    } else {
-        _skins = skinArr.mutableCopy;
-    }
-
+    _skins = [LWThemeManager getArrByKey:Key_User_Skins withDefaultArr:Default_Skins];
     //读取颜色皮肤数据
-    NSArray *colorArr = [[NSUserDefaults standardUserDefaults] arrayForKey:Key_User_Colors];
-    if (colorArr == nil) {
-        _colors = Default_Colors.mutableCopy;
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:colorArr forKey:Key_User_Colors];
-        [userDefaults synchronize];
-    } else {
-        _colors = colorArr.mutableCopy;
+    _colors = [LWThemeManager getArrByKey:Key_User_Colors withDefaultArr:Default_Colors];
 
-    }
 }
 
 #pragma mark UICollectionDataSource Implementation
@@ -79,7 +70,7 @@
             return _skins.count + 1;
             break;
         }
-        //选择颜色
+            //选择颜色
         case 1: {
             return _colors.count + 1;
             break;
@@ -96,20 +87,29 @@
     LWGridViewCell *cell = (LWGridViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:SkinCell forIndexPath:indexPath];
 
     switch (indexPath.section) {
-            //图片皮肤
+        //图片皮肤
         case 0: {
             [self setupImageSkinCell:cell WithIndexPath:indexPath];
+            if (indexPath.item == _skins.count || cell.undeleteable) {
+                cell.editing = NO;
+            } else {
+                cell.editing = self.editing;
+            }
             break;
         }
             //颜色皮肤
         case 1: {
             [self setupColorSkinCell:cell WithIndexPath:indexPath];
+            if (indexPath.item == _colors.count || cell.undeleteable) {
+                cell.editing = NO;
+            } else {
+                cell.editing = self.editing;
+            }
             break;
         }
         default:
             break;
     }
-
 
     [cell updateLabelTextSize];
     cell.delegate = self;
@@ -118,15 +118,15 @@
 }
 
 //设置CollectionView的header,footer
-- (LWGridHeader *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    if (kind == UICollectionElementKindSectionHeader){
-        LWGridHeader *header = (LWGridHeader *)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Header" forIndexPath:indexPath];
-        switch (indexPath.section){
-            case 0:{
+- (LWGridHeader *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if (kind == UICollectionElementKindSectionHeader) {
+        LWGridHeader *header = (LWGridHeader *) [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Header" forIndexPath:indexPath];
+        switch (indexPath.section) {
+            case 0: {
                 header.titleLbl.text = NSLocalizedString(@"Keyboard Imamge Skin", nil);
                 break;
             }
-            case 1:{
+            case 1: {
                 header.titleLbl.text = NSLocalizedString(@"Keyboard Color Skin", nil);
                 break;
             }
@@ -229,15 +229,28 @@
         case 1: {
             //添加颜色
             if (_colors.count == indexPath.item) {
-                if(_colorPickerView){
+                if (_colorPickerView) {
                     [_colorPickerView removeFromSuperview];
                     _colorPickerView = nil;
                 }
                 _colorPickerView = (LWColorPickerView *) [[NSBundle mainBundle] loadNibNamed:@"LWColorPickerView" owner:self options:nil][0];
                 [self.superview addSubview:_colorPickerView];
-                _colorPickerView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+                _colorPickerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
                 _colorPickerView.frame = self.frame;
                 [self.superview bringSubviewToFront:_colorPickerView];
+
+                __weak typeof(self) weakSelf = self;
+                _colorPickerView.addColorBlock = ^(UIColor *color) {
+                    [weakSelf.colors addObject:color];
+                    [weakSelf performBatchUpdates:^{
+                        [weakSelf reloadSections:[NSIndexSet indexSetWithIndex:1]];
+                    }                  completion:nil];
+                    [LWThemeManager setArr:weakSelf.colors WithKey:Key_User_Colors];
+
+                    //删除colorPickerView
+                    [weakSelf.colorPickerView removeFromSuperview];
+                    weakSelf.colorPickerView = nil;
+                };
 
             } else {
                 //todo:选择颜色
@@ -255,11 +268,128 @@
 
 #pragma mark - LWSkinGridCellDelegate Implementation
 
-//删除一个皮肤宫格
+//删除一个宫格
 - (void)deleteButtonClickedInGridViewCell:(LWGridViewCell *)cell {
+    NSIndexPath *indexPath = [self indexPathForCell:cell];
+    __weak typeof(self) weakSelf = self;
+    switch (indexPath.section) {
+        case 0: {
+            [_skins removeObjectAtIndex:(NSUInteger) indexPath.item];
+            [LWThemeManager setArr:_skins WithKey:Key_User_Skins];
+
+            //把删除更新到gridView
+            [self performBatchUpdates:^{
+                [weakSelf deleteItemsAtIndexPaths:@[indexPath]];
+            }              completion:nil];
+            break;
+        }
+        case 1: {
+            [_colors removeObjectAtIndex:(NSUInteger) indexPath.item];
+            [LWThemeManager setArr:_colors WithKey:Key_User_Colors];
+
+            //把删除更新到gridView
+            [self performBatchUpdates:^{
+                [weakSelf deleteItemsAtIndexPaths:@[indexPath]];
+            }              completion:nil];
+            break;
+        }
+        default:
+            break;
+    }
 
 }
 
+
+#pragma mark - 长按手势处理
+
+//添加longPress手势
+- (void)addLongPressGestureRecognizers {
+    self.userInteractionEnabled = YES;
+    
+    _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognizerTriggerd:)];
+    _longPressGestureRecognizer.cancelsTouchesInView = NO;
+    _longPressGestureRecognizer.minimumPressDuration = 0.8;
+    //_longPressGestureRecognizer.delegate = self;
+    
+    for (UIGestureRecognizer *gestureRecognizer in self.gestureRecognizers) {
+        if ([gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]]) {
+            [gestureRecognizer requireGestureRecognizerToFail:_longPressGestureRecognizer];
+        }
+    }
+    
+    [self addGestureRecognizer:_longPressGestureRecognizer];
+}
+
+//移除longPress手势
+- (void)removeLongPressGestureRecognizers {
+    if (_longPressGestureRecognizer) {
+        if (_longPressGestureRecognizer.view) {
+            [_longPressGestureRecognizer.view removeGestureRecognizer:_longPressGestureRecognizer];
+        }
+        _longPressGestureRecognizer = nil;
+    }
+}
+
+//长按手势响应处理
+- (void)longPressGestureRecognizerTriggerd:(UILongPressGestureRecognizer *)longPress {
+    
+    LWSkinGridView *gridView = (LWSkinGridView *) longPress.view;
+    switch (longPress.state) {
+        case UIGestureRecognizerStateBegan: {
+            //如果不是处于编辑状态，设置成编辑状态
+            if (!self.editing) {
+                self.editing = YES;
+            }
+            
+            //[self.collectionViewLayout invalidateLayout];
+            [self reloadData];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UICollectionViewCell *cell = [self cellForItemAtIndexPath:[self indexPathForItemAtPoint:point]];
+    if (self.editing && !cell) {
+        self.editing = NO;
+        [self reloadData];
+    }
+    return [super hitTest:point withEvent:event];
+}
+
+
+//设置编辑状态
+- (void)setEditing:(BOOL)editing {
+    _editing = editing;
+    for (UICollectionViewCell *cell in self.visibleCells) {
+        LWGridViewCell *cell = (LWGridViewCell *) cell;
+        
+        //给cell设置editing状态
+        NSIndexPath *indexPath = [self indexPathForCell:cell];
+        switch (indexPath.section) {
+            case 0: {
+                if (indexPath.item == 1 || cell.undeleteable) {
+                    cell.editing = NO;
+                } else {
+                    cell.editing = editing;
+                }
+                break;
+            }
+            case 1: {
+                if (indexPath.item == 1 || cell.undeleteable) {
+                    cell.editing = NO;
+                } else {
+                    cell.editing = editing;
+                }
+                break;
+            }
+            default:
+                break;
+        }
+    }
+}
 
 @end
 
@@ -306,9 +436,14 @@
     return self;
 }
 
+- (void)setEditing:(BOOL)editing {
+    _deleteButton.hidden = !editing;
+    _editing = editing;
+}
+
 //刷新Cell的TttleLabel的Text大小
 - (void)updateLabelTextSize {
-    if(!self.titleLbl.text || [self.titleLbl.text isEqualToString:@""]){
+    if (!self.titleLbl.text || [self.titleLbl.text isEqualToString:@""]) {
         return;
     }
     //重设titleLbl大小
@@ -343,7 +478,7 @@
 
 
 //宫格Header
-@implementation LWGridHeader{
+@implementation LWGridHeader {
     CALayer *_rightLine;
 }
 
@@ -378,9 +513,9 @@
     [super layoutSubviews];
 
 //    CGRect frame = CGRectMake(0,0,200,Grid_Cell_H/2);
-    CGRect frame = CGRectMake(0,0, self.frame.size.width, self.frame.size.height);
-    _titleLbl.bounds = CGRectMake(0,0,frame.size.height,frame.size.width);
-    _titleLbl.center = CGPointMake(frame.size.width/2,frame.size.height/2);
+    CGRect frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    _titleLbl.bounds = CGRectMake(0, 0, frame.size.height, frame.size.width);
+    _titleLbl.center = CGPointMake(frame.size.width / 2, frame.size.height / 2);
     _titleLbl.transform = CGAffineTransformMakeRotation(-M_PI_2);
 
 //    _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W,0,NarrowLine_W,self.frame.size.height);

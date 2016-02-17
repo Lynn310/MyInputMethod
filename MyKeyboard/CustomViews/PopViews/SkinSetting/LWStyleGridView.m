@@ -7,6 +7,7 @@
 #import "UIResponder+Ext.h"
 #import "LWDefines.h"
 #import "UIImage+Color.h"
+#import "LWColorPickerView.h"
 
 //样式设置
 @implementation LWStyleGridView {
@@ -262,9 +263,105 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     LWGridViewCell *cell = (LWGridViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+    __weak typeof(self) weakSelf = self;
+    
+    switch (indexPath.section) {
+        //按键颜色
+        case 0: {//按键颜色
+            
+            //显示ColorPickerView
+            [self showColorPickerView];
+    
+            //正常色
+            if(indexPath.item == 0){
+                _colorPickerView.updateColorBlock = ^(UIColor *color) {
+                    weakSelf.btnNormalColor = color;
+                    UIColorValueToThemeFileByKey(color,@"btn.content.color");
+        
+//                    //刷新section
+//                    [weakSelf performBatchUpdates:^{
+//                        [weakSelf reloadSections:[NSIndexSet indexSetWithIndex:0]];
+//                    }                  completion:nil];
+                    //todo:刷新UI
+                    [weakSelf reloadData];
+        
+                    //删除colorPickerView
+                    [weakSelf.colorPickerView removeFromSuperview];
+                    weakSelf.colorPickerView = nil;
+                };
+                
+                //高亮色
+            }else if(indexPath.item == 1){
+                _colorPickerView.updateColorBlock = ^(UIColor *color) {
+                    weakSelf.btnHighColor = color;
+                    UIColorValueToThemeFileByKey(color,@"btn.content.highlightColor");
 
-    //todo:选择颜色
+                    //todo:刷新UI
+                    [weakSelf reloadData];
+        
+                    //删除colorPickerView
+                    [weakSelf.colorPickerView removeFromSuperview];
+                    weakSelf.colorPickerView = nil;
+                };
+            }
+            break;
+        }
+            //按键透明度
+        case 1: {
 
+            break;
+        }
+            //按键圆角
+        case 2: {
+
+            break;
+        }
+            //按键边框及阴影
+        case 3: {
+
+            break;
+        }
+            //字体颜色
+        case 4: {
+            //显示ColorPickerView
+            [self showColorPickerView];
+            if(indexPath.item == 0){
+                _colorPickerView.updateColorBlock = ^(UIColor *color) {
+                    weakSelf.fontColor = color;
+                    UIColorValueToThemeFileByKey(color,@"font.color");
+            
+                    //todo:刷新UI
+                    [weakSelf reloadData];
+            
+                    //删除colorPickerView
+                    [weakSelf.colorPickerView removeFromSuperview];
+                    weakSelf.colorPickerView = nil;
+                };
+            }
+            
+            break;
+        }
+            //字体名称
+        case 5: {
+
+            break;
+        }
+        default:
+            break;
+    }
+
+}
+
+- (void)showColorPickerView {
+    if (_colorPickerView) {
+                [_colorPickerView removeFromSuperview];
+                _colorPickerView = nil;
+            }
+    _colorPickerView = (LWColorPickerView *) [[NSBundle mainBundle] loadNibNamed:@"LWColorPickerView" owner:self options:nil][0];
+    [self.superview addSubview:_colorPickerView];
+    _colorPickerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _colorPickerView.frame = self.frame;
+    [self.superview bringSubviewToFront:_colorPickerView];
 }
 
 

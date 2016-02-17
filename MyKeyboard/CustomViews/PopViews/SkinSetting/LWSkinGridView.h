@@ -5,9 +5,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class LWGridViewCell;
-
 @protocol LWGridCellDelegate;
+@class LWGridViewCell;
 @class LWColorPickerView;
 
 //皮肤选择面板(默认,或颜色透明)
@@ -25,13 +24,13 @@
 
 @protocol LWGridCellDelegate <NSObject>
 
-//删除一个皮肤宫格
+//删除一个宫格
 - (void)deleteButtonClickedInGridViewCell:(LWGridViewCell *)cell;
 
 @end
 
 
-//皮肤宫格Cell
+//宫格Cell
 @interface LWGridViewCell : UICollectionViewCell
 
 @property(nonatomic, assign) id <LWGridCellDelegate> delegate;
@@ -41,6 +40,8 @@
 @property(nonatomic, retain) UIImageView *iconImageView;
 @property(nonatomic, strong) UILabel *titleLbl;
 
+
+@property(nonatomic) BOOL undeleteable;
 
 //cell titleLabel的最大大小
 - (CGSize)maxCellTitleSize;

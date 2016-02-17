@@ -22,8 +22,16 @@
 
 
 - (IBAction)okAction:(UIButton *)sender {
-
     [self removeFromSuperview];
+    if(self.addColorBlock){
+        self.addColorBlock(_colorPatch.backgroundColor);
+        self.addColorBlock = nil;
+    }
+    if(self.updateColorBlock){
+        self.updateColorBlock(_colorPatch.backgroundColor);
+        self.updateColorBlock = nil;
+    }
+
 }
 
 - (IBAction)circleSwitchAction:(UISwitch *)circleSwitch {
