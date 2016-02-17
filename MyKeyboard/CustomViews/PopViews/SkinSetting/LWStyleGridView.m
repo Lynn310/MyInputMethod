@@ -129,19 +129,19 @@
         }
             //按键透明度
         case 1: {
-            cell.iconImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Alpha%d", (int) indexPath.row]];
+            cell.iconImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Alpha%d", (int) indexPath.item]];
             cell.titleLbl.text = nil;
             break;
         }
             //按键圆角
         case 2: {
-            cell.iconImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"CornerRadiuse%d", (int) indexPath.row]];
+            cell.iconImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"CornerRadiuse%d", (int) indexPath.item]];
             cell.titleLbl.text = nil;
             break;
         }
             //按键边框及阴影
         case 3: {
-            cell.iconImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BorderShadow%d", (int) indexPath.row]];
+            cell.iconImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BorderShadow%d", (int) indexPath.item]];
             cell.titleLbl.text = nil;
             break;
         }
@@ -156,7 +156,7 @@
             UIColor *bgcolor = [UIColor whiteColor];
             CGFloat scale = [UIScreen mainScreen].scale;
             CGSize cellImgSize = CGSizeMake(Grid_Cell_W * scale, Grid_Cell_W * scale);
-            NSString *fontName = _fontNames[(NSUInteger) indexPath.row];
+            NSString *fontName = _fontNames[(NSUInteger) indexPath.item];
 
             //根据fontText,font以及cellImgSize,确定合适的fontSize,得到合适的文本矩形区attrTextRect
             NSString *fontText = @"Abc";

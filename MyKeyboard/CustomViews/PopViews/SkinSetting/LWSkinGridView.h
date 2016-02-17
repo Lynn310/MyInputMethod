@@ -8,6 +8,7 @@
 @class LWGridViewCell;
 
 @protocol LWGridCellDelegate;
+@class LWColorPickerView;
 
 //皮肤选择面板(默认,或颜色透明)
 @interface LWSkinGridView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate, LWGridCellDelegate>
@@ -17,6 +18,7 @@
 
 @property(nonatomic, assign) BOOL editing;
 
+@property(nonatomic, strong) LWColorPickerView *colorPickerView;
 @end
 
 

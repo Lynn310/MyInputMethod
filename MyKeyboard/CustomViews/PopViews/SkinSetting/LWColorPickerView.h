@@ -12,14 +12,17 @@
 @class RSBrightnessSlider;
 
 
-@interface LWColorPickerView : UIView
+@interface LWColorPickerView : UIView<UIPickerViewDelegate>
 
 @property (nonatomic) IBOutlet RSColorPickerView *colorPicker;
 @property (nonatomic) IBOutlet RSBrightnessSlider *brightnessSlider;
 @property (nonatomic) IBOutlet RSOpacitySlider *opacitySlider;
 @property (nonatomic) IBOutlet UIView *colorPatch;
-@property (nonatomic) IBOutlet UISwitch *circleSwitch;
 @property (nonatomic) IBOutlet UILabel *rgbLabel;
+
+- (IBAction)okAction:(UIButton *)sender;
+- (IBAction)circleSwitchAction:(UISwitch *)sender;
+
 
 @end
 

@@ -8,6 +8,7 @@
 #import "UIButton+Ext.h"
 #import "UIImage+Color.h"
 #import "UIResponder+Ext.h"
+#import "LWColorPickerView.h"
 
 
 //皮肤选择面板
@@ -212,13 +213,42 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     LWGridViewCell *cell = (LWGridViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
 
-    //添加皮肤
-    if (_skins.count == indexPath.item) {
-        [self openURLWithUrl:[NSURL URLWithString:@"MyInputMethod://"]];
-    } else {
-        //todo:选择皮肤
+    switch (indexPath.section) {
+        //图片皮肤
+        case 0: {
+            //添加皮肤
+            if (_skins.count == indexPath.item) {
+                [self openURLWithUrl:[NSURL URLWithString:@"MyInputMethod://"]];
+            } else {
+                //todo:选择皮肤
 
+            }
+            break;
+        }
+            //颜色皮肤
+        case 1: {
+            //添加颜色
+            if (_colors.count == indexPath.item) {
+                if(_colorPickerView){
+                    [_colorPickerView removeFromSuperview];
+                    _colorPickerView = nil;
+                }
+                _colorPickerView = (LWColorPickerView *) [[NSBundle mainBundle] loadNibNamed:@"LWColorPickerView" owner:self options:nil][0];
+                [self.superview addSubview:_colorPickerView];
+                _colorPickerView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+                _colorPickerView.frame = self.frame;
+                [self.superview bringSubviewToFront:_colorPickerView];
+
+            } else {
+                //todo:选择颜色
+
+            }
+            break;
+        }
+        default:
+            break;
     }
+
 
 }
 

@@ -13,9 +13,52 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
-
+    if(_colorPicker && _brightnessSlider && _opacitySlider){
+        _colorPicker.delegate = self;
+        [_brightnessSlider setColorPicker:_colorPicker];
+        [_opacitySlider setColorPicker:_colorPicker];
+    }
 }
 
+
+- (IBAction)okAction:(UIButton *)sender {
+
+    [self removeFromSuperview];
+}
+
+- (IBAction)circleSwitchAction:(UISwitch *)circleSwitch {
+    _colorPicker.cropToCircle = circleSwitch.isOn;
+}
+
+#pragma mark - RSColorPickerView delegate methods
+
+- (void)colorPickerDidChangeSelection:(RSColorPickerView *)cp {
+
+    // Get color data
+    UIColor *color = [cp selectionColor];
+
+    CGFloat r, g, b, a;
+    [[cp selectionColor] getRed:&r green:&g blue:&b alpha:&a];
+
+    // Update important UI
+    _colorPatch.backgroundColor = color;
+    _brightnessSlider.value = [cp brightness];
+    _opacitySlider.value = [cp opacity];
+
+
+    // Debug
+    NSString *colorDesc = [NSString stringWithFormat:@"rgba: %f, %f, %f, %f", r, g, b, a];
+    NSLog(@"%@", colorDesc);
+    int ir = r * 255;
+    int ig = g * 255;
+    int ib = b * 255;
+    int ia = a * 255;
+    colorDesc = [NSString stringWithFormat:@"rgba: %d, %d, %d, %d", ir, ig, ib, ia];
+    NSLog(@"%@", colorDesc);
+    _rgbLabel.text = colorDesc;
+
+    NSLog(@"%@", NSStringFromCGPoint(cp.selection));
+}
 
 @end
 
