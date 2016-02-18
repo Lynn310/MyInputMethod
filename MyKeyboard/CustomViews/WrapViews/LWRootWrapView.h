@@ -8,9 +8,12 @@
 #import "LWDefines.h"
 
 @class LWSettingPopView;
-@class LWOftenWordsPopView;
 @class LWKeyboardSettingPopView;
 @class LWSkinSettingPopView;
+@class LWPhrasePopView;
+@class LWEmoticonPopView;
+@class LWGraphicPopView;
+@class LWEmojiPopView;
 
 @protocol LWRootWrapViewDelegate<NSObject>
 

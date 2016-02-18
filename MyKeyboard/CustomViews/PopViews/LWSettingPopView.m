@@ -65,5 +65,10 @@
 
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+}
+
 
 @end

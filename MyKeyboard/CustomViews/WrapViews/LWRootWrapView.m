@@ -10,13 +10,21 @@
 #import "LWOftenWordsPopView.h"
 #import "LWKeyboardSettingPopView.h"
 #import "LWSkinSettingPopView.h"
+#import "LWPhrasePopView.h"
+#import "LWEmoticonPopView.h"
+#import "LWGraphicPopView.h"
+#import "LWEmojiPopView.h"
 
 
 @interface LWRootWrapView ()
 @property(nonatomic, strong) LWSettingPopView *settingPopView;
-@property(nonatomic, strong) LWOftenWordsPopView *oftenWordsPop;
 @property(nonatomic, strong) LWKeyboardSettingPopView *keyboardSettingPopView;
 @property(nonatomic, strong) LWSkinSettingPopView *skinSettingPopView;
+@property(nonatomic, strong) LWEmojiPopView *emojiPopView;
+@property(nonatomic, strong) LWPhrasePopView *phrasePopView;
+@property(nonatomic, strong) LWEmoticonPopView *emoticonPopView;
+@property(nonatomic, strong) LWGraphicPopView *graphicPopView;
+
 @end
 
 @implementation LWRootWrapView {
@@ -37,10 +45,7 @@
     if (_settingPopView) {
         _settingPopView.frame = CGRectMake(0, TopView_H, self.frame.size.width, self.frame.size.height - TopView_H);
     }
-    if (_oftenWordsPop) {
-        _oftenWordsPop.frame = CGRectMake(0, TopView_H, self.frame.size.width, self.frame.size.height - TopView_H);
-    }
-    
+
 }
 
 /**
@@ -63,7 +68,23 @@
             break;
         };
         case ToolbarBtn_Emoji: {
-
+            _emojiPopView = [[LWEmojiPopView alloc] initWithFrame:commonPopViewFrame];
+            [self addSubview:_emojiPopView];
+            break;
+        };
+        case ToolbarBtn_Phrase: {
+            _phrasePopView = [[LWPhrasePopView alloc] initWithFrame:commonPopViewFrame];
+            [self addSubview:_phrasePopView];
+            break;
+        };
+        case ToolbarBtn_Emoticon: {
+            _emoticonPopView = [[LWEmoticonPopView alloc] initWithFrame:commonPopViewFrame];
+            [self addSubview:_emoticonPopView];
+            break;
+        };
+        case ToolbarBtn_Graphic: {
+            _graphicPopView = [[LWGraphicPopView alloc] initWithFrame:commonPopViewFrame];
+            [self addSubview:_graphicPopView];
             break;
         };
         case ToolbarBtn_SwitchKB: {
@@ -76,11 +97,6 @@
             _skinSettingPopView = (LWSkinSettingPopView *) [[NSBundle mainBundle] loadNibNamed:@"LWSkinSettingPopView" owner:self options:nil][0];
             [self addSubview:_skinSettingPopView];
             _skinSettingPopView.frame = commonPopViewFrame;
-            break;
-        };
-        case ToolbarBtn_OftenWords: {
-            _oftenWordsPop = [[LWOftenWordsPopView alloc] initWithFrame:commonPopViewFrame];
-            [self addSubview:_oftenWordsPop];
             break;
         };
         case KBBtn_Next: {
@@ -100,19 +116,19 @@
 * 移除其他的popView
 */
 - (void)removeAllOtherPopView:(UIButton *)btn {
-    if (_settingPopView) {
-        [_settingPopView removeFromSuperview];
-        _settingPopView = nil;
-        [self.delegate updateToolbarArrow:(UIButton *) btn];
-    }
-    if (_keyboardSettingPopView) {
-        [_keyboardSettingPopView removeFromSuperview];
-        _keyboardSettingPopView = nil;
-        [self.delegate updateToolbarArrow:(UIButton *) btn];
-    }
-    if (_oftenWordsPop) {
-        [_oftenWordsPop removeFromSuperview];
-        _oftenWordsPop = nil;
+    [self removePopView:_settingPopView withBtn:btn];
+    [self removePopView:_keyboardSettingPopView withBtn:btn];
+    [self removePopView:_skinSettingPopView withBtn:btn];
+    [self removePopView:_emojiPopView withBtn:btn];
+    [self removePopView:_phrasePopView withBtn:btn];
+    [self removePopView:_emoticonPopView withBtn:btn];
+    [self removePopView:_graphicPopView withBtn:btn];
+}
+
+- (void)removePopView:(UIView *)popView withBtn:(UIButton *)btn {
+    if (popView) {
+        [popView removeFromSuperview];
+        popView = nil;
         [self.delegate updateToolbarArrow:(UIButton *) btn];
     }
 }
@@ -131,6 +147,18 @@
             
             break;
         };
+        case ToolbarBtn_Phrase: {
+
+            break;
+        };
+        case ToolbarBtn_Emoticon: {
+
+            break;
+        };
+        case ToolbarBtn_Graphic: {
+
+            break;
+        };
         case ToolbarBtn_SwitchKB: {
             [_keyboardSettingPopView removeFromSuperview];
             _keyboardSettingPopView = nil;
@@ -138,11 +166,6 @@
         };
         case ToolbarBtn_Skin: {
 
-            break;
-        };
-        case ToolbarBtn_OftenWords: {
-            [_oftenWordsPop removeFromSuperview];
-            _oftenWordsPop = nil;
             break;
         };
         case KBBtn_Next: {

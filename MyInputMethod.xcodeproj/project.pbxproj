@@ -82,6 +82,11 @@
 		EA56C0C01B42F1740076EC00 /* MyEmojiKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EA56C0B71B42F1740076EC00 /* MyEmojiKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA56C0C81B42F1F00076EC00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA56C0CA1B42F1F00076EC00 /* InfoPlist.strings */; };
 		EA56C0CC1B42F1F60076EC00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA56C0CE1B42F1F60076EC00 /* Localizable.strings */; };
+		EA577DAF1C75939B00FF3249 /* LWEmojiPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA577DAD1C75939B00FF3249 /* LWEmojiPopView.m */; };
+		EA577DB41C75940900FF3249 /* LWPhrasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA577DB21C75940900FF3249 /* LWPhrasePopView.m */; };
+		EA577DB91C75945800FF3249 /* LWEmoticonPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA577DB71C75945800FF3249 /* LWEmoticonPopView.m */; };
+		EA577DBD1C75950C00FF3249 /* LWGraphicPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA577DBC1C75950C00FF3249 /* LWGraphicPopView.m */; };
+		EA577DC01C75ACF500FF3249 /* LWBottomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EA577DBF1C75ACF500FF3249 /* LWBottomNavBar.m */; };
 		EA60605D1B798D2300A9EC45 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = EA60605C1B798D2300A9EC45 /* UIImage+Color.m */; };
 		EA60605E1B798D2300A9EC45 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = EA60605C1B798D2300A9EC45 /* UIImage+Color.m */; };
 		EA78ABD31B842B06008F01BA /* LWKeyboardSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA78ABD21B842B06008F01BA /* LWKeyboardSettingPopView.xib */; };
@@ -269,6 +274,16 @@
 		EA56C0CD1B42F1F60076EC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EA56C0CF1B42F1F70076EC00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EA56C0D01B42F2480076EC00 /* MyEmojiKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyEmojiKeyboard.entitlements; sourceTree = "<group>"; };
+		EA577DAC1C75939B00FF3249 /* LWEmojiPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWEmojiPopView.h; sourceTree = "<group>"; };
+		EA577DAD1C75939B00FF3249 /* LWEmojiPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWEmojiPopView.m; sourceTree = "<group>"; };
+		EA577DB11C75940900FF3249 /* LWPhrasePopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPhrasePopView.h; sourceTree = "<group>"; };
+		EA577DB21C75940900FF3249 /* LWPhrasePopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPhrasePopView.m; sourceTree = "<group>"; };
+		EA577DB61C75945800FF3249 /* LWEmoticonPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWEmoticonPopView.h; sourceTree = "<group>"; };
+		EA577DB71C75945800FF3249 /* LWEmoticonPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWEmoticonPopView.m; sourceTree = "<group>"; };
+		EA577DBB1C75950C00FF3249 /* LWGraphicPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWGraphicPopView.h; sourceTree = "<group>"; };
+		EA577DBC1C75950C00FF3249 /* LWGraphicPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWGraphicPopView.m; sourceTree = "<group>"; };
+		EA577DBE1C75ACF500FF3249 /* LWBottomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBottomNavBar.h; sourceTree = "<group>"; };
+		EA577DBF1C75ACF500FF3249 /* LWBottomNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBottomNavBar.m; sourceTree = "<group>"; };
 		EA60605B1B798D2300A9EC45 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		EA60605C1B798D2300A9EC45 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		EA78ABD21B842B06008F01BA /* LWKeyboardSettingPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWKeyboardSettingPopView.xib; sourceTree = "<group>"; };
@@ -322,6 +337,23 @@
 				0317D937E9F235D9118DF18E /* Pods-MyKeyboard.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BEF06940B7380B41F58A01F8 /* EmojiPop */ = {
+			isa = PBXGroup;
+			children = (
+				EA577DAC1C75939B00FF3249 /* LWEmojiPopView.h */,
+				EA577DAD1C75939B00FF3249 /* LWEmojiPopView.m */,
+				EA577DB11C75940900FF3249 /* LWPhrasePopView.h */,
+				EA577DB21C75940900FF3249 /* LWPhrasePopView.m */,
+				EA577DB61C75945800FF3249 /* LWEmoticonPopView.h */,
+				EA577DB71C75945800FF3249 /* LWEmoticonPopView.m */,
+				EA577DBB1C75950C00FF3249 /* LWGraphicPopView.h */,
+				EA577DBC1C75950C00FF3249 /* LWGraphicPopView.m */,
+				EA577DBE1C75ACF500FF3249 /* LWBottomNavBar.h */,
+				EA577DBF1C75ACF500FF3249 /* LWBottomNavBar.m */,
+			);
+			path = EmojiPop;
 			sourceTree = "<group>";
 		};
 		BEF06B7F63B98F1B23953992 /* DishuTheme */ = {
@@ -395,6 +427,7 @@
 		EA3E236D1B732B5100349A95 /* PopViews */ = {
 			isa = PBXGroup;
 			children = (
+				BEF06940B7380B41F58A01F8 /* EmojiPop */,
 				EA09271D1C1E59A3001C69B1 /* SkinSetting */,
 				EA3E236E1B732B5100349A95 /* LWOftenWordsPopView.h */,
 				EA3E236F1B732B5100349A95 /* LWOftenWordsPopView.m */,
@@ -968,6 +1001,7 @@
 				EA3E23841B732B5100349A95 /* LWToolBar.m in Sources */,
 				EA0927311C1E59A3001C69B1 /* LWRightSettingView.m in Sources */,
 				EA3E23831B732B5100349A95 /* LWPinYinLeftTabView.m in Sources */,
+				EA577DB41C75940900FF3249 /* LWPhrasePopView.m in Sources */,
 				EA3E23851B732B5100349A95 /* LWOftenWordsPopView.m in Sources */,
 				EA2837291C21300D00927753 /* UIResponder+Ext.m in Sources */,
 				EA3E23CA1B732C0300349A95 /* UIColor+HexValue.m in Sources */,
@@ -983,8 +1017,12 @@
 				EA3E23BE1B732C0300349A95 /* LWNumKeyboard.m in Sources */,
 				EA60605E1B798D2300A9EC45 /* UIImage+Color.m in Sources */,
 				BEF062B581AF72A0C7CF56CD /* LWBiHuaKeyboard.m in Sources */,
+				EA577DC01C75ACF500FF3249 /* LWBottomNavBar.m in Sources */,
 				BEF0643CC3CA937BE0736A57 /* LWWuBiFullKeyboard.m in Sources */,
+				EA577DAF1C75939B00FF3249 /* LWEmojiPopView.m in Sources */,
+				EA577DB91C75945800FF3249 /* LWEmoticonPopView.m in Sources */,
 				EAEE59591B833B4600A5969E /* LWThemeManager.m in Sources */,
+				EA577DBD1C75950C00FF3249 /* LWGraphicPopView.m in Sources */,
 				EAF2DC821C732FA700369D4B /* NSString+Ext.m in Sources */,
 				BEF062FCD27ACDBCBC840E5F /* LWKeyboardSettingPopView.m in Sources */,
 				EA0927291C1E59A3001C69B1 /* LWColorPickerView.m in Sources */,

@@ -39,6 +39,12 @@
 @property(nonatomic, weak) IBOutlet UIButton *hideBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *arrow;
 
+//hide button
+@property (weak, nonatomic) IBOutlet UIButton *phraseBtn;
+@property (weak, nonatomic) IBOutlet UIButton *emoticonBtn;
+@property (weak, nonatomic) IBOutlet UIButton *graphicBtn;
+
+
 @property(nonatomic, strong) NSArray *toolBarHorizonConstraints;
 @property(nonatomic, strong) NSArray *toolBarVerticelConstraints;
 
@@ -54,4 +60,8 @@
 - (void)setupToolBarConstraints;
 
 - (void)updateArrow:(UIButton *)button;
+
+//隐藏phraseBtn,显示logoBtn
+-(void)hidePhaseBtnsAndShowLogoBtns;
+
 @end

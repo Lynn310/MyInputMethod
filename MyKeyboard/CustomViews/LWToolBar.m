@@ -45,8 +45,15 @@
     [_skinBtn addTarget:self action:@selector(skinBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
     [_hideBtn addTarget:self action:@selector(hideBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
 
+
+    //hide button
+    [_phraseBtn addTarget:self action:@selector(phraseBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    [_emoticonBtn addTarget:self action:@selector(emoticonBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    [_graphicBtn addTarget:self action:@selector(graphicBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+
     _arrow.hidden = YES;
 }
+
 
 /**
 * 更新subViews的主题
@@ -66,6 +73,13 @@
     [_skinBtn setImage:[[UIImage imageNamed:@"skin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
     [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
     [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+
+    [_phraseBtn setImage:[[UIImage imageNamed:@"phrase"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
+    [_phraseBtn setImage:[[UIImage imageNamed:@"phrase"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [_emoticonBtn setImage:[[UIImage imageNamed:@"emoticon"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
+    [_emoticonBtn setImage:[[UIImage imageNamed:@"emoticon"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [_graphicBtn setImage:[[UIImage imageNamed:@"graphic"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
+    [_graphicBtn setImage:[[UIImage imageNamed:@"graphic"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
 }
 
 - (void)layoutSubviews {
@@ -86,16 +100,51 @@
     [NSLayoutConstraint activateConstraints:_toolBarVerticelConstraints];
 }
 
-//隐藏键盘键被按下
-- (void)hideBtnTouchUpInside:(UIButton *)btn {
-    [self.delegate dismiss];
-}
-
-//打开皮肤设置窗体被按下
-- (void)skinBtnTouchUpInside:(UIButton *)btn {
+//logo设置键被按下
+- (void)logoBtnTouchUpInside:(UIButton *)btn {
     btn.selected = !btn.selected;
     [self updateArrow:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Skin];
+    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Logo];
+}
+
+
+//打开表情浮层被按下
+- (void)emojiBtnTouchUpInside:(UIButton *)btn {
+    btn.selected = !btn.selected;
+    [self updateArrow:btn];
+    [self updateBtnsHiddenStatus:btn];
+    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Emoji];
+
+    //如emoji弹窗打开了,则工具栏显示出其他的表情按键
+    if(btn.selected){
+        //显示phraseBtn,隐藏logoBtn
+        _logoBtn.hidden = _switchkbBtn.hidden = _skinBtn.hidden = YES;
+        _phraseBtn.hidden = _emoticonBtn.hidden = _graphicBtn.hidden = NO;
+    }
+}
+
+//自定义短语键被按下
+- (void)phraseBtnTouchUpInside:(UIButton *)btn {
+    btn.selected = !btn.selected;
+    [self updateArrow:btn];
+    [self updateBtnsHiddenStatus:btn];
+    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Phrase];
+}
+
+//颜文字表情键被按下
+- (void)emoticonBtnTouchUpInside:(UIButton *)btn {
+    btn.selected = !btn.selected;
+    [self updateArrow:btn];
+    [self updateBtnsHiddenStatus:btn];
+    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Emoticon];
+}
+
+//图像表情键被按下
+- (void)graphicBtnTouchUpInside:(UIButton *)btn {
+    btn.selected = !btn.selected;
+    [self updateArrow:btn];
+    [self updateBtnsHiddenStatus:btn];
+    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Graphic];
 }
 
 //切换键盘被按下
@@ -105,19 +154,18 @@
     [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_SwitchKB];
 }
 
-//打开表情浮层被按下
-- (void)emojiBtnTouchUpInside:(UIButton *)btn {
+//打开皮肤设置窗体被按下
+- (void)skinBtnTouchUpInside:(UIButton *)btn {
     btn.selected = !btn.selected;
     [self updateArrow:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Emoji];
+    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Skin];
 }
 
-//logo设置键被按下
-- (void)logoBtnTouchUpInside:(UIButton *)btn {
-    btn.selected = !btn.selected;
-    [self updateArrow:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Logo];
+//隐藏键盘键被按下
+- (void)hideBtnTouchUpInside:(UIButton *)btn {
+    [self.delegate dismiss];
 }
+
 
 /**
 * 更新工具栏小三角
@@ -133,6 +181,14 @@
     if(!_arrow.hidden){
         _arrow.frame = CGRectMake(selectedBtn.frame.origin.x+(selectedBtn.frame.size.width-_arrow.frame.size.width)/2, selectedBtn.frame.size.height-_arrow.frame.size.height+1,
                 _arrow.frame.size.width, _arrow.frame.size.height);
+    }
+}
+
+//隐藏phraseBtn,显示logoBtn
+-(void)updateBtnsHiddenStatus:(UIButton *)btn{
+    if(!btn.selected){
+        _logoBtn.hidden = _switchkbBtn.hidden = _skinBtn.hidden = NO;
+        _phraseBtn.hidden = _emoticonBtn.hidden = _graphicBtn.hidden = YES;
     }
 }
 

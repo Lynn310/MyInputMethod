@@ -55,6 +55,11 @@ typedef NS_OPTIONS(NSUInteger, BtnType) {
     ToolbarBtn_OftenWords = 1 << 5,   //常用语弹窗
     KBBtn_Next = 1 << 6,         //地球键切换键盘弹窗
     KBBtn_FullChar = 1 << 7,     //全键盘字符按键弹窗
+
+    ToolbarBtn_Phrase = 1 << 8,   //工具栏phrase键
+    ToolbarBtn_Emoticon = 1 << 9,   //工具栏emoticon键
+    ToolbarBtn_Graphic = 1 << 10,   //工具栏graphic键
+
 };
 
 //单手模式类型

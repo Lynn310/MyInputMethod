@@ -214,6 +214,7 @@
 
     //单手视图以外区域视图
     _rootWrapView = [[LWRootWrapView alloc] initWithFrame:CGRectMake(0, 0, Screen_W, Input_H)];
+    _rootWrapView.delegate = self;
     [self.inputView addSubview:_rootWrapView];
     CGSize rootWrapSize = _rootWrapView.frame.size;
 
