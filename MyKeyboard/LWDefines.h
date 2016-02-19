@@ -205,4 +205,11 @@ typedef NS_ENUM(NSInteger,BorderShadow){
 //样式宫格重用id
 #define StyleCell @"StyleCell"
 
+//第1个Bottom NavItem的Tag
+#define Tag_First_NavItem 10000
+
+//表情键盘弹窗下的bottomNavItems key
+#define Key_BottomNavItems @"Key_BottomNavItems"
+
+
 #endif

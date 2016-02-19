@@ -14,6 +14,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
     }
 
@@ -23,7 +24,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
 }
 
 @end

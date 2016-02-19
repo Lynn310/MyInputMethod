@@ -15,4 +15,5 @@
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) NSDictionary<NSString *,NSArray<NSString *> *> *phrasesDict;
 @property(nonatomic, strong) LWBottomNavBar *bottomNavBar;
+
 @end

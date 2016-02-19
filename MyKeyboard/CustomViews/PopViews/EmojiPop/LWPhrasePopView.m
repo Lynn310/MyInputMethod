@@ -15,7 +15,25 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+
+
+        self.phrasesDict = @{@"常用":@[@"Hi!", @"你好!", @"吃饭了吗？", @"在干嘛呢？", @"最近怎么样？",
+                @"稍等一下!", @"马上到!", @"我正在开会。", @"不好意思,刚忙去了。"],@"花样语":@[@"~~~~"]};
+
+        NSArray *bottomNavItems = [LWThemeManager getArrByKey:Key_BottomNavItems withDefaultArr:_phrasesDict.allKeys];
+        self.bottomNavBar = [[LWBottomNavBar alloc]initWithFrame:CGRectMake(0, (CGFloat) (frame.size.height-Toolbar_H),frame.size.width,Toolbar_H)
+                                                     andNavItems:bottomNavItems];
+        self.bottomNavBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [self addSubview:self.bottomNavBar];
+
+        __weak typeof(self) weakSelf = self;
+        self.bottomNavBar.bottomNavScrollview.updateTableDatasouce=^(){
+            [weakSelf.tableView reloadData];
+        };
+
+
         self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,frame.size.height-Toolbar_H)
                                                         style:UITableViewStylePlain];
         self.tableView.dataSource = self;
@@ -23,7 +41,7 @@
     
         self.tableView.tableFooterView = [[UIView alloc] init];
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
-        self.tableView.separatorColor = UIColorValueFromThemeKey(@"topView.line.color");
+        self.tableView.separatorColor = UIColorValueFromThemeKey(@"btn.borderColor");
         self.tableView.layoutMargins = UIEdgeInsetsZero;
     
         self.tableView.backgroundColor = [UIColor clearColor];
@@ -33,13 +51,6 @@
         self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.tableView];
     
-        self.phrasesDict = @{@"常用":@[@"Hi!", @"你好!", @"吃饭了吗？", @"在干嘛呢？", @"最近怎么样？",
-                @"稍等一下!", @"马上到!", @"我正在开会。", @"不好意思,刚忙去了。"]};
-
-        self.bottomNavBar = [[LWBottomNavBar alloc]initWithFrame:CGRectMake(0,0,frame.size.width,Toolbar_H)];
-        self.bottomNavBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self addSubview:self.bottomNavBar];
-
     }
 
     return self;
@@ -47,17 +58,19 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+    _bottomNavBar.frame = CGRectMake(0, (CGFloat) (self.frame.size.height-Toolbar_H),self.frame.size.width,Toolbar_H);
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _phrasesDict.count;
+    return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSString *key = _phrasesDict.allKeys[(NSUInteger) section];
+    NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
+    
+    NSString *key = _phrasesDict.allKeys[idx];
     return _phrasesDict[key].count;
 }
 
@@ -81,7 +94,8 @@
     textLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
     textLabel.textColor = UIColorValueFromThemeKey(@"btn.content.color");
 
-    NSString *key = _phrasesDict.allKeys[(NSUInteger) indexPath.section];
+    NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
+    NSString *key = _phrasesDict.allKeys[idx];
     NSString *value = _phrasesDict[key][(NSUInteger) indexPath.item];
     textLabel.text = value;
 
