@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LWEmojiPopView : UIView
+@class LWBottomNavBar;
 
+@interface LWEmojiPopView : UIView<UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property(nonatomic, strong) LWBottomNavBar *bottomNavBar;
+@property(nonatomic, strong) UICollectionView *collectionView;
+
+
+@end
+
+
+
+@interface LWEmojiCell:UICollectionViewCell
+
+
+@property(nonatomic, strong) UIButton *emojiBtn;
 @end

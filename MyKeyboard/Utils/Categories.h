@@ -1,0 +1,16 @@
+//
+//  Categories.h
+//  Categories
+//
+//  Created by luowei on 15/8/11.
+//  Copyright (c) 2015年 luowei. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface NSDictionary(Ini)
+
+//解析Emoji表情ini文件字符串
++(NSDictionary *)dictFromEmojiIni:(NSString *)iniString;
+
+@end

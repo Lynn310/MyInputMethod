@@ -208,8 +208,15 @@ typedef NS_ENUM(NSInteger,BorderShadow){
 //第1个Bottom NavItem的Tag
 #define Tag_First_NavItem 10000
 
+//pageControll的高度
+#define Emoji_Cell_W 40.0
+#define Emoji_Cell_H 40.0
+
 //表情键盘弹窗下的bottomNavItems key
-#define Key_BottomNavItems @"Key_BottomNavItems"
+#define Key_BottomNavPhraseItems @"Key_BottomNavPhraseItems"
+#define Key_BottomNavEmojiItems @"Key_BottomNavEmojiItems"
+#define Key_BottomNavEmoticonItems @"Key_BottomNavEmoticonItems"
+#define Key_BottomNavGraphicItems @"Key_BottomNavGraphicItems"
 
 
 #endif

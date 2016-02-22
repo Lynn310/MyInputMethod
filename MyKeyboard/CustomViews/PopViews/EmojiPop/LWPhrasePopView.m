@@ -22,7 +22,7 @@
         self.phrasesDict = @{@"常用":@[@"Hi!", @"你好!", @"吃饭了吗？", @"在干嘛呢？", @"最近怎么样？",
                 @"稍等一下!", @"马上到!", @"我正在开会。", @"不好意思,刚忙去了。"],@"花样语":@[@"~~~~"]};
 
-        NSArray *bottomNavItems = [LWThemeManager getArrByKey:Key_BottomNavItems withDefaultArr:_phrasesDict.allKeys];
+        NSArray *bottomNavItems = [LWThemeManager getArrByKey:Key_BottomNavPhraseItems withDefaultArr:_phrasesDict.allKeys];
         self.bottomNavBar = [[LWBottomNavBar alloc]initWithFrame:CGRectMake(0, (CGFloat) (frame.size.height-Toolbar_H),frame.size.width,Toolbar_H)
                                                      andNavItems:bottomNavItems];
         self.bottomNavBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
