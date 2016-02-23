@@ -71,7 +71,7 @@
     NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
     
     NSString *key = _phrasesDict.allKeys[idx];
-    return _phrasesDict[key].count;
+    return ((NSDictionary *)_phrasesDict[key]).count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

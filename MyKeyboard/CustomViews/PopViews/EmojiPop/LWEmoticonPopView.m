@@ -15,7 +15,7 @@
 static NSString *const EmoticonCellId = @"EmoticonCell";
 
 @implementation LWEmoticonPopView{
-    NSDictionary<NSString *,NSArray<NSString *> *> *_emoticonDict;
+    NSDictionary *_emoticonDict;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -108,7 +108,7 @@ static NSString *const EmoticonCellId = @"EmoticonCell";
     NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
 
     NSString *key = _emoticonDict.allKeys[idx];
-    return _emoticonDict[key].count;
+    return ((NSDictionary *)_emoticonDict[key]).count;
 }
 
 - (LWEmoticonCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -116,7 +116,7 @@ static NSString *const EmoticonCellId = @"EmoticonCell";
 
     NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
     NSString *key = _emoticonDict.allKeys[idx];
-    NSString *text = _emoticonDict[key][(NSUInteger) indexPath.item];
+    NSString *text = ((NSArray *)_emoticonDict[key])[(NSUInteger) indexPath.item];
 
     [cell setCellBtnWithText:text];
 

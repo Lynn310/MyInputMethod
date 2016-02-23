@@ -12,8 +12,8 @@
 //皮肤选择面板(默认,或颜色透明)
 @interface LWSkinGridView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate, LWGridCellDelegate>
 
-@property(strong, nonatomic) NSMutableArray<NSString *> *skins;
-@property(strong, nonatomic) NSMutableArray<UIColor *> *colors;
+@property(strong, nonatomic) NSMutableArray *skins;
+@property(strong, nonatomic) NSMutableArray *colors;
 
 @property(nonatomic, assign) BOOL editing;
 
