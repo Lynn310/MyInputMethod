@@ -11,7 +11,7 @@
 @implementation NSDictionary(Ini)
 
 //解析Emoji表情ini文件字符串
-+(NSDictionary *)dictFromEmojiIni:(NSString *)iniString{
++(NSDictionary *)dictFromEmoticonIni:(NSString *)iniString{
     NSMutableDictionary *iniDict = @{}.mutableCopy;
     
     NSString *section = nil;

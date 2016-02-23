@@ -85,7 +85,7 @@ static NSString *const EmojiCell = @"EmojiCell";
 - (NSDictionary *)getEmojiDictionary {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"emoji" ofType:@"ini"];
     NSString *emojiIniStr = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSDictionary *iniDict = [NSDictionary dictFromEmojiIni:emojiIniStr];
+    NSDictionary *iniDict = [NSDictionary dictFromEmoticonIni:emojiIniStr];
     return iniDict;
 }
 
@@ -120,10 +120,7 @@ static NSString *const EmojiCell = @"EmojiCell";
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
             NSForegroundColorAttributeName : [UIColor blackColor],
             NSBackgroundColorAttributeName : [UIColor clearColor]};
-    NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
-    CGRect attrTextRect = [attrText boundingRectWithSize:CGSizeMake(attrText.size.width, CGFLOAT_MAX)
-                                          options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
-    UIImage *textImg = [UIImage imageFromString:text attributes:attributes size:attrTextRect.size];
+    UIImage *textImg = [UIImage imageFromString:text attributes:attributes size:[text sizeWithAttributes:attributes]];
 
     [cell.emojiBtn setImage:textImg forState:UIControlStateNormal];
 

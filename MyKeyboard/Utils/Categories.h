@@ -11,6 +11,6 @@
 @interface NSDictionary(Ini)
 
 //解析Emoji表情ini文件字符串
-+(NSDictionary *)dictFromEmojiIni:(NSString *)iniString;
++(NSDictionary *)dictFromEmoticonIni:(NSString *)iniString;
 
 @end
