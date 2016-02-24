@@ -32,3 +32,12 @@
 
 //UICollectionView custom line separators: http://stackoverflow.com/questions/28691408/uicollectionview-custom-line-separators
 
+//分隔线
+@interface LWEmoticonSeparator:UICollectionReusableView
+
+@end
+
+//Layout
+@interface LWCollectionFlowLayout:UICollectionViewFlowLayout
+
+@end
