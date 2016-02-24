@@ -10,7 +10,7 @@
 
 @class LWBottomNavBar;
 
-@interface LWEmoticonPopView : UIView<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface LWEmoticonPopView : UIView<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic, strong) LWBottomNavBar *bottomNavBar;
 @property(nonatomic, strong) UICollectionView *collectionView;
@@ -33,8 +33,9 @@
 //UICollectionView custom line separators: http://stackoverflow.com/questions/28691408/uicollectionview-custom-line-separators
 
 //分隔线
-@interface LWEmoticonSeparator:UICollectionReusableView
-
+@interface LWEmoticonRightSeparator :UICollectionReusableView
+@end
+@interface LWEmoticonBottomSeparator :UICollectionReusableView
 @end
 
 //Layout
