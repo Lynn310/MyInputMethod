@@ -13,7 +13,7 @@
 @interface LWPhrasePopView : UIView<UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
-@property(nonatomic, strong) NSDictionary<NSString *,NSArray<NSString *> *> *phrasesDict;
+@property(nonatomic, strong) NSDictionary *phrasesDict;
 @property(nonatomic, strong) LWBottomNavBar *bottomNavBar;
 
 @end

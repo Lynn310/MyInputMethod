@@ -137,7 +137,7 @@
 
 
 @implementation LWBottomNavScrollView{
-    NSArray<NSString *>* _navItems;
+    NSArray *_navItems;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame andNavItems:(NSArray *)navItems{
@@ -175,7 +175,7 @@
 }
 
 //获得NavItems的宽度
-- (CGFloat)getNavItemsWidth:(NSArray<NSString *> *)navItems {
+- (CGFloat)getNavItemsWidth:(NSArray *)navItems {
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
                                                                        size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")],
             NSForegroundColorAttributeName : UIColorValueFromThemeKey(@"btn.content.color"),

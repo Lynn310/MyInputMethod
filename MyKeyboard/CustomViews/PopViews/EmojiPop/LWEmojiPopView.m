@@ -15,7 +15,7 @@
 static NSString *const EmojiCell = @"EmojiCell";
 
 @implementation LWEmojiPopView{
-    NSDictionary<NSString *,NSArray<NSString *> *> *_emojiDict;
+    NSDictionary *_emojiDict;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -105,7 +105,7 @@ static NSString *const EmojiCell = @"EmojiCell";
     NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
     
     NSString *key = _emojiDict.allKeys[idx];
-    return _emojiDict[key].count;
+    return ((NSDictionary *)_emojiDict[key]).count;
 }
 
 - (LWEmojiCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
