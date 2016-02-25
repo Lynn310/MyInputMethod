@@ -21,9 +21,6 @@
 //获得当前分类下的emoticons
 - (NSArray *)getEmoticons;
 
-//根据indexPath取得text的大小
-- (CGSize)getTextFromIndexPath:(NSUInteger)indexPathItem;
-
 @end
 
 
@@ -47,6 +44,9 @@
 @property(nonatomic, strong) NSArray *emotions;
 
 - (void)reloadData:(NSArray *)dataSource;
+
+//根据indexPath取得text的大小
+- (CGSize)getTextSizeFromItem:(NSUInteger)indexPathItem;
 
 @end
 
