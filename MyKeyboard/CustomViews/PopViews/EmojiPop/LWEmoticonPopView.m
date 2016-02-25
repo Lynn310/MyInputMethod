@@ -272,7 +272,7 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 }
 
 //根据indexPath取得text的大小
-- (CGSize)getTextFromIndexPath:(NSUInteger)indexPathItem {
+- (CGSize)getTextSizeFromItem:(NSUInteger)indexPathItem {
     NSString *text = (NSString *) self.emotions[indexPathItem];
 
     NSString *fontName = StringValueFromThemeKey(@"btn.mainLabel.fontName");
@@ -333,54 +333,50 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 
     //约定1行4个unit
     NSUInteger _unitCounter = 0;
-    CGFloat x=0,y = 0;
-    LWEmoticonCollectionView *collectionView = (LWEmoticonCollectionView *)(self.collectionView);
-    for (NSUInteger i = 0; i < _cellCount; ++i) {
+    //CGFloat x = 0, y = 0;
+    LWEmoticonCollectionView *collectionView = (LWEmoticonCollectionView *) (self.collectionView);
+    NSUInteger i = 0;
+    while (i < _cellCount) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:indexPath];
 
-
-        CGSize textSize = [collectionView getTextFromIndexPath:(NSUInteger) indexPath.item];
-
         CGSize collectionSize = _cllectionBounds.size;
         CGFloat cellSideLenght = (CGFloat) collectionSize.height / 4;
-        CGSize cellSize = CGSizeMake(cellSideLenght, cellSideLenght);
+        CGSize cellSize = CGSizeMake(collectionSize.width / 4, cellSideLenght);
 
-        //小于总宽度，大于总宽度1/2时,设为总宽度
-        if (collectionSize.width > textSize.width && textSize.width > collectionSize.width / 2) {
-            textSize = CGSizeMake(collectionSize.width, cellSize.height);
-            _unitCounter += 4;
+        CGSize textSize = [self getTextUnitSizeFromItem:(NSUInteger) indexPath.item];
 
-            //小于总宽度1/2，大于总宽度1/4时，设为总宽度1/2
-        } else if (collectionSize.width / 2 > textSize.width && textSize.width > collectionSize.width / 4) {
-
-            //如果位置在前两个
-            if (_unitCounter % 4 <= 2) {
-                textSize = CGSizeMake(collectionSize.width / 2, cellSize.height);
-                _unitCounter += 2;
-            } else {
-
-            }
-
-
-            //小于总宽度1/4，设为总宽度1/4
-        } else if (textSize.width < collectionSize.width / 4) {
-            textSize = CGSizeMake(collectionSize.width / 4, cellSize.height);
-            _unitCounter += 1;
-        }
-        cellSize = CGSizeMake(textSize.width, cellSize.height);;
-
-        //~~~~~ 根据位置计算cellSize ~~~~~
-
-
-        attr.frame =  CGRectMake(x,y,cellSize.width,cellSize.height);
-
-        //todo:分页
-        x+=cellSize.width;
-        y+=cellSize.height;
+        CGFloat x = (_unitCounter / 16) * collectionSize.width + (_unitCounter % 4) * cellSize.width;
+        CGFloat y = 0;
+        _unitCounter = _unitCounter + (NSUInteger) ceil(textSize.width/cellSize.width);
 
         [allAttributes addObject:attr];
+
+        i++;
     }
+}
+
+- (CGSize)getTextUnitSizeFromItem:(NSUInteger)item {
+    LWEmoticonCollectionView *collectionView = (LWEmoticonCollectionView *) (self.collectionView);
+    if (item >= collectionView.emotions.count) {
+        return CGSizeMake(0, 0);
+    }
+    CGSize cellSize = CGSizeMake(_cllectionBounds.size.width / 4, _cllectionBounds.size.height / 4);
+
+    CGSize textSize = [collectionView getTextSizeFromItem:item];
+    if (textSize.width > cellSize.width * 4) {
+        textSize = CGSizeMake(cellSize.width * 4, cellSize.height);
+        //小于总宽度，大于总宽度1/2时,设为总宽度
+    } else if (cellSize.width * 4 > textSize.width && textSize.width > cellSize.width * 2) {
+        textSize = CGSizeMake(cellSize.width * 4, cellSize.height);
+        //小于总宽度1/2，大于总宽度1/4时，设为总宽度1/2
+    } else if (cellSize.width * 2 > textSize.width && textSize.width > cellSize.width) {
+        textSize = CGSizeMake(cellSize.width * 2, cellSize.height);
+        //小于总宽度1/4，设为总宽度1/4
+    } else if (textSize.width < cellSize.width) {
+        textSize = CGSizeMake(cellSize.width, cellSize.height);
+    }
+    return textSize;
 }
 
 
