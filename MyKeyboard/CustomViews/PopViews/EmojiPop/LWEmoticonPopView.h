@@ -9,12 +9,20 @@
 #import <UIKit/UIKit.h>
 
 @class LWBottomNavBar;
+@class LWEmoticonCollectionView;
 
-@interface LWEmoticonPopView : UIView<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface LWEmoticonPopView : UIView<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>{
+
+}
 
 @property(nonatomic, strong) LWBottomNavBar *bottomNavBar;
-@property(nonatomic, strong) UICollectionView *collectionView;
+@property(nonatomic, strong) LWEmoticonCollectionView *collectionView;
 
+//获得当前分类下的emoticons
+- (NSArray *)getEmoticons;
+
+//根据indexPath取得text的大小
+- (CGSize)getTextFromIndexPath:(NSUInteger)indexPathItem;
 
 @end
 
@@ -29,13 +37,17 @@
 
 @end
 
-
+//分隔线
 //UICollectionView custom line separators: http://stackoverflow.com/questions/28691408/uicollectionview-custom-line-separators
 
-//分隔线
-@interface LWEmoticonRightSeparator :UICollectionReusableView
-@end
-@interface LWEmoticonBottomSeparator :UICollectionReusableView
+
+@interface LWEmoticonCollectionView:UICollectionView{
+}
+
+@property(nonatomic, strong) NSArray *emotions;
+
+- (void)reloadData:(NSArray *)dataSource;
+
 @end
 
 //Layout
