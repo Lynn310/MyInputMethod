@@ -91,6 +91,7 @@ static NSString *const EmojiCell = @"EmojiCell";
 
 -(void)reloadCollection{
     _emojiDict = [self getEmojiDictionary];
+    [_collectionView setContentOffset:CGPointMake(0,0) animated:NO];
     [_collectionView reloadData];
 }
 

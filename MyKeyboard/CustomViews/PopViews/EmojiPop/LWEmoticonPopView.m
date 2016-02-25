@@ -19,6 +19,8 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 
 @implementation LWEmoticonPopView {
     NSDictionary *_emoticonDict;
+    //约定1行4个unit
+    NSUInteger _unitCounter;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -39,19 +41,7 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 
 
         //创建layout
-//        LWCollectionFlowLayout *layout = [[LWCollectionFlowLayout alloc] init];
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-
-        //layout.headerReferenceSize = CGSizeMake(0,self.frame.size.height);
-
-        //设置分隔线
-//        [layout registerClass:[LWEmoticonRightSeparator class] forDecorationViewOfKind:EmoticonRightSeparatorId];
-//        [layout registerClass:[LWEmoticonBottomSeparator class] forDecorationViewOfKind:EmoticonBottomSeparatorId];
-//        [layout registerClass:[LWEmoticonCell class] forDecorationViewOfKind:EmoticonCellId];
-        layout.minimumLineSpacing = 0;
-        layout.minimumInteritemSpacing = 0;
+        LWCollectionFlowLayout *layout = [[LWCollectionFlowLayout alloc] init];
 
         //设置cell的大小
         CGFloat cellSideLenght = (CGFloat) ((frame.size.height - Toolbar_H) / 4);
@@ -106,6 +96,8 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 
 - (void)reloadCollection {
     _emoticonDict = [self getEmoticonDictionary];
+    [_collectionView setContentOffset:CGPointMake(0,0) animated:NO];
+    [_collectionView reloadData];
 }
 
 #pragma mark UICollectionDataSource Implementation
@@ -116,8 +108,9 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
+    _unitCounter = 0;
 
+    NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
     NSString *key = _emoticonDict.allKeys[idx];
     NSUInteger numOfItems = ((NSArray *) _emoticonDict[key]).count;
     return numOfItems;
@@ -155,10 +148,49 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    //Cell
+    Log(@"--------%d:%s \n\n", __LINE__, __func__);
+
+    CGSize textSize = [self getTextFromIndexPath:(NSUInteger) indexPath.item];
+
+    CGSize collectionSize = collectionView.frame.size;
+    CGFloat cellSideLenght = (CGFloat) collectionSize.height / 4;
+    CGSize cellSize = CGSizeMake(cellSideLenght, cellSideLenght);
+
+    //小于总宽度，大于总宽度1/2时,设为总宽度
+    if (collectionSize.width > textSize.width && textSize.width > collectionSize.width / 2) {
+        textSize = CGSizeMake(collectionSize.width, cellSize.height);
+        _unitCounter+=4;
+
+        //小于总宽度1/2，大于总宽度1/4时，设为总宽度1/2
+    }else if (collectionSize.width / 2 > textSize.width && textSize.width > collectionSize.width / 4) {
+
+        //如果位置在前两个
+        if(_unitCounter%4 <= 2){
+            textSize = CGSizeMake(collectionSize.width / 2, cellSize.height);
+            _unitCounter+=2;
+        }else{
+
+        }
+
+
+        //小于总宽度1/4，设为总宽度1/4
+    }else if (textSize.width < collectionSize.width / 4) {
+        textSize = CGSizeMake(collectionSize.width / 4, cellSize.height);
+        _unitCounter+=1;
+    }
+    cellSize = CGSizeMake(textSize.width , cellSize.height);;
+
+    //~~~~~ 根据位置计算cellSize ~~~~~
+
+
+    return cellSize;
+}
+
+//根据indexPath取得text的大小
+- (CGSize)getTextFromIndexPath:(NSUInteger)indexPathItem {
     NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
     NSString *key = _emoticonDict.allKeys[idx];
-    NSString *text = (NSString *) ((NSArray *) _emoticonDict[key])[(NSUInteger) indexPath.item];
+    NSString *text = (NSString *) ((NSArray *) _emoticonDict[key])[indexPathItem];
 
     NSString *fontName = StringValueFromThemeKey(@"btn.mainLabel.fontName");
     CGFloat fontSize = FloatValueFromThemeKey(@"btn.mainLabel.fontSize");
@@ -166,34 +198,19 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
             NSForegroundColorAttributeName : [UIColor blackColor],
             NSBackgroundColorAttributeName : [UIColor clearColor]};
 
-    CGSize titleSize = [text sizeWithAttributes:attributes];
-    CGSize collectionSize = collectionView.frame.size;
+    CGSize textSize = [text sizeWithAttributes:attributes];
 
-    CGFloat cellSideLenght = (CGFloat) collectionSize.height / 4;
-    CGSize cellSize = CGSizeMake(cellSideLenght, cellSideLenght);
-
+    //~~~~~ 根据text计算cellSize ~~~~~
     //大于总宽度时，缩小字体
-    while (titleSize.width > collectionSize.width) {
+    CGSize collectionSize = _collectionView.frame.size;
+    while (textSize.width > collectionSize.width) {
         fontSize--;
         attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
                 NSForegroundColorAttributeName : [UIColor blackColor],
                 NSBackgroundColorAttributeName : [UIColor clearColor]};
-        titleSize = [text sizeWithAttributes:attributes];
+        textSize = [text sizeWithAttributes:attributes];
     }
-
-    //小于总宽度，大于总宽度1/2时,设为总宽度
-    if (collectionSize.width > titleSize.width && titleSize.width > collectionSize.width / 2) {
-        titleSize = CGSizeMake(collectionSize.width, cellSize.height);
-
-        //小于总宽度1/2，大于总宽度1/4时，设为总宽度1/2
-    }else if (collectionSize.width / 2 > titleSize.width && titleSize.width > collectionSize.width / 4) {
-        titleSize = CGSizeMake(collectionSize.width / 2, cellSize.height);
-
-        //小于总宽度1/4，设为总宽度1/4
-    }else if (titleSize.width < collectionSize.width / 4) {
-        titleSize = CGSizeMake(collectionSize.width / 4, cellSize.height);
-    }
-    return CGSizeMake(titleSize.width , cellSize.height);;
+    return textSize;
 }
 
 
@@ -211,7 +228,7 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
         _emoticonBtn.layer.borderWidth = 1;
         _emoticonBtn.contentMode = UIViewContentModeCenter;
         _emoticonBtn.imageView.contentMode = UIViewContentModeCenter;
-        _emoticonBtn.titleLabel.hidden = YES;
+        _emoticonBtn.titleLabel.hidden = NO;
         [self addSubview:_emoticonBtn];
     }
 
@@ -230,6 +247,24 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 
     NSString *fontName = StringValueFromThemeKey(@"btn.mainLabel.fontName");
     CGFloat fontSize = FloatValueFromThemeKey(@"btn.mainLabel.fontSize");
+//    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
+//            NSForegroundColorAttributeName : [UIColor blackColor],
+//            NSBackgroundColorAttributeName : [UIColor clearColor]};
+//    CGSize textSize = [text sizeWithAttributes:attributes];
+//
+//    //大于总宽度时，缩小字体
+//    while (textSize.width > _emoticonBtn.frame.size.width) {
+//        fontSize--;
+//        attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
+//                NSForegroundColorAttributeName : [UIColor blackColor],
+//                NSBackgroundColorAttributeName : [UIColor clearColor]};
+//        textSize = [text sizeWithAttributes:attributes];
+//    }
+//    UIImage *textImg = [UIImage imageFromString:text attributes:attributes size:textSize];
+//    [_emoticonBtn setImage:textImg forState:UIControlStateNormal];
+
+
+
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
             NSForegroundColorAttributeName : [UIColor blackColor],
             NSBackgroundColorAttributeName : [UIColor clearColor]};
@@ -238,14 +273,14 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
     //大于总宽度时，缩小字体
     while (textSize.width > _emoticonBtn.frame.size.width) {
         fontSize--;
-        attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize - 1],
+        attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
                 NSForegroundColorAttributeName : [UIColor blackColor],
                 NSBackgroundColorAttributeName : [UIColor clearColor]};
         textSize = [text sizeWithAttributes:attributes];
     }
-    UIImage *textImg = [UIImage imageFromString:text attributes:attributes size:textSize];
 
-    [_emoticonBtn setImage:textImg forState:UIControlStateNormal];
+    _emoticonBtn.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    [_emoticonBtn setTitle:text forState:UIControlStateNormal];
 }
 
 @end
@@ -286,114 +321,82 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 @end
 
 
+//可选方案
+//UICollectionView Horizontal Scroll with Horizontal Alignment:http://stackoverflow.com/questions/25963987/uicollectionview-horizontal-scroll-with-horizontal-alignment
+//UICollectionView horizontal paging : http://stackoverflow.com/questions/16678474/uicollectionview-horizontal-paging-can-i-use-flow-layout
+//RDHCollectionViewGridLayout:https://github.com/rhodgkins/RDHCollectionViewGridLayout
+
 @implementation LWCollectionFlowLayout
 
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-    NSArray *layoutAttributesArray = [super layoutAttributesForElementsInRect:rect];
-
-    CGFloat lineWidth = self.minimumLineSpacing;
-    NSMutableArray *decorationAttributes = [[NSMutableArray alloc] initWithCapacity:layoutAttributesArray.count];
-
-    for (UICollectionViewLayoutAttributes *layoutAttributes in layoutAttributesArray) {
-        //Add separator for every row
-        NSIndexPath *indexPath = layoutAttributes.indexPath;
-        CGRect cellFrame = layoutAttributes.frame;
-
-        //Cell
-        LWEmoticonCell *cell = (LWEmoticonCell *) [self.collectionView cellForItemAtIndexPath:indexPath];
-
-        NSString *fontName = StringValueFromThemeKey(@"btn.mainLabel.fontName");
-        CGFloat fontSize = FloatValueFromThemeKey(@"btn.mainLabel.fontSize");
-        NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
-                NSForegroundColorAttributeName : [UIColor blackColor],
-                NSBackgroundColorAttributeName : [UIColor clearColor]};
-
-        NSString *text = cell.emoticonBtn.titleLabel.text;
-        CGSize titleSize = [text sizeWithAttributes:attributes];
-        CGSize rectSize = self.collectionView.frame.size;
-
-        //大于总宽度时，缩小字体
-        while (titleSize.width > rectSize.width) {
-            attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize - 1],
-                    NSForegroundColorAttributeName : [UIColor blackColor],
-                    NSBackgroundColorAttributeName : [UIColor clearColor]};
-            titleSize = [text sizeWithAttributes:attributes];
-        }
-        //小于总宽度，大于总宽度1/2时,设为总宽度
-        if (rectSize.width > titleSize.width > rectSize.width / 2) {
-            titleSize = CGSizeMake(rectSize.width / 2, rectSize.height);
-        }
-        //小于总宽度1/2，大于总宽度1/4时，设为总宽度1/2
-        if (rectSize.width / 2 > titleSize.width > rectSize.width / 4) {
-            titleSize = CGSizeMake(rectSize.width / 2, rectSize.height);
-        }
-        //小于总宽度1/4，设为总宽度1/4
-        if (titleSize.width < rectSize.width / 4) {
-            titleSize = CGSizeMake(rectSize.width / 4, rectSize.height);
-        }
-        cellFrame.size = titleSize;
-        layoutAttributes.frame = cellFrame;
-        [decorationAttributes addObject:layoutAttributes];
-
-//        //右边线
-//        UICollectionViewLayoutAttributes *rightSeparatorAttributes = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:EmoticonRightSeparatorId withIndexPath:indexPath];
-//        rightSeparatorAttributes.frame = CGRectMake(cellFrame.origin.x + cellFrame.size.width - lineWidth, cellFrame.origin.y, lineWidth, cellFrame.size.height);
-//        [decorationAttributes addObject:rightSeparatorAttributes];
-//
-//        //底边线
-//        UICollectionViewLayoutAttributes *bottomSeparatorAttributes = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:EmoticonBottomSeparatorId withIndexPath:indexPath];
-//        bottomSeparatorAttributes.frame = CGRectMake(cellFrame.origin.x, cellFrame.origin.y+cellFrame.size.height-lineWidth, cellFrame.size.width,lineWidth);
-//        [decorationAttributes addObject:bottomSeparatorAttributes];
-
-
+- (instancetype)init{
+    self = [super init];
+    if(self){
+        self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.minimumLineSpacing = 0;
+        self.minimumInteritemSpacing = 0;
+        self.nbColumns = -1;
+        self.nbLines = -1;
     }
-    return [layoutAttributesArray arrayByAddingObjectsFromArray:decorationAttributes];
+    return self;
 }
 
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger nbColumns = self.nbColumns != -1 ? self.nbColumns : (int)(self.collectionView.frame.size.width / self.itemSize.width);
+    NSInteger nbLines = self.nbLines != -1 ? self.nbLines : (int)(self.collectionView.frame.size.height / self.itemSize.height);
 
-//- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-//    //collect here layout attributes for cells
-//    NSArray *layoutAttributesArray = [super layoutAttributesForElementsInRect:rect];
-//
-//    NSMutableArray *decorationAttributes = [NSMutableArray array];
-//    NSArray *visibleIndexPaths = [self indexPathsOfSeparatorsInRect:rect]; // will implement below
-//
-//    for (NSIndexPath *indexPath in visibleIndexPaths) {
-//        UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForDecorationViewOfKind:EmoticonSeparatorId atIndexPath:indexPath];
-//        [decorationAttributes addObject:attributes];
-//    }
-//
-//    return [layoutAttributesArray arrayByAddingObjectsFromArray:decorationAttributes];
-//}
-//
-//- (NSArray*)indexPathsOfSeparatorsInRect:(CGRect)rect {
-//    NSInteger firstCellIndexToShow = floorf(rect.origin.y / self.itemSize.height);
-//    NSInteger lastCellIndexToShow = floorf((rect.origin.y + CGRectGetHeight(rect)) / self.itemSize.height);
-//    NSInteger countOfItems = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:0];
-//
-//    NSMutableArray* indexPaths = [NSMutableArray new];
-//    for (int i = MAX(firstCellIndexToShow, 0); i <= lastCellIndexToShow; i++) {
-//        if (i < countOfItems) {
-//            [indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-//        }
-//    }
-//    return indexPaths;
-//}
-//
-//- (UICollectionViewLayoutAttributes *)layoutAttributesForDecorationViewOfKind:(NSString *)decorationViewKind atIndexPath:(NSIndexPath *)indexPath {
-//    UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:decorationViewKind withIndexPath:indexPath];
-//    CGFloat decorationOffset = (indexPath.row + 1) * self.itemSize.height + indexPath.row * self.minimumLineSpacing;
-//    layoutAttributes.frame = CGRectMake(0.0, decorationOffset, self.collectionViewContentSize.width, self.minimumLineSpacing);
-//    layoutAttributes.zIndex = 1000;
-//
-//    return layoutAttributes;
-//}
-//
-//- (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingDecorationElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)decorationIndexPath {
-//    UICollectionViewLayoutAttributes *layoutAttributes =  [self layoutAttributesForDecorationViewOfKind:elementKind atIndexPath:decorationIndexPath];
-//    return layoutAttributes;
-//}
-//
+    NSInteger idxPage = (int)indexPath.row/(nbColumns * nbLines);
 
+    NSInteger O = indexPath.row - (idxPage * nbColumns * nbLines);
+
+    NSInteger xD = (int)(O / nbColumns);
+    NSInteger yD = O % nbColumns;
+
+    NSInteger D = xD + yD * nbLines + idxPage * nbColumns * nbLines;
+
+    NSIndexPath *fakeIndexPath = [NSIndexPath indexPathForItem:D inSection:indexPath.section];
+    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:fakeIndexPath];
+
+    // return them to collection view
+    return attributes;
+}
+
+- (NSArray*)layoutAttributesForElementsInRect:(CGRect)rect
+{
+    CGFloat newX = MIN(0, rect.origin.x - rect.size.width/2);
+    CGFloat newWidth = rect.size.width*2 + (rect.origin.x - newX);
+
+    CGRect newRect = CGRectMake(newX, rect.origin.y, newWidth, rect.size.height);
+
+    // Get all the attributes for the elements in the specified frame
+    NSArray *allAttributesInRect = [[NSArray alloc] initWithArray:[super layoutAttributesForElementsInRect:newRect] copyItems:YES];
+
+    for (UICollectionViewLayoutAttributes *attr in allAttributesInRect) {
+        UICollectionViewLayoutAttributes *newAttr = [self layoutAttributesForItemAtIndexPath:attr.indexPath];
+
+        attr.frame = newAttr.frame;
+        attr.center = newAttr.center;
+        attr.bounds = newAttr.bounds;
+        attr.hidden = newAttr.hidden;
+        attr.size = newAttr.size;
+    }
+
+    return allAttributesInRect;
+}
+
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds{
+    return YES;
+}
+
+- (CGSize)collectionViewContentSize{
+    CGSize size = [super collectionViewContentSize];
+
+    CGFloat collectionViewWidth = self.collectionView.frame.size.width;
+    NSInteger nbOfScreens = (int)ceil((size.width / collectionViewWidth));
+
+    CGSize newSize = CGSizeMake((nbOfScreens) * collectionViewWidth, size.height);
+
+    return newSize;
+}
 
 @end

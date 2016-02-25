@@ -41,4 +41,7 @@
 //Layout
 @interface LWCollectionFlowLayout:UICollectionViewFlowLayout
 
+@property (nonatomic) NSInteger nbColumns;
+@property (nonatomic) NSInteger nbLines;
+
 @end
