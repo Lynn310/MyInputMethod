@@ -25,9 +25,15 @@
 #import "LWTopView.h"
 #import "LWLeftTabView.h"
 #import "LWRootWrapView.h"
+#import "LWKeyKBBtn.h"
+#import "LWFullCharBtn.h"
+#import "LWNumCharBtn.h"
+#import "LWNineCharBtn.h"
+#import "LWBottomNavBar.h"
 
 
-@interface MyKeyboardViewController ()<LWRootWrapViewDelegate,LWBaseKeyboardDelegate, LWToolbarDelegate, LWLeftTabViewDelegate>
+@interface MyKeyboardViewController ()<LWRootWrapViewDelegate,LWBaseKeyboardDelegate,
+        LWToolbarDelegate, LWLeftTabViewDelegate,LWInputPopViewDelegate>
 
 //单手之外区域
 @property(nonatomic, strong) LWRootWrapView *rootWrapView;
@@ -329,7 +335,6 @@
     }
 }
 
-
 /**
 * 切换输入法
 */
@@ -404,6 +409,31 @@
 */
 - (void)kbBtnTouchDown:(LWBaseKBBtn *)btn {
 
+    //如果是删除键
+    if ([btn isKindOfClass:[LWDeleteBtn class]]) {
+
+        [self deleteACharacter];
+        //如果是空格键
+    } else if (![btn isKindOfClass:[LWSpaceFullCharBtn class]]
+            && ![btn isKindOfClass:[LWSpaceNineCharBtn class]]
+            && ![btn isKindOfClass:[LWSpaceNumCharBtn class]]) {
+
+    }
+
+
+    if (![btn isKindOfClass:[LWSpaceFullCharBtn class]] && [btn isKindOfClass:[LWFullCharBtn class]]) {
+
+        NSString *text = ((LWFullCharBtn *) btn).mainLabel.text;
+        if (!text) {
+            return;
+        }
+        //显示预览小窗
+    }
+}
+
+//删除1个字符
+- (void)deleteACharacter {
+    [self.textDocumentProxy deleteBackward];
 }
 
 /**
@@ -417,8 +447,114 @@
 * 按键按下
 */
 - (void)kbBtnTouchUpInside:(LWBaseKBBtn *)btn {
+    //删除预览小窗
+
+    //逗句号键
+    if ([btn isKindOfClass:[LWCommaCharBtn class]]) {
+        //逗句号键
+
+        return;
+    }
+
+    //格式键
+    if ([btn isKindOfClass:[LWSpaceNumCharBtn class]]
+            || [btn isKindOfClass:[LWSpaceFullCharBtn class]]
+            || [btn isKindOfClass:[LWSpaceNineCharBtn class]]
+            ) {
+        //停掉空格长按定时器
+    }
+
+    //依据不同键盘类型进行分支处理
+    KeyboardType kbType = [LWKeyboardConfig currentKeyboardType];
+    switch (kbType){
+        case Keyboard_PingYingFull: {
+            if ([btn isKindOfClass:[LWSpaceFullCharBtn class]]) {
+
+                return;
+            }
+            if ([btn isKindOfClass:[LWBackBtn class]]) {
+                return;
+            }
+            [self characterButtonTouchUpInside:(LWFullCharBtn *)btn keyboardType:kbType];
+            break;
+        };
+        case Keyboard_PingYingNine: {
+            if ([btn isKindOfClass:[LWSpaceNineCharBtn class]]) {
+
+                return;
+            }
+            if ([btn isKindOfClass:[LWBackBtn class]]) {
+                return;
+            }
+            [self characterButtonTouchUpInside:(LWNineCharBtn *) btn keyboardType:kbType];
+
+            //把重输按钮文字改成”重输“
+            break;
+        };
+        case Keyboard_ENFull:
+        case Keyboard_SymbolFull: {
+            NSString *text = ((LWFullCharBtn *) btn).mainLabel.text;
+            if ([btn isKindOfClass:[LWSpaceFullCharBtn class]]) {
+                text = @" ";
+            }
+
+            [self insertText:text];
+            break;
+        };
+        case Keyboard_SymbolCollection:{
+            break;
+        }
+        case Keyboard_NumNine: {
+            NSString *text = ((LWNumCharBtn *) btn).mainLabel.text;
+            if ([btn isKindOfClass:[LWSpaceNumCharBtn class]]) {
+                text = @" ";
+            }
+            [self insertText:text];
+
+            break;
+        };
+        default: {
+            break;
+        };
+    }
 
 }
+
+/*
+ 中文全键盘按键和九宫格键盘按键点击
+ */
+- (void)characterButtonTouchUpInside:(LWCharKBBtn *)button keyboardType:(KeyboardType)type {
+    NSString *title = nil;
+    if ([button isKindOfClass:[LWNineCharBtn class]]) {
+        title = ((LWNineCharBtn *) button).mainLabel.text;
+    }
+    if ([button isKindOfClass:[LWFullCharBtn class]]) {
+        title = ((LWFullCharBtn *) button).mainLabel.text;
+    }
+    [self insertText:title];
+}
+
+/**
+* 删除键按下
+*/
+- (void)deleteBtnTouchUpInside:(LWKeyKBBtn *)btn {
+
+}
+
+/**
+* shift键按下
+*/
+- (void)shiftBtnTouchUpInside:(LWShiftBtn *)btn {
+
+}
+
+/**
+* 换行键按下
+*/
+- (void)breakLineBtnTouchUpInside:(LWKeyKBBtn *)btn {
+
+}
+
 
 /**
 * 按键Touch取消

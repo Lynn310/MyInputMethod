@@ -214,31 +214,49 @@
 - (void)keyKBBtnTouchUpInside:(LWKeyKBBtn *)keyKBBtn {
 
     //分条件处理不同的功能键
+    //地球键按下
     if([keyKBBtn isMemberOfClass:[LWNextBtn class]]){
         [self.delegate switchInputMethod];
     }
+    //切换到英文键盘
     if([keyKBBtn isMemberOfClass:[LWZhEnBtn class]]){
         //先把当前键盘类型保存到lastKeyboardType
         [LWKeyboardConfig setLastZhKeyboardType:[LWKeyboardConfig currentKeyboardType]];
         //再切换到英文键盘
         [self.delegate swithcKeyboard:Keyboard_ENFull];
     }
+    //切换到中文键盘
     if([keyKBBtn isMemberOfClass:[LWEnZhBtn class]]){
         //先把当前键盘类型保存到lastKeyboardType
         KeyboardType type = [LWKeyboardConfig lastZhKeyboardType];
         //再切换到英文键盘
         [self.delegate swithcKeyboard:type];
     }
-
+    //返回键按下
     if([keyKBBtn isMemberOfClass:[LWBackBtn class]]){
         KeyboardType type = [LWKeyboardConfig lastKeyboardType];
         [self.delegate swithcKeyboard:type];
     }
+    //切换到数字键盘
     if([keyKBBtn isMemberOfClass:[LWNumKeyBtn class]]){
         [LWKeyboardConfig setLastKeyboardType:[LWKeyboardConfig currentKeyboardType]];
         [self.delegate swithcKeyboard:Keyboard_NumNine];
     }
-
+    //删除键按下
+    if ([keyKBBtn isKindOfClass:[LWDeleteBtn class]]) {
+        [self.delegate deleteBtnTouchUpInside:keyKBBtn];
+        return;
+    }
+    //shift键按下
+    if ([keyKBBtn isKindOfClass:[LWShiftBtn class]]) {
+        [self.delegate shiftBtnTouchUpInside:(LWShiftBtn *) keyKBBtn];
+        return;
+    }
+    //换行键按下
+    if ([keyKBBtn isKindOfClass:[LWBreaklineBtn class]]) {
+        [self.delegate breakLineBtnTouchUpInside:keyKBBtn];
+        return;
+    }
     else{
         [self.delegate kbBtnTouchUpInside:keyKBBtn];
     }

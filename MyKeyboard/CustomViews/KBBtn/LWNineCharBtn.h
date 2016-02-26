@@ -45,4 +45,5 @@
 
 @end
 
-
+@interface LWSpaceNineCharBtn :LWNineCharBtn
+@end

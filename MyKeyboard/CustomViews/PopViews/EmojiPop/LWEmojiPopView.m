@@ -99,7 +99,7 @@ static NSString *const EmojiCell = @"EmojiCell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     //两个section,一个选择颜色,一个选择图片
-    return _emojiDict.allKeys.count;
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

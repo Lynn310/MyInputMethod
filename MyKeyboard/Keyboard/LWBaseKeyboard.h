@@ -12,6 +12,8 @@
 @class LWCharKBBtn;
 @class LWKeyKBBtn;
 @class LWBaseKBBtn;
+@class LWShiftBtn;
+@class LWShiftBtn;
 
 
 @protocol LWBaseKeyboardDelegate <NSObject>
@@ -40,6 +42,21 @@
 * 按键按下
 */
 - (void)kbBtnTouchUpInside:(LWBaseKBBtn *)btn;
+
+/**
+* 删除键按下
+*/
+- (void)deleteBtnTouchUpInside:(LWKeyKBBtn *)btn;
+
+/**
+* shift键按下
+*/
+- (void)shiftBtnTouchUpInside:(LWShiftBtn *)btn;
+
+/**
+* 换行键按下
+*/
+- (void)breakLineBtnTouchUpInside:(LWKeyKBBtn *)btn;
 
 /**
 * 按键Touch取消

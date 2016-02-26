@@ -36,3 +36,19 @@
 
 
 @end
+
+
+@interface UIView (FindUIViewController)
+
+- (UIViewController *)responderViewController {
+    UIResponder *responder = self;
+    while (![responder isKindOfClass:[UIViewController class]]) {
+        responder = [responder nextResponder];
+        if (nil == responder) {
+            break;
+        }
+    }
+    return (UIViewController *)responder;
+}
+
+@end

@@ -14,3 +14,10 @@
 +(NSDictionary *)dictFromEmoticonIni:(NSString *)iniString;
 
 @end
+
+@interface UIView (FindUIViewController)
+
+//获得一个View的响应ViewController
+- (UIViewController *)responderViewController;
+
+@end

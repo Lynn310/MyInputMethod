@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class LWBottomNavBar;
+@protocol LWInputPopViewDelegate;
 
 @interface LWPhrasePopView : UIView<UITableViewDataSource, UITableViewDelegate>
+
+@property(nonatomic, assign) id<LWInputPopViewDelegate> delegate;
 
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) NSDictionary *phrasesDict;

@@ -121,6 +121,9 @@
     }
 
     //todo:插入字符串上屏
+    if ([self.delegate respondsToSelector:@selector(insertText:)]) {
+        [self.delegate insertText:text];
+    }
 
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 

@@ -94,3 +94,6 @@
 @implementation LWNumSymbolCharBtn
 
 @end
+
+@implementation LWSpaceNumCharBtn
+@end

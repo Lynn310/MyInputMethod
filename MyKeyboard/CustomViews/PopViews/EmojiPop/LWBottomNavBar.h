@@ -10,6 +10,14 @@
 
 @class LWBottomNavScrollView;
 
+
+@protocol LWInputPopViewDelegate<NSObject>
+
+//上屏插入字符
+- (void)insertText:(NSString *)text;
+
+@end
+
 @interface LWBottomNavBar : UIView {
 }
 

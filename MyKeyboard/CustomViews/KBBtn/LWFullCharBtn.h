@@ -41,3 +41,11 @@
 -(NSString *)topText;
 
 @end
+
+
+@interface LWCommaCharBtn : LWFullCharBtn
+
+@end
+
+@interface LWSpaceFullCharBtn : LWFullCharBtn
+@end

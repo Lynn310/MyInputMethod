@@ -37,3 +37,7 @@
 @interface LWNumSymbolCharBtn : LWNumCharBtn
 
 @end
+
+
+@interface LWSpaceNumCharBtn : LWNumCharBtn
+@end
