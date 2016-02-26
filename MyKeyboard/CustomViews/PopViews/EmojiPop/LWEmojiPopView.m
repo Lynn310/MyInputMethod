@@ -11,6 +11,7 @@
 #import "LWBottomNavBar.h"
 #import "Categories.h"
 #import "UIImage+Color.h"
+#import "MyKeyboardViewController.h"
 
 static NSString *const EmojiCell = @"EmojiCell";
 
@@ -140,8 +141,15 @@ static NSString *const EmojiCell = @"EmojiCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    LWEmojiCell *cell = (LWEmojiCell *) [collectionView cellForItemAtIndexPath:indexPath];
+//    LWEmojiCell *cell = (LWEmojiCell *) [collectionView cellForItemAtIndexPath:indexPath];
 
+    NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
+    NSString *key = _emojiDict.allKeys[idx];
+    NSString *text = _emojiDict[key][(NSUInteger) indexPath.item];
+    MyKeyboardViewController *kbVC = [self responderKBViewController];
+    if(kbVC){
+        [kbVC insertText:text];
+    }
 }
 
 
@@ -155,6 +163,7 @@ static NSString *const EmojiCell = @"EmojiCell";
     if (self) {
         _emojiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _emojiBtn.frame = CGRectMake(0,0,frame.size.width,frame.size.height);
+        _emojiBtn.userInteractionEnabled = NO;
         [self addSubview:_emojiBtn];
     }
     

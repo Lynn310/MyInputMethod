@@ -9,6 +9,8 @@
 #import "LWPhrasePopView.h"
 #import "LWDefines.h"
 #import "LWBottomNavBar.h"
+#import "Categories.h"
+#import "MyKeyboardViewController.h"
 
 @implementation LWPhrasePopView
 
@@ -120,9 +122,9 @@
         text = textLabel.text;
     }
 
-    //todo:插入字符串上屏
-    if ([self.delegate respondsToSelector:@selector(insertText:)]) {
-        [self.delegate insertText:text];
+    MyKeyboardViewController *kbVC = [self responderKBViewController];
+    if(kbVC){
+        [kbVC insertText:text];
     }
 
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

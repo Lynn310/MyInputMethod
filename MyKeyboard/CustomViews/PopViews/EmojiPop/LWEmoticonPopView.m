@@ -11,6 +11,7 @@
 #import "LWBottomNavBar.h"
 #import "Categories.h"
 #import "UIImage+Color.h"
+#import "MyKeyboardViewController.h"
 
 static NSString *const EmoticonCellId = @"EmoticonCellId";
 
@@ -148,6 +149,12 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     LWEmoticonCell *cell = (LWEmoticonCell *) [collectionView cellForItemAtIndexPath:indexPath];
 
+    NSArray *emoticons = [self getEmoticons];
+    NSString *text = (NSString *) emoticons[(NSUInteger) indexPath.item];
+    MyKeyboardViewController *kbVC = [self responderKBViewController];
+    if(kbVC){
+        [kbVC insertText:text];
+    }
 }
 
 /*
@@ -208,6 +215,7 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
         _emoticonBtn.contentMode = UIViewContentModeCenter;
         _emoticonBtn.imageView.contentMode = UIViewContentModeCenter;
         _emoticonBtn.titleLabel.hidden = NO;
+        _emoticonBtn.userInteractionEnabled = NO;
         [self addSubview:_emoticonBtn];
     }
 

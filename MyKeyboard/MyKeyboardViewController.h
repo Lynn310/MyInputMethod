@@ -15,4 +15,6 @@
 
 @interface MyKeyboardViewController : UIInputViewController
 
+- (void)insertText:(NSString *)text;
+
 @end

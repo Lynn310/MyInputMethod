@@ -33,7 +33,7 @@
 
 
 @interface MyKeyboardViewController ()<LWRootWrapViewDelegate,LWBaseKeyboardDelegate,
-        LWToolbarDelegate, LWLeftTabViewDelegate,LWInputPopViewDelegate>
+        LWToolbarDelegate, LWLeftTabViewDelegate>
 
 //单手之外区域
 @property(nonatomic, strong) LWRootWrapView *rootWrapView;

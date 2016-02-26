@@ -7,6 +7,7 @@
 //
 
 #import "Categories.h"
+#import "MyKeyboardViewController.h"
 
 @implementation NSDictionary(Ini)
 
@@ -38,7 +39,7 @@
 @end
 
 
-@interface UIView (FindUIViewController)
+@implementation UIView (FindUIViewController)
 
 - (UIViewController *)responderViewController {
     UIResponder *responder = self;
@@ -49,6 +50,18 @@
         }
     }
     return (UIViewController *)responder;
+}
+
+
+- (MyKeyboardViewController *)responderKBViewController {
+    UIResponder *responder = self;
+    while (![responder isKindOfClass:[MyKeyboardViewController class]]) {
+        responder = [responder nextResponder];
+        if (nil == responder) {
+            break;
+        }
+    }
+    return (MyKeyboardViewController *)responder;
 }
 
 @end

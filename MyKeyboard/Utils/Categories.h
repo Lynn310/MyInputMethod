@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class MyKeyboardViewController;
+
 @interface NSDictionary(Ini)
 
 //解析Emoji表情ini文件字符串
@@ -19,5 +21,7 @@
 
 //获得一个View的响应ViewController
 - (UIViewController *)responderViewController;
+
+- (MyKeyboardViewController *)responderKBViewController;
 
 @end
