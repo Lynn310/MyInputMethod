@@ -9,28 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "LWDefines.h"
 
-@protocol LWToolbarDelegate <NSObject>
-
-/**
-* 根据类型添加浮窗
-*/
-- (void)toolbarBtnTouchUpInside:(UIView *)button withType:(BtnType)type;
-
-/**
-* 删除浮窗
-*/
-- (void)removePopViewByBtn:(UIView *)btn withType:(BtnType)type;
-
-/**
-* 隐藏键盘
-*/
-- (void)dismiss;
-
-@end
 
 @interface LWToolBar : UIView
 
-@property(nonatomic, weak) id <LWToolbarDelegate> delegate;
 
 @property(nonatomic, weak) IBOutlet UIButton *logoBtn;
 @property(nonatomic, weak) IBOutlet UIButton *emojiBtn;

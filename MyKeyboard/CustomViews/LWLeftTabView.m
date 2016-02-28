@@ -5,6 +5,8 @@
 
 #import "LWLeftTabView.h"
 #import "LWDefines.h"
+#import "Categories.h"
+#import "MyKeyboardViewController.h"
 
 @implementation LWLeftTabView {
     CALayer *_shadowlayer;      //阴影
@@ -130,7 +132,7 @@
         text = textLabel.text;
     }
 
-    [self.delegate insertText:text];
+    [self.responderKBViewController insertText:text];
 
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 

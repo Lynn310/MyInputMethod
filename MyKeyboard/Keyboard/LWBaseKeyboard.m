@@ -12,6 +12,8 @@
 #import "LWBaseKBBtn.h"
 #import "LWKeyboardConfig.h"
 #import "UIImage+Color.h"
+#import "Categories.h"
+#import "MyKeyboardViewController.h"
 
 @implementation LWBaseKeyboard
 
@@ -182,33 +184,33 @@
 #pragma mark CharKBBtn's Touch and Gesture Event
 
 - (void)charKBBtnTouchDown:(LWCharKBBtn *)charKBBtn{
-    [self.delegate kbBtnTouchDown:charKBBtn];
+    [self.responderKBViewController kbBtnTouchDown:charKBBtn];
 }
 
 - (void)charKBBtnTouchRepeat:(LWCharKBBtn *)charKBBtn {
-    [self.delegate kbBtnTouchRepeat:charKBBtn];
+    [self.responderKBViewController kbBtnTouchRepeat:charKBBtn];
 }
 
 - (void)charKBBtnTouchUpInside:(LWCharKBBtn *)charKBBtn {
-    [self.delegate kbBtnTouchUpInside:charKBBtn];
+    [self.responderKBViewController kbBtnTouchUpInside:charKBBtn];
 }
 
 - (void)charKBBtnTouchCancel:(LWCharKBBtn *)charKBBtn {
-    [self.delegate kbBtnTouchCancel:charKBBtn];
+    [self.responderKBViewController kbBtnTouchCancel:charKBBtn];
 }
 
 - (void)charKBBtnSwip:(UISwipeGestureRecognizer *)PanGesture {
-    [self.delegate kbBtnSwipe:PanGesture];
+    [self.responderKBViewController kbBtnSwipe:PanGesture];
 }
 
 - (void)charKBBtnPan:(UIPanGestureRecognizer *)panGesture {
-    [self.delegate kbBtnPan:panGesture];
+    [self.responderKBViewController kbBtnPan:panGesture];
 }
 
 #pragma mark KeyKBBtn's Touch and Gesture Event
 
 - (void)keyKBBtnTouchDown:(LWKeyKBBtn *)keyKBBtn {
-    [self.delegate kbBtnTouchDown:keyKBBtn];
+    [self.responderKBViewController kbBtnTouchDown:keyKBBtn];
 }
 
 - (void)keyKBBtnTouchUpInside:(LWKeyKBBtn *)keyKBBtn {
@@ -216,67 +218,67 @@
     //分条件处理不同的功能键
     //地球键按下
     if([keyKBBtn isMemberOfClass:[LWNextBtn class]]){
-        [self.delegate switchInputMethod];
+        [self.responderKBViewController switchInputMethod];
     }
     //切换到英文键盘
     if([keyKBBtn isMemberOfClass:[LWZhEnBtn class]]){
         //先把当前键盘类型保存到lastKeyboardType
         [LWKeyboardConfig setLastZhKeyboardType:[LWKeyboardConfig currentKeyboardType]];
         //再切换到英文键盘
-        [self.delegate swithcKeyboard:Keyboard_ENFull];
+        [self.responderKBViewController swithcKeyboard:Keyboard_ENFull];
     }
     //切换到中文键盘
     if([keyKBBtn isMemberOfClass:[LWEnZhBtn class]]){
         //先把当前键盘类型保存到lastKeyboardType
         KeyboardType type = [LWKeyboardConfig lastZhKeyboardType];
         //再切换到英文键盘
-        [self.delegate swithcKeyboard:type];
+        [self.responderKBViewController swithcKeyboard:type];
     }
     //返回键按下
     if([keyKBBtn isMemberOfClass:[LWBackBtn class]]){
         KeyboardType type = [LWKeyboardConfig lastKeyboardType];
-        [self.delegate swithcKeyboard:type];
+        [self.responderKBViewController swithcKeyboard:type];
     }
     //切换到数字键盘
     if([keyKBBtn isMemberOfClass:[LWNumKeyBtn class]]){
         [LWKeyboardConfig setLastKeyboardType:[LWKeyboardConfig currentKeyboardType]];
-        [self.delegate swithcKeyboard:Keyboard_NumNine];
+        [self.responderKBViewController swithcKeyboard:Keyboard_NumNine];
     }
     //删除键按下
     if ([keyKBBtn isKindOfClass:[LWDeleteBtn class]]) {
-        [self.delegate deleteBtnTouchUpInside:keyKBBtn];
+        [self.responderKBViewController deleteBtnTouchUpInside:keyKBBtn];
         return;
     }
     //shift键按下
     if ([keyKBBtn isKindOfClass:[LWShiftBtn class]]) {
-        [self.delegate shiftBtnTouchUpInside:(LWShiftBtn *) keyKBBtn];
+        [self.responderKBViewController shiftBtnTouchUpInside:(LWShiftBtn *) keyKBBtn];
         return;
     }
     //换行键按下
     if ([keyKBBtn isKindOfClass:[LWBreaklineBtn class]]) {
-        [self.delegate breakLineBtnTouchUpInside:keyKBBtn];
+        [self.responderKBViewController breakLineBtnTouchUpInside:keyKBBtn];
         return;
     }
     else{
-        [self.delegate kbBtnTouchUpInside:keyKBBtn];
+        [self.responderKBViewController kbBtnTouchUpInside:keyKBBtn];
     }
 
 }
 
 - (void)keyKBBtnTouchCancel:(LWKeyKBBtn *)keyKBBtn {
-    [self.delegate kbBtnTouchCancel:keyKBBtn];
+    [self.responderKBViewController kbBtnTouchCancel:keyKBBtn];
 }
 
 - (void)keyKBBtnLongPress:(UILongPressGestureRecognizer *)longPressGesture {
-    [self.delegate kbBtnLongPress:longPressGesture];
+    [self.responderKBViewController kbBtnLongPress:longPressGesture];
 }
 
 - (void)keyKBBtnSwip:(UISwipeGestureRecognizer *)swipeGesture {
-    [self.delegate kbBtnSwipe:swipeGesture];
+    [self.responderKBViewController kbBtnSwipe:swipeGesture];
 }
 
 - (void)keyKBBtnPan:(UIPanGestureRecognizer *)panGesture {
-    [self.delegate kbBtnPan:panGesture];
+    [self.responderKBViewController kbBtnPan:panGesture];
 }
 
 @end

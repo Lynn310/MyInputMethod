@@ -15,15 +15,8 @@
 @class LWGraphicPopView;
 @class LWEmojiPopView;
 
-@protocol LWRootWrapViewDelegate<NSObject>
-
-- (void)updateToolbarArrow:(UIButton *)btn;
-
-@end
 
 @interface LWRootWrapView : UIView
-
-@property (nonatomic, weak) id<LWRootWrapViewDelegate> delegate;
 
 /**
 * 根据按键类型添加PopView

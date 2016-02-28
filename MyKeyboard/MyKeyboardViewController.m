@@ -26,14 +26,14 @@
 #import "LWLeftTabView.h"
 #import "LWRootWrapView.h"
 #import "LWKeyKBBtn.h"
+#import "LWKeyKBBtn.h"
 #import "LWFullCharBtn.h"
 #import "LWNumCharBtn.h"
 #import "LWNineCharBtn.h"
 #import "LWBottomNavBar.h"
 
 
-@interface MyKeyboardViewController ()<LWRootWrapViewDelegate,LWBaseKeyboardDelegate,
-        LWToolbarDelegate, LWLeftTabViewDelegate>
+@interface MyKeyboardViewController ()
 
 //单手之外区域
 @property(nonatomic, strong) LWRootWrapView *rootWrapView;
@@ -132,7 +132,6 @@
     //加载工具栏
     _toolbar = (LWToolBar *) [[NSBundle mainBundle] loadNibNamed:@"LWToolBar" owner:self.view options:nil][0];
     [_topView addSubview:_toolbar];
-    _toolbar.delegate = self;
 
     //获得用户设置键盘
     KeyboardType keyboardType = [LWKeyboardConfig currentKeyboardType];
@@ -147,8 +146,6 @@
         };
         case Keyboard_NumNine: {
             _keyboard = (LWEnFullKeyboard *) [[NSBundle mainBundle] loadNibNamed:@"LWNumKeyboard" owner:self.view options:nil][0];
-            LWLeftTabView *leftTab = (LWLeftTabView *) [_keyboard viewWithTag:100];
-            leftTab.delegate = self;
             [LWKeyboardConfig setCurrentKeyboardType:Keyboard_NumNine];
             break;
         };
@@ -158,15 +155,11 @@
             if (keyboardType == Keyboard_PingYingNine) {
                 _keyboard = (LWPinYinFullKeyboard *) [[NSBundle mainBundle] loadNibNamed:@"LWPinYinFullKeyboard" owner:self.view options:nil][0];
                 [LWKeyboardConfig setCurrentKeyboardType:Keyboard_PingYingNine];
-                LWLeftTabView *leftTab = (LWLeftTabView *) [_keyboard viewWithTag:100];
-                leftTab.delegate = self;
             }else if(keyboardType == keyboard_WuBiFull){
                 _keyboard = (LWWuBiFullKeyboard *) [[NSBundle mainBundle] loadNibNamed:@"LWWuBiFullKeyboard" owner:self.view options:nil][0];
                 [LWKeyboardConfig setCurrentKeyboardType:keyboard_WuBiFull];
             }else if(keyboardType == keyboard_BiHuaNine){
                 _keyboard = (LWBiHuaKeyboard *) [[NSBundle mainBundle] loadNibNamed:@"LWBiHuaKeyboard" owner:self.view options:nil][0];
-                LWLeftTabView *leftTab = (LWLeftTabView *) [_keyboard viewWithTag:100];
-                leftTab.delegate = self;
                 [LWKeyboardConfig setCurrentKeyboardType:keyboard_BiHuaNine];
             }else {
                 _keyboard = (LWPinYinFullKeyboard *) [[NSBundle mainBundle] loadNibNamed:@"LWPinYinFullKeyboard" owner:self.view options:nil][0];
@@ -178,7 +171,6 @@
     }
 
     [_keyboardWrap addSubview:_keyboard];
-    _keyboard.delegate = self;
 
 }
 
@@ -220,7 +212,6 @@
 
     //单手视图以外区域视图
     _rootWrapView = [[LWRootWrapView alloc] initWithFrame:CGRectMake(0, 0, Screen_W, Input_H)];
-    _rootWrapView.delegate = self;
     [self.inputView addSubview:_rootWrapView];
     CGSize rootWrapSize = _rootWrapView.frame.size;
 
@@ -377,8 +368,6 @@
         };
         case Keyboard_NumNine: {
             _keyboard = (LWNumKeyboard *) [[NSBundle mainBundle] loadNibNamed:@"LWNumKeyboard" owner:self.view options:nil][0];
-            LWLeftTabView *leftTab = (LWLeftTabView *) [_keyboard viewWithTag:100];
-            leftTab.delegate = self;
             break;
         };
         case Keyboard_PingYingFull: {
@@ -387,8 +376,6 @@
         };
         case Keyboard_PingYingNine: {
             _keyboard = (LWPinYinNineKeyboard *) [[NSBundle mainBundle] loadNibNamed:@"LWPinYinNineKeyboard" owner:self.view options:nil][0];
-            LWLeftTabView *leftTab = (LWLeftTabView *) [_keyboard viewWithTag:100];
-            leftTab.delegate = self;
             break;
         };
 
@@ -399,7 +386,6 @@
 
     [LWKeyboardConfig setCurrentKeyboardType:type];
     [_keyboardWrap addSubview:_keyboard];
-    _keyboard.delegate = self;
 }
 
 #pragma mark 按键事件处理

@@ -14,6 +14,8 @@
 #import "LWEmoticonPopView.h"
 #import "LWGraphicPopView.h"
 #import "LWEmojiPopView.h"
+#import "Categories.h"
+#import "MyKeyboardViewController.h"
 
 
 @interface LWRootWrapView ()
@@ -129,7 +131,7 @@
     if (popView) {
         [popView removeFromSuperview];
         popView = nil;
-        [self.delegate updateToolbarArrow:(UIButton *) btn];
+        [self.responderKBViewController updateToolbarArrow:(UIButton *) btn];
     }
 }
 

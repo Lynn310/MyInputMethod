@@ -5,18 +5,8 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol LWLeftTabViewDelegate <NSObject>
-
-/**
-* 上屏插入字符
-*/
-- (void)insertText:(NSString *)text;
-
-@end
 
 @interface LWLeftTabView : UIView<UITableViewDataSource, UITableViewDelegate>
-
-@property(nonatomic, weak) id <LWLeftTabViewDelegate> delegate;
 
 @property(nonatomic, strong) UITableView *contentView;
 

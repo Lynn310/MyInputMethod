@@ -10,6 +10,8 @@
 #import "LWDefines.h"
 #import "LWKeyboardConfig.h"
 #import "UIImage+Color.h"
+#import "Categories.h"
+#import "MyKeyboardViewController.h"
 
 @class LWKeyboardConfig;
 
@@ -104,7 +106,7 @@
 - (void)logoBtnTouchUpInside:(UIButton *)btn {
     btn.selected = !btn.selected;
     [self updateArrow:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Logo];
+    [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Logo];
 }
 
 
@@ -113,7 +115,7 @@
     btn.selected = !btn.selected;
     [self updateArrow:btn];
     [self updateBtnsHiddenStatus:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Emoji];
+    [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Emoji];
 
     //如emoji弹窗打开了,则工具栏显示出其他的表情按键
     if(btn.selected){
@@ -128,7 +130,7 @@
     btn.selected = !btn.selected;
     [self updateArrow:btn];
     [self updateBtnsHiddenStatus:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Phrase];
+    [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Phrase];
 }
 
 //颜文字表情键被按下
@@ -136,7 +138,7 @@
     btn.selected = !btn.selected;
     [self updateArrow:btn];
     [self updateBtnsHiddenStatus:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Emoticon];
+    [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Emoticon];
 }
 
 //图像表情键被按下
@@ -144,26 +146,26 @@
     btn.selected = !btn.selected;
     [self updateArrow:btn];
     [self updateBtnsHiddenStatus:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Graphic];
+    [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Graphic];
 }
 
 //切换键盘被按下
 - (void)switchkbBtnTouchUpInside:(UIButton *)btn {
     btn.selected = !btn.selected;
     [self updateArrow:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_SwitchKB];
+    [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_SwitchKB];
 }
 
 //打开皮肤设置窗体被按下
 - (void)skinBtnTouchUpInside:(UIButton *)btn {
     btn.selected = !btn.selected;
     [self updateArrow:btn];
-    [self.delegate toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Skin];
+    [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Skin];
 }
 
 //隐藏键盘键被按下
 - (void)hideBtnTouchUpInside:(UIButton *)btn {
-    [self.delegate dismiss];
+    [self.responderKBViewController dismiss];
 }
 
 
