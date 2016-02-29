@@ -5,7 +5,7 @@
 	<key>inputView.backgroundColor</key>
 	<string>0,0,0,0</string>
 	<key>inputView.backgroundImage</key>
-	<string>moonlight.png</string>
+	<string>waterglass.png</string>
 	<key>rootWrapView.backgroundColor</key>
 	<string>0,0,0,0</string>
 	<key>keyboardWrap.backgroundColor</key>

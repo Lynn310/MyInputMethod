@@ -64,17 +64,13 @@
 		EA3E23C91B732C0300349A95 /* MachineTheme.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3E23B51B732C0300349A95 /* MachineTheme.png */; };
 		EA3E23CA1B732C0300349A95 /* UIColor+HexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E23B81B732C0300349A95 /* UIColor+HexValue.m */; };
 		EA3E23CC1B73342400349A95 /* LWToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3E23CB1B73342400349A95 /* LWToolBar.xib */; };
-		EA3E23CF1B733C6600349A95 /* moonlight.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3E23CD1B733C6600349A95 /* moonlight.png */; };
-		EA3E23D01B733C6600349A95 /* sealight.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3E23CE1B733C6600349A95 /* sealight.png */; };
-		EA3E23D21B73652700349A95 /* waterglass.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3E23D11B73652700349A95 /* waterglass.png */; };
 		EA3FA74E1C7AE50300FB0E0F /* emoji.ini in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA7471C7AE50300FB0E0F /* emoji.ini */; };
-		EA3FA74F1C7AE50300FB0E0F /* Emoji_New.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA7481C7AE50300FB0E0F /* Emoji_New.plist */; };
-		EA3FA7501C7AE50300FB0E0F /* EmojiImage_New.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA7491C7AE50300FB0E0F /* EmojiImage_New.plist */; };
-		EA3FA7511C7AE50300FB0E0F /* EmojiString_New.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA74A1C7AE50300FB0E0F /* EmojiString_New.plist */; };
-		EA3FA7521C7AE50300FB0E0F /* EmojiWord_New.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA74B1C7AE50300FB0E0F /* EmojiWord_New.plist */; };
 		EA3FA7531C7AE50300FB0E0F /* emoticon.ini in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA74C1C7AE50300FB0E0F /* emoticon.ini */; };
 		EA3FA7541C7AE50300FB0E0F /* Symbol.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA74D1C7AE50300FB0E0F /* Symbol.plist */; };
 		EA3FA7621C7B049E00FB0E0F /* Categoryies.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3FA7611C7B049E00FB0E0F /* Categoryies.m */; };
+		EA4E55831C83F41500A647D9 /* Graphics.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA4E55821C83F41500A647D9 /* Graphics.plist */; };
+		EA4E55851C84168400A647D9 /* graphics in Resources */ = {isa = PBXBuildFile; fileRef = EA4E55841C84168400A647D9 /* graphics */; };
+		EA4E55871C844B3400A647D9 /* InputBgImg in Resources */ = {isa = PBXBuildFile; fileRef = EA4E55861C844B3400A647D9 /* InputBgImg */; };
 		EA56C0601B42E1140076EC00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56C05F1B42E1140076EC00 /* main.m */; };
 		EA56C0631B42E1140076EC00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56C0621B42E1140076EC00 /* AppDelegate.m */; };
 		EA56C0661B42E1140076EC00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56C0651B42E1140076EC00 /* ViewController.m */; };
@@ -244,18 +240,14 @@
 		EA3E23B71B732C0300349A95 /* UIColor+HexValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexValue.h"; sourceTree = "<group>"; };
 		EA3E23B81B732C0300349A95 /* UIColor+HexValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexValue.m"; sourceTree = "<group>"; };
 		EA3E23CB1B73342400349A95 /* LWToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWToolBar.xib; sourceTree = "<group>"; };
-		EA3E23CD1B733C6600349A95 /* moonlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moonlight.png; sourceTree = "<group>"; };
-		EA3E23CE1B733C6600349A95 /* sealight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sealight.png; sourceTree = "<group>"; };
-		EA3E23D11B73652700349A95 /* waterglass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterglass.png; sourceTree = "<group>"; };
 		EA3FA7471C7AE50300FB0E0F /* emoji.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emoji.ini; sourceTree = "<group>"; };
-		EA3FA7481C7AE50300FB0E0F /* Emoji_New.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Emoji_New.plist; sourceTree = "<group>"; };
-		EA3FA7491C7AE50300FB0E0F /* EmojiImage_New.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = EmojiImage_New.plist; sourceTree = "<group>"; };
-		EA3FA74A1C7AE50300FB0E0F /* EmojiString_New.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = EmojiString_New.plist; sourceTree = "<group>"; };
-		EA3FA74B1C7AE50300FB0E0F /* EmojiWord_New.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = EmojiWord_New.plist; sourceTree = "<group>"; };
 		EA3FA74C1C7AE50300FB0E0F /* emoticon.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emoticon.ini; sourceTree = "<group>"; };
 		EA3FA74D1C7AE50300FB0E0F /* Symbol.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Symbol.plist; sourceTree = "<group>"; };
 		EA3FA7601C7B049E00FB0E0F /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		EA3FA7611C7B049E00FB0E0F /* Categoryies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categoryies.m; sourceTree = "<group>"; };
+		EA4E55821C83F41500A647D9 /* Graphics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Graphics.plist; sourceTree = "<group>"; };
+		EA4E55841C84168400A647D9 /* graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = graphics; sourceTree = "<group>"; };
+		EA4E55861C844B3400A647D9 /* InputBgImg */ = {isa = PBXFileReference; lastKnownFileType = folder; path = InputBgImg; sourceTree = "<group>"; };
 		EA56C05A1B42E1140076EC00 /* MyInputMethod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyInputMethod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA56C05E1B42E1140076EC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA56C05F1B42E1140076EC00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -532,10 +524,8 @@
 		EA3E23AD1B732C0300349A95 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				EA4E55861C844B3400A647D9 /* InputBgImg */,
 				EA3FA7461C7AE50300FB0E0F /* data */,
-				EA3E23D11B73652700349A95 /* waterglass.png */,
-				EA3E23CD1B733C6600349A95 /* moonlight.png */,
-				EA3E23CE1B733C6600349A95 /* sealight.png */,
 				EA3E23AE1B732C0300349A95 /* BubbleTheme */,
 				EA3E23B31B732C0300349A95 /* MachineTheme */,
 				BEF06B7F63B98F1B23953992 /* DishuTheme */,
@@ -585,13 +575,11 @@
 		EA3FA7461C7AE50300FB0E0F /* data */ = {
 			isa = PBXGroup;
 			children = (
+				EA4E55841C84168400A647D9 /* graphics */,
 				EA3FA7471C7AE50300FB0E0F /* emoji.ini */,
-				EA3FA7481C7AE50300FB0E0F /* Emoji_New.plist */,
-				EA3FA7491C7AE50300FB0E0F /* EmojiImage_New.plist */,
-				EA3FA74A1C7AE50300FB0E0F /* EmojiString_New.plist */,
-				EA3FA74B1C7AE50300FB0E0F /* EmojiWord_New.plist */,
 				EA3FA74C1C7AE50300FB0E0F /* emoticon.ini */,
 				EA3FA74D1C7AE50300FB0E0F /* Symbol.plist */,
+				EA4E55821C83F41500A647D9 /* Graphics.plist */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -873,30 +861,26 @@
 				EA3E23C11B732C0300349A95 /* LWPinYinFullKeyboard.xib in Resources */,
 				EA3E23C81B732C0300349A95 /* MachineTheme.plist in Resources */,
 				EA3E23C41B732C0300349A95 /* BubbleTheme.plist in Resources */,
-				EA3E23D01B733C6600349A95 /* sealight.png in Resources */,
 				EA3FA74E1C7AE50300FB0E0F /* emoji.ini in Resources */,
-				EA3FA7511C7AE50300FB0E0F /* EmojiString_New.plist in Resources */,
 				EAA2785E1B78F9BB00730A4C /* LWWuBiFullKeyboard.xib in Resources */,
 				EA3E23CC1B73342400349A95 /* LWToolBar.xib in Resources */,
 				EA3E23C91B732C0300349A95 /* MachineTheme.png in Resources */,
-				EA3FA7501C7AE50300FB0E0F /* EmojiImage_New.plist in Resources */,
 				EA78ABD31B842B06008F01BA /* LWKeyboardSettingPopView.xib in Resources */,
 				EA56C0AB1B42E42A0076EC00 /* InfoPlist.strings in Resources */,
-				EA3E23CF1B733C6600349A95 /* moonlight.png in Resources */,
 				EAFB53841B46A1700076DAA7 /* Images.xcassets in Resources */,
 				EA306DA51B7AF3F20085AC25 /* LWSettingPopView.xib in Resources */,
 				EA56C0AE1B42E4300076EC00 /* Localizable.strings in Resources */,
 				EAEE59241B8325A400A5969E /* SkinableTheme.plist in Resources */,
+				EA4E55851C84168400A647D9 /* graphics in Resources */,
 				EA09272B1C1E59A3001C69B1 /* LWColorPickerView.xib in Resources */,
 				EA09272F1C1E59A3001C69B1 /* LWSkinSettingPopView.xib in Resources */,
-				EA3FA7521C7AE50300FB0E0F /* EmojiWord_New.plist in Resources */,
 				EA3E23BD1B732C0300349A95 /* LWEnFullKeyboard.xib in Resources */,
+				EA4E55871C844B3400A647D9 /* InputBgImg in Resources */,
 				EA3FA7541C7AE50300FB0E0F /* Symbol.plist in Resources */,
+				EA4E55831C83F41500A647D9 /* Graphics.plist in Resources */,
 				EA3E23C51B732C0300349A95 /* BubbleTheme.png in Resources */,
 				EA3E23C31B732C0300349A95 /* LWPinYinNineKeyboard.xib in Resources */,
-				EA3E23D21B73652700349A95 /* waterglass.png in Resources */,
 				BEF063B061238131C98190AE /* DishuTheme.plist in Resources */,
-				EA3FA74F1C7AE50300FB0E0F /* Emoji_New.plist in Resources */,
 				BEF069306002FA7C5CC700E1 /* DishuTheme.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

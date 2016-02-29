@@ -9,6 +9,7 @@
 #import "UIImage+Color.h"
 #import "UIResponder+Ext.h"
 #import "LWColorPickerView.h"
+#import "LWKeyboardConfig.h"
 
 
 //皮肤选择面板
@@ -162,8 +163,7 @@
             cell.iconImageView.image = combinedImg;
 
         } else {
-            UIImage *skinImg = [UIImage imageNamed:skinImgName];
-            //todo:如果皮肤图片是用户自己加的
+            UIImage *skinImg = [LWKeyboardConfig getKBImgFromDoc:skinImgName];
 
 //            //从大的皮肤图片中,取出一张小的预览图
 //            CGRect smallImgRect = CGRectMake(skinImg.size.width / 2 - cellImgSize.width / 2, skinImg.size.height / 2 - cellImgSize.height / 2,
@@ -420,7 +420,7 @@
 
         //文字标题
         _titleLbl = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(-3.5, cellSize.height - self.maxCellTitleSize.height, cellSize.width + 7, self.maxCellTitleSize.height))];
-        _titleLbl.text = @"title";
+        _titleLbl.text = @"";
         _titleLbl.font = [UIFont systemFontOfSize:12];
         _titleLbl.textColor = UIColorValueFromThemeKey(@"btn.content.color");
         _titleLbl.textAlignment = NSTextAlignmentCenter;

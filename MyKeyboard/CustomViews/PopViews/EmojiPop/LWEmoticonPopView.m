@@ -15,8 +15,6 @@
 
 static NSString *const EmoticonCellId = @"EmoticonCellId";
 
-static NSString *const EmoticonRightSeparatorId = @"EmoticonSeparatorId";
-static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 
 @implementation LWEmoticonPopView {
 }
@@ -24,9 +22,6 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
-
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
 
@@ -252,17 +247,13 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 
 
 
-    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
-            NSForegroundColorAttributeName : [UIColor blackColor],
-            NSBackgroundColorAttributeName : [UIColor clearColor]};
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize]};
     CGSize textSize = [text sizeWithAttributes:attributes];
 
     //大于总宽度时，缩小字体
     while (textSize.width > _emoticonBtn.frame.size.width) {
         fontSize--;
-        attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
-                NSForegroundColorAttributeName : [UIColor blackColor],
-                NSBackgroundColorAttributeName : [UIColor clearColor]};
+        attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize]};
         textSize = [text sizeWithAttributes:attributes];
     }
 
@@ -287,9 +278,7 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
 
     NSString *fontName = StringValueFromThemeKey(@"btn.mainLabel.fontName");
     CGFloat fontSize = FloatValueFromThemeKey(@"btn.mainLabel.fontSize");
-    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
-            NSForegroundColorAttributeName : [UIColor blackColor],
-            NSBackgroundColorAttributeName : [UIColor clearColor]};
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize]};
 
     CGSize textSize = [text sizeWithAttributes:attributes];
 
@@ -298,9 +287,7 @@ static NSString *const EmoticonBottomSeparatorId = @"EmoticonBottomSeparatorId";
     CGSize collectionSize = self.frame.size;
     while (textSize.width > collectionSize.width) {
         fontSize--;
-        attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
-                NSForegroundColorAttributeName : [UIColor blackColor],
-                NSBackgroundColorAttributeName : [UIColor clearColor]};
+        attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize]};
         textSize = [text sizeWithAttributes:attributes];
     }
     return textSize;

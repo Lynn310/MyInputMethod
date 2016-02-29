@@ -73,9 +73,13 @@
         self.inputView.frame = CGRectMake(0, 0, Screen_W, Input_H);
         //设置皮肤
         UIImage *keyboardSkin = [LWKeyboardConfig keyboardSkin];
-        if (keyboardSkin) {
-//            [_keyboard setupBackground:keyboardSkin];
+        if (keyboardSkin) { //图片
             [self setupSkin:keyboardSkin];
+        }else{      //颜色
+            UIColor *kbColor = UIColorValueFromThemeKey(@"inputView.backgroundColor");
+            if(![kbColor isEqual:[UIColor clearColor]]){
+                self.inputView.backgroundColor = kbColor;
+            }
         }
     }
 

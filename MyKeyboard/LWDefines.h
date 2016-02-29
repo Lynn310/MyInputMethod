@@ -160,7 +160,8 @@ typedef NS_ENUM(NSInteger,BorderShadow){
 #define Cell_SeparatorInset UIEdgeInsetsMake(0, 5, 0, 5)
 
 //默认的可选皮肤图片名数组
-#define Default_Skins @[@"default",@"moonlight",@"sealight",@"waterglass"]
+//#define Default_Skins @[@"default",@"moonlight",@"sealight",@"waterglass"]
+#define Default_Skins @[@"moonlight",@"sealight",@"waterglass"]
 #define Default_Colors @[[UIColor lightGrayColor],[UIColor grayColor],[UIColor darkGrayColor],\
                         [UIColor whiteColor],[UIColor blackColor],[UIColor redColor],\
                         [UIColor greenColor],[UIColor blueColor],[UIColor cyanColor],\

@@ -51,6 +51,9 @@
 */
 + (UIImage *)keyboardSkin;
 
+//根据名字从Doc中获得一张键盘背景图
++ (UIImage *)getKBImgFromDoc:(NSString *)imgName;
+
 /**
 * 候选板类型
 */

@@ -119,9 +119,7 @@ static NSString *const EmojiCell = @"EmojiCell";
 
     NSString *fontName = StringValueFromThemeKey(@"btn.mainLabel.fontName");
     CGFloat fontSize = FloatValueFromThemeKey(@"btn.mainLabel.fontSize");
-    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
-            NSForegroundColorAttributeName : [UIColor blackColor],
-            NSBackgroundColorAttributeName : [UIColor clearColor]};
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize]};
     UIImage *textImg = [UIImage imageFromString:text attributes:attributes size:[text sizeWithAttributes:attributes]];
 
     [cell.emojiBtn setImage:textImg forState:UIControlStateNormal];
