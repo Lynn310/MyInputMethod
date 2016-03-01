@@ -219,5 +219,7 @@ typedef NS_ENUM(NSInteger,BorderShadow){
 #define Key_BottomNavEmoticonItems @"Key_BottomNavEmoticonItems"
 #define Key_BottomNavGraphicItems @"Key_BottomNavGraphicItems"
 
+//添加键盘皮肤url
+#define Url_AddKBImageSkin @"MyInputMethod://addKBImageSkin"
 
 #endif

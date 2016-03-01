@@ -15,7 +15,8 @@
 //皮肤选择面板
 @implementation LWSkinGridView {
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
-    NSIndexPath *_imgSelectedIndexPath;
+    NSIndexPath *_imageSelectedIndexPath;
+    NSIndexPath *_colorSelectedIndexPath;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
@@ -177,14 +178,14 @@
 
             cell.iconImageView.image = smallImage;
         }
+        cell.titleLbl.text = NSLocalizedString(skinImgName, nil);
 
         //设置selImgView的状态
         NSString *kbBg = StringValueFromThemeKey(@"inputView.backgroundImage");
         cell.selImgView.hidden = ![kbBg isEqualToString:skinImgName];
-        if(cell.selImgView.hidden){
-            _imgSelectedIndexPath = indexPath;
+        if(cell.selImgView.hidden || !_imageSelectedIndexPath){
+            _imageSelectedIndexPath = indexPath;
         }
-        cell.titleLbl.text = NSLocalizedString(skinImgName, nil);
     }
 }
 
@@ -203,6 +204,13 @@
         UIImage *colorImage = [UIImage imageFromColor:color withRect:CGRectMake(0, 0, cellImgSize.width, cellImgSize.height)];
         cell.iconImageView.image = colorImage;
         cell.titleLbl.text = nil;
+
+        //设置selImgView的状态
+        UIColor *kbBgColor = UIColorValueFromThemeKey(@"inputView.backgroundColor");
+        cell.selImgView.hidden = ![[UIColor rgbaStringFromUIColor:kbBgColor] isEqual:[UIColor rgbaStringFromUIColor:color]];
+        if(cell.selImgView.hidden || !_colorSelectedIndexPath){
+            _colorSelectedIndexPath = indexPath;
+        }
     }
 }
 
@@ -224,21 +232,22 @@
         case 0: {
             //添加皮肤
             if (_skins.count == indexPath.item) {
-                [self openURLWithUrl:[NSURL URLWithString:@"MyInputMethod://"]];
+                [self openURLWithUrl:[NSURL URLWithString:Url_AddKBImageSkin]];
             } else {
+                NSString *oldKBBg = StringValueFromThemeKey(@"inputView.backgroundImage");
                 //设置selImgView的状态
                 NSString *skinImgName = _skins[(NSUInteger) indexPath.item];
-                NSString *oldKBBg = StringValueFromThemeKey(@"inputView.backgroundImage");
-
                 StringValueToThemeFileByKey(skinImgName,@"inputView.backgroundImage");
 
                 //把已选择的cell设置为未选择
-                if(![indexPath isEqual:_imgSelectedIndexPath]){
-                    LWGridViewCell *oldCell = (LWGridViewCell *) [collectionView cellForItemAtIndexPath:_imgSelectedIndexPath];
+                if(![indexPath isEqual:_imageSelectedIndexPath]){
+                    LWGridViewCell *oldCell = (LWGridViewCell *) [collectionView cellForItemAtIndexPath:_imageSelectedIndexPath];
                     oldCell.selImgView.hidden = YES;
                 }
                 //重新设置新选择的状态
                 cell.selImgView.hidden = ![oldKBBg isEqualToString:skinImgName];
+                _imageSelectedIndexPath = indexPath;
+                [self reloadData];
             }
             break;
         }
@@ -270,15 +279,27 @@
                 };
 
             } else {
-                //todo:选择颜色
+                //原颜色
+                UIColor *oldKBBgColor = UIColorValueFromThemeKey(@"inputView.backgroundColor");
+                //设置新选的颜色
+                UIColor *color = _colors[(NSUInteger) indexPath.item];
+                UIColorValueToThemeFileByKey(color, @"inputView.backgroundColor");
 
+                //把已选择的cell设置成未选择
+                if(![indexPath isEqual:_colorSelectedIndexPath]){
+                    LWGridViewCell *oldCell = (LWGridViewCell *) [collectionView cellForItemAtIndexPath:_colorSelectedIndexPath];
+                    oldCell.selImgView.hidden = YES;
+                }
+                //重新设置新选择的状态
+                cell.selImgView.hidden = ![[UIColor rgbaStringFromUIColor:oldKBBgColor] isEqual:[UIColor rgbaStringFromUIColor:color]];
+                _colorSelectedIndexPath = indexPath;
+                [self reloadData];
             }
             break;
         }
         default:
             break;
     }
-
 
 }
 
