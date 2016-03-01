@@ -11,6 +11,7 @@
 #import "LWBottomNavBar.h"
 #import "MyKeyboardViewController.h"
 #import "Categories.h"
+#import "LWDataConfig.h"
 
 static NSString *const GraphicCellId = @"GraphicCellId";
 
@@ -25,9 +26,14 @@ static NSString *const GraphicCellId = @"GraphicCellId";
         self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
 
         //读取plist
-        [self readGraphicPlistDict];
+        _graphicDict = [LWDataConfig getGraphicPlistDictionary];
+        NSMutableArray *allValues = @[].mutableCopy;
+        for(NSString *key in _graphicDict.allKeys){
+            [allValues addObject:NSLocalizedString(key,nil)];
+        }
+
         self.bottomNavBar = [[LWBottomNavBar alloc] initWithFrame:CGRectMake(0, (CGFloat) (frame.size.height - Toolbar_H), frame.size.width, Toolbar_H)
-                                                  andNavItems:_graphicDict.allKeys];
+                                                  andNavItems:allValues andShowAdd:YES];
         _bottomNavBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:_bottomNavBar];
     
@@ -72,16 +78,11 @@ static NSString *const GraphicCellId = @"GraphicCellId";
 }
 
 - (void)reloadCollection {
-    [self readGraphicPlistDict];
+    _graphicDict = [LWDataConfig getGraphicPlistDictionary];
     [_collectionView setContentOffset:CGPointMake(0, 0) animated:NO];
     [_collectionView reloadData];
 }
 
-//获得graphicPlist文件对应的dict
--(void)readGraphicPlistDict {
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Graphics" ofType:@"plist"];
-    _graphicDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-}
 
 
 - (void)layoutSubviews {

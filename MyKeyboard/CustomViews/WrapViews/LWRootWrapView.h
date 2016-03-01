@@ -23,9 +23,7 @@
 */
 - (void)addPopViewByBtn:(UIView *)btn withType:(BtnType)type;
 
-/**
-* 根据btn与类型移除popView
-*/
-- (void)removePopViewByBtn:(UIView *)view withType:(BtnType)type;
+//移除其他的popView
+- (void)removeAllOtherPopView:(UIButton *)btn;
 
 @end

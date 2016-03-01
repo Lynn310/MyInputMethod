@@ -319,9 +319,7 @@
 
 #pragma mark textDocumentProxy 实现相关
 
-/**
-* 上屏插入字符
-*/
+//上屏插入字符
 - (void)insertText:(NSString *)text {
     if (text) {
         [self.textDocumentProxy insertText:text];
@@ -330,37 +328,28 @@
     }
 }
 
-/**
-* 切换输入法
-*/
+//切换输入法
 - (void)switchInputMethod {
     [self advanceToNextInputMode];
 }
 
-/**
-* 根据类型添加浮窗
-*/
+//根据类型添加浮窗
 - (void)toolbarBtnTouchUpInside:(UIView *)btn withType:(BtnType)type {
     [_rootWrapView addPopViewByBtn:btn withType:type];
 }
 
-/**
-* 删除浮窗
-*/
-- (void)removePopViewByBtn:(UIView *)btn withType:(BtnType)type {
-    [_rootWrapView removePopViewByBtn:btn withType:type];
+//从工具栏浮窗返回
+- (void)backFromPopView{
+    [_toolbar resumeAllBtnStatus];
+    [_rootWrapView removeAllOtherPopView:nil];
 }
 
-/**
-* 隐藏键盘
-*/
+//隐藏键盘
 - (void)dismiss {
     [self dismissKeyboard];
 }
 
-/**
-* 切换键盘
-*/
+//切换键盘
 - (void)swithcKeyboard:(KeyboardType)type {
 
     [_keyboard removeFromSuperview];
@@ -397,10 +386,10 @@
 /**
 * 按键按下
 */
-- (void)kbBtnTouchDown:(LWBaseKBBtn *)btn {
+- (void)kbBtnTouchDown:(UIButton *)btn {
 
     //如果是删除键
-    if ([btn isKindOfClass:[LWDeleteBtn class]]) {
+    if ([btn isKindOfClass:[LWDeleteBtn class]] || [btn isKindOfClass:[LWEmojiDelBtn class]]) {
 
         [self deleteACharacter];
         //如果是空格键
@@ -527,7 +516,7 @@
 /**
 * 删除键按下
 */
-- (void)deleteBtnTouchUpInside:(LWKeyKBBtn *)btn {
+- (void)deleteBtnTouchUpInside:(UIButton *)btn {
 
 }
 

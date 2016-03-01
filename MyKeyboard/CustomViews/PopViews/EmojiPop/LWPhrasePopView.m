@@ -11,6 +11,7 @@
 #import "LWBottomNavBar.h"
 #import "Categories.h"
 #import "MyKeyboardViewController.h"
+#import "LWDataConfig.h"
 
 @implementation LWPhrasePopView
 
@@ -21,12 +22,10 @@
         self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
 
 
-        self.phrasesDict = @{@"常用":@[@"Hi!", @"你好!", @"吃饭了吗？", @"在干嘛呢？", @"最近怎么样？",
-                @"稍等一下!", @"马上到!", @"我正在开会。", @"不好意思,刚忙去了。"],@"花样语":@[@"~~~~"]};
-
+        self.phrasesDict = [LWDataConfig getPhraseDictionary];
         NSArray *bottomNavItems = [LWThemeManager getArrByKey:Key_BottomNavPhraseItems withDefaultArr:_phrasesDict.allKeys];
         self.bottomNavBar = [[LWBottomNavBar alloc]initWithFrame:CGRectMake(0, (CGFloat) (frame.size.height-Toolbar_H),frame.size.width,Toolbar_H)
-                                                     andNavItems:bottomNavItems];
+                                                     andNavItems:bottomNavItems andShowAdd:YES];
         self.bottomNavBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:self.bottomNavBar];
 

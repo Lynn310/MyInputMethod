@@ -24,6 +24,7 @@
 		EA09272F1C1E59A3001C69B1 /* LWSkinSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0927231C1E59A3001C69B1 /* LWSkinSettingPopView.xib */; };
 		EA0927311C1E59A3001C69B1 /* LWRightSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927251C1E59A3001C69B1 /* LWRightSettingView.m */; };
 		EA0927331C1E59A3001C69B1 /* LWLeftTabSelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0927271C1E59A3001C69B1 /* LWLeftTabSelView.m */; };
+		EA09A0231C854C97006A3E43 /* phrase.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA09A0221C854C97006A3E43 /* phrase.plist */; };
 		EA2837261C2106BE00927753 /* UIButton+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2837251C2106BE00927753 /* UIButton+Ext.m */; };
 		EA2837291C21300D00927753 /* UIResponder+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2837281C21300D00927753 /* UIResponder+Ext.m */; };
 		EA28372B1C21361600927753 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA28372A1C21361600927753 /* Icon.png */; };
@@ -66,9 +67,9 @@
 		EA3E23CC1B73342400349A95 /* LWToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3E23CB1B73342400349A95 /* LWToolBar.xib */; };
 		EA3FA74E1C7AE50300FB0E0F /* emoji.ini in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA7471C7AE50300FB0E0F /* emoji.ini */; };
 		EA3FA7531C7AE50300FB0E0F /* emoticon.ini in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA74C1C7AE50300FB0E0F /* emoticon.ini */; };
-		EA3FA7541C7AE50300FB0E0F /* Symbol.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA74D1C7AE50300FB0E0F /* Symbol.plist */; };
+		EA3FA7541C7AE50300FB0E0F /* symbol.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3FA74D1C7AE50300FB0E0F /* symbol.plist */; };
 		EA3FA7621C7B049E00FB0E0F /* Categoryies.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3FA7611C7B049E00FB0E0F /* Categoryies.m */; };
-		EA4E55831C83F41500A647D9 /* Graphics.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA4E55821C83F41500A647D9 /* Graphics.plist */; };
+		EA4E55831C83F41500A647D9 /* graphics.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA4E55821C83F41500A647D9 /* graphics.plist */; };
 		EA4E55851C84168400A647D9 /* graphics in Resources */ = {isa = PBXBuildFile; fileRef = EA4E55841C84168400A647D9 /* graphics */; };
 		EA4E55871C844B3400A647D9 /* InputBgImg in Resources */ = {isa = PBXBuildFile; fileRef = EA4E55861C844B3400A647D9 /* InputBgImg */; };
 		EA56C0601B42E1140076EC00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56C05F1B42E1140076EC00 /* main.m */; };
@@ -170,6 +171,7 @@
 		EA0927251C1E59A3001C69B1 /* LWRightSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRightSettingView.m; sourceTree = "<group>"; };
 		EA0927261C1E59A3001C69B1 /* LWLeftTabSelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWLeftTabSelView.h; sourceTree = "<group>"; };
 		EA0927271C1E59A3001C69B1 /* LWLeftTabSelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWLeftTabSelView.m; sourceTree = "<group>"; };
+		EA09A0221C854C97006A3E43 /* phrase.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = phrase.plist; sourceTree = "<group>"; };
 		EA2837241C2106BE00927753 /* UIButton+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Ext.h"; sourceTree = "<group>"; };
 		EA2837251C2106BE00927753 /* UIButton+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Ext.m"; sourceTree = "<group>"; };
 		EA2837271C21300D00927753 /* UIResponder+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Ext.h"; sourceTree = "<group>"; };
@@ -242,10 +244,10 @@
 		EA3E23CB1B73342400349A95 /* LWToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWToolBar.xib; sourceTree = "<group>"; };
 		EA3FA7471C7AE50300FB0E0F /* emoji.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emoji.ini; sourceTree = "<group>"; };
 		EA3FA74C1C7AE50300FB0E0F /* emoticon.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emoticon.ini; sourceTree = "<group>"; };
-		EA3FA74D1C7AE50300FB0E0F /* Symbol.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Symbol.plist; sourceTree = "<group>"; };
+		EA3FA74D1C7AE50300FB0E0F /* symbol.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = symbol.plist; sourceTree = "<group>"; };
 		EA3FA7601C7B049E00FB0E0F /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		EA3FA7611C7B049E00FB0E0F /* Categoryies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categoryies.m; sourceTree = "<group>"; };
-		EA4E55821C83F41500A647D9 /* Graphics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Graphics.plist; sourceTree = "<group>"; };
+		EA4E55821C83F41500A647D9 /* graphics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = graphics.plist; sourceTree = "<group>"; };
 		EA4E55841C84168400A647D9 /* graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = graphics; sourceTree = "<group>"; };
 		EA4E55861C844B3400A647D9 /* InputBgImg */ = {isa = PBXFileReference; lastKnownFileType = folder; path = InputBgImg; sourceTree = "<group>"; };
 		EA56C05A1B42E1140076EC00 /* MyInputMethod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyInputMethod.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -578,8 +580,9 @@
 				EA4E55841C84168400A647D9 /* graphics */,
 				EA3FA7471C7AE50300FB0E0F /* emoji.ini */,
 				EA3FA74C1C7AE50300FB0E0F /* emoticon.ini */,
-				EA3FA74D1C7AE50300FB0E0F /* Symbol.plist */,
-				EA4E55821C83F41500A647D9 /* Graphics.plist */,
+				EA3FA74D1C7AE50300FB0E0F /* symbol.plist */,
+				EA4E55821C83F41500A647D9 /* graphics.plist */,
+				EA09A0221C854C97006A3E43 /* phrase.plist */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -872,12 +875,13 @@
 				EA56C0AE1B42E4300076EC00 /* Localizable.strings in Resources */,
 				EAEE59241B8325A400A5969E /* SkinableTheme.plist in Resources */,
 				EA4E55851C84168400A647D9 /* graphics in Resources */,
+				EA09A0231C854C97006A3E43 /* phrase.plist in Resources */,
 				EA09272B1C1E59A3001C69B1 /* LWColorPickerView.xib in Resources */,
 				EA09272F1C1E59A3001C69B1 /* LWSkinSettingPopView.xib in Resources */,
 				EA3E23BD1B732C0300349A95 /* LWEnFullKeyboard.xib in Resources */,
 				EA4E55871C844B3400A647D9 /* InputBgImg in Resources */,
-				EA3FA7541C7AE50300FB0E0F /* Symbol.plist in Resources */,
-				EA4E55831C83F41500A647D9 /* Graphics.plist in Resources */,
+				EA3FA7541C7AE50300FB0E0F /* symbol.plist in Resources */,
+				EA4E55831C83F41500A647D9 /* graphics.plist in Resources */,
 				EA3E23C51B732C0300349A95 /* BubbleTheme.png in Resources */,
 				EA3E23C31B732C0300349A95 /* LWPinYinNineKeyboard.xib in Resources */,
 				BEF063B061238131C98190AE /* DishuTheme.plist in Resources */,

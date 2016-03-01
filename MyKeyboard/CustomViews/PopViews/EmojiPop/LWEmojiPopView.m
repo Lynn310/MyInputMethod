@@ -12,6 +12,7 @@
 #import "Categories.h"
 #import "UIImage+Color.h"
 #import "MyKeyboardViewController.h"
+#import "LWDataConfig.h"
 
 static NSString *const EmojiCell = @"EmojiCell";
 
@@ -25,10 +26,10 @@ static NSString *const EmojiCell = @"EmojiCell";
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
     
-        NSDictionary *iniDict = [self getEmojiDictionary];
+        NSDictionary *iniDict = [LWDataConfig getEmojiDictionary];
         NSArray *bottomNavItems = [LWThemeManager getArrByKey:Key_BottomNavEmojiItems withDefaultArr:iniDict.allKeys];
         _bottomNavBar = [[LWBottomNavBar alloc]initWithFrame:CGRectMake(0, (CGFloat) (frame.size.height-Toolbar_H),frame.size.width,Toolbar_H)
-                                                     andNavItems:bottomNavItems];
+                                                     andNavItems:bottomNavItems andShowAdd:NO];
         _bottomNavBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:_bottomNavBar];
 
@@ -66,7 +67,7 @@ static NSString *const EmojiCell = @"EmojiCell";
         _collectionView.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
 
         //初始数据源
-        _emojiDict = [self getEmojiDictionary];
+        _emojiDict = [LWDataConfig getEmojiDictionary];
     
         __weak typeof(self) weakSelf = self;
         self.bottomNavBar.bottomNavScrollview.updateTableDatasouce=^(){
@@ -82,16 +83,9 @@ static NSString *const EmojiCell = @"EmojiCell";
     _bottomNavBar.frame = CGRectMake(0, (CGFloat) (self.frame.size.height-Toolbar_H),self.frame.size.width,Toolbar_H);
 }
 
-//获得Emoji数据
-- (NSDictionary *)getEmojiDictionary {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"emoji" ofType:@"ini"];
-    NSString *emojiIniStr = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSDictionary *iniDict = [NSDictionary dictFromEmoticonIni:emojiIniStr];
-    return iniDict;
-}
 
 -(void)reloadCollection{
-    _emojiDict = [self getEmojiDictionary];
+    _emojiDict = [LWDataConfig getEmojiDictionary];
     [_collectionView setContentOffset:CGPointMake(0,0) animated:NO];
     [_collectionView reloadData];
 }

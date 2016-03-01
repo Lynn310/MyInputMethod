@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>花样语</key>
+	<array>
+		<string>~~~~</string>
+	</array>
+	<key>常用</key>
+	<array>
+		<string>常用</string>
+		<string>Hi!</string>
+		<string>你好!</string>
+		<string>吃饭了吗？</string>
+		<string>在干嘛呢？</string>
+		<string>稍等一下!</string>
+		<string>马上到!</string>
+		<string>我正在开会。</string>
+		<string>不好意思,刚忙去了。</string>
+	</array>
+</dict>
+</plist>

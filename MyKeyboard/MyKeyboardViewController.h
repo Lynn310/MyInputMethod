@@ -29,7 +29,7 @@
 - (void)swithcKeyboard:(KeyboardType)type;
 
 //按键按下
-- (void)kbBtnTouchDown:(LWBaseKBBtn *)btn;
+- (void)kbBtnTouchDown:(UIButton *)btn;
 
 //按键重复按
 - (void)kbBtnTouchRepeat:(LWBaseKBBtn *)btn;
@@ -38,7 +38,7 @@
 - (void)kbBtnTouchUpInside:(LWBaseKBBtn *)btn;
 
 //删除键按下
-- (void)deleteBtnTouchUpInside:(LWKeyKBBtn *)btn;
+- (void)deleteBtnTouchUpInside:(UIButton *)btn;
 
 //shift键按下
 - (void)shiftBtnTouchUpInside:(LWShiftBtn *)btn;
@@ -64,10 +64,10 @@
 //根据类型添加浮窗
 - (void)toolbarBtnTouchUpInside:(UIView *)button withType:(BtnType)type;
 
-//删除浮窗
-- (void)removePopViewByBtn:(UIView *)btn withType:(BtnType)type;
-
 //隐藏键盘
 - (void)dismiss;
+
+//从工具栏浮窗返回
+- (void)backFromPopView;
 
 @end

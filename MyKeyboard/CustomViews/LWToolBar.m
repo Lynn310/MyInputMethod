@@ -102,6 +102,15 @@
     [NSLayoutConstraint activateConstraints:_toolBarVerticelConstraints];
 }
 
+//恢复工具栏有所按键到初始状态
+- (void)resumeAllBtnStatus{
+    _logoBtn.selected = _switchkbBtn.selected = _skinBtn.selected =
+            _phraseBtn.selected = _emojiBtn.selected = _emoticonBtn.selected = _graphicBtn.selected = NO;
+    _logoBtn.hidden = _switchkbBtn.hidden = _skinBtn.hidden = NO;
+    _phraseBtn.hidden = _emoticonBtn.hidden = _graphicBtn.hidden = _arrow.hidden = YES;
+}
+
+
 //logo设置键被按下
 - (void)logoBtnTouchUpInside:(UIButton *)btn {
     btn.selected = !btn.selected;

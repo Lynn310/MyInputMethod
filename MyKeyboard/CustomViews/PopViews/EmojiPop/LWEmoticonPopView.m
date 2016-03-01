@@ -12,6 +12,7 @@
 #import "Categories.h"
 #import "UIImage+Color.h"
 #import "MyKeyboardViewController.h"
+#import "LWDataConfig.h"
 
 static NSString *const EmoticonCellId = @"EmoticonCellId";
 
@@ -25,10 +26,10 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
 
-        NSDictionary *iniDict = [self getEmoticonDictionary];
+        NSDictionary *iniDict = [LWDataConfig getEmoticonDictionary];
         NSArray *bottomNavItems = [LWThemeManager getArrByKey:Key_BottomNavEmoticonItems withDefaultArr:iniDict.allKeys];
         _bottomNavBar = [[LWBottomNavBar alloc] initWithFrame:CGRectMake(0, (CGFloat) (frame.size.height - Toolbar_H), frame.size.width, Toolbar_H)
-                                                  andNavItems:bottomNavItems];
+                                                  andNavItems:bottomNavItems andShowAdd:NO];
         _bottomNavBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:_bottomNavBar];
 
@@ -80,14 +81,6 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
 //    [_collectionView.collectionViewLayout invalidateLayout];
 }
 
-//获得Emoji数据
-- (NSDictionary *)getEmoticonDictionary {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"emoticon" ofType:@"ini"];
-    NSString *emojiIniStr = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSDictionary *iniDict = [NSDictionary dictFromEmoticonIni:emojiIniStr];
-    return iniDict;
-}
-
 //重新reloadCollection
 - (void)reloadCollection {
     [_collectionView setContentOffset:CGPointMake(0, 0) animated:NO];
@@ -96,7 +89,7 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
 
 //获得当前分类下的emoticons
 - (NSArray *)getEmoticons {
-    NSDictionary *emoticonDict = [self getEmoticonDictionary];
+    NSDictionary *emoticonDict = [LWDataConfig getEmoticonDictionary];
     NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
 
     NSString *key = emoticonDict.allKeys[idx];

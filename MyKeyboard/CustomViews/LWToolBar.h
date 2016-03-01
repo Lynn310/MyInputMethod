@@ -42,7 +42,7 @@
 
 - (void)updateArrow:(UIButton *)button;
 
-//隐藏phraseBtn,显示logoBtn
--(void)hidePhaseBtnsAndShowLogoBtns;
+//恢复工具栏有所按键到初始状态
+- (void)resumeAllBtnStatus;
 
 @end

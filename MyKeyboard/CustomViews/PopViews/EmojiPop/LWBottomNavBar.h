@@ -16,11 +16,12 @@
 
 @property(nonatomic, strong) UIButton *backBtn;
 @property(nonatomic, strong) UIButton *addBtn;
+@property(nonatomic, strong) UIButton *delBtn;
 @property(nonatomic, strong) LWBottomNavScrollView *bottomNavScrollview;
 
 @property(nonatomic, strong) CALayer *topLine;
 
-- (instancetype)initWithFrame:(CGRect)frame andNavItems:(NSArray *)navItems;
+- (instancetype)initWithFrame:(CGRect)frame andNavItems:(NSArray *)navItems andShowAdd:(BOOL)showAdd;
 
 @end
 
@@ -34,6 +35,9 @@
 
 - (instancetype)initWithFrame:(CGRect)frame andNavItems:(NSArray *)navItems;
 
+@end
+
+@interface LWEmojiDelBtn:UIButton
 @end
 
 

@@ -8,13 +8,21 @@
 
 #import "LWBottomNavBar.h"
 #import "LWDefines.h"
+#import "UIImage+Color.h"
+#import "Categories.h"
+#import "MyKeyboardViewController.h"
 
-@implementation LWBottomNavBar
+#define DelBtn_Width 50
 
-- (instancetype)initWithFrame:(CGRect)frame andNavItems:(NSArray *)navItems {
+@implementation LWBottomNavBar{
+    BOOL showAddBtn;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame andNavItems:(NSArray *)navItems andShowAdd:(BOOL)showAdd{
     self = [super initWithFrame:frame];
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        showAddBtn = showAdd;
 
         //顶部分隔线
         _topLine = [CALayer layer];
@@ -25,8 +33,11 @@
         //设置 返回 与 "+" 按钮
         [self setupBackAndAddBtnWithFrame:frame];
 
-        CGRect navScrollFrame = CGRectMake(_backBtn.frame.size.width,0,
-                frame.size.width-_backBtn.frame.size.width-_addBtn.frame.size.width,frame.size.height);
+        CGFloat width = frame.size.width-_backBtn.frame.size.width-DelBtn_Width;
+        if(showAdd){
+            width = frame.size.width-_backBtn.frame.size.width-_addBtn.frame.size.width-DelBtn_Width;
+        }
+        CGRect navScrollFrame = CGRectMake(_backBtn.frame.size.width,0,width,frame.size.height);
         _bottomNavScrollview = [[LWBottomNavScrollView alloc] initWithFrame:navScrollFrame andNavItems:navItems];
         [self addSubview:_bottomNavScrollview];
 
@@ -39,10 +50,13 @@
     [super layoutSubviews];
 
     _topLine.frame = CGRectMake(0,0,super.frame.size.width,NarrowLine_W);
-
-    [self setBackAndAddFram:self.frame];
-    CGRect navScrollFrame = CGRectMake(_backBtn.frame.size.width,0,
-            self.frame.size.width-_backBtn.frame.size.width-_addBtn.frame.size.width,self.frame.size.height);
+    
+    [self setFixBtnFrame:self.frame];
+    CGFloat width = self.frame.size.width-_backBtn.frame.size.width-DelBtn_Width;
+    if(showAddBtn){
+        width = self.frame.size.width-_backBtn.frame.size.width-_addBtn.frame.size.width-DelBtn_Width;
+    }
+    CGRect navScrollFrame = CGRectMake(_backBtn.frame.size.width,0,width,self.frame.size.height);
     _bottomNavScrollview.frame = navScrollFrame;
 }
 
@@ -56,35 +70,45 @@
     [self addSubview:_backBtn];
 
     //添加键
-    _addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_addBtn setTitle:@"+" forState:UIControlStateNormal];
-    [_addBtn addTarget:self action:@selector(addBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_addBtn];
+    if(showAddBtn){
+        _addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_addBtn setTitle:@"+" forState:UIControlStateNormal];
+        [_addBtn addTarget:self action:@selector(addBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_addBtn];
+    }
+
+    //删除键
+    _delBtn = [LWEmojiDelBtn buttonWithType:UIButtonTypeCustom];
+    _delBtn.titleLabel.text = @"";
+    UIImage *delImg = [UIImage imageNamed:@"delete"];
+    UIImage *normalImg = [delImg imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")];
+    [_delBtn setImage:normalImg forState:UIControlStateNormal];
+    UIImage *highLightImg = [delImg imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")];
+    [_delBtn setImage:highLightImg forState:UIControlStateHighlighted];
+    [_delBtn addTarget:self action:@selector(delBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_delBtn];
 
     //设置frame
-    [self setBackAndAddFram:frame];
+    [self setFixBtnFrame:frame];
 
     //设置按键外观
     [self setBtnAppearance:_backBtn];
-    [self setBtnAppearance:_addBtn];
+    [self setBtnAppearance:_delBtn];
+    if(showAddBtn){
+        [self setBtnAppearance:_addBtn];
+    }
 
 }
 
-- (void)setBackAndAddFram:(CGRect)frame {
+- (void)setFixBtnFrame:(CGRect)frame {
     CGFloat backWidth = [self getTextWidth:NSLocalizedString(@"Back", nil)];
     [_backBtn setFrame:CGRectMake(0, 0, backWidth, frame.size.height)];
     CGFloat addWidth = [self getTextWidth:@"+"];
-    [_addBtn setFrame:CGRectMake(frame.size.width - addWidth, 0, addWidth, frame.size.height)];
-
-    //更新分隔线位置
-    for(CALayer *layer in _backBtn.layer.sublayers){
-        if([layer isKindOfClass:[LWRightSeparatorLayer class]]){
-            layer.frame = CGRectMake(_backBtn.frame.size.width-NarrowLine_W,0,NarrowLine_W,_backBtn.frame.size.height);
-        }
-        if([layer isKindOfClass:[LWLeftSeparatorLayer class]]){
-            layer.frame = CGRectMake(0,0,NarrowLine_W,_backBtn.frame.size.height);
-        }
+    if(showAddBtn){
+        [_addBtn setFrame:CGRectMake(frame.size.width - addWidth - DelBtn_Width, 0, addWidth, frame.size.height)];
     }
+    [_delBtn setFrame:CGRectMake(frame.size.width - DelBtn_Width, 0, DelBtn_Width, frame.size.height)];
+
 }
 
 
@@ -97,8 +121,8 @@
         rightLine.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
         rightLine.frame = CGRectMake(btn.frame.size.width-NarrowLine_W,0,NarrowLine_W,btn.frame.size.height);
     }
-    //+添加左部分隔线
-    if([btn.titleLabel.text isEqualToString:@"+"]){
+    //+,del添加左部分隔线
+    if([btn.titleLabel.text isEqualToString:@"+"] || [btn.titleLabel.text isEqualToString:@""]){
         CALayer *leftLine = [LWLeftSeparatorLayer layer];
         [btn.layer addSublayer:leftLine];
         leftLine.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
@@ -115,12 +139,17 @@
 
 //返回键按下
 - (void)backBtnTouchUpInside:(UIButton *)btn {
-    
+    [self.responderKBViewController backFromPopView];
 }
 
 //添加键按下
 - (void)addBtnTouchUpInside:(UIButton *)btn {
 
+}
+
+//删除键按下
+- (void)delBtnTouchUpInside:(UIButton *)btn {
+    [self.responderKBViewController kbBtnTouchDown:btn];
 }
 
 //获得text的宽度
@@ -244,6 +273,9 @@
 }
 
 
+@end
+
+@implementation LWEmojiDelBtn
 @end
 
 @implementation LWRightSeparatorLayer

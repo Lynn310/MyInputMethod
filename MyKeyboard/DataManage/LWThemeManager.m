@@ -37,6 +37,7 @@
             [fmanager copyItemAtPath:bundleFilePath toPath:docFilePath error:&error];
             if (error) {
                 self.theme = [NSDictionary dictionaryWithContentsOfFile:bundleFilePath].mutableCopy;
+                return self;
             }
         }
         self.theme = [NSDictionary dictionaryWithContentsOfFile:docFilePath].mutableCopy;

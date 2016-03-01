@@ -2,49 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>recommend</key>
-	<dict>
-		<key>baobao</key>
-		<string>抱抱</string>
-		<key>burenzhishi</key>
-		<string>不忍直视</string>
-		<key>dainifei</key>
-		<string>带你飞</string>
-		<key>dese</key>
-		<string>得瑟</string>
-		<key>guzhang</key>
-		<string>鼓掌</string>
-		<key>huankuai</key>
-		<string>欢快</string>
-		<key>jiayou</key>
-		<string>加油</string>
-		<key>kaixin</key>
-		<string>开心</string>
-		<key>lenghan</key>
-		<string>冷汗</string>
-		<key>liukoushui</key>
-		<string>流口水</string>
-		<key>qinwo</key>
-		<string>亲我</string>
-		<key>qiushen</key>
-		<string>求神</string>
-		<key>se</key>
-		<string>色</string>
-		<key>shuaku</key>
-		<string>耍酷</string>
-		<key>wa</key>
-		<string>哇</string>
-		<key>weiqu</key>
-		<string>委屈</string>
-		<key>wolaile</key>
-		<string>我来了</string>
-		<key>wozuiyaobai</key>
-		<string>我最摇摆</string>
-		<key>xiao</key>
-		<string>笑</string>
-		<key>zaban</key>
-		<string>咋办</string>
-	</dict>
 	<key>yellowcheek</key>
 	<dict>
 		<key>anwei</key>
@@ -163,6 +120,49 @@
 		<string>炸弹</string>
 		<key>zhongzhi</key>
 		<string>中指</string>
+	</dict>
+	<key>recommend</key>
+	<dict>
+		<key>baobao</key>
+		<string>抱抱</string>
+		<key>burenzhishi</key>
+		<string>不忍直视</string>
+		<key>dainifei</key>
+		<string>带你飞</string>
+		<key>dese</key>
+		<string>得瑟</string>
+		<key>guzhang</key>
+		<string>鼓掌</string>
+		<key>huankuai</key>
+		<string>欢快</string>
+		<key>jiayou</key>
+		<string>加油</string>
+		<key>kaixin</key>
+		<string>开心</string>
+		<key>lenghan</key>
+		<string>冷汗</string>
+		<key>liukoushui</key>
+		<string>流口水</string>
+		<key>qinwo</key>
+		<string>亲我</string>
+		<key>qiushen</key>
+		<string>求神</string>
+		<key>se</key>
+		<string>色</string>
+		<key>shuaku</key>
+		<string>耍酷</string>
+		<key>wa</key>
+		<string>哇</string>
+		<key>weiqu</key>
+		<string>委屈</string>
+		<key>wolaile</key>
+		<string>我来了</string>
+		<key>wozuiyaobai</key>
+		<string>我最摇摆</string>
+		<key>xiao</key>
+		<string>笑</string>
+		<key>zaban</key>
+		<string>咋办</string>
 	</dict>
 </dict>
 </plist>

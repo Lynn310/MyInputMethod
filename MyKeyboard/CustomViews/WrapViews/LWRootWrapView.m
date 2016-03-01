@@ -50,9 +50,7 @@
 
 }
 
-/**
-* 根据按键类型添加PopView
-*/
+//根据按键类型添加PopView
 - (void)addPopViewByBtn:(UIView *)btn withType:(BtnType)type {
     //删除其他的popView
     UIButton *button = (UIButton *) btn;
@@ -114,9 +112,7 @@
     }
 }
 
-/**
-* 移除其他的popView
-*/
+//移除其他的popView
 - (void)removeAllOtherPopView:(UIButton *)btn {
     [self removePopView:_settingPopView withBtn:btn];
     [self removePopView:_keyboardSettingPopView withBtn:btn];
@@ -132,54 +128,6 @@
         [popView removeFromSuperview];
         popView = nil;
         [self.responderKBViewController updateToolbarArrow:(UIButton *) btn];
-    }
-}
-
-/**
-* 根据btn与类型移除popView
-*/
-- (void)removePopViewByBtn:(UIView *)view withType:(BtnType)type {
-    switch (type) {
-        case ToolbarBtn_Logo: {
-            [_settingPopView removeFromSuperview];
-            _settingPopView = nil;
-            break;
-        };
-        case ToolbarBtn_Emoji: {
-            
-            break;
-        };
-        case ToolbarBtn_Phrase: {
-
-            break;
-        };
-        case ToolbarBtn_Emoticon: {
-
-            break;
-        };
-        case ToolbarBtn_Graphic: {
-
-            break;
-        };
-        case ToolbarBtn_SwitchKB: {
-            [_keyboardSettingPopView removeFromSuperview];
-            _keyboardSettingPopView = nil;
-            break;
-        };
-        case ToolbarBtn_Skin: {
-
-            break;
-        };
-        case KBBtn_Next: {
-            
-            break;
-        };
-        case KBBtn_FullChar: {
-            
-            break;
-        };
-        default:
-            break;
     }
 }
 
