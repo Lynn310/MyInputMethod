@@ -15,6 +15,7 @@
 //皮肤选择面板
 @implementation LWSkinGridView {
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
+    NSIndexPath *_imgSelectedIndexPath;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
@@ -147,6 +148,7 @@
     if (indexPath.item == _skins.count) {
         cell.iconImageView.image = [UIImage imageNamed:@"add_icon"];
         cell.titleLbl.text = NSLocalizedString(@"Add Image", nil);
+        cell.selImgView.hidden = YES;
     } else {
         NSString *skinImgName = _skins[(NSUInteger) indexPath.item];
         CGFloat scale = [UIScreen mainScreen].scale;
@@ -176,7 +178,12 @@
             cell.iconImageView.image = smallImage;
         }
 
-
+        //设置selImgView的状态
+        NSString *kbBg = StringValueFromThemeKey(@"inputView.backgroundImage");
+        cell.selImgView.hidden = ![kbBg isEqualToString:skinImgName];
+        if(cell.selImgView.hidden){
+            _imgSelectedIndexPath = indexPath;
+        }
         cell.titleLbl.text = NSLocalizedString(skinImgName, nil);
     }
 }
@@ -194,7 +201,6 @@
         CGSize cellImgSize = CGSizeMake(Grid_Cell_W * scale, Grid_Cell_W * scale);
 
         UIImage *colorImage = [UIImage imageFromColor:color withRect:CGRectMake(0, 0, cellImgSize.width, cellImgSize.height)];
-        //todo:如果皮肤图片是用户自己加的
         cell.iconImageView.image = colorImage;
         cell.titleLbl.text = nil;
     }
@@ -220,8 +226,19 @@
             if (_skins.count == indexPath.item) {
                 [self openURLWithUrl:[NSURL URLWithString:@"MyInputMethod://"]];
             } else {
-                //todo:选择皮肤
+                //设置selImgView的状态
+                NSString *skinImgName = _skins[(NSUInteger) indexPath.item];
+                NSString *oldKBBg = StringValueFromThemeKey(@"inputView.backgroundImage");
 
+                StringValueToThemeFileByKey(skinImgName,@"inputView.backgroundImage");
+
+                //把已选择的cell设置为未选择
+                if(![indexPath isEqual:_imgSelectedIndexPath]){
+                    LWGridViewCell *oldCell = (LWGridViewCell *) [collectionView cellForItemAtIndexPath:_imgSelectedIndexPath];
+                    oldCell.selImgView.hidden = YES;
+                }
+                //重新设置新选择的状态
+                cell.selImgView.hidden = ![oldKBBg isEqualToString:skinImgName];
             }
             break;
         }
@@ -431,6 +448,15 @@
         [_deleteButton addTarget:self action:@selector(deleteButtonClicked:) forControlEvents:UIControlEventTouchDown];
         self.iconImageView.userInteractionEnabled = YES;
 
+        _selImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selectedIcon"]];
+        _selImgView.bounds = CGRectMake(0,0,Cell_DeleteBtn_W,Cell_DeleteBtn_H);
+        _selImgView.center = CGPointMake(_iconImageView.frame.size.width/2,_iconImageView.frame.size.height/2);
+        _selImgView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.contentView addSubview:_selImgView];
+        _selImgView.hidden = YES;
+
+        //把_selImgView移到最前端
+        [self bringSubviewToFront:_selImgView];
     }
 
     return self;

@@ -43,6 +43,8 @@
 
 @property(nonatomic) BOOL undeleteable;
 
+@property(nonatomic, strong) UIImageView *selImgView;
+
 //cell titleLabel的最大大小
 - (CGSize)maxCellTitleSize;
 
