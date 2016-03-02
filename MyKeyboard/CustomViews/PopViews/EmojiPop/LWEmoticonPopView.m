@@ -302,6 +302,7 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
     NSMutableArray *_allAttributes;
     NSUInteger _unitCounter;
     NSMutableDictionary *_indexPathCounterDict;
+    NSMutableDictionary *_maxX;
 }
 
 - (instancetype)init {
@@ -332,6 +333,13 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
     //unit单位区域计数器
     _unitCounter = 0;
     _indexPathCounterDict = @{}.mutableCopy;
+    _maxX = @{
+              @(0):@(0.0),
+              @(1):@(0.0),
+              @(2):@(0.0),
+              @(3):@(0.0),
+              }.mutableCopy;
+    NSUInteger row = 0;
     for (NSUInteger i = 0; i < _cellCount; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
 //        UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:indexPath];
@@ -345,22 +353,47 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
         CGSize textSize = [self getTextUnitSizeFromItem:(NSUInteger) indexPath.item];
 
         //如果此行剩下的空间容不下这个text，把它前的text区域改大，并修改_unitCounter
-        CGFloat unuseWidth = collectionSize.width - (_unitCounter % 4) * cellSize.width;
+//        CGFloat unuseWidth = collectionSize.width - (_unitCounter % 4) * cellSize.width;
+//        if (unuseWidth < textSize.width) {
+//            UICollectionViewLayoutAttributes *preAttr = _allAttributes.lastObject;
+//            if (preAttr) {
+//                preAttr.frame = CGRectMake(preAttr.frame.origin.x, preAttr.frame.origin.y,
+//                        preAttr.frame.size.width + unuseWidth, preAttr.frame.size.height);
+//                _unitCounter = _unitCounter + (NSUInteger) roundf(unuseWidth / cellSize.width);
+//            }
+//        }
+//        CGFloat x = (_unitCounter / 16) * collectionSize.width + (_unitCounter % 4) * cellSize.width;
+//        CGFloat y = ((_unitCounter / 4) % 4) * cellSize.height;
+//        attr.frame = CGRectMake(x, y, textSize.width, textSize.height);
+//        [_indexPathCounterDict setValue:@(_unitCounter) forKey:@(indexPath.item).stringValue];
+//
+//        //_unitCounter递增
+//        _unitCounter = _unitCounter + (NSUInteger) roundf(textSize.width / cellSize.width);
+        
+        CGFloat x = [[_maxX objectForKey:@(row)] floatValue];
+        CGFloat y = row * textSize.height;
+        //如果此行剩下的空间容不下这个text，把它前的text区域改大，并修改row和x
+        CGFloat unuseWidth = collectionSize.width - fmod(x, collectionSize.width);
         if (unuseWidth < textSize.width) {
             UICollectionViewLayoutAttributes *preAttr = _allAttributes.lastObject;
             if (preAttr) {
                 preAttr.frame = CGRectMake(preAttr.frame.origin.x, preAttr.frame.origin.y,
-                        preAttr.frame.size.width + unuseWidth, preAttr.frame.size.height);
-                _unitCounter = _unitCounter + (NSUInteger) roundf(unuseWidth / cellSize.width);
+                                           preAttr.frame.size.width + unuseWidth, preAttr.frame.size.height);
             }
+            [_maxX setObject:@(x + unuseWidth) forKey:@(row)];
+            row = (row+1)>=4?0:(row+1);
+            x = [[_maxX objectForKey:@(row)] floatValue];
+            y = row * textSize.height;
+            unuseWidth = collectionSize.width - fmod(x, collectionSize.width);
         }
-        CGFloat x = (_unitCounter / 16) * collectionSize.width + (_unitCounter % 4) * cellSize.width;
-        CGFloat y = ((_unitCounter / 4) % 4) * cellSize.height;
+        
+        [_maxX setObject:@(x + textSize.width) forKey:@(row)];
+        
         attr.frame = CGRectMake(x, y, textSize.width, textSize.height);
-        [_indexPathCounterDict setValue:@(_unitCounter) forKey:@(indexPath.item).stringValue];
-
-        //_unitCounter递增
-        _unitCounter = _unitCounter + (NSUInteger) roundf(textSize.width / cellSize.width);
+        
+        if (unuseWidth == textSize.width) {
+            row = (row+1)>=4?0:(row+1);
+        }
 
         [_allAttributes addObject:attr];
     }
@@ -428,12 +461,12 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
 
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-    NSArray *allAttributesInRect = [super layoutAttributesForElementsInRect:rect];
-    for (UICollectionViewLayoutAttributes *attr in allAttributesInRect) {
-
-        attr.frame = ((UICollectionViewLayoutAttributes *)(_allAttributes[(NSUInteger) attr.indexPath.item])).frame;
-    }
-    return allAttributesInRect;
+//    NSArray *allAttributesInRect = [super layoutAttributesForElementsInRect:rect];
+//    for (UICollectionViewLayoutAttributes *attr in allAttributesInRect) {
+//
+//        attr.frame = ((UICollectionViewLayoutAttributes *)(_allAttributes[(NSUInteger) attr.indexPath.item])).frame;
+//    }
+    return _allAttributes;
 
 //    NSArray *allAttributesInRect = [[NSArray alloc] initWithArray:[super layoutAttributesForElementsInRect:_cllectionBounds] copyItems:YES];
 //
@@ -491,10 +524,12 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
 - (CGSize)collectionViewContentSize {
     CGSize size = [super collectionViewContentSize];
 
-    CGFloat collectionViewWidth = self.collectionView.frame.size.width;
-    NSInteger nbOfScreens = (int) ceil((_unitCounter / 16));
-
-    CGSize newSize = CGSizeMake((nbOfScreens) * collectionViewWidth, size.height);
+//    CGFloat collectionViewWidth = self.collectionView.frame.size.width;
+//    NSInteger nbOfScreens = (int) ceil((_unitCounter / 16));
+//
+//    CGSize newSize = CGSizeMake((nbOfScreens) * collectionViewWidth, size.height);
+    
+    CGSize newSize = CGSizeMake([[_maxX objectForKey:@(0)] floatValue], size.height);
 
     return newSize;
 }
