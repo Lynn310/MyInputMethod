@@ -53,7 +53,7 @@
             CGSize boundSize = self.contentView.bounds.size;
             _mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, boundSize.height / 8, boundSize.width, boundSize.height * 3 / 4)];
             _mainLabel.textAlignment = NSTextAlignmentCenter;
-            _mainLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+            _mainLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
             _mainLabel.textColor = UIColorValueFromThemeKey(@"font.color");
             [self.contentView addSubview:_mainLabel];
         }

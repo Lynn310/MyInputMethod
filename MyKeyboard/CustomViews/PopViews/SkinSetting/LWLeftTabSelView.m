@@ -56,8 +56,8 @@
     [_upBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateSelected];
     [_downBtn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
     [_downBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateSelected];
-    _upBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
-    _downBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+    _upBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+    _downBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
 
 
     //设置frame
@@ -119,7 +119,7 @@
         _textLabel.minimumScaleFactor = 0.5;
         _textLabel.text = text;
         _textLabel.textColor = UIColorValueFromThemeKey(@"font.color");
-        _textLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+        _textLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
         [self addSubview:_textLabel];
 
         //方法一:

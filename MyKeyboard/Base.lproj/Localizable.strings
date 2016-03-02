@@ -44,7 +44,10 @@
 "Button Color" = "按键颜色";
 "Button Alpha" = "按键透明度";
 "Button CornerRadius" = "按键圆角";
-"Button Border" = "按键边框";
+"Border Width" = "边框宽度";
+"Border Color" = "边框颜色";
+"Shadow Width" = "阴影宽度";
+"Shadow Color" = "阴影颜色";
 "Font Color" = "字体颜色";
 "Font Name" = "字体类型";
 

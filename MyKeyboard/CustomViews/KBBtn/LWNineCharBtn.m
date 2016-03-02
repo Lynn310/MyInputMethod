@@ -70,7 +70,7 @@
             _topLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, boundSize.width, boundSize.height / 4)];
             _topLabel.textAlignment = NSTextAlignmentCenter;
 //                _topLabel.backgroundColor = [UIColor blueColor];
-            _topLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")];
+            _topLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")];
             _topLabel.textColor = UIColorValueFromThemeKey(@"font.color");
             [self.contentView addSubview:_topLabel];
         }
@@ -85,7 +85,7 @@
             _mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, boundSize.height / 4, boundSize.width, boundSize.height * 3 / 4)];
             _mainLabel.textAlignment = NSTextAlignmentCenter;
 //                _mainLabel.backgroundColor = [UIColor greenColor];
-            _mainLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+            _mainLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
             _mainLabel.textColor = UIColorValueFromThemeKey(@"font.color");
             [self.contentView addSubview:_mainLabel];
         }

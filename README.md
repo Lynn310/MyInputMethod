@@ -79,9 +79,11 @@ Vertical-Text-iOS:https://github.com/sangonz/Vertical-Text-iOS
 Method Swizzling 和 AOP 实践:http://tech.glowing.com/cn/method-swizzling-aop/
 
 
+
 #需要做的功能点
-=============
+
 **常规键盘Extension**
+```
 1. 自定义皮肤,按键样式设置完善及数据存储整理；
 2. 四种常规键盘(拼音全键,拼音九键,五笔全键,笔画全键)之间切换，上滑手势输入，字符键按提示窗；
 3. 添加符号键盘(类似百度的符号键盘-CollectionView)；
@@ -103,14 +105,17 @@ Method Swizzling 和 AOP 实践:http://tech.glowing.com/cn/method-swizzling-aop/
 16. 横竖屏优化,剪粘板,按键音处理；
 17. 图片表情的社会化分享的集成；
 18. 主题的添加/设置/选择；
-
+```
 
 **Gif表情键盘Extension**
+```
 1. 键盘界面添加；
 2. 输入逻辑实现；
+```
 
 
 **主App**
+```
 1. 启动页，教程Guide；
 2. 联系人的导入；
 3. 添加快捷短语及分类；
@@ -123,6 +128,7 @@ Method Swizzling 和 AOP 实践:http://tech.glowing.com/cn/method-swizzling-aop/
 9. gif图片/压缩包的导入；
 10. url下载gif导入；
 11. 恢复到默认主题设置；
+```
 
 
 

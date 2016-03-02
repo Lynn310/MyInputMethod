@@ -19,9 +19,9 @@
 - (void)layoutSubviews {
 
     //重设阴影大小
-    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, FloatValueFromThemeKey(@"btn.shadow.offsetY"));
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - FloatValueFromThemeKey(@"btn.shadow.height") + FloatValueFromThemeKey(@"btn.shadow.offsetY")),
-            _contentView.frame.size.width, FloatValueFromThemeKey(@"btn.shadow.height"));
+    CGFloat shadowHeight = FloatValueFromThemeKey(@"btn.shadow.height");
+    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, shadowHeight/2);
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - shadowHeight/2),_contentView.frame.size.width, shadowHeight);
 
     [super layoutSubviews];
 }
@@ -73,10 +73,11 @@
     _shadowlayer.contentsScale = self.layer.contentsScale;
     _shadowlayer.contentsScale = self.layer.contentsScale;
     _shadowlayer.backgroundColor = CGColorValueFromThemeKey(@"btn.shadow.color");
-    _shadowlayer.cornerRadius = (CGFloat)(FloatValueFromThemeKey(@"btn.cornerRadius")+FloatValueFromThemeKey(@"btn.shadow.offsetY"));
 
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - FloatValueFromThemeKey(@"btn.shadow.height") + FloatValueFromThemeKey(@"btn.shadow.offsetY")),
-            _contentView.frame.size.width, FloatValueFromThemeKey(@"btn.shadow.height"));
+    CGFloat shadowHeight = FloatValueFromThemeKey(@"btn.shadow.height");
+    _shadowlayer.cornerRadius = (CGFloat)(FloatValueFromThemeKey(@"btn.cornerRadius")+shadowHeight/2);
+
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - shadowHeight/2),_contentView.frame.size.width, shadowHeight);
     [self.layer insertSublayer:_shadowlayer below:_contentView.layer];
 }
 

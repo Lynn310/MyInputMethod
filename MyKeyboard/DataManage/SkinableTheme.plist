@@ -22,34 +22,30 @@
 	<integer>1</integer>
 	<key>font.color</key>
 	<string>240,208,164,255</string>
+	<key>font.name</key>
+	<string>Helvetica</string>
 	<key>font.highlightColor</key>
 	<string>255,255,255,255</string>
 	<key>btn.content.color</key>
 	<string>240,208,164,255</string>
 	<key>btn.content.highlightColor</key>
 	<string>255,255,255,255</string>
-	<key>btn.borderType</key>
-	<integer>0</integer>
 	<key>btn.borderColor</key>
-	<string>127,127,127</string>
+	<string>127,127,127,255</string>
 	<key>btn.borderWidth</key>
 	<real>1</real>
 	<key>btn.cornerRadius</key>
 	<real>5</real>
+	<key>btn.opacity</key>
+	<integer>0</integer>
 	<key>btn.innerBorder.borderColor</key>
 	<string>127,127,127,255</string>
 	<key>btn.innerBorder.borderWidth</key>
 	<real>1</real>
 	<key>btn.innerBorder.cornerRadius</key>
 	<real>4</real>
-	<key>btn.opacity</key>
-	<integer>0</integer>
-	<key>btn.shadowType</key>
-	<string>0</string>
 	<key>btn.shadow.color</key>
 	<string>127,127,127,255</string>
-	<key>btn.shadow.offsetY</key>
-	<real>0.5</real>
 	<key>btn.shadow.height</key>
 	<real>1</real>
 	<key>btn.innershadow.offsetY</key>
@@ -58,16 +54,10 @@
 	<integer>0</integer>
 	<key>btn.topAndMain.space</key>
 	<real>0.5</real>
-	<key>btn.mainLabel.fontName</key>
-	<string>Helvetica</string>
 	<key>btn.mainLabel.fontSize</key>
 	<integer>20</integer>
-	<key>btn.topLabel.fontName</key>
-	<string>Helvetica</string>
 	<key>btn.topLabel.fontSize</key>
 	<integer>10</integer>
-	<key>settingBtn.fontName</key>
-	<string>Helvetica</string>
 	<key>settingBtn.fontSize</key>
 	<integer>12</integer>
 	<key>popView.backgroundColor</key>

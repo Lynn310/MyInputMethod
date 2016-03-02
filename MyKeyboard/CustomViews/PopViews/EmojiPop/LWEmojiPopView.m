@@ -114,7 +114,7 @@ static NSString *const EmojiCell = @"EmojiCell";
     NSString *key = _emojiDict.allKeys[idx];
     NSString *text = _emojiDict[key][(NSUInteger) indexPath.item];
 
-    NSString *fontName = StringValueFromThemeKey(@"btn.mainLabel.fontName");
+    NSString *fontName = StringValueFromThemeKey(@"font.name");
     CGFloat fontSize = FloatValueFromThemeKey(@"btn.mainLabel.fontSize");
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize]};
     UIImage *textImg = [UIImage imageFromString:text attributes:attributes size:[text sizeWithAttributes:attributes]];

@@ -90,15 +90,6 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
     ReturnKeyOk,
 };
 
-//边框阴影类型
-typedef NS_ENUM(NSInteger,BorderShadow){
-    BorderShadow_None,
-    Border_Black,
-    Border_White,
-    Shadow_All,
-    Shadow_Bottom,
-};
-
 // --------- 相关key名
 
 #define GroupId [NSBundle mainBundle].infoDictionary[@"GroupId"]
@@ -195,8 +186,12 @@ typedef NS_ENUM(NSInteger,BorderShadow){
 #define Default_Btn_Alphas @{@"Alpha0":@0,@"Alpha1":@0.1,@"Alpha2":@0.4,@"Alpha3":@0.8,@"Alpha4":@1.0}
 //按键圆角
 #define Default_Btn_CornerRadiuses @{@"CornerRadiuse0":@0,@"CornerRadiuse1":@5,@"CornerRadiuse2":@10,@"CornerRadiuse3":@16,@"CornerRadiuse4":@20}
-//按键边框阴影
-#define Default_Btn_BorderShadow @{@"BorderShadow0":@(BorderShadow_None),@"BorderShadow1":@(Border_Black),@"BorderShadow2":@(Border_White),@"BorderShadow3":@(Shadow_All),@"BorderShadow4":@(Shadow_Bottom)}
+//按键边框宽度
+#define Default_Btn_BorderWidth @{@"BorderWidth0":@0,@"BorderWidth1":@(1/Scr_Scale),@"BorderWidth2":@1,@"BorderWidth4":@2.0}
+//按键阴影宽度
+#define Default_Btn_ShadowWidth @{@"ShadowWidth0":@0,@"ShadowWidth1":@1.0,@"ShadowWidth2":@2.0,@"ShadowWidth3":@3.0}
+
+
 //字体名称(http://iosfonts.com/)
 #define Default_FontNames @[@"HelveticaNeue",@"ArialHebrew",@"HelveticaNeue-Light",@"HelveticaNeue-Thin",\
     @"Menlo-Regular",@"SavoyeLetPlain",@"SnellRoundhand-Bold",@"Zapfino"]

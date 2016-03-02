@@ -131,7 +131,7 @@
 //    btn.layer.borderWidth = FloatValueFromThemeKey(@"btn.borderWidth");
 //    btn.layer.borderColor = CGColorValueFromThemeKey(@"btn.borderColor");
 
-    btn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
+    btn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name")
                                                size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
     [btn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
     [btn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateHighlighted];
@@ -154,7 +154,7 @@
 
 //获得text的宽度
 -(CGFloat)getTextWidth:(NSString *)text{
-    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"font.name")
                                                                        size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]};
     NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
     return attrText.size.width + 20;
@@ -203,7 +203,7 @@
 
 //获得NavItems的宽度
 - (CGFloat)getNavItemsWidth:(NSArray *)navItems {
-    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"font.name")
                                                                        size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]};
     CGFloat navItemsWidth = 0;
     for(NSString *itemText in navItems){
@@ -215,7 +215,7 @@
 
 //获得text的宽度
 -(CGFloat)getTextWidth:(NSString *)text{
-    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"font.name")
                                                                        size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]};
     NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
     return attrText.size.width + 20;
@@ -251,7 +251,7 @@
 
         }
 
-        button.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
+        button.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name")
                                                  size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
         [button setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
         [button setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateHighlighted];

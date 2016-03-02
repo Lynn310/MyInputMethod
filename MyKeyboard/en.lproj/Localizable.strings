@@ -43,7 +43,10 @@
 "Button Color" = "Button Color";
 "Button Alpha" = "Button Alpha";
 "Button CornerRadius" = "Button CornerRadius";
-"Button Border" = "Button Border";
+"Border Width" = "Border Width";
+"Border Color" = "Border Color";
+"Shadow Width" = "Shadow Width";
+"Shadow Color" = "Shadow Color";
 "Font Color" = "Font Color";
 "Font Name" = "Font Type";
 

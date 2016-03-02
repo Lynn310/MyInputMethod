@@ -14,9 +14,14 @@
 @property(strong, nonatomic) UIColor *btnNormalColor;
 @property(strong, nonatomic) UIColor *btnHighColor;
 
-@property(nonatomic, strong) NSDictionary *btnAlphas;
-@property(nonatomic, strong) NSDictionary  *btnCornerRadiuses;
-@property(nonatomic, strong) NSDictionary  *btnBorderShadow;
+@property(nonatomic, strong) NSDictionary *btnAlphaDic;
+@property(nonatomic, strong) NSDictionary  *btnCornerRadiuseDic;
+@property(nonatomic, strong) NSDictionary  *btnBorderWidthDic;
+@property(nonatomic, strong) UIColor  *btnBorderColor;
+@property(nonatomic, strong) NSDictionary  *btnShadowWidthDic;
+@property(nonatomic, strong) UIColor  *btnShadowColor;
+
+
 @property(nonatomic, strong) UIColor *fontColor;
 @property(nonatomic, strong) UIColor *fontHighColor;
 @property(nonatomic, strong) NSArray *fontNames;

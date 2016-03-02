@@ -36,9 +36,9 @@
     _contentView.frame = CGRectInset(self.bounds, FloatValueFromThemeKey(@"btn.space.horizon"), FloatValueFromThemeKey(@"btn.space.verticel"));
 
     //重设阴影大小
-    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, FloatValueFromThemeKey(@"btn.shadow.offsetY"));
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - FloatValueFromThemeKey(@"btn.shadow.height") + FloatValueFromThemeKey(@"btn.shadow.offsetY")),
-            _contentView.frame.size.width, FloatValueFromThemeKey(@"btn.shadow.height"));
+    CGFloat shadowHeight = FloatValueFromThemeKey(@"btn.shadow.height");
+    _shadowlayer.frame = CGRectOffset(_contentView.frame, 0, shadowHeight/2);
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - shadowHeight/2),_contentView.frame.size.width, shadowHeight/2);
 
     //重设置内边框、背景、高亮背景大小
     _innerGlow.frame = CGRectInset(self.bounds, 1, 1);
@@ -202,10 +202,11 @@
     _shadowlayer.contentsScale = self.layer.contentsScale;
     _shadowlayer.contentsScale = self.layer.contentsScale;
     _shadowlayer.backgroundColor = CGColorValueFromThemeKey(@"btn.shadow.color");
-    _shadowlayer.cornerRadius = (CGFloat)(FloatValueFromThemeKey(@"btn.cornerRadius")+FloatValueFromThemeKey(@"btn.shadow.offsetY"));
 
-    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - FloatValueFromThemeKey(@"btn.shadow.height") + FloatValueFromThemeKey(@"btn.shadow.offsetY")),
-            _contentView.frame.size.width, FloatValueFromThemeKey(@"btn.shadow.height"));
+    CGFloat shadowHeight = FloatValueFromThemeKey(@"btn.shadow.height");
+    _shadowlayer.cornerRadius = (CGFloat)(FloatValueFromThemeKey(@"btn.cornerRadius")+shadowHeight/2);
+
+    _shadowlayer.frame = CGRectMake(_contentView.frame.origin.x, (CGFloat) (_contentView.frame.origin.y + _contentView.frame.size.height - shadowHeight/2),_contentView.frame.size.width, shadowHeight);
     [self.layer insertSublayer:_shadowlayer below:_contentView.layer];
 }
 
@@ -215,7 +216,7 @@
         self.tipLb = [[UILabel alloc] initWithFrame:CGRectMake(_contentView.frame.size.width-60, 0, 60, 20)];
         self.tipLb.text = tip;
         self.tipLb.textColor = UIColorValueFromThemeKey(@"font.color");
-        self.tipLb.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")];
+        self.tipLb.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")];
         [self.contentView addSubview:self.tipLb];
     }
 }

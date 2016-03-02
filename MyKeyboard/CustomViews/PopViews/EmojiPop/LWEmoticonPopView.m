@@ -196,7 +196,7 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
     _emoticonBtn.titleLabel.hidden = YES;
     _emoticonBtn.titleLabel.text = text;
 
-    NSString *fontName = StringValueFromThemeKey(@"btn.mainLabel.fontName");
+    NSString *fontName = StringValueFromThemeKey(@"font.name");
     CGFloat fontSize = FloatValueFromThemeKey(@"btn.mainLabel.fontSize");
 //    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize],
 //            NSForegroundColorAttributeName : [UIColor blackColor],
@@ -245,7 +245,7 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
 - (CGSize)getTextSizeFromItem:(NSUInteger)indexPathItem {
     NSString *text = (NSString *) self.emotions[indexPathItem];
 
-    NSString *fontName = StringValueFromThemeKey(@"btn.mainLabel.fontName");
+    NSString *fontName = StringValueFromThemeKey(@"font.name");
     CGFloat fontSize = FloatValueFromThemeKey(@"btn.mainLabel.fontSize");
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize]};
 
