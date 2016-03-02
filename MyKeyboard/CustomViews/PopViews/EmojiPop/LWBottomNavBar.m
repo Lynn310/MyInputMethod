@@ -281,5 +281,8 @@
 @implementation LWRightSeparatorLayer
 @end
 
+@implementation LWBottomSeparatorLayer
+@end
+
 @implementation LWLeftSeparatorLayer
 @end

@@ -81,6 +81,9 @@ static NSString *const EmojiCell = @"EmojiCell";
 - (void)layoutSubviews {
     [super layoutSubviews];
     _bottomNavBar.frame = CGRectMake(0, (CGFloat) (self.frame.size.height-Toolbar_H),self.frame.size.width,Toolbar_H);
+    _collectionView.frame = CGRectMake(0,0,self.frame.size.width, (CGFloat) (self.frame.size.height-Toolbar_H));
+    CGFloat cellSideLenght = (CGFloat) ((self.frame.size.height-Toolbar_H)/4);
+    ((UICollectionViewFlowLayout *)_collectionView.collectionViewLayout).itemSize = CGSizeMake(cellSideLenght, cellSideLenght);
 }
 
 
@@ -156,10 +159,16 @@ static NSString *const EmojiCell = @"EmojiCell";
         _emojiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _emojiBtn.frame = CGRectMake(0,0,frame.size.width,frame.size.height);
         _emojiBtn.userInteractionEnabled = NO;
+        _emojiBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self addSubview:_emojiBtn];
     }
     
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _emojiBtn.frame = CGRectMake(0,0,self.frame.size.width,self.frame.size.height);
 }
 
 

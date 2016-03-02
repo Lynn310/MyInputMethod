@@ -87,6 +87,12 @@ static NSString *const GraphicCellId = @"GraphicCellId";
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    _bottomNavBar.frame = CGRectMake(0, (CGFloat) (self.frame.size.height-Toolbar_H),self.frame.size.width,Toolbar_H);
+    _collectionView.frame = CGRectMake(0,0,self.frame.size.width, (CGFloat) (self.frame.size.height-Toolbar_H));
+
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)_collectionView.collectionViewLayout;
+    CGFloat cellSideLenght = (CGFloat) ((_collectionView.frame.size.height - layout.minimumLineSpacing) / 2);
+    layout.itemSize = CGSizeMake(cellSideLenght, cellSideLenght);
 }
 
 
@@ -168,6 +174,7 @@ static NSString *const GraphicCellId = @"GraphicCellId";
         //图片
         CGSize cellSize = self.frame.size;
         _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cellSize.width, cellSize.height - 14)];
+        _iconImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
         _iconImageView.layer.masksToBounds = YES;
         _iconImageView.layer.cornerRadius = FloatValueFromThemeKey(@"btn.cornerRadius");
@@ -185,6 +192,14 @@ static NSString *const GraphicCellId = @"GraphicCellId";
     
     return self;
 }
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGSize cellSize = self.frame.size;
+    _iconImageView.frame = CGRectMake(0, 0, cellSize.width, cellSize.height - 14);
+    _titleLbl.frame = CGRectIntegral(CGRectMake(-3.5, cellSize.height - self.maxCellTitleSize.height, cellSize.width + 7, self.maxCellTitleSize.height));
+}
+
 
 //cell titleLabel的最大大小
 - (CGSize)maxCellTitleSize {

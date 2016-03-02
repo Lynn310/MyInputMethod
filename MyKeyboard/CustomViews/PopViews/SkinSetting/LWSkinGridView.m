@@ -371,7 +371,7 @@
 //长按手势响应处理
 - (void)longPressGestureRecognizerTriggerd:(UILongPressGestureRecognizer *)longPress {
     
-    LWSkinGridView *gridView = (LWSkinGridView *) longPress.view;
+    //LWSkinGridView *gridView = (LWSkinGridView *) longPress.view;
     switch (longPress.state) {
         case UIGestureRecognizerStateBegan: {
             //如果不是处于编辑状态，设置成编辑状态
@@ -401,8 +401,8 @@
 //设置编辑状态
 - (void)setEditing:(BOOL)editing {
     _editing = editing;
-    for (UICollectionViewCell *cell in self.visibleCells) {
-        LWGridViewCell *cell = (LWGridViewCell *) cell;
+    for (UICollectionViewCell *cel in self.visibleCells) {
+        LWGridViewCell *cell = (LWGridViewCell *) cel;
         
         //给cell设置editing状态
         NSIndexPath *indexPath = [self indexPathForCell:cell];

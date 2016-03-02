@@ -44,6 +44,9 @@
 @interface LWRightSeparatorLayer : CALayer
 @end
 
+@interface LWBottomSeparatorLayer : CALayer
+@end
+
 @interface LWLeftSeparatorLayer : CALayer
 @end
 

@@ -5,9 +5,16 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol LWGridCellDelegate;
 @class LWGridViewCell;
 @class LWColorPickerView;
+
+@protocol LWGridCellDelegate <NSObject>
+
+//删除一个宫格
+- (void)deleteButtonClickedInGridViewCell:(LWGridViewCell *)cell;
+
+@end
+
 
 //皮肤选择面板(默认,或颜色透明)
 @interface LWSkinGridView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate, LWGridCellDelegate>
@@ -16,18 +23,10 @@
 @property(strong, nonatomic) NSMutableArray *colors;
 
 @property(nonatomic, assign) BOOL editing;
-
 @property(nonatomic, strong) LWColorPickerView *colorPickerView;
-@end
-
-
-
-@protocol LWGridCellDelegate <NSObject>
-
-//删除一个宫格
-- (void)deleteButtonClickedInGridViewCell:(LWGridViewCell *)cell;
 
 @end
+
 
 
 //宫格Cell

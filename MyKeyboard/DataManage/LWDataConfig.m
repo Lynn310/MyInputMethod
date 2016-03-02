@@ -35,7 +35,6 @@
 
 //根据fName与fType从document中或bundle中读取
 + (NSString *)getTextWithFilePrefix:(NSString *)fName fType:(NSString *)fType {
-    NSString *text;
     NSString *bundleFilePath = [[NSBundle mainBundle] pathForResource:fName ofType:fType];
     NSFileManager *fmanager = [NSFileManager defaultManager];
     NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];

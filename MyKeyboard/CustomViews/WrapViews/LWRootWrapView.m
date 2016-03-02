@@ -7,7 +7,6 @@
 #import "LWSettingPopView.h"
 #import "LWDefines.h"
 #import "LWKeyboardConfig.h"
-#import "LWOftenWordsPopView.h"
 #import "LWKeyboardSettingPopView.h"
 #import "LWSkinSettingPopView.h"
 #import "LWPhrasePopView.h"

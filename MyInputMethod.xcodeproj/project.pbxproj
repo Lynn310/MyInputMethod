@@ -39,7 +39,6 @@
 		EA3E23821B732B5100349A95 /* LWNumLeftTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E23681B732B5100349A95 /* LWNumLeftTabView.m */; };
 		EA3E23831B732B5100349A95 /* LWPinYinLeftTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E236A1B732B5100349A95 /* LWPinYinLeftTabView.m */; };
 		EA3E23841B732B5100349A95 /* LWToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E236C1B732B5100349A95 /* LWToolBar.m */; };
-		EA3E23851B732B5100349A95 /* LWOftenWordsPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E236F1B732B5100349A95 /* LWOftenWordsPopView.m */; };
 		EA3E23861B732B5100349A95 /* LWSettingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E23711B732B5100349A95 /* LWSettingPopView.m */; };
 		EA3E23871B732B5100349A95 /* LWKeyboardWrap.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E23741B732B5100349A95 /* LWKeyboardWrap.m */; };
 		EA3E23881B732B5100349A95 /* LWRootWrapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E23761B732B5100349A95 /* LWRootWrapView.m */; };
@@ -198,8 +197,6 @@
 		EA3E236A1B732B5100349A95 /* LWPinYinLeftTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPinYinLeftTabView.m; sourceTree = "<group>"; };
 		EA3E236B1B732B5100349A95 /* LWToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWToolBar.h; sourceTree = "<group>"; };
 		EA3E236C1B732B5100349A95 /* LWToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWToolBar.m; sourceTree = "<group>"; };
-		EA3E236E1B732B5100349A95 /* LWOftenWordsPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWOftenWordsPopView.h; sourceTree = "<group>"; };
-		EA3E236F1B732B5100349A95 /* LWOftenWordsPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWOftenWordsPopView.m; sourceTree = "<group>"; };
 		EA3E23701B732B5100349A95 /* LWSettingPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSettingPopView.h; sourceTree = "<group>"; };
 		EA3E23711B732B5100349A95 /* LWSettingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSettingPopView.m; sourceTree = "<group>"; };
 		EA3E23731B732B5100349A95 /* LWKeyboardWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWKeyboardWrap.h; sourceTree = "<group>"; };
@@ -440,8 +437,6 @@
 			children = (
 				BEF06940B7380B41F58A01F8 /* EmojiPop */,
 				EA09271D1C1E59A3001C69B1 /* SkinSetting */,
-				EA3E236E1B732B5100349A95 /* LWOftenWordsPopView.h */,
-				EA3E236F1B732B5100349A95 /* LWOftenWordsPopView.m */,
 				EA3E23701B732B5100349A95 /* LWSettingPopView.h */,
 				EA3E23711B732B5100349A95 /* LWSettingPopView.m */,
 				EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */,
@@ -1031,7 +1026,6 @@
 				EA0927311C1E59A3001C69B1 /* LWRightSettingView.m in Sources */,
 				EA3E23831B732B5100349A95 /* LWPinYinLeftTabView.m in Sources */,
 				EA577DB41C75940900FF3249 /* LWPhrasePopView.m in Sources */,
-				EA3E23851B732B5100349A95 /* LWOftenWordsPopView.m in Sources */,
 				EA2837291C21300D00927753 /* UIResponder+Ext.m in Sources */,
 				EA3E23CA1B732C0300349A95 /* UIColor+HexValue.m in Sources */,
 				EA09272D1C1E59A3001C69B1 /* LWSkinSettingPopView.m in Sources */,
