@@ -160,7 +160,6 @@
     } else {
         //否则用颜色值
         _highlightBackgroundLayer.backgroundColor = CGColorValueFromThemeKey(@"btn.content.highlightColor");
-        _highlightBackgroundLayer.opacity = FloatValueFromThemeKey(@"btn.content.highlightOpacity");
     }
 }
 
@@ -215,7 +214,7 @@
     if(!self.tipLb){
         self.tipLb = [[UILabel alloc] initWithFrame:CGRectMake(_contentView.frame.size.width-60, 0, 60, 20)];
         self.tipLb.text = tip;
-        self.tipLb.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+        self.tipLb.textColor = UIColorValueFromThemeKey(@"font.color");
         self.tipLb.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")];
         [self.contentView addSubview:self.tipLb];
     }

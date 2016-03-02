@@ -42,13 +42,10 @@
     [super reloadData];
     
     //按键颜色
-//    _btnNormalColor = [LWThemeManager getColorWithKey:Key_Btn_NormalColor];
-//    _btnHighColor = [LWThemeManager getColorWithKey:Key_Btn_HighColor];
     _btnNormalColor = UIColorValueFromThemeKey(@"btn.content.color");
     _btnHighColor = UIColorValueFromThemeKey(@"btn.content.highlightColor");
     
     //按键透明度
-//    _btnAlpha = FloatValueFromThemeKey(@"btn.content.Opacity");
     _btnAlphas = Default_Btn_Alphas;
     
     //按键圆角
@@ -59,7 +56,8 @@
 
     //字体颜色
     _fontColor = UIColorValueFromThemeKey(@"font.color");
-    
+    _fontHighColor = UIColorValueFromThemeKey(@"font.highlightColor");
+
     //字体名称
     _fontNames = Default_FontNames;
     
@@ -96,7 +94,7 @@
         }
             //字体颜色
         case 4: {
-            return 1;
+            return 2;
             break;
         }
             //字体名称
@@ -118,7 +116,6 @@
     switch (indexPath.section) {
         //按键颜色
         case 0: {
-            //文字颜色
             UIColor *color = _btnNormalColor;
             cell.titleLbl.text = NSLocalizedString(@"Normal Color", nil);
             if (indexPath.item == 1) {
@@ -130,8 +127,11 @@
         }
             //按键透明度
         case 1: {
-            cell.iconImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Alpha%d", (int) indexPath.item]];
+            NSString *imgName = [NSString stringWithFormat:@"Alpha%d", (int) indexPath.item];
+            cell.iconImageView.image = [UIImage imageNamed:imgName];
             cell.titleLbl.text = nil;
+
+            //....
             break;
         }
             //按键圆角
@@ -148,8 +148,13 @@
         }
             //字体颜色
         case 4: {
-            [self setupCellIconImg:cell WithIndexPath:indexPath withColor:_fontColor];
-            cell.titleLbl.text = nil;
+            UIColor *color = _fontColor;
+            cell.titleLbl.text = NSLocalizedString(@"Normal Color", nil);
+            if (indexPath.item == 1) {
+                color = _fontHighColor;
+                cell.titleLbl.text = NSLocalizedString(@"High Color", nil);
+            }
+            [self setupCellIconImg:cell WithIndexPath:indexPath withColor:color];
             break;
         }
             //字体名称
@@ -263,87 +268,38 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     //LWGridViewCell *cell = (LWGridViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
-    __weak typeof(self) weakSelf = self;
+
     
     switch (indexPath.section) {
         //按键颜色
-        case 0: {//按键颜色
-            
-            //显示ColorPickerView
-            [self showColorPickerView];
-    
-            //正常色
-            if(indexPath.item == 0){
-                _colorPickerView.updateColorBlock = ^(UIColor *color) {
-                    weakSelf.btnNormalColor = color;
-                    UIColorValueToThemeFileByKey(color,@"btn.content.color");
-        
-//                    //刷新section
-//                    [weakSelf performBatchUpdates:^{
-//                        [weakSelf reloadSections:[NSIndexSet indexSetWithIndex:0]];
-//                    }                  completion:nil];
-                    //todo:刷新UI
-                    [weakSelf reloadData];
-        
-                    //删除colorPickerView
-                    [weakSelf.colorPickerView removeFromSuperview];
-                    weakSelf.colorPickerView = nil;
-                };
-                
-                //高亮色
-            }else if(indexPath.item == 1){
-                _colorPickerView.updateColorBlock = ^(UIColor *color) {
-                    weakSelf.btnHighColor = color;
-                    UIColorValueToThemeFileByKey(color,@"btn.content.highlightColor");
-
-                    //todo:刷新UI
-                    [weakSelf reloadData];
-        
-                    //删除colorPickerView
-                    [weakSelf.colorPickerView removeFromSuperview];
-                    weakSelf.colorPickerView = nil;
-                };
-            }
+        case 0: {
+            [self btnColorWithIndexPath:indexPath];
             break;
         }
             //按键透明度
         case 1: {
-
+            [self btnAlphaWithIndexPath:indexPath];
             break;
         }
             //按键圆角
         case 2: {
-
+            [self btnCornerRadiusesWithIndexPath:indexPath];
             break;
         }
-            //按键边框及阴影
+            //按键边框或阴影
         case 3: {
-
+            [self btnBorderShadowWithIndexPath:indexPath];
             break;
         }
             //字体颜色
         case 4: {
-            //显示ColorPickerView
-            [self showColorPickerView];
-            if(indexPath.item == 0){
-                _colorPickerView.updateColorBlock = ^(UIColor *color) {
-                    weakSelf.fontColor = color;
-                    UIColorValueToThemeFileByKey(color,@"font.color");
-            
-                    //todo:刷新UI
-                    [weakSelf reloadData];
-            
-                    //删除colorPickerView
-                    [weakSelf.colorPickerView removeFromSuperview];
-                    weakSelf.colorPickerView = nil;
-                };
-            }
-            
+            [self fontColorWithIndexPath:indexPath];
+
             break;
         }
             //字体名称
         case 5: {
-
+            [self fontNameWithIndexPath:indexPath];
             break;
         }
         default:
@@ -352,6 +308,101 @@
 
 }
 
+//设置按键颜色
+- (void)btnColorWithIndexPath:(NSIndexPath *)indexPath {
+    //显示ColorPickerView
+    [self showColorPickerView];
+    __weak typeof(self) weakSelf = self;
+    //正常色
+    if(indexPath.item == 0){
+        _colorPickerView.updateColorBlock = ^(UIColor *color) {
+            weakSelf.btnNormalColor = color;
+            UIColorValueToThemeFileByKey(color,@"btn.content.color");
+
+//                    //刷新section
+//                    [weakSelf performBatchUpdates:^{
+//                        [weakSelf reloadSections:[NSIndexSet indexSetWithIndex:0]];
+//                    }                  completion:nil];
+            //todo:刷新UI
+            [weakSelf reloadData];
+
+            //删除colorPickerView
+            [weakSelf.colorPickerView removeFromSuperview];
+            weakSelf.colorPickerView = nil;
+        };
+
+        //高亮色
+    }else if(indexPath.item == 1){
+        _colorPickerView.updateColorBlock = ^(UIColor *color) {
+            weakSelf.btnHighColor = color;
+            UIColorValueToThemeFileByKey(color,@"btn.content.highlightColor");
+
+            //todo:刷新UI
+            [weakSelf reloadData];
+
+            //删除colorPickerView
+            [weakSelf.colorPickerView removeFromSuperview];
+            weakSelf.colorPickerView = nil;
+        };
+    }
+}
+
+
+//设置按键边框或阴影
+- (void)btnBorderShadowWithIndexPath:(NSIndexPath *)indexPath {
+
+}
+
+//设置按键圆角
+- (void)btnCornerRadiusesWithIndexPath:(NSIndexPath *)indexPath {
+
+}
+
+//设置按键透明度
+- (void)btnAlphaWithIndexPath:(NSIndexPath *)indexPath {
+
+}
+
+//设置字体颜色
+- (void)fontColorWithIndexPath:(NSIndexPath *)indexPath {
+//显示ColorPickerView
+    [self showColorPickerView];
+    __weak typeof(self) weakSelf = self;
+    if(indexPath.item == 0){
+                _colorPickerView.updateColorBlock = ^(UIColor *color) {
+                    weakSelf.fontColor = color;
+                    UIColorValueToThemeFileByKey(color,@"font.color");
+
+                    //todo:刷新UI
+                    [weakSelf reloadData];
+
+                    //删除colorPickerView
+                    [weakSelf.colorPickerView removeFromSuperview];
+                    weakSelf.colorPickerView = nil;
+                };
+
+                //高亮颜色
+            }else if(indexPath.item == 1){
+                _colorPickerView.updateColorBlock = ^(UIColor *color) {
+                    weakSelf.fontHighColor = color;
+                    UIColorValueToThemeFileByKey(color,@"font.highlightColor");
+
+                    //todo:刷新UI
+                    [weakSelf reloadData];
+
+                    //删除colorPickerView
+                    [weakSelf.colorPickerView removeFromSuperview];
+                    weakSelf.colorPickerView = nil;
+                };
+            }
+}
+
+//设置字体名称
+- (void)fontNameWithIndexPath:(NSIndexPath *)indexPath {
+
+}
+
+//显示颜色选择视图
 - (void)showColorPickerView {
     if (_colorPickerView) {
                 [_colorPickerView removeFromSuperview];

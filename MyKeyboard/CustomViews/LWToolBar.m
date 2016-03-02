@@ -65,23 +65,23 @@
         _arrow.image = [[UIImage imageNamed:@"arrow"] imageWithOverlayColor:UIColorValueFromThemeKey(@"popView.backgroundColor")];
     }
 
-    [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
-    [_emojiBtn setImage:[[UIImage imageNamed:@"emoji"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [_emojiBtn setImage:[[UIImage imageNamed:@"emoji"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
-    [_switchkbBtn setImage:[[UIImage imageNamed:@"switchkb"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [_switchkbBtn setImage:[[UIImage imageNamed:@"switchkb"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
-    [_skinBtn setImage:[[UIImage imageNamed:@"skin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [_skinBtn setImage:[[UIImage imageNamed:@"skin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
-    [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
+    [_emojiBtn setImage:[[UIImage imageNamed:@"emoji"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [_emojiBtn setImage:[[UIImage imageNamed:@"emoji"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
+    [_switchkbBtn setImage:[[UIImage imageNamed:@"switchkb"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [_switchkbBtn setImage:[[UIImage imageNamed:@"switchkb"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
+    [_skinBtn setImage:[[UIImage imageNamed:@"skin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [_skinBtn setImage:[[UIImage imageNamed:@"skin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
+    [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [_hideBtn setImage:[[UIImage imageNamed:@"hide"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
 
-    [_phraseBtn setImage:[[UIImage imageNamed:@"phrase"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [_phraseBtn setImage:[[UIImage imageNamed:@"phrase"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
-    [_emoticonBtn setImage:[[UIImage imageNamed:@"emoticon"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [_emoticonBtn setImage:[[UIImage imageNamed:@"emoticon"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
-    [_graphicBtn setImage:[[UIImage imageNamed:@"graphic"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [_graphicBtn setImage:[[UIImage imageNamed:@"graphic"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [_phraseBtn setImage:[[UIImage imageNamed:@"phrase"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [_phraseBtn setImage:[[UIImage imageNamed:@"phrase"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
+    [_emoticonBtn setImage:[[UIImage imageNamed:@"emoticon"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [_emoticonBtn setImage:[[UIImage imageNamed:@"emoticon"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
+    [_graphicBtn setImage:[[UIImage imageNamed:@"graphic"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [_graphicBtn setImage:[[UIImage imageNamed:@"graphic"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
 }
 
 - (void)layoutSubviews {

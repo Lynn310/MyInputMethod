@@ -81,9 +81,9 @@
     _delBtn = [LWEmojiDelBtn buttonWithType:UIButtonTypeCustom];
     _delBtn.titleLabel.text = @"";
     UIImage *delImg = [UIImage imageNamed:@"delete"];
-    UIImage *normalImg = [delImg imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")];
+    UIImage *normalImg = [delImg imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")];
     [_delBtn setImage:normalImg forState:UIControlStateNormal];
-    UIImage *highLightImg = [delImg imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")];
+    UIImage *highLightImg = [delImg imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")];
     [_delBtn setImage:highLightImg forState:UIControlStateHighlighted];
     [_delBtn addTarget:self action:@selector(delBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_delBtn];
@@ -133,8 +133,8 @@
 
     btn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
                                                size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
-    [btn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
-    [btn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateHighlighted];
+    [btn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
+    [btn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateHighlighted];
 }
 
 //返回键按下
@@ -155,9 +155,7 @@
 //获得text的宽度
 -(CGFloat)getTextWidth:(NSString *)text{
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
-                                                                       size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")],
-            NSForegroundColorAttributeName : UIColorValueFromThemeKey(@"btn.content.color"),
-            NSBackgroundColorAttributeName : [UIColor clearColor]};
+                                                                       size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]};
     NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
     return attrText.size.width + 20;
 }
@@ -206,9 +204,7 @@
 //获得NavItems的宽度
 - (CGFloat)getNavItemsWidth:(NSArray *)navItems {
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
-                                                                       size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")],
-            NSForegroundColorAttributeName : UIColorValueFromThemeKey(@"btn.content.color"),
-            NSBackgroundColorAttributeName : [UIColor clearColor]};
+                                                                       size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]};
     CGFloat navItemsWidth = 0;
     for(NSString *itemText in navItems){
         NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:itemText attributes:attributes];
@@ -220,9 +216,7 @@
 //获得text的宽度
 -(CGFloat)getTextWidth:(NSString *)text{
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
-                                                                       size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")],
-            NSForegroundColorAttributeName : UIColorValueFromThemeKey(@"btn.content.color"),
-            NSBackgroundColorAttributeName : [UIColor clearColor]};
+                                                                       size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")]};
     NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
     return attrText.size.width + 20;
 }
@@ -259,8 +253,8 @@
 
         button.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName")
                                                  size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
-        [button setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
-        [button setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateHighlighted];
+        [button setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
+        [button setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateHighlighted];
         
     }
     

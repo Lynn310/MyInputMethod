@@ -52,10 +52,10 @@
     _downBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_upBtn setTitle:NSLocalizedString(@"Select Skin", nil) forState:UIControlStateNormal];
     [_downBtn setTitle:NSLocalizedString(@"Select Style", nil) forState:UIControlStateNormal];
-    [_upBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
-    [_upBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateSelected];
-    [_downBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
-    [_downBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateSelected];
+    [_upBtn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
+    [_upBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateSelected];
+    [_downBtn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
+    [_downBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateSelected];
     _upBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
     _downBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
 
@@ -118,7 +118,7 @@
         _textLabel.adjustsFontSizeToFitWidth = YES;
         _textLabel.minimumScaleFactor = 0.5;
         _textLabel.text = text;
-        _textLabel.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+        _textLabel.textColor = UIColorValueFromThemeKey(@"font.color");
         _textLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
         [self addSubview:_textLabel];
 

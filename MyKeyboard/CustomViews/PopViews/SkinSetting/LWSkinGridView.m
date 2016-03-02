@@ -458,7 +458,7 @@
         _titleLbl = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(-3.5, cellSize.height - self.maxCellTitleSize.height, cellSize.width + 7, self.maxCellTitleSize.height))];
         _titleLbl.text = @"";
         _titleLbl.font = [UIFont systemFontOfSize:12];
-        _titleLbl.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+        _titleLbl.textColor = UIColorValueFromThemeKey(@"font.color");
         _titleLbl.textAlignment = NSTextAlignmentCenter;
         _titleLbl.lineBreakMode = NSLineBreakByTruncatingTail;
         [self.contentView addSubview:_titleLbl];
@@ -534,7 +534,7 @@
         _titleLbl = [[UILabel alloc] init];
         _titleLbl.text = @"title";
         _titleLbl.font = [UIFont systemFontOfSize:12];
-        _titleLbl.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+        _titleLbl.textColor = UIColorValueFromThemeKey(@"font.color");
         _titleLbl.textAlignment = NSTextAlignmentCenter;
         _titleLbl.lineBreakMode = NSLineBreakByTruncatingTail;
         [self addSubview:_titleLbl];

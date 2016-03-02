@@ -14,10 +14,11 @@
 @property(strong, nonatomic) UIColor *btnNormalColor;
 @property(strong, nonatomic) UIColor *btnHighColor;
 
-@property(nonatomic, strong) NSArray *btnAlphas;
-@property(nonatomic, strong) NSArray  *btnCornerRadiuses;
-@property(nonatomic, strong) NSArray  *btnBorderShadow;
+@property(nonatomic, strong) NSDictionary *btnAlphas;
+@property(nonatomic, strong) NSDictionary  *btnCornerRadiuses;
+@property(nonatomic, strong) NSDictionary  *btnBorderShadow;
 @property(nonatomic, strong) UIColor *fontColor;
+@property(nonatomic, strong) UIColor *fontHighColor;
 @property(nonatomic, strong) NSArray *fontNames;
 
 @property(nonatomic, strong) LWColorPickerView *colorPickerView;

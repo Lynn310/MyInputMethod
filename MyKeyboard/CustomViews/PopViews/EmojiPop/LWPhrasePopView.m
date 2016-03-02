@@ -93,7 +93,7 @@
 
 
     textLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
-    textLabel.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+    textLabel.textColor = UIColorValueFromThemeKey(@"font.color");
 
     NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
     NSString *key = _phrasesDict.allKeys[idx];
@@ -149,7 +149,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UILabel *textLabel = (UILabel *)[cell viewWithTag:10];
     if (textLabel) {
-        textLabel.textColor = UIColorValueFromThemeKey(@"btn.content.highlightColor");
+        textLabel.textColor = UIColorValueFromThemeKey(@"font.highlightColor");
     }
     cell.contentView.backgroundColor = [UIColor clearColor];
 }
@@ -159,7 +159,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UILabel *textLabel = (UILabel *)[cell viewWithTag:10];
     if (textLabel) {
-        textLabel.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+        textLabel.textColor = UIColorValueFromThemeKey(@"font.color");
     }
     cell.contentView.backgroundColor = [UIColor clearColor];
 }

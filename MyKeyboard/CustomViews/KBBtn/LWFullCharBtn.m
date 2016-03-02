@@ -66,7 +66,7 @@
             _topLabel.textAlignment = NSTextAlignmentCenter;
 //                _topLabel.backgroundColor = [UIColor blueColor];
             _topLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.topLabel.fontName") size:FloatValueFromThemeKey(@"btn.topLabel.fontSize")];
-            _topLabel.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+            _topLabel.textColor = UIColorValueFromThemeKey(@"font.color");
             [self.contentView addSubview:_topLabel];
         }
         _topLabel.text = upText;
@@ -81,7 +81,7 @@
             _mainLabel.textAlignment = NSTextAlignmentCenter;
 //                _mainLabel.backgroundColor = [UIColor greenColor];
             _mainLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"btn.mainLabel.fontName") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
-            _mainLabel.textColor = UIColorValueFromThemeKey(@"btn.content.color");
+            _mainLabel.textColor = UIColorValueFromThemeKey(@"font.color");
             [self.contentView addSubview:_mainLabel];
         }
         _mainLabel.text = text;

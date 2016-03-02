@@ -99,11 +99,11 @@
         if (charTextArr.count && [charTextArr[0] isEqualToString:@"image"]) {
             NSArray *imgNameArr = [charTextArr[1] componentsSeparatedByString:@","];
 
-            UIImage *normalImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")];
+            UIImage *normalImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")];
             [charKBBtn setImage:normalImg forState:UIControlStateNormal];
 
             //处理高亮图片
-            UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")];
+            UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")];
             if(imgNameArr.count > 1){
                 highlightedImg = [UIImage imageNamed:imgNameArr[1]];
             }
@@ -150,11 +150,11 @@
         if (keyTextArr.count && [keyTextArr[0] isEqualToString:@"image"]) {
             NSArray *imgNameArr = [keyTextArr[1] componentsSeparatedByString:@","];
 
-            UIImage *normalImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")];
+            UIImage *normalImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")];
             [keyKBBtn setImage:normalImg forState:UIControlStateNormal];
 
             //处理高亮图片
-            UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")];
+            UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")];
             if(imgNameArr.count > 1){
                 highlightedImg = [UIImage imageNamed:imgNameArr[1]];
             }

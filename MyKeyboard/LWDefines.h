@@ -192,11 +192,11 @@ typedef NS_ENUM(NSInteger,BorderShadow){
 #define Key_Btn_HighColor @"Key_Word_HighColor"
 
 //按键透明度
-#define Default_Btn_Alphas @[@0,@0.1,@0.4,@0.8,@1.0]
+#define Default_Btn_Alphas @{@"Alpha0":@0,@"Alpha1":@0.1,@"Alpha2":@0.4,@"Alpha3":@0.8,@"Alpha4":@1.0}
 //按键圆角
-#define Default_Btn_CornerRadiuses @[@0,@5,@10,@16,@20]
+#define Default_Btn_CornerRadiuses @{@"CornerRadiuse0":@0,@"CornerRadiuse1":@5,@"CornerRadiuse2":@10,@"CornerRadiuse3":@16,@"CornerRadiuse4":@20}
 //按键边框阴影
-#define Default_Btn_BorderShadow @[@(BorderShadow_None),@(Border_Black),@(Border_White),@(Shadow_All),@(Shadow_Bottom)]
+#define Default_Btn_BorderShadow @{@"BorderShadow0":@(BorderShadow_None),@"BorderShadow1":@(Border_Black),@"BorderShadow2":@(Border_White),@"BorderShadow3":@(Shadow_All),@"BorderShadow4":@(Shadow_Bottom)}
 //字体名称(http://iosfonts.com/)
 #define Default_FontNames @[@"HelveticaNeue",@"ArialHebrew",@"HelveticaNeue-Light",@"HelveticaNeue-Thin",\
     @"Menlo-Regular",@"SavoyeLetPlain",@"SnellRoundhand-Bold",@"Zapfino"]

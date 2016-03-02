@@ -25,28 +25,28 @@
     [super awakeFromNib];
 
     [self.pinyinFullBtn setTitle:NSLocalizedString(@"PinYin FullKeyboard", nil) forState:UIControlStateNormal];
-    [self.pinyinFullBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
-    [self.pinyinFullBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateHighlighted];
-    [self.pinyinFullBtn setImage:[[UIImage imageNamed:@"26pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [self.pinyinFullBtn setImage:[[UIImage imageNamed:@"26pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [self.pinyinFullBtn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
+    [self.pinyinFullBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateHighlighted];
+    [self.pinyinFullBtn setImage:[[UIImage imageNamed:@"26pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [self.pinyinFullBtn setImage:[[UIImage imageNamed:@"26pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
 
     [self.pinyinNineBtn setTitle:NSLocalizedString(@"PinYin NineKeyboard", nil) forState:UIControlStateNormal];
-    [self.pinyinNineBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
-    [self.pinyinNineBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateHighlighted];
-    [self.pinyinNineBtn setImage:[[UIImage imageNamed:@"9pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [self.pinyinNineBtn setImage:[[UIImage imageNamed:@"9pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [self.pinyinNineBtn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
+    [self.pinyinNineBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateHighlighted];
+    [self.pinyinNineBtn setImage:[[UIImage imageNamed:@"9pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [self.pinyinNineBtn setImage:[[UIImage imageNamed:@"9pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
 
     [self.wubiFullBtn setTitle:NSLocalizedString(@"Wubi FullKeyboard", nil) forState:UIControlStateNormal];
-    [self.wubiFullBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
-    [self.wubiFullBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateHighlighted];
-    [self.wubiFullBtn setImage:[[UIImage imageNamed:@"26pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [self.wubiFullBtn setImage:[[UIImage imageNamed:@"26pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [self.wubiFullBtn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
+    [self.wubiFullBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateHighlighted];
+    [self.wubiFullBtn setImage:[[UIImage imageNamed:@"26pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [self.wubiFullBtn setImage:[[UIImage imageNamed:@"26pinyin"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
 
     [self.bihuaNineBtn setTitle:NSLocalizedString(@"Bihua FullKeyboard", nil) forState:UIControlStateNormal];
-    [self.bihuaNineBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.color") forState:UIControlStateNormal];
-    [self.bihuaNineBtn setTitleColor:UIColorValueFromThemeKey(@"btn.content.highlightColor") forState:UIControlStateHighlighted];
-    [self.bihuaNineBtn setImage:[[UIImage imageNamed:@"bh"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.color")] forState:UIControlStateNormal];
-    [self.bihuaNineBtn setImage:[[UIImage imageNamed:@"bh"] imageWithOverlayColor:UIColorValueFromThemeKey(@"btn.content.highlightColor")] forState:UIControlStateHighlighted];
+    [self.bihuaNineBtn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
+    [self.bihuaNineBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateHighlighted];
+    [self.bihuaNineBtn setImage:[[UIImage imageNamed:@"bh"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];
+    [self.bihuaNineBtn setImage:[[UIImage imageNamed:@"bh"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")] forState:UIControlStateHighlighted];
 }
 
 

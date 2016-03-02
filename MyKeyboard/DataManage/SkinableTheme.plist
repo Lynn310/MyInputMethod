@@ -21,15 +21,13 @@
 	<key>btn.space.verticel</key>
 	<integer>1</integer>
 	<key>font.color</key>
-	<string>240,208,164</string>
+	<string>240,208,164,255</string>
+	<key>font.highlightColor</key>
+	<string>255,255,255,255</string>
 	<key>btn.content.color</key>
-	<string>240,208,164</string>
-	<key>btn.content.Opacity</key>
-	<integer>0</integer>
+	<string>240,208,164,255</string>
 	<key>btn.content.highlightColor</key>
-	<string>255,255,255</string>
-	<key>btn.content.highlightOpacity</key>
-	<real>0.5</real>
+	<string>255,255,255,255</string>
 	<key>btn.borderType</key>
 	<integer>0</integer>
 	<key>btn.borderColor</key>
