@@ -122,6 +122,7 @@ Method Swizzling 和 AOP 实践:http://tech.glowing.com/cn/method-swizzling-aop/
 8. live photos转Gif导入；
 9. gif图片/压缩包的导入；
 10. url下载gif导入；
+11. 恢复到默认主题设置；
 
 
 

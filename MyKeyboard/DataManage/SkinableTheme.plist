@@ -5,7 +5,9 @@
 	<key>inputView.backgroundColor</key>
 	<string>0,0,0,0</string>
 	<key>inputView.backgroundImage</key>
-	<string>waterglass.png</string>
+	<string>default</string>
+	<key>skinSetting.selectedIndexPath</key>
+	<string>0,0</string>
 	<key>rootWrapView.backgroundColor</key>
 	<string>0,0,0,0</string>
 	<key>keyboardWrap.backgroundColor</key>

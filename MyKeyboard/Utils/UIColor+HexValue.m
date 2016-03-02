@@ -117,7 +117,7 @@
 
     if (color == [UIColor whiteColor]) {
         // Special case, as white doesn't fall into the RGB color space
-        return @"ffffff";
+        return @"255,255,255,255";
     }
 
     CGFloat red;
