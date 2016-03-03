@@ -46,3 +46,11 @@
 - (UIImage *)imageToScale:(CGFloat)scale;
 
 @end
+
+
+@interface UIImage (AverageColor)
+
+//获得图片的平均色值
+- (UIColor *)averageColor;
+
+@end

@@ -30,6 +30,11 @@
     return self;
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
+
+
 /**
 * layout 子视图
 */

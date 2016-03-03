@@ -47,14 +47,6 @@
 + (SingleHandMode)singleHandMode;
 
 /**
-* 获得键盘的皮肤
-*/
-+ (UIImage *)keyboardSkin;
-
-//根据名字从Doc中获得一张键盘背景图
-+ (UIImage *)getKBImgFromDoc:(NSString *)imgName;
-
-/**
 * 候选板类型
 */
 + (PredictiveMode)predictiveMode;
@@ -83,7 +75,6 @@
 
 + (KeyboardType)lastZhKeyboardType;
 
-+ (NSArray *)getOftenuseWords;
 
 /**
 * 获得是否开启完全访问权限

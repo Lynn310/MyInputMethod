@@ -100,6 +100,8 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 
 #define Key_OftenuseWords @"keyboardOftenuseWords"
 
+//是否中文字符
+#define IS_CH_SYMBOL(chr) ((int)(chr)>127)
 
 // ---------  相关参数设置
 
@@ -158,6 +160,8 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
                         [UIColor yellowColor],[UIColor magentaColor],[UIColor orangeColor],\
                         [UIColor purpleColor],[UIColor brownColor]]
 
+//主题设置的键值
+#define Key_Theme @"Key_Theme"
 
 //用户皮肤的键值
 #define Key_User_Skins @"Key_User_Skins"
@@ -183,18 +187,18 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #define Key_Btn_HighColor @"Key_Word_HighColor"
 
 //按键透明度
-#define Default_Btn_Alphas @{@"Alpha0":@0,@"Alpha1":@0.1,@"Alpha2":@0.4,@"Alpha3":@0.8,@"Alpha4":@1.0}
+#define Default_Btn_AlphaDic @{@"Alpha0":@0,@"Alpha1":@0.1,@"Alpha2":@0.4,@"Alpha3":@0.8,@"Alpha4":@1.0}
 //按键圆角
-#define Default_Btn_CornerRadiuses @{@"CornerRadiuse0":@0,@"CornerRadiuse1":@5,@"CornerRadiuse2":@10,@"CornerRadiuse3":@16,@"CornerRadiuse4":@20}
+#define Default_Btn_CornerRadiusDic @{@"CornerRadiuse0":@0,@"CornerRadiuse1":@5,@"CornerRadiuse2":@10,@"CornerRadiuse3":@16,@"CornerRadiuse4":@20}
 //按键边框宽度
-#define Default_Btn_BorderWidth @{@"BorderWidth0":@0,@"BorderWidth1":@(1/Scr_Scale),@"BorderWidth2":@1,@"BorderWidth4":@2.0}
+#define Default_Btn_BorderWidthDic @{@"BorderWidth0":@0,@"BorderWidth1":@(1/Scr_Scale),@"BorderWidth2":@1,@"BorderWidth3":@2}
 //按键阴影宽度
-#define Default_Btn_ShadowWidth @{@"ShadowWidth0":@0,@"ShadowWidth1":@1.0,@"ShadowWidth2":@2.0,@"ShadowWidth3":@3.0}
+#define Default_Btn_ShadowWidthDic @{@"ShadowWidth0":@0,@"ShadowWidth1":@1.0,@"ShadowWidth2":@2.0,@"ShadowWidth3":@3.0}
 
 
 //字体名称(http://iosfonts.com/)
-#define Default_FontNames @[@"HelveticaNeue",@"ArialHebrew",@"HelveticaNeue-Light",@"HelveticaNeue-Thin",\
-    @"Menlo-Regular",@"SavoyeLetPlain",@"SnellRoundhand-Bold",@"Zapfino"]
+#define Default_FontNameDic @[@"Helvetica",@"Helvetica-Bold",@"HelveticaNeue-CondensedBold",@"Helvetica-Light",@"HelveticaNeue-Thin",@"MarkerFelt-Thin",@"Noteworthy-Light",\
+    @"Menlo-Regular",@"SavoyeLetPlain",@"SnellRoundhand-Bold",@"Zapfino",@"Papyrus-Condensed"]
 
 
 //样式宫格重用id

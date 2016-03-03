@@ -9,7 +9,7 @@
 #import "UIImage+Color.h"
 #import "UIResponder+Ext.h"
 #import "LWColorPickerView.h"
-#import "LWKeyboardConfig.h"
+#import "LWDataConfig.h"
 
 
 //皮肤选择面板
@@ -22,7 +22,7 @@
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
 
-        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+        self.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
 
         self.contentInset = UIEdgeInsetsMake(GridView_Padding, GridView_Padding, GridView_Padding, GridView_Padding);
         self.delegate = self;
@@ -171,7 +171,7 @@
             cell.iconImageView.image = combinedImg;
 
         } else {
-            UIImage *skinImg = [LWKeyboardConfig getKBImgFromDoc:skinImgName];
+            UIImage *skinImg = [LWDataConfig getKBImgFromDoc:skinImgName];
 
 //            //从大的皮肤图片中,取出一张小的预览图
 //            CGRect smallImgRect = CGRectMake(skinImg.size.width / 2 - cellImgSize.width / 2, skinImg.size.height / 2 - cellImgSize.height / 2,

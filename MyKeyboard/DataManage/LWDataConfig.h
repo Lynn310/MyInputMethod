@@ -8,7 +8,7 @@
 
 
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface LWDataConfig : NSObject
 
@@ -29,5 +29,16 @@
 
 //获得Graphic数据
 + (NSDictionary *)getGraphicPlistDictionary;
+
+/**
+* 获得键盘的皮肤
+*/
++ (UIImage *)keyboardSkin;
+
+//根据名字从Doc中获得一张键盘背景图
++ (UIImage *)getKBImgFromDoc:(NSString *)imgName;
+
+//获得popView的背景色
++(UIColor *)getPopViewBackGroundColor;
 
 @end

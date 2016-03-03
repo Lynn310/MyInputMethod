@@ -47,7 +47,7 @@
 	<key>btn.shadow.color</key>
 	<string>127,127,127,255</string>
 	<key>btn.shadow.height</key>
-	<real>1</real>
+	<integer>0</integer>
 	<key>btn.innershadow.offsetY</key>
 	<integer>0</integer>
 	<key>btn.innershadow.offsetX</key>
@@ -60,7 +60,5 @@
 	<integer>10</integer>
 	<key>settingBtn.fontSize</key>
 	<integer>12</integer>
-	<key>popView.backgroundColor</key>
-	<string>150,160,160</string>
 </dict>
 </plist>

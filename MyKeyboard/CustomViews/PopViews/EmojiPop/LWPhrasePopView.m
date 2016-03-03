@@ -19,7 +19,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+        self.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
 
 
         self.phrasesDict = [LWDataConfig getPhraseDictionary];

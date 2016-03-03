@@ -24,7 +24,7 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
     self = [super initWithFrame:frame];
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+        self.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
 
         NSDictionary *iniDict = [LWDataConfig getEmoticonDictionary];
         NSArray *bottomNavItems = [LWThemeManager getArrByKey:Key_BottomNavEmoticonItems withDefaultArr:iniDict.allKeys];
@@ -59,7 +59,7 @@ static NSString *const EmoticonCellId = @"EmoticonCellId";
 
         [self addSubview:_collectionView];
 
-        _collectionView.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+        _collectionView.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
 
         //初始数据源
         _collectionView.emotions = [self getEmoticons];

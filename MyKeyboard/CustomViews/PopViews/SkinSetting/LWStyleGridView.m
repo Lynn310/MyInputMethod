@@ -8,6 +8,7 @@
 #import "LWDefines.h"
 #import "UIImage+Color.h"
 #import "LWColorPickerView.h"
+#import "LWDataConfig.h"
 
 //样式设置
 @implementation LWStyleGridView {
@@ -18,7 +19,7 @@
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
 
-        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+        self.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
 
         self.contentInset = UIEdgeInsetsMake(GridView_Padding, GridView_Padding, GridView_Padding, GridView_Padding);
         self.delegate = self;
@@ -46,17 +47,17 @@
     _btnHighColor = UIColorValueFromThemeKey(@"btn.content.highlightColor");
 
     //按键透明度
-    _btnAlphaDic = Default_Btn_Alphas;
+    _btnAlphaDic = Default_Btn_AlphaDic;
 
     //按键圆角
-    _btnCornerRadiuseDic = Default_Btn_CornerRadiuses;
+    _btnCornerRadiuseDic = Default_Btn_CornerRadiusDic;
 
     //按键边框宽度
-    _btnBorderWidthDic = Default_Btn_BorderWidth;
+    _btnBorderWidthDic = Default_Btn_BorderWidthDic;
     //按键边框颜色
     _btnBorderColor = UIColorValueFromThemeKey(@"btn.borderColor");
     //按键阴影宽度
-    _btnShadowWidthDic = Default_Btn_ShadowWidth;
+    _btnShadowWidthDic = Default_Btn_ShadowWidthDic;
     //按键阴影颜色
     _btnShadowColor = UIColorValueFromThemeKey(@"btn.shadow.color");
 
@@ -65,7 +66,7 @@
     _fontHighColor = UIColorValueFromThemeKey(@"font.highlightColor");
 
     //字体名称
-    _fontNames = Default_FontNames;
+    _fontNames = Default_FontNameDic;
 
 }
 
@@ -182,12 +183,12 @@
             CGFloat borderWidth = ((NSNumber *) _btnBorderWidthDic[imgName]).floatValue;
             cell.selImgView.hidden = settedBorderWidth != borderWidth;
             break;
-            break;
         }
             //按键边框颜色
         case 4: {
             [self setupCellIconImg:cell WithIndexPath:indexPath withColor:_btnBorderColor];
             cell.selImgView.hidden = YES;
+            cell.titleLbl.text = nil;
             break;
         }
             //按阴影框宽度
@@ -198,15 +199,15 @@
 
             //赋初始选择状态
             CGFloat settedShadowWidth = FloatValueFromThemeKey(@"btn.shadow.height");
-            CGFloat shadowWidth = ((NSNumber *) _btnBorderWidthDic[imgName]).floatValue;
+            CGFloat shadowWidth = ((NSNumber *) _btnShadowWidthDic[imgName]).floatValue;
             cell.selImgView.hidden = settedShadowWidth != shadowWidth;
-            break;
             break;
         }
             //按键阴影颜色
         case 6: {
             [self setupCellIconImg:cell WithIndexPath:indexPath withColor:_btnShadowColor];
             cell.selImgView.hidden = YES;
+            cell.titleLbl.text = nil;
             break;
         }
             //字体颜色
@@ -218,6 +219,7 @@
                 cell.titleLbl.text = NSLocalizedString(@"High Color", nil);
             }
             [self setupCellIconImg:cell WithIndexPath:indexPath withColor:color];
+            cell.selImgView.hidden = YES;
             break;
         }
             //字体名称
@@ -253,6 +255,10 @@
 
             cell.iconImageView.image = combinedImg;
             cell.titleLbl.text = fontName;
+
+            //赋初始选择状态
+            NSString *settedFontName = StringValueFromThemeKey(@"font.name");
+            cell.selImgView.hidden = ![fontName isEqualToString:settedFontName];
             break;
         }
         default:
@@ -401,7 +407,6 @@
 
 }
 
-
 //设置按键颜色
 - (void)btnColorWithIndexPath:(NSIndexPath *)indexPath {
     //显示ColorPickerView
@@ -452,7 +457,7 @@
 
     //把已选择的设置为未选择
     if(settedCornerRadius != cornerRadius){
-        NSString *key = [_btnCornerRadiuseDic allKeysForObject:@(cornerRadius)].firstObject;
+        NSString *key = [_btnCornerRadiuseDic allKeysForObject:@(settedCornerRadius)].firstObject;
         NSUInteger item = (NSUInteger) [key substringFromIndex:key.length-2].intValue;
         LWGridViewCell *hiddenCell = (LWGridViewCell *) [self cellForItemAtIndexPath:[NSIndexPath indexPathForItem:item inSection:indexPath.section]];
         hiddenCell.selImgView.hidden = YES;
@@ -474,7 +479,7 @@
 
     //把已选择的设置为未选择
     if(settedAlpha != alpha){
-        NSString *key = [_btnAlphaDic allKeysForObject:@(alpha)].firstObject;
+        NSString *key = [_btnAlphaDic allKeysForObject:@(settedAlpha)].firstObject;
         NSUInteger item = (NSUInteger) [key substringFromIndex:key.length-2].intValue;
         LWGridViewCell *hiddenCell = (LWGridViewCell *) [self cellForItemAtIndexPath:[NSIndexPath indexPathForItem:item inSection:indexPath.section]];
         hiddenCell.selImgView.hidden = YES;
@@ -497,9 +502,10 @@
 
     //把已选择的设置为未选择
     if(settedBorderWidth != borderWidth){
-        NSString *key = [_btnBorderWidthDic allKeysForObject:@(borderWidth)].firstObject;
-        NSUInteger item = (NSUInteger) [key substringFromIndex:key.length-2].intValue;
-        LWGridViewCell *hiddenCell = (LWGridViewCell *) [self cellForItemAtIndexPath:[NSIndexPath indexPathForItem:item inSection:indexPath.section]];
+        NSString *key = [_btnBorderWidthDic allKeysForObject:@(settedBorderWidth)].firstObject;
+        NSUInteger item = (NSUInteger) [key substringFromIndex:key.length-1].intValue;
+        NSUInteger section = (NSUInteger) indexPath.section;
+        LWGridViewCell *hiddenCell = (LWGridViewCell *) [self cellForItemAtIndexPath:[NSIndexPath indexPathForItem:item inSection:section]];
         hiddenCell.selImgView.hidden = YES;
     }
     //重新设置cell状态
@@ -537,8 +543,8 @@
 
     //把已选择的设置为未选择
     if(settedShadowWidth != shadowWidth){
-        NSString *key = [_btnShadowWidthDic allKeysForObject:@(shadowWidth)].firstObject;
-        NSUInteger item = (NSUInteger) [key substringFromIndex:key.length-2].intValue;
+        NSString *key = [_btnShadowWidthDic allKeysForObject:@(settedShadowWidth)].firstObject;
+        NSUInteger item = (NSUInteger) [key substringFromIndex:key.length-1].intValue;
         LWGridViewCell *hiddenCell = (LWGridViewCell *) [self cellForItemAtIndexPath:[NSIndexPath indexPathForItem:item inSection:indexPath.section]];
         hiddenCell.selImgView.hidden = YES;
     }

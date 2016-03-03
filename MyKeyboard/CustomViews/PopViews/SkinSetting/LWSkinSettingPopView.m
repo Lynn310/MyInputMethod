@@ -6,6 +6,7 @@
 #import "LWSkinSettingPopView.h"
 #import "LWLeftTabSelView.h"
 #import "LWDefines.h"
+#import "LWDataConfig.h"
 
 
 @implementation LWSkinSettingPopView {
@@ -15,7 +16,7 @@
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
-        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+        self.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
     }
 
     return self;

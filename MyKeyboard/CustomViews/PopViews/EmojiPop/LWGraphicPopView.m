@@ -23,7 +23,7 @@ static NSString *const GraphicCellId = @"GraphicCellId";
     self = [super initWithFrame:frame];
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+        self.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
 
         //读取plist
         _graphicDict = [LWDataConfig getGraphicPlistDictionary];
@@ -65,7 +65,7 @@ static NSString *const GraphicCellId = @"GraphicCellId";
     
         [self addSubview:_collectionView];
 
-        _collectionView.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+        _collectionView.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
     
         __weak typeof(self) weakSelf = self;
         self.bottomNavBar.bottomNavScrollview.updateTableDatasouce = ^() {

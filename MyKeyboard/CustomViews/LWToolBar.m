@@ -12,6 +12,7 @@
 #import "UIImage+Color.h"
 #import "Categories.h"
 #import "MyKeyboardViewController.h"
+#import "LWDataConfig.h"
 
 @class LWKeyboardConfig;
 
@@ -62,7 +63,7 @@
 */
 - (void)updateSubviewsTheme {
     if(!_arrow.hidden){
-        _arrow.image = [[UIImage imageNamed:@"arrow"] imageWithOverlayColor:UIColorValueFromThemeKey(@"popView.backgroundColor")];
+        _arrow.image = [[UIImage imageNamed:@"arrow"] imageWithOverlayColor:[LWDataConfig getPopViewBackGroundColor]];
     }
 
     [_logoBtn setImage:[[UIImage imageNamed:@"logo"] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.color")] forState:UIControlStateNormal];

@@ -7,6 +7,7 @@
 //
 
 #import "LWThemeManager.h"
+#import "LWDefines.h"
 
 @implementation LWThemeManager
 
@@ -22,7 +23,7 @@
     if ((self = [super init])) {
 
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *themeName = [defaults objectForKey:@"theme"] ?: @"SkinableTheme";
+        NSString *themeName = [defaults objectForKey:Key_Theme] ?: @"defaultTheme";
 
         NSString *bundleFilePath = [[NSBundle mainBundle] pathForResource:themeName ofType:@"plist"];
 
@@ -57,7 +58,7 @@
 -(void)writeThemeToDoc{
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeName = [defaults objectForKey:@"theme"] ?: @"SkinableTheme";
+    NSString *themeName = [defaults objectForKey:Key_Theme] ?: @"defaultTheme";
 
     NSString *bundleFilePath = [[NSBundle mainBundle] pathForResource:themeName ofType:@"plist"];
 

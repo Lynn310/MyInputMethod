@@ -8,6 +8,9 @@
 
 #import "LWDataConfig.h"
 #import "Categories.h"
+#import "LWKeyboardConfig.h"
+#import "UIImage+Color.h"
+#import "UIColor+CrossFade.h"
 
 @implementation LWDataConfig
 
@@ -77,6 +80,50 @@
     NSString *text = [LWDataConfig getTextWithFilePrefix:@"emoticon" fType:@"ini"];
     NSDictionary *iniDict = [NSDictionary dictFromEmoticonIni:text];
     return iniDict;
+}
+
+/**
+* 获得键盘的皮肤
+*/
++ (UIImage *)keyboardSkin {
+    NSString *kbBg = StringValueFromThemeKey(@"inputView.backgroundImage");
+    UIImage *image = nil;
+    if(![kbBg isEqualToString:@""]){
+        image = [self getKBImgFromDoc:kbBg];
+    }
+    return image;
+}
+
+//根据名字从Doc中获得一张键盘背景图
++ (UIImage *)getKBImgFromDoc:(NSString *)imgName {
+    NSString *suffix = [imgName substringFromIndex:imgName.length - 4];
+    if(![suffix isEqualToString:@".png"]){
+        imgName = [NSString stringWithFormat:@"%@.png",imgName];
+    }
+
+    UIImage *image = nil;//根据表情字符串从指定路径读取图片
+    NSString *graphicPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"InputBgImg"];
+    NSString *filePath = [graphicPath stringByAppendingPathComponent:imgName];
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if([fileManager fileExistsAtPath:filePath]) {
+        image = [UIImage imageWithContentsOfFile:filePath];
+    }
+    return image;
+}
+
+//获得popView的背景色
++(UIColor *)getPopViewBackGroundColor{
+    UIColor *firstColor = nil;
+    UIColor *secondColor = UIColorValueFromThemeKey(@"font.Color");
+
+    UIImage *keyboardSkin = [LWDataConfig keyboardSkin];
+    if (keyboardSkin) { //图片
+        return keyboardSkin.averageColor;
+    }else{      //颜色
+        firstColor = UIColorValueFromThemeKey(@"inputView.backgroundColor");
+        return [UIColor colorBetweenFirstColor:firstColor secondColor:secondColor atRatio:0.2 withAlpha:1.0];
+    }
 }
 
 @end

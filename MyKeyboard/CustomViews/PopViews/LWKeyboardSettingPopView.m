@@ -6,6 +6,7 @@
 #import "LWKeyboardSettingPopView.h"
 #import "LWDefines.h"
 #import "UIImage+Color.h"
+#import "LWDataConfig.h"
 
 
 @implementation LWKeyboardSettingPopView {
@@ -15,7 +16,7 @@
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
-        self.backgroundColor = UIColorValueFromThemeKey(@"popView.backgroundColor");
+        self.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
     }
 
     return self;

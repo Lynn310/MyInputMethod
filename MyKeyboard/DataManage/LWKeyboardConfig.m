@@ -90,36 +90,6 @@
 }
 
 /**
-* 获得键盘的皮肤
-*/
-+ (UIImage *)keyboardSkin {
-    NSString *kbBg = StringValueFromThemeKey(@"inputView.backgroundImage");
-    UIImage *image = nil;
-    if(![kbBg isEqualToString:@""]){
-        image = [self getKBImgFromDoc:kbBg];
-    }
-    return image;
-}
-
-//根据名字从Doc中获得一张键盘背景图
-+ (UIImage *)getKBImgFromDoc:(NSString *)imgName {
-    NSString *suffix = [imgName substringFromIndex:imgName.length - 4];
-    if(![suffix isEqualToString:@".png"]){
-        imgName = [NSString stringWithFormat:@"%@.png",imgName];
-    }
-
-    UIImage *image = nil;//根据表情字符串从指定路径读取图片
-    NSString *graphicPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"InputBgImg"];
-    NSString *filePath = [graphicPath stringByAppendingPathComponent:imgName];
-
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if([fileManager fileExistsAtPath:filePath]) {
-            image = [UIImage imageWithContentsOfFile:filePath];
-        }
-    return image;
-}
-
-/**
 * 候选板类型
 */
 + (PredictiveMode)predictiveMode {
@@ -186,31 +156,6 @@
         return Keyboard_PingYingFull;
     }
     return (KeyboardType) value;
-}
-
-/**
-* 获得常用语数据源
-*/
-+ (NSArray *)getOftenuseWords {
-    //优先从group中读取
-    NSUserDefaults *groupDefaults = [[NSUserDefaults alloc] initWithSuiteName:GroupId];
-    NSArray *groupWdsList = [groupDefaults objectForKey:Key_OftenuseWords];
-
-    NSUserDefaults *standDefaults = [NSUserDefaults standardUserDefaults];
-    NSArray *standWdsList = [standDefaults objectForKey:Key_OftenuseWords];
-    if (!standWdsList || standWdsList.count == 0) {
-        standWdsList = @[@"Hi!", @"你好!", @"你吃饭了吗？", @"在干嘛呢？", @"最近过的怎么样？",
-                @"稍稍等一下!", @"我马上到!", @"我正在开会。", @"不好意思,刚有点事忙去了。"];
-    }
-
-    if (groupWdsList && groupWdsList.count > 0 && (![groupWdsList isEqualToArray:standWdsList] || standWdsList)) {
-        [standDefaults setObject:groupWdsList forKey:Key_OftenuseWords];
-        [standDefaults synchronize];
-    } else {
-        return standWdsList;
-    }
-
-    return groupWdsList;
 }
 
 /**

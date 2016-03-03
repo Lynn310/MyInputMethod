@@ -31,6 +31,7 @@
 #import "LWNumCharBtn.h"
 #import "LWNineCharBtn.h"
 #import "LWBottomNavBar.h"
+#import "LWDataConfig.h"
 
 
 @interface MyKeyboardViewController ()
@@ -72,7 +73,7 @@
     if (self.inputView) {
         self.inputView.frame = CGRectMake(0, 0, Screen_W, Input_H);
         //设置皮肤
-        UIImage *keyboardSkin = [LWKeyboardConfig keyboardSkin];
+        UIImage *keyboardSkin = [LWDataConfig keyboardSkin];
         if (keyboardSkin) { //图片
             [self setupSkin:keyboardSkin];
         }else{      //颜色

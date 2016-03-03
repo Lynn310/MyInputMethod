@@ -13,6 +13,13 @@
     CALayer *_innerGlow;        //内边框
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.contentView.backgroundColor = [UIColor clearColor];
+    self.contentView.separatorColor = UIColorValueFromThemeKey(@"btn.borderColor");
+}
+
+
 /**
 * layout 子视图
 */
@@ -90,6 +97,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellId = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
     }
@@ -100,8 +108,8 @@
         [cell.contentView addSubview:textLabel];
     }
 
-    textLabel.font = [UIFont systemFontOfSize:16.0];
-    textLabel.textColor = [UIColor blackColor];
+    textLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
+    textLabel.textColor = UIColorValueFromThemeKey(@"font.color");
     textLabel.text = self.dataList[(NSUInteger) indexPath.row];
 
     [textLabel sizeToFit];
@@ -137,6 +145,25 @@
 
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
+}
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UILabel *textLabel = (UILabel *)[cell viewWithTag:10];
+    if (textLabel) {
+        textLabel.textColor = UIColorValueFromThemeKey(@"font.highlightColor");
+    }
+    cell.contentView.backgroundColor = [UIColor clearColor];
+}
+
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UILabel *textLabel = (UILabel *)[cell viewWithTag:10];
+    if (textLabel) {
+        textLabel.textColor = UIColorValueFromThemeKey(@"font.color");
+    }
+    cell.contentView.backgroundColor = [UIColor clearColor];
 }
 
 
