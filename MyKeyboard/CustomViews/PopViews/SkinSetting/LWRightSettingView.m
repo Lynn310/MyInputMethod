@@ -7,6 +7,7 @@
 #import "LWSkinGridView.h"
 #import "LWStyleGridView.h"
 #import "LWDefines.h"
+#import "LWDataConfig.h"
 
 
 @implementation LWRightSettingView {
@@ -17,10 +18,23 @@
     [super awakeFromNib];
     self.backgroundColor = [UIColor clearColor];
 
-    UICollectionViewLayout *layout = [self setupGridViewLayout];
-    _skinGridView = [[LWSkinGridView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+    //约定Idx : upBtn为0, downBtn为1
+    id value = [LWDataConfig getUserDefaultValueByKey:Key_LastSkinPop_Index];
+    NSInteger lastSkinIdx = value ? ((NSNumber *) value).intValue : 0;
 
-    [self addSubview:_skinGridView];
+    UICollectionViewLayout *layout = [self setupGridViewLayout];
+
+    //样式
+    if(lastSkinIdx == 1){
+        _styleGridView = [[LWStyleGridView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+        [self addSubview:_styleGridView];
+        
+        //皮肤
+    }else{
+        _skinGridView = [[LWSkinGridView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+        [self addSubview:_skinGridView];
+    }
+
 }
 
 - (void)layoutSubviews {
