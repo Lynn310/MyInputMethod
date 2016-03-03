@@ -38,6 +38,9 @@
 //根据名字从Doc中获得一张键盘背景图
 + (UIImage *)getKBImgFromDoc:(NSString *)imgName;
 
+//获得键盘背景颜色
++(UIColor *)getKBBackGroundColor;
+
 //获得popView的背景色
 +(UIColor *)getPopViewBackGroundColor;
 

@@ -19,9 +19,11 @@
 #import "LWRootWrapView.h"
 #import "LWBaseKBBtn.h"
 #import "LWNumKeyboard.h"
+#import "LWKeyboardWrap.h"
 #import "LWWuBiFullKeyboard.h"
 #import "LWBiHuaKeyboard.h"
 #import "LWKeyboardWrap.h"
+#import "LWTopView.h"
 #import "LWTopView.h"
 #import "LWLeftTabView.h"
 #import "LWRootWrapView.h"
@@ -34,28 +36,6 @@
 #import "LWDataConfig.h"
 
 
-@interface MyKeyboardViewController ()
-
-//单手之外区域
-@property(nonatomic, strong) LWRootWrapView *rootWrapView;
-
-//包裹keyboard的视图
-@property(nonatomic, strong) LWKeyboardWrap *keyboardWrap;
-//包裹toolbar 或 predictive 的视图
-@property(nonatomic, strong) LWTopView *topView;
-//单手模式视图
-@property(nonatomic, strong) LWSingleHandView *singleHandView;
-
-//工具条
-@property(nonatomic, strong) LWToolBar *toolbar;
-
-//键盘
-@property(nonatomic, strong) LWBaseKeyboard *keyboard;
-
-//inputView的约束
-@property(nonatomic, strong) NSMutableArray *inputViewConstraints;
-
-@end
 
 @implementation MyKeyboardViewController
 
@@ -336,6 +316,13 @@
 
 //根据类型添加浮窗
 - (void)toolbarBtnTouchUpInside:(UIView *)btn withType:(BtnType)type {
+    //删除其他的popView
+    UIButton *button = (UIButton *) btn;
+    if(!button.selected){
+        [_toolbar resumeAllBtnStatus];
+        [_rootWrapView removeAllOtherPopView:button];
+        return;
+    }
     [_rootWrapView addPopViewByBtn:btn withType:type];
 }
 

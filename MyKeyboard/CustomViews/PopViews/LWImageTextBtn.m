@@ -19,7 +19,7 @@
 
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        self.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"settingBtn.fontSize")];
+        self.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"footerText.fontSize")];
         [self updateImageAndTextFrame];
     }
 

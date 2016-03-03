@@ -51,12 +51,6 @@
 
 //根据按键类型添加PopView
 - (void)addPopViewByBtn:(UIView *)btn withType:(BtnType)type {
-    //删除其他的popView
-    UIButton *button = (UIButton *) btn;
-    if(!button.selected){
-        [self removeAllOtherPopView:button];
-        return;
-    }
 
     CGRect commonPopViewFrame = CGRectMake(0, TopView_H, self.frame.size.width, self.frame.size.height - TopView_H);
     switch (type) {

@@ -42,6 +42,9 @@
 
 - (void)updateArrow:(UIButton *)button;
 
+//删除所有popView,恢复工具栏有所按键的选择状态,除了指的btn以外
+- (void)resumeAllPopViewAndBtnWithout:(UIButton *)exceptBtn;
+
 //恢复工具栏有所按键到初始状态
 - (void)resumeAllBtnStatus;
 

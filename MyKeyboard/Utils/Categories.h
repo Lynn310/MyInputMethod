@@ -24,4 +24,7 @@
 
 - (MyKeyboardViewController *)responderKBViewController;
 
+//获得指class类型的父视图
+-(id)superViewWithClass:(Class)clazz;
+
 @end

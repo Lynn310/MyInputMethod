@@ -8,10 +8,10 @@
 "BreakLine" = "Return";
 
 //----键盘设置-----
-"PinYin FullKeyboard" = "PinYin FullKeyboard";
-"PinYin NineKeyboard" = "PinYin NineKeyboard";
-"Wubi FullKeyboard" = "Wubi FullKeyboard";
-"Bihua FullKeyboard" = "Bihua FullKeyboard";
+"PinYin FullKeyboard" = "PinYin 26Key";
+"PinYin NineKeyboard" = "PinYin 9Key";
+"Wubi FullKeyboard" = "Wubi 26Key";
+"Bihua FullKeyboard" = "Bihua 9Key";
 
 //----输入法设置----
 "Day Mode" = "DayMode";
@@ -24,25 +24,25 @@
 
 //---皮肤/样式设置----
 //皮肤
-"Select Skin" = "Select Skin";
+"Select Skin" = "Skin";
 
-"Keyboard Imamge Skin" = "Keyboard Imamge Skin";
+"Keyboard Imamge Skin" = "Imamge Skin";
 "moonlight" = "MoonLight";
 "sealight" = "SeaLight";
 "waterglass" = "WaterGlass";
 "default" = "Default";
 "Add Image" = "Add Image";
 
-"Keyboard Color Skin" = "Keyboard Color Skin";
+"Keyboard Color Skin" = "Color Skin";
 "Add Color" = "Add Color";
 
 
 //样式
-"Select Style" = "Select Style";
+"Select Style" = "Style";
 
 "Button Color" = "Button Color";
 "Button Alpha" = "Button Alpha";
-"Button CornerRadius" = "Button CornerRadius";
+"Button CornerRadius" = "CornerRadius";
 "Border Width" = "Border Width";
 "Border Color" = "Border Color";
 "Shadow Width" = "Shadow Width";

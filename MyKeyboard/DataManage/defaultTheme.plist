@@ -58,7 +58,7 @@
 	<integer>20</integer>
 	<key>btn.topLabel.fontSize</key>
 	<integer>10</integer>
-	<key>settingBtn.fontSize</key>
+	<key>footerText.fontSize</key>
 	<integer>12</integer>
 </dict>
 </plist>

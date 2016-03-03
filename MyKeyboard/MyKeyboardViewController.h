@@ -15,9 +15,32 @@
 @class LWBaseKBBtn;
 @class LWKeyKBBtn;
 @class LWShiftBtn;
+@class LWKeyboardWrap;
+@class LWTopView;
+@class LWSingleHandView;
 
 
 @interface MyKeyboardViewController : UIInputViewController
+
+//单手之外区域
+@property(nonatomic, strong) LWRootWrapView *rootWrapView;
+
+//包裹keyboard的视图
+@property(nonatomic, strong) LWKeyboardWrap *keyboardWrap;
+//包裹toolbar 或 predictive 的视图
+@property(nonatomic, strong) LWTopView *topView;
+//单手模式视图
+@property(nonatomic, strong) LWSingleHandView *singleHandView;
+
+//工具条
+@property(nonatomic, strong) LWToolBar *toolbar;
+
+//键盘
+@property(nonatomic, strong) LWBaseKeyboard *keyboard;
+
+//inputView的约束
+@property(nonatomic, strong) NSMutableArray *inputViewConstraints;
+
 
 //提交字符串
 - (void)insertText:(NSString *)text;

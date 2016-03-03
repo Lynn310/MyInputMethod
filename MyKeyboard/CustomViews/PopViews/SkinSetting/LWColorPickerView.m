@@ -13,8 +13,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
+    __weak typeof(self) weakSelf = self;
     if(_colorPicker && _brightnessSlider && _opacitySlider){
-        _colorPicker.delegate = self;
+        _colorPicker.delegate = weakSelf;
         [_brightnessSlider setColorPicker:_colorPicker];
         [_opacitySlider setColorPicker:_colorPicker];
     }
@@ -23,13 +24,14 @@
 
 - (IBAction)okAction:(UIButton *)sender {
     [self removeFromSuperview];
-    if(self.addColorBlock){
-        self.addColorBlock(_colorPatch.backgroundColor);
-        self.addColorBlock = nil;
+    __weak typeof(self) weakSelf = self;
+    if(weakSelf.addColorBlock){
+        weakSelf.addColorBlock(_colorPatch.backgroundColor);
+        weakSelf.addColorBlock = nil;
     }
-    if(self.updateColorBlock){
-        self.updateColorBlock(_colorPatch.backgroundColor);
-        self.updateColorBlock = nil;
+    if(weakSelf.updateColorBlock){
+        weakSelf.updateColorBlock(_colorPatch.backgroundColor);
+        weakSelf.updateColorBlock = nil;
     }
 
 }

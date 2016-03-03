@@ -457,7 +457,7 @@
         //文字标题
         _titleLbl = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(-3.5, cellSize.height - self.maxCellTitleSize.height, cellSize.width + 7, self.maxCellTitleSize.height))];
         _titleLbl.text = @"";
-        _titleLbl.font = [UIFont systemFontOfSize:12];
+        _titleLbl.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"footerText.fontSize")];
         _titleLbl.textColor = UIColorValueFromThemeKey(@"font.color");
         _titleLbl.textAlignment = NSTextAlignmentCenter;
         _titleLbl.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -533,7 +533,7 @@
         //文字标题
         _titleLbl = [[UILabel alloc] init];
         _titleLbl.text = @"title";
-        _titleLbl.font = [UIFont systemFontOfSize:12];
+        _titleLbl.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"footerText.fontSize")];
         _titleLbl.textColor = UIColorValueFromThemeKey(@"font.color");
         _titleLbl.textAlignment = NSTextAlignmentCenter;
         _titleLbl.lineBreakMode = NSLineBreakByTruncatingTail;

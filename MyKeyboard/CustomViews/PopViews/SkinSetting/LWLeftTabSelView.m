@@ -7,6 +7,10 @@
 #import "LWDefines.h"
 #import "LWRightSettingView.h"
 #import "LWSkinSettingPopView.h"
+#import "LWDataConfig.h"
+#import "Categories.h"
+#import "UIColor+CrossFade.h"
+#import "UIImage+Color.h"
 
 
 @implementation LWLeftTabSelView {
@@ -19,12 +23,17 @@
 
     //设置皮肤选择面板的频道
     [self setupChannelLabels];
-//    _upBtn.highlighted = YES;
-    _upBtn.selected = YES;
+
+    //约定Idx : upBtn为0, downBtn为1
+    id value = [LWDataConfig getUserDefaultValueByKey:Key_LastSkinPop_Index];
+    NSInteger lastSkinIdx = value ? ((NSNumber *) value).intValue : 0;
+
+    _upBtn.selected = (lastSkinIdx == 0);
+    _downBtn.selected = (lastSkinIdx == 1);
 
     _rightLine = [CALayer layer];
     _rightLine.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
-    _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W,0,NarrowLine_W,self.frame.size.height);
+    _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W, 0, NarrowLine_W, self.frame.size.height);
     [self.layer addSublayer:_rightLine];
 
 }
@@ -34,16 +43,16 @@
     [super layoutSubviews];
 
     //重设置frame
-    CGRect frame = CGRectMake(0,0,self.frame.size.width,self.frame.size.height/2);
-    _upBtn.bounds = CGRectMake(0,0,frame.size.height,frame.size.width);
-    _upBtn.center = CGPointMake(frame.size.width/2,frame.size.height/2);
+    CGRect frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2);
+    _upBtn.bounds = CGRectMake(0, 0, frame.size.height, frame.size.width);
+    _upBtn.center = CGPointMake(frame.size.width / 2, frame.size.height / 2);
     _upBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
 
-    _downBtn.bounds = CGRectMake(0,frame.size.height,frame.size.height,frame.size.width);
-    _downBtn.center = CGPointMake(frame.size.width/2,frame.size.height*3/2);
+    _downBtn.bounds = CGRectMake(0, frame.size.height, frame.size.height, frame.size.width);
+    _downBtn.center = CGPointMake(frame.size.width / 2, frame.size.height * 3 / 2);
     _downBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
 
-    _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W,0,NarrowLine_W,self.frame.size.height);
+    _rightLine.frame = CGRectMake(self.frame.size.width - NarrowLine_W, 0, NarrowLine_W, self.frame.size.height);
 }
 
 
@@ -56,19 +65,33 @@
     [_upBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateSelected];
     [_downBtn setTitleColor:UIColorValueFromThemeKey(@"font.color") forState:UIControlStateNormal];
     [_downBtn setTitleColor:UIColorValueFromThemeKey(@"font.highlightColor") forState:UIControlStateSelected];
+
+    //设置按键背景
+    UIColor *normalBGColor = [LWDataConfig getKBBackGroundColor];
+    UIColor *selectedBGColor = ((LWSkinSettingPopView *)[self superViewWithClass:[LWSkinSettingPopView class]]).backgroundColor;
+
+    CGRect imgRect = CGRectMake(0, 0, self.frame.size.height/2, self.frame.size.width/2);
+    UIImage *normalImg = [UIImage imageFromColor:normalBGColor withRect:imgRect];
+    UIImage *selectecImg = [UIImage imageFromColor:selectedBGColor withRect:imgRect];
+    [_upBtn setBackgroundImage:normalImg forState:UIControlStateNormal];
+    [_downBtn setBackgroundImage:normalImg forState:UIControlStateNormal];
+    [_upBtn setBackgroundImage:selectecImg forState:UIControlStateSelected];
+    [_downBtn setBackgroundImage:selectecImg forState:UIControlStateSelected];
+    _upBtn.layer.cornerRadius = FloatValueFromThemeKey(@"btn.cornerRadius");
+    _downBtn.layer.cornerRadius = FloatValueFromThemeKey(@"btn.cornerRadius");
+
     _upBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
     _downBtn.titleLabel.font = [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"btn.mainLabel.fontSize")];
 
-
     //设置frame
-    CGRect frame = CGRectMake(0,0, self.frame.size.width, self.frame.size.height/2);
-    _upBtn.bounds = CGRectMake(0,0,frame.size.height,frame.size.width);
-    _upBtn.center = CGPointMake(frame.size.width/2,frame.size.height/2);
+    CGRect frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2);
+    _upBtn.bounds = CGRectMake(0, 0, frame.size.height, frame.size.width);
+    _upBtn.center = CGPointMake(frame.size.width / 2, frame.size.height / 2);
     _upBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
 
 
-    _downBtn.bounds = CGRectMake(0,frame.size.height,frame.size.height,frame.size.width);
-    _downBtn.center = CGPointMake(frame.size.width/2,frame.size.height*3/2);
+    _downBtn.bounds = CGRectMake(0, frame.size.height, frame.size.height, frame.size.width);
+    _downBtn.center = CGPointMake(frame.size.width / 2, frame.size.height * 3 / 2);
     _downBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
 
     [self addSubview:_upBtn];
@@ -80,9 +103,11 @@
 
 //显示皮肤选择面板
 - (void)showSkinPickerView:(UIButton *)showSkinBtn {
+    //约定Idx : upBtn为0, downBtn为1
+    [LWDataConfig setUserDefaultValue:@0 withKey:Key_LastSkinPop_Index];
     _upBtn.selected = YES;
     _downBtn.selected = NO;
-    if(self.superview && [self.superview isKindOfClass:[LWSkinSettingPopView class]]){
+    if (self.superview && [self.superview isKindOfClass:[LWSkinSettingPopView class]]) {
         LWSkinSettingPopView *settingPopView = (LWSkinSettingPopView *) self.superview;
         self.delegate = settingPopView.rightSettingView;
         [self.delegate showSkinPickerView:showSkinBtn];
@@ -91,9 +116,11 @@
 
 //显示颜色选择面板
 - (void)showColorPickerView:(UIButton *)showColorBtn {
+    //约定Idx : upBtn为0, downBtn为1
+    [LWDataConfig setUserDefaultValue:@1 withKey:Key_LastSkinPop_Index];
     _upBtn.selected = NO;
     _downBtn.selected = YES;
-    if(self.superview && [self.superview isKindOfClass:[LWSkinSettingPopView class]]){
+    if (self.superview && [self.superview isKindOfClass:[LWSkinSettingPopView class]]) {
         LWSkinSettingPopView *settingPopView = (LWSkinSettingPopView *) self.superview;
         self.delegate = settingPopView.rightSettingView;
         [self.delegate showColorPickerView:showColorBtn];
@@ -123,8 +150,8 @@
         [self addSubview:_textLabel];
 
         //方法一:
-        _textLabel.bounds = CGRectMake(0,0,frame.size.height,frame.size.width);
-        _textLabel.center = CGPointMake(frame.size.width/2,frame.size.height/2);
+        _textLabel.bounds = CGRectMake(0, 0, frame.size.height, frame.size.width);
+        _textLabel.center = CGPointMake(frame.size.width / 2, frame.size.height / 2);
         _textLabel.transform = CGAffineTransformMakeRotation(-M_PI_2);
 
 
@@ -176,7 +203,6 @@
 
 
 @end
-
 
 
 //竖向排列的Label

@@ -112,6 +112,16 @@
     return image;
 }
 
+//获得键盘背景颜色
++(UIColor *)getKBBackGroundColor{
+    UIImage *keyboardSkin = [LWDataConfig keyboardSkin];
+    if (keyboardSkin) { //图片
+        return keyboardSkin.averageColor;
+    }else {      //颜色
+        return UIColorValueFromThemeKey(@"inputView.backgroundColor");
+    }
+}
+
 //获得popView的背景色
 +(UIColor *)getPopViewBackGroundColor{
     UIColor *firstColor = nil;

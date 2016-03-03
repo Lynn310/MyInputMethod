@@ -52,7 +52,7 @@
     return (UIViewController *)responder;
 }
 
-
+//获得MyKeyboardViewController
 - (MyKeyboardViewController *)responderKBViewController {
     UIResponder *responder = self;
     while (![responder isKindOfClass:[MyKeyboardViewController class]]) {
@@ -62,6 +62,18 @@
         }
     }
     return (MyKeyboardViewController *)responder;
+}
+
+//获得指class类型的父视图
+-(id)superViewWithClass:(Class)clazz{
+    UIResponder *responder = self;
+    while (![responder isKindOfClass:clazz]) {
+        responder = [responder nextResponder];
+        if (nil == responder) {
+            break;
+        }
+    }
+    return responder;
 }
 
 @end

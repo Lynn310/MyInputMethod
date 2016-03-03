@@ -211,7 +211,7 @@ static NSString *const GraphicCellId = @"GraphicCellId";
     _iconImageView.image = image;
     _titleLbl.text = text;
 
-    NSDictionary *attrs = @{NSFontAttributeName : [UIFont systemFontOfSize:12]};
+    NSDictionary *attrs = @{NSFontAttributeName : [UIFont fontWithName:StringValueFromThemeKey(@"font.name") size:FloatValueFromThemeKey(@"footerText.fontSize")]};
     CGSize textSize = [text sizeWithAttributes:attrs];
 
     CGSize cellSize = self.bounds.size;
