@@ -46,9 +46,6 @@
     _btnNormalColor = UIColorValueFromThemeKey(@"btn.content.color");
     _btnHighColor = UIColorValueFromThemeKey(@"btn.content.highlightColor");
 
-    //按键透明度
-    _btnAlphaDic = Default_Btn_AlphaDic;
-
     //按键圆角
     _btnCornerRadiuseDic = Default_Btn_CornerRadiusDic;
 
@@ -56,6 +53,10 @@
     _btnBorderWidthDic = Default_Btn_BorderWidthDic;
     //按键边框颜色
     _btnBorderColor = UIColorValueFromThemeKey(@"btn.borderColor");
+
+    //按键透明度
+    _btnAlphaDic = Default_Btn_AlphaDic;
+
     //按键阴影宽度
     _btnShadowWidthDic = Default_Btn_ShadowWidthDic;
     //按键阴影颜色
@@ -84,24 +85,24 @@
             return 2;
             break;
         }
-            //按键透明度
+            //按键圆角
         case 1: {
-            return _btnAlphaDic.count;
-            break;
-        }
-            //按键透明度
-        case 2: {
             return _btnCornerRadiuseDic.count;
             break;
         }
             //按键边框宽度
-        case 3: {
+        case 2: {
             return _btnBorderWidthDic.count;
             break;
         }
             //按键边框颜色
-        case 4: {
+        case 3: {
             return 1;
+            break;
+        }
+            //按键透明度
+        case 4: {
+            return _btnAlphaDic.count;
             break;
         }
             //按键阴影宽度
@@ -148,20 +149,8 @@
             cell.selImgView.hidden = YES;
             break;
         }
-            //按键透明度
-        case 1: {
-            NSString *imgName = [NSString stringWithFormat:@"Alpha%d", (int) indexPath.item];
-            cell.iconImageView.image = [UIImage imageNamed:imgName];
-            cell.titleLbl.text = nil;
-
-            //赋初始选择状态
-            CGFloat settedAlpha = FloatValueFromThemeKey(@"btn.opacity");
-            CGFloat alpha = ((NSNumber *) _btnAlphaDic[imgName]).floatValue;
-            cell.selImgView.hidden = settedAlpha != alpha;
-            break;
-        }
             //按键圆角
-        case 2: {
+        case 1: {
             NSString *imgName = [NSString stringWithFormat:@"CornerRadiuse%d", (int) indexPath.item];
             cell.iconImageView.image = [UIImage imageNamed:imgName];
             cell.titleLbl.text = nil;
@@ -173,7 +162,7 @@
             break;
         }
             //按键边框宽度
-        case 3: {
+        case 2: {
             NSString *imgName = [NSString stringWithFormat:@"BorderWidth%d", (int) indexPath.item];
             cell.iconImageView.image = [UIImage imageNamed:imgName];
             cell.titleLbl.text = nil;
@@ -185,10 +174,22 @@
             break;
         }
             //按键边框颜色
-        case 4: {
+        case 3: {
             [self setupCellIconImg:cell WithIndexPath:indexPath withColor:_btnBorderColor];
             cell.selImgView.hidden = YES;
             cell.titleLbl.text = nil;
+            break;
+        }
+            //按键透明度
+        case 4: {
+            NSString *imgName = [NSString stringWithFormat:@"Alpha%d", (int) indexPath.item];
+            cell.iconImageView.image = [UIImage imageNamed:imgName];
+            cell.titleLbl.text = nil;
+
+            //赋初始选择状态
+            CGFloat settedAlpha = FloatValueFromThemeKey(@"btn.opacity");
+            CGFloat alpha = ((NSNumber *) _btnAlphaDic[imgName]).floatValue;
+            cell.selImgView.hidden = settedAlpha != alpha;
             break;
         }
             //按阴影框宽度
@@ -281,24 +282,24 @@
                 header.titleLbl.text = NSLocalizedString(@"Button Color", nil);
                 break;
             }
-                //按键透明度
-            case 1: {
-                header.titleLbl.text = NSLocalizedString(@"Button Alpha", nil);
-                break;
-            }
                 //按键圆角
-            case 2: {
+            case 1: {
                 header.titleLbl.text = NSLocalizedString(@"Button CornerRadius", nil);
                 break;
             }
                 //按键边框宽度
-            case 3: {
+            case 2: {
                 header.titleLbl.text = NSLocalizedString(@"Border Width", nil);
                 break;
             }
                 //按键边框颜色
-            case 4: {
+            case 3: {
                 header.titleLbl.text = NSLocalizedString(@"Border Color", nil);
+                break;
+            }
+                //按键透明度
+            case 4: {
+                header.titleLbl.text = NSLocalizedString(@"Button Alpha", nil);
                 break;
             }
                 //按键阴影宽度
@@ -360,24 +361,24 @@
             [self btnColorWithIndexPath:indexPath];
             break;
         }
-            //按键透明度
-        case 1: {
-            [self btnAlphaWithIndexPath:indexPath];
-            break;
-        }
             //按键圆角
-        case 2: {
+        case 1: {
             [self btnCornerRadiusesWithIndexPath:indexPath];
             break;
         }
             //按键边框宽度
-        case 3: {
+        case 2: {
             [self btnBorderWidthWithIndexPath:indexPath];
             break;
         }
             //按键边框颜色
-        case 4: {
+        case 3: {
             [self btnBorderColorWithIndexPath:indexPath];
+            break;
+        }
+            //按键透明度
+        case 4: {
+            [self btnAlphaWithIndexPath:indexPath];
             break;
         }
             //按键阴影宽度

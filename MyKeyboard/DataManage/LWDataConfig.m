@@ -126,4 +126,60 @@
     }
 }
 
+
+#pragma mark - UserDefault数据操作
+
+//根据key取得一个Array,若取不到,使用默认值
++ (NSMutableArray *)getArrByKey:(NSString *)key withDefaultArr:(NSArray *)defaultArr {
+    NSMutableArray *skins = nil;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *dat = [userDefaults objectForKey:key];
+    if (dat == nil) {
+        skins = defaultArr.mutableCopy;
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:skins];
+        [userDefaults setObject:data forKey:key];
+        [userDefaults synchronize];
+    } else {
+        skins = ((NSArray *) [NSKeyedUnarchiver unarchiveObjectWithData:dat]).mutableCopy;
+    }
+    return skins;
+}
+
+//根据key设置一个Array
++ (void)setArr:(NSArray *)arr WithKey:(NSString *)key {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:arr];
+    [userDefaults setObject:data forKey:key];
+    [userDefaults synchronize];
+}
+
+//根据Key获得颜色值
++ (UIColor *)getColorWithKey:(NSString *)key {
+    UIColor *normalColor = nil;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *dat = [userDefaults objectForKey:key];
+    if (!dat) {
+        normalColor = [UIColor darkGrayColor];
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:normalColor];
+        [userDefaults setObject:data forKey:key];
+        [userDefaults synchronize];
+    } else {
+        normalColor = (UIColor *) [NSKeyedUnarchiver unarchiveObjectWithData:dat];
+    }
+    return normalColor;
+}
+
+//从UserDefault中取值
++(id)getUserDefaultValueByKey:(NSString *)key{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults objectForKey:key];
+}
+
+//向UserDefault设置值
++(void)setUserDefaultValue:(id)value withKey:(NSString *)key{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:value forKey:key];
+    [userDefaults synchronize];
+}
+
 @end

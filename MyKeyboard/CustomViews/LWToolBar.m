@@ -55,6 +55,7 @@
     [_graphicBtn addTarget:self action:@selector(graphicBtnTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
 
     _arrow.hidden = YES;
+
 }
 
 
@@ -120,8 +121,50 @@
 }
 
 
-//打开表情浮层被按下
+//打开表情浮层被按下,分情况处理
 - (void)emojiBtnTouchUpInside:(UIButton *)btn {
+
+    //emojiPopView默认要打开的PopView
+    id value = [LWDataConfig getUserDefaultValueByKey:Key_LastEmojiPop_Index];
+    NSInteger lastEmojiIdx = value? ((NSNumber *)value).intValue : 0;
+
+    BOOL emojiPopOpened = _phraseBtn.selected || _emojiBtn.selected || _emoticonBtn.selected || _graphicBtn.selected;
+    //如果emojiPopView已经是处理打开的状态,并且是emojiBtn被按下
+    if(emojiPopOpened){
+        [self emojiBtnSelect:btn];
+        return;
+    }
+
+    switch (lastEmojiIdx){
+        //约定Idx : emoji为0, phrase为1, emoticon为2, graphic为3
+        //打开快捷短语
+        case 1:{
+            [self phraseBtnTouchUpInside:_phraseBtn];
+            break;
+        }
+            //打开颜文字表情
+        case 2:{
+            [self emoticonBtnTouchUpInside:_emoticonBtn];
+            break;
+        }
+            //打开图片表情
+        case 3:{
+            [self graphicBtnTouchUpInside:_graphicBtn];
+            break;
+        }
+            //默认打开emoji
+        default:{
+            [self emojiBtnSelect:btn];
+            break;
+        }
+
+    }
+
+
+}
+
+//选择emojiBtn
+- (void)emojiBtnSelect:(UIButton *)btn {
     btn.selected = !btn.selected;
     [self updateArrow:btn];
     [self updateBtnsHiddenStatus:btn];
@@ -129,9 +172,14 @@
 
     //如emoji弹窗打开了,则工具栏显示出其他的表情按键
     if(btn.selected){
-        //显示phraseBtn,隐藏logoBtn
-        _logoBtn.hidden = _switchkbBtn.hidden = _skinBtn.hidden = YES;
-        _phraseBtn.hidden = _emoticonBtn.hidden = _graphicBtn.hidden = NO;
+                //显示phraseBtn,隐藏logoBtn
+                _logoBtn.hidden = _switchkbBtn.hidden = _skinBtn.hidden = YES;
+                _phraseBtn.hidden = _emoticonBtn.hidden = _graphicBtn.hidden = NO;
+            }
+
+    if(btn.selected){
+        //约定Idx : emoji为0, phrase为1, emoticon为2, graphic为3
+        [LWDataConfig setUserDefaultValue:@0 withKey:Key_LastEmojiPop_Index];
     }
 }
 
@@ -141,6 +189,11 @@
     [self updateArrow:btn];
     [self updateBtnsHiddenStatus:btn];
     [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Phrase];
+
+    if(btn.selected){
+        //约定Idx : emoji为0, phrase为1, emoticon为2, graphic为3
+        [LWDataConfig setUserDefaultValue:@1 withKey:Key_LastEmojiPop_Index];
+    }
 }
 
 //颜文字表情键被按下
@@ -149,6 +202,11 @@
     [self updateArrow:btn];
     [self updateBtnsHiddenStatus:btn];
     [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Emoticon];
+
+    if(btn.selected){
+        //约定Idx : emoji为0, phrase为1, emoticon为2, graphic为3
+        [LWDataConfig setUserDefaultValue:@2 withKey:Key_LastEmojiPop_Index];
+    }
 }
 
 //图像表情键被按下
@@ -157,6 +215,11 @@
     [self updateArrow:btn];
     [self updateBtnsHiddenStatus:btn];
     [self.responderKBViewController toolbarBtnTouchUpInside:btn withType:ToolbarBtn_Graphic];
+
+    if(btn.selected){
+        //约定Idx : emoji为0, phrase为1, emoticon为2, graphic为3
+        [LWDataConfig setUserDefaultValue:@3 withKey:Key_LastEmojiPop_Index];
+    }
 }
 
 //切换键盘被按下

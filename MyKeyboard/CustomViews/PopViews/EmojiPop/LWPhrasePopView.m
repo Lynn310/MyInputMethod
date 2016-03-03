@@ -23,7 +23,7 @@
 
 
         self.phrasesDict = [LWDataConfig getPhraseDictionary];
-        NSArray *bottomNavItems = [LWThemeManager getArrByKey:Key_BottomNavPhraseItems withDefaultArr:_phrasesDict.allKeys];
+        NSArray *bottomNavItems = [LWDataConfig getArrByKey:Key_BottomNavPhraseItems withDefaultArr:_phrasesDict.allKeys];
         self.bottomNavBar = [[LWBottomNavBar alloc]initWithFrame:CGRectMake(0, (CGFloat) (frame.size.height-Toolbar_H),frame.size.width,Toolbar_H)
                                                      andNavItems:bottomNavItems andShowAdd:YES];
         self.bottomNavBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -41,17 +41,13 @@
         self.tableView.delegate = self;
     
         self.tableView.tableFooterView = [[UIView alloc] init];
-        self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
         self.tableView.separatorColor = UIColorValueFromThemeKey(@"btn.borderColor");
         self.tableView.layoutMargins = UIEdgeInsetsZero;
-    
         self.tableView.backgroundColor = [UIColor clearColor];
-
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
         self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.tableView];
-    
+
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
 
     return self;
@@ -60,6 +56,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     _bottomNavBar.frame = CGRectMake(0, (CGFloat) (self.frame.size.height-Toolbar_H),self.frame.size.width,Toolbar_H);
+
+    //刷新,更新分隔线
+    [self.tableView reloadData];
 }
 
 
@@ -102,12 +101,26 @@
 
     [textLabel sizeToFit];
     CGFloat textWidth = textLabel.frame.size.width;
-    if (textWidth >= (tableViewSize.width - 15)) {
+    if (textWidth >= (tableViewSize.width - 12)) {
         textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        textWidth = tableViewSize.width - 15;
+        textWidth = tableViewSize.width - 12;
     }
-    textLabel.frame = CGRectMake(15, 0, textWidth, Cell_Height);
+    textLabel.frame = CGRectMake(6, 0, textWidth, Cell_Height);
 
+    //添加分隔线
+    CALayer *line = nil;
+    for(CALayer *layer1 in cell.contentView.layer.sublayers){
+        if([line isKindOfClass:[LWBottomSeparatorLayer class]]){
+            line = layer1;
+            line.frame = CGRectMake(6,Cell_Height-NarrowLine_W,tableViewSize.width-12,NarrowLine_W);
+        }
+    }
+    if(!line){
+        LWBottomSeparatorLayer *bottomLine = [LWBottomSeparatorLayer layer];
+        bottomLine.backgroundColor = CGColorValueFromThemeKey(@"btn.borderColor");
+        bottomLine.frame = CGRectMake(6,Cell_Height-NarrowLine_W,tableViewSize.width-12,NarrowLine_W);
+        [cell.contentView.layer addSublayer:bottomLine];
+    }
 
     return cell;
 }
@@ -136,13 +149,6 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = [UIColor clearColor];
-
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {

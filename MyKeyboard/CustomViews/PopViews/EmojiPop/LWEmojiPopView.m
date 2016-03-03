@@ -27,7 +27,7 @@ static NSString *const EmojiCell = @"EmojiCell";
         self.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
     
         NSDictionary *iniDict = [LWDataConfig getEmojiDictionary];
-        NSArray *bottomNavItems = [LWThemeManager getArrByKey:Key_BottomNavEmojiItems withDefaultArr:iniDict.allKeys];
+        NSArray *bottomNavItems = [LWDataConfig getArrByKey:Key_BottomNavEmojiItems withDefaultArr:iniDict.allKeys];
         _bottomNavBar = [[LWBottomNavBar alloc]initWithFrame:CGRectMake(0, (CGFloat) (frame.size.height-Toolbar_H),frame.size.width,Toolbar_H)
                                                      andNavItems:bottomNavItems andShowAdd:NO];
         _bottomNavBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;

@@ -146,7 +146,8 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 #import "UIKit/UIKit.h"
 #define Scr_Scale [UIScreen mainScreen].scale
 //窄边框线宽度
-#define NarrowLine_W 1/Scr_Scale
+//#define NarrowLine_W 1/Scr_Scale
+#define NarrowLine_W FloatValueFromThemeKey(@"btn.borderWidth")
 
 //键盘left table 的 Cell 参数
 #define Cell_Height 40.0
@@ -166,6 +167,9 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 //用户皮肤的键值
 #define Key_User_Skins @"Key_User_Skins"
 #define Key_User_Colors @"Key_User_Colors"
+
+#define Key_LastEmojiPop_Index @"Key_LastEmojiPop_Index"
+#define Key_LastSkinPop_Index @"Key_LastSkinPop_Index"
 
 
 //皮肤宫格重用id

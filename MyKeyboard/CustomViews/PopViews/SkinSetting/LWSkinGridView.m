@@ -58,9 +58,9 @@
     [super reloadData];
 
     //读取图片皮肤数据
-    _skins = [LWThemeManager getArrByKey:Key_User_Skins withDefaultArr:Default_Skins];
+    _skins = [LWDataConfig getArrByKey:Key_User_Skins withDefaultArr:Default_Skins];
     //读取颜色皮肤数据
-    _colors = [LWThemeManager getArrByKey:Key_User_Colors withDefaultArr:Default_Colors];
+    _colors = [LWDataConfig getArrByKey:Key_User_Colors withDefaultArr:Default_Colors];
 
 }
 
@@ -269,7 +269,7 @@
                     [weakSelf performBatchUpdates:^{
                         [weakSelf reloadSections:[NSIndexSet indexSetWithIndex:1]];
                     }                  completion:nil];
-                    [LWThemeManager setArr:weakSelf.colors WithKey:Key_User_Colors];
+                    [LWDataConfig setArr:weakSelf.colors WithKey:Key_User_Colors];
 
                     //删除colorPickerView
                     [weakSelf.colorPickerView removeFromSuperview];
@@ -311,7 +311,7 @@
     switch (indexPath.section) {
         case 0: {
             [_skins removeObjectAtIndex:(NSUInteger) indexPath.item];
-            [LWThemeManager setArr:_skins WithKey:Key_User_Skins];
+            [LWDataConfig setArr:_skins WithKey:Key_User_Skins];
 
             //把删除更新到gridView
             [self performBatchUpdates:^{
@@ -321,7 +321,7 @@
         }
         case 1: {
             [_colors removeObjectAtIndex:(NSUInteger) indexPath.item];
-            [LWThemeManager setArr:_colors WithKey:Key_User_Colors];
+            [LWDataConfig setArr:_colors WithKey:Key_User_Colors];
 
             //把删除更新到gridView
             [self performBatchUpdates:^{
