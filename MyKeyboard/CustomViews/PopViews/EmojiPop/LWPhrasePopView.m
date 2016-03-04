@@ -12,6 +12,7 @@
 #import "Categories.h"
 #import "MyKeyboardViewController.h"
 #import "LWDataConfig.h"
+#import "LWBottomSeparatorLayer.h"
 
 @implementation LWPhrasePopView
 

@@ -13,6 +13,7 @@
 #import "UIImage+Color.h"
 #import "MyKeyboardViewController.h"
 #import "LWDataConfig.h"
+#import "LWBottomSeparatorLayer.h"
 
 static NSString *const EmoticonCellId = @"EmoticonCellId";
 

@@ -98,6 +98,8 @@
 		EA78ABD61B842C08008F01BA /* LWImageTextBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA78ABD51B842C08008F01BA /* LWImageTextBtn.m */; };
 		EAA2785E1B78F9BB00730A4C /* LWWuBiFullKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA2785D1B78F9BB00730A4C /* LWWuBiFullKeyboard.xib */; };
 		EAA278601B78F9C800730A4C /* LWBiHuaKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA2785F1B78F9C800730A4C /* LWBiHuaKeyboard.xib */; };
+		EAC26F1F1C893509000FCBB7 /* LWSymbolKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC26F1E1C893509000FCBB7 /* LWSymbolKeyboard.m */; };
+		EAC26F221C89397B000FCBB7 /* LWBottomSeparatorLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC26F211C89397B000FCBB7 /* LWBottomSeparatorLayer.m */; };
 		EAEE59241B8325A400A5969E /* defaultTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAEE59231B8325A400A5969E /* defaultTheme.plist */; };
 		EAEE59591B833B4600A5969E /* LWThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEE59581B833B4600A5969E /* LWThemeManager.m */; };
 		EAF2DC811C732FA700369D4B /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF2DC801C732FA700369D4B /* NSString+Ext.m */; };
@@ -302,6 +304,10 @@
 		EA78ABD51B842C08008F01BA /* LWImageTextBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWImageTextBtn.m; sourceTree = "<group>"; };
 		EAA2785D1B78F9BB00730A4C /* LWWuBiFullKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWWuBiFullKeyboard.xib; sourceTree = "<group>"; };
 		EAA2785F1B78F9C800730A4C /* LWBiHuaKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWBiHuaKeyboard.xib; sourceTree = "<group>"; };
+		EAC26F1D1C893509000FCBB7 /* LWSymbolKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSymbolKeyboard.h; sourceTree = "<group>"; };
+		EAC26F1E1C893509000FCBB7 /* LWSymbolKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSymbolKeyboard.m; sourceTree = "<group>"; };
+		EAC26F201C89397B000FCBB7 /* LWBottomSeparatorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBottomSeparatorLayer.h; sourceTree = "<group>"; };
+		EAC26F211C89397B000FCBB7 /* LWBottomSeparatorLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBottomSeparatorLayer.m; sourceTree = "<group>"; };
 		EAEE59231B8325A400A5969E /* defaultTheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultTheme.plist; sourceTree = "<group>"; };
 		EAEE59571B833B4600A5969E /* LWThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWThemeManager.h; sourceTree = "<group>"; };
 		EAEE59581B833B4600A5969E /* LWThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWThemeManager.m; sourceTree = "<group>"; };
@@ -376,6 +382,15 @@
 			path = DishuTheme;
 			sourceTree = "<group>";
 		};
+		BEF06FD3F1D163E107DF522A /* SymbolKB */ = {
+			isa = PBXGroup;
+			children = (
+				EAC26F1D1C893509000FCBB7 /* LWSymbolKeyboard.h */,
+				EAC26F1E1C893509000FCBB7 /* LWSymbolKeyboard.m */,
+			);
+			path = SymbolKB;
+			sourceTree = "<group>";
+		};
 		EA09271D1C1E59A3001C69B1 /* SkinSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +427,8 @@
 				EA3E236B1B732B5100349A95 /* LWToolBar.h */,
 				EA3E236C1B732B5100349A95 /* LWToolBar.m */,
 				EA3E23CB1B73342400349A95 /* LWToolBar.xib */,
+				EAC26F201C89397B000FCBB7 /* LWBottomSeparatorLayer.h */,
+				EAC26F211C89397B000FCBB7 /* LWBottomSeparatorLayer.m */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -440,6 +457,7 @@
 			children = (
 				BEF06940B7380B41F58A01F8 /* EmojiPop */,
 				EA09271D1C1E59A3001C69B1 /* SkinSetting */,
+				BEF06FD3F1D163E107DF522A /* SymbolKB */,
 				EA3E23701B732B5100349A95 /* LWSettingPopView.h */,
 				EA3E23711B732B5100349A95 /* LWSettingPopView.m */,
 				EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */,
@@ -1028,6 +1046,7 @@
 				EA3E237F1B732B5100349A95 /* LWNineCharBtn.m in Sources */,
 				EA3E238A1B732B5100349A95 /* LWTopView.m in Sources */,
 				EA3E23821B732B5100349A95 /* LWNumLeftTabView.m in Sources */,
+				EAC26F1F1C893509000FCBB7 /* LWSymbolKeyboard.m in Sources */,
 				EA3E23841B732B5100349A95 /* LWToolBar.m in Sources */,
 				EA0927311C1E59A3001C69B1 /* LWRightSettingView.m in Sources */,
 				EA3E23831B732B5100349A95 /* LWPinYinLeftTabView.m in Sources */,
@@ -1058,6 +1077,7 @@
 				EA0927291C1E59A3001C69B1 /* LWColorPickerView.m in Sources */,
 				BEF06CD80CD16344657CA352 /* Aspects.m in Sources */,
 				BEF06628AD81D0ECBF9DBF39 /* LWHookConfig.m in Sources */,
+				EAC26F221C89397B000FCBB7 /* LWBottomSeparatorLayer.m in Sources */,
 				BEF06A726BAFCAAE19AD15A6 /* LWSkinGridView.m in Sources */,
 				BEF06F68740F688C4EAA7A05 /* LWStyleGridView.m in Sources */,
 			);

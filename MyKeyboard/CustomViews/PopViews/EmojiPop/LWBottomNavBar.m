@@ -11,6 +11,7 @@
 #import "UIImage+Color.h"
 #import "Categories.h"
 #import "MyKeyboardViewController.h"
+#import "LWBottomSeparatorLayer.h"
 
 #define DelBtn_Width 50
 
@@ -270,13 +271,4 @@
 @end
 
 @implementation LWEmojiDelBtn
-@end
-
-@implementation LWRightSeparatorLayer
-@end
-
-@implementation LWBottomSeparatorLayer
-@end
-
-@implementation LWLeftSeparatorLayer
 @end
