@@ -14,6 +14,7 @@
 #import "LWGraphicPopView.h"
 #import "LWEmojiPopView.h"
 #import "Categories.h"
+#import "LWSymbolKeyboard.h"
 #import "MyKeyboardViewController.h"
 
 
@@ -45,6 +46,9 @@
     [super layoutSubviews];
     if (_settingPopView) {
         _settingPopView.frame = CGRectMake(0, TopView_H, self.frame.size.width, self.frame.size.height - TopView_H);
+    }
+    if(_symbolKeyboard){
+        _symbolKeyboard.frame = self.frame;
     }
 
 }
@@ -114,6 +118,11 @@
     [self removePopView:_phrasePopView withBtn:btn];
     [self removePopView:_emoticonPopView withBtn:btn];
     [self removePopView:_graphicPopView withBtn:btn];
+
+    if(_symbolKeyboard){
+        [_symbolKeyboard removeFromSuperview];
+        _symbolKeyboard = nil;
+    }
 }
 
 - (void)removePopView:(UIView *)popView withBtn:(UIButton *)btn {
@@ -124,5 +133,12 @@
     }
 }
 
+//显示符号键盘
+- (void)showSymbolKeyboard {
+    if(!_symbolKeyboard){
+        _symbolKeyboard = [[LWSymbolKeyboard alloc] initWithFrame:self.frame];
+    }
+    [self addSubview:_symbolKeyboard];
+}
 
 @end

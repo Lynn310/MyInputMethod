@@ -34,7 +34,7 @@
 #import "LWNineCharBtn.h"
 #import "LWBottomNavBar.h"
 #import "LWDataConfig.h"
-
+#import "LWSymbolKeyboard.h"
 
 
 @implementation MyKeyboardViewController
@@ -359,6 +359,10 @@
             _keyboard = (LWPinYinNineKeyboard *) [[NSBundle mainBundle] loadNibNamed:@"LWPinYinNineKeyboard" owner:self.view options:nil][0];
             break;
         };
+        case Keyboard_SymbolCollection:{
+            [_rootWrapView showSymbolKeyboard];
+            break;
+        }
 
         default : {
             break;

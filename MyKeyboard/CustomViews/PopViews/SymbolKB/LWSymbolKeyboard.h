@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class LWBottomToolBar;
+
 @interface LWSymbolKeyboard : UIView
 
+@property(nonatomic, strong) LWBottomToolBar *bottomToolBar;
 @end
 
 //底部工具条
 @interface LWBottomToolBar:UIView
+
+@property(nonatomic, strong) UIButton *backBtn;
 
 @end
 
@@ -32,5 +37,7 @@
 
 //左部符号分类区
 @interface LWSymbolGridView:UICollectionView
+
+@property(nonatomic, strong) UILabel *textLabel;
 
 @end

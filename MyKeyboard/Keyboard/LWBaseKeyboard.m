@@ -48,7 +48,7 @@
 /**
 * 移除约束
 */
--(void)removeKeyboardConstraints{
+- (void)removeKeyboardConstraints {
     //移除约束
     [NSLayoutConstraint deactivateConstraints:_keyboardHorizonConstraints];
     [NSLayoutConstraint deactivateConstraints:_keyboardVerticelConstraints];
@@ -60,15 +60,15 @@
 /**
 * 设置背景颜色
 */
--(void)setupBackgroundColor:(UIColor *)color{
+- (void)setupBackgroundColor:(UIColor *)color {
     self.backgroundColor = color;
 }
 
 /**
 * 设置背景图片
 */
--(void)setupBackground:(UIImage *)image{
-    self.layer.contents = (__bridge id)image.CGImage;
+- (void)setupBackground:(UIImage *)image {
+    self.layer.contents = (__bridge id) image.CGImage;
     self.layer.contentsScale = [[UIScreen mainScreen] scale];
     self.layer.contentsGravity = kCAGravityResizeAspectFill;
 }
@@ -76,7 +76,7 @@
 /**
 * 设置键盘提示文字
 */
--(void)setBtnTip:(NSString *)tip withTag:(NSInteger)tag{
+- (void)setBtnTip:(NSString *)tip withTag:(NSInteger)tag {
     LWBaseKBBtn *btn = (LWBaseKBBtn *) [self viewWithTag:tag];
 
     [btn setupTip:tip];
@@ -104,7 +104,7 @@
 
             //处理高亮图片
             UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")];
-            if(imgNameArr.count > 1){
+            if (imgNameArr.count > 1) {
                 highlightedImg = [UIImage imageNamed:imgNameArr[1]];
             }
             [charKBBtn setImage:highlightedImg forState:UIControlStateHighlighted];
@@ -155,7 +155,7 @@
 
             //处理高亮图片
             UIImage *highlightedImg = [[UIImage imageNamed:imgNameArr[0]] imageWithOverlayColor:UIColorValueFromThemeKey(@"font.highlightColor")];
-            if(imgNameArr.count > 1){
+            if (imgNameArr.count > 1) {
                 highlightedImg = [UIImage imageNamed:imgNameArr[1]];
             }
             [keyKBBtn setImage:highlightedImg forState:UIControlStateHighlighted];
@@ -183,7 +183,7 @@
 
 #pragma mark CharKBBtn's Touch and Gesture Event
 
-- (void)charKBBtnTouchDown:(LWCharKBBtn *)charKBBtn{
+- (void)charKBBtnTouchDown:(LWCharKBBtn *)charKBBtn {
     [self.responderKBViewController kbBtnTouchDown:charKBBtn];
 }
 
@@ -217,33 +217,40 @@
 
     //分条件处理不同的功能键
     //地球键按下
-    if([keyKBBtn isMemberOfClass:[LWNextBtn class]]){
+    if ([keyKBBtn isMemberOfClass:[LWNextBtn class]]) {
         [self.responderKBViewController switchInputMethod];
     }
     //切换到英文键盘
-    if([keyKBBtn isMemberOfClass:[LWZhEnBtn class]]){
+    if ([keyKBBtn isMemberOfClass:[LWZhEnBtn class]]) {
         //先把当前键盘类型保存到lastKeyboardType
         [LWKeyboardConfig setLastZhKeyboardType:[LWKeyboardConfig currentKeyboardType]];
         //再切换到英文键盘
         [self.responderKBViewController swithcKeyboard:Keyboard_ENFull];
     }
     //切换到中文键盘
-    if([keyKBBtn isMemberOfClass:[LWEnZhBtn class]]){
+    if ([keyKBBtn isMemberOfClass:[LWEnZhBtn class]]) {
         //先把当前键盘类型保存到lastKeyboardType
         KeyboardType type = [LWKeyboardConfig lastZhKeyboardType];
         //再切换到英文键盘
         [self.responderKBViewController swithcKeyboard:type];
     }
     //返回键按下
-    if([keyKBBtn isMemberOfClass:[LWBackBtn class]]){
+    if ([keyKBBtn isMemberOfClass:[LWBackBtn class]]) {
         KeyboardType type = [LWKeyboardConfig lastKeyboardType];
         [self.responderKBViewController swithcKeyboard:type];
     }
     //切换到数字键盘
-    if([keyKBBtn isMemberOfClass:[LWNumKeyBtn class]]){
+    if ([keyKBBtn isMemberOfClass:[LWNumKeyBtn class]]) {
         [LWKeyboardConfig setLastKeyboardType:[LWKeyboardConfig currentKeyboardType]];
         [self.responderKBViewController swithcKeyboard:Keyboard_NumNine];
     }
+    //切换到符号键盘
+    if ([keyKBBtn isKindOfClass:[LWSymbolKeyBtn class]]) {
+        [LWKeyboardConfig setLastKeyboardType:[LWKeyboardConfig currentKeyboardType]];
+        [self.responderKBViewController swithcKeyboard:Keyboard_SymbolCollection];
+        return;
+    }
+
     //删除键按下
     if ([keyKBBtn isKindOfClass:[LWDeleteBtn class]]) {
         [self.responderKBViewController deleteBtnTouchUpInside:keyKBBtn];
@@ -259,7 +266,7 @@
         [self.responderKBViewController breakLineBtnTouchUpInside:keyKBBtn];
         return;
     }
-    else{
+    else {
         [self.responderKBViewController kbBtnTouchUpInside:keyKBBtn];
     }
 

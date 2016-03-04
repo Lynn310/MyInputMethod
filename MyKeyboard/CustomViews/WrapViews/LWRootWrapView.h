@@ -14,9 +14,12 @@
 @class LWEmoticonPopView;
 @class LWGraphicPopView;
 @class LWEmojiPopView;
+@class LWSymbolKeyboard;
 
 
 @interface LWRootWrapView : UIView
+
+@property(nonatomic, strong) LWSymbolKeyboard *symbolKeyboard;
 
 /**
 * 根据按键类型添加PopView
@@ -26,4 +29,5 @@
 //移除其他的popView
 - (void)removeAllOtherPopView:(UIButton *)btn;
 
+- (void)showSymbolKeyboard;
 @end

@@ -18,6 +18,7 @@
 @class LWKeyboardWrap;
 @class LWTopView;
 @class LWSingleHandView;
+@class LWSymbolKeyboard;
 
 
 @interface MyKeyboardViewController : UIInputViewController
