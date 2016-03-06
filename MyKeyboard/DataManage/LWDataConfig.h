@@ -30,6 +30,9 @@
 //获得Graphic数据
 + (NSDictionary *)getGraphicPlistDictionary;
 
+//获得symbol数据
++ (NSDictionary *)getSymbolDictionary;
+
 /**
 * 获得键盘的皮肤
 */
@@ -62,4 +65,6 @@
 //向UserDefault设置值
 +(void)setUserDefaultValue:(id)value withKey:(NSString *)key;
 
+
++ (NSArray *)getSymbolNavs;
 @end

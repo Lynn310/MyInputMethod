@@ -170,6 +170,7 @@ typedef NS_ENUM(NSInteger, ReturnKeyType) {
 
 #define Key_LastEmojiPop_Index @"Key_LastEmojiPop_Index"
 #define Key_LastSkinPop_Index @"Key_LastSkinPop_Index"
+#define Key_CurrentSymbol_Index @"Key_CurrentSymbol_Index"
 
 
 //皮肤宫格重用id

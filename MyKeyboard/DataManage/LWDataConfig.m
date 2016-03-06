@@ -82,6 +82,12 @@
     return iniDict;
 }
 
+
+//获得symbol数据
++ (NSDictionary *)getSymbolDictionary {
+    return [LWDataConfig dictionaryFromPlistName:@"symbol"];
+}
+
 /**
 * 获得键盘的皮肤
 */
@@ -135,6 +141,7 @@
         return [UIColor colorBetweenFirstColor:firstColor secondColor:secondColor atRatio:0.2 withAlpha:1.0];
     }
 }
+
 
 
 #pragma mark - UserDefault数据操作
@@ -192,4 +199,8 @@
     [userDefaults synchronize];
 }
 
+
++ (NSArray *)getSymbolNavs {
+    return nil;
+}
 @end

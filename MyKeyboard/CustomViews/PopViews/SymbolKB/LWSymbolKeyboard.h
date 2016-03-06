@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class LWBottomToolBar;
+@class LWLeftNavScrollView;
+@class LWSymbolGridView;
 
 @interface LWSymbolKeyboard : UIView
 
 @property(nonatomic, strong) LWBottomToolBar *bottomToolBar;
+@property(nonatomic, strong) LWLeftNavScrollView *leftNavScrollView;
+@property(nonatomic, strong) LWSymbolGridView *symbolGridView;
 @end
 
 //底部工具条
@@ -37,6 +41,11 @@
 
 //左部符号分类区
 @interface LWSymbolGridView:UICollectionView
+
+@end
+
+//SymbolGridViewCell
+@interface LWSymbolGridViewCell:UICollectionViewCell
 
 @property(nonatomic, strong) UILabel *textLabel;
 

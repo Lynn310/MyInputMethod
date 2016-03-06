@@ -23,10 +23,31 @@
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.backgroundColor = [LWDataConfig getPopViewBackGroundColor];
     
+        //底边工具条
         _bottomToolBar = [[LWBottomToolBar alloc]initWithFrame:CGRectMake(0, (CGFloat) (frame.size.height-Toolbar_H),frame.size.width,Toolbar_H)];
-        _bottomToolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:_bottomToolBar];
 
+        //左边分类选择
+        NSArray *symbolNavs = [LWDataConfig getSymbolNavs];
+        _leftNavScrollView = [[LWLeftNavScrollView alloc] initWithFrame:CGRectMake(0, 0, NavItem_W, frame.size.height- Toolbar_H) andNavItems:symbolNavs];
+        [self addSubview:_leftNavScrollView];
+
+        //右边符号内容
+        CGRect gridFrame = CGRectMake(NavItem_W, 0, frame.size.width- NavItem_W, frame.size.height- Toolbar_H);
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.itemSize = CGSizeMake((frame.size.width- NavItem_W)/4, (frame.size.height- Toolbar_H)/4);
+        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        layout.minimumLineSpacing = 0;
+        layout.minimumInteritemSpacing = 0;
+        _symbolGridView = [[LWSymbolGridView alloc] initWithFrame:gridFrame collectionViewLayout:layout];
+        [self addSubview:_symbolGridView];
+
+        //重新加载数据block
+        __weak LWSymbolGridView *weakSymbolGridView = _symbolGridView;
+        _leftNavScrollView.updateTableDatasouce = ^() {
+            [weakSymbolGridView reloadData];
+        };
     }
 
     return self;
@@ -38,7 +59,6 @@
     _bottomToolBar.frame = CGRectMake(0, (CGFloat) (self.frame.size.height-Toolbar_H),self.frame.size.width,Toolbar_H);
 }
 
-
 @end
 
 //底部工具条
@@ -47,7 +67,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        
         //返回键
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_backBtn setTitle:NSLocalizedString(@"Back", nil)forState:UIControlStateNormal];
@@ -118,6 +139,7 @@
         [self setupBottomNavItemBtns];
         //默认设置当前item为第一个
         currentBtn = (UIButton *)[self viewWithTag:Tag_First_NavItem];
+
     }
 
     return self;
@@ -184,7 +206,83 @@
 //右部符号内容区
 @implementation LWSymbolGridView
 
+- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
+    self = [super initWithFrame:frame collectionViewLayout:layout];
+    if (self) {
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
+    }
+
+    return self;
+}
+
+#pragma mark UICollectionDataSource Implementation
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    //两个section,一个选择颜色,一个选择图片
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    id value = [LWDataConfig getUserDefaultValueByKey:Key_CurrentSymbol_Index];
+    NSInteger idx = value ? ((NSNumber *) value).intValue : 0;
+
+    NSString *group = [LWDataConfig getSymbolDictionary].allKeys[idx];
+
+    NSDictionary *graphics = _graphicDict[group];
+    NSUInteger numOfItems = graphics.count;
+    return numOfItems;
+}
+
+- (LWGraphicCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    LWGraphicCell *cell = (LWGraphicCell *) [collectionView dequeueReusableCellWithReuseIdentifier:GraphicCellId forIndexPath:indexPath];
+
+    //获得group
+    NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
+    NSString *group = _graphicDict.allKeys[idx];
+
+    //获得group下的表情
+    NSDictionary *graphics = _graphicDict[group];
+    NSString *key = graphics.allKeys[(NSUInteger) indexPath.item];
+
+    //根据表情字符串从指定路径读取图片
+    NSString *graphicPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"graphics"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *imgName = [NSString stringWithFormat:@"%@.png",key];
+    NSString *filePath = [[graphicPath stringByAppendingPathComponent:group] stringByAppendingPathComponent:imgName];
+    if([fileManager fileExistsAtPath:filePath]) {
+        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+        [cell setIconImage:image withText:graphics[key]];
+    }
+    return cell;
+}
+
+
+#pragma mark - UICollectionDelegate Implementation
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    LWGraphicCell *cell = (LWGraphicCell *) [collectionView cellForItemAtIndexPath:indexPath];
+    //获得group
+    NSUInteger idx = (NSUInteger) (_bottomNavBar.bottomNavScrollview->currentBtn.tag - Tag_First_NavItem);
+    NSString *group = _graphicDict.allKeys[idx];
+    //获得group下的表情
+    NSDictionary *graphics = _graphicDict[group];
+    NSString *key = graphics.allKeys[(NSUInteger) indexPath.item];
+
+    NSString *text = graphics[key];
+    MyKeyboardViewController *kbVC = [self responderKBViewController];
+    if(kbVC){
+        [kbVC insertText:text];
+    }
+}
 
 @end
 
