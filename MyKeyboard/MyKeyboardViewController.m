@@ -35,6 +35,7 @@
 #import "LWBottomNavBar.h"
 #import "LWDataConfig.h"
 #import "LWSymbolKeyboard.h"
+#import "Categories.h"
 
 
 @implementation MyKeyboardViewController
@@ -170,6 +171,9 @@
     Log(@"--------%d:%s \n\n", __LINE__, __func__);
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
     [self setupInputViewConstraints];
+
+    //递归触发子视图屏幕的旋转
+    [self.view rotationToInterfaceOrientation:toInterfaceOrientation];
 }
 
 

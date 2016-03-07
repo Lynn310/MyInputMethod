@@ -28,3 +28,23 @@
 -(id)superViewWithClass:(Class)clazz;
 
 @end
+
+@interface UIView (Rotation)
+
+//用于接收屏幕发生旋转消息
+- (void)rotationToInterfaceOrientation:(UIInterfaceOrientation)orientation;
+
+@end
+
+
+@interface UIView (NoScrollToTop)
+
+- (void)subViewNOScrollToTopExcludeClass:(Class)clazz;
+
+@end
+
+
+//更新外观
+@interface UIView (updateAppearance)
+- (void)updateAppearance;
+@end

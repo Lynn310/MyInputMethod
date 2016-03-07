@@ -85,7 +85,19 @@
 
 //获得symbol数据
 + (NSDictionary *)getSymbolDictionary {
-    return [LWDataConfig dictionaryFromPlistName:@"symbol"];
+    NSDictionary *dict = [LWDataConfig dictionaryFromPlistName:@"symbol"];
+    NSMutableDictionary *symbolDict = @{}.mutableCopy;
+    for(NSString *key in dict){
+        NSString *value = dict[key];
+        NSArray *symbols = [value componentsSeparatedByString:@"  "];
+        [symbolDict setValue:symbols forKey:key];
+    }
+    return symbolDict;
+}
+
+//获得symbol左边的NavItems
++ (NSArray *)getSymbolNavs {
+    return [LWDataConfig dictionaryFromPlistName:@"symbol"].allKeys;
 }
 
 /**
@@ -200,7 +212,5 @@
 }
 
 
-+ (NSArray *)getSymbolNavs {
-    return nil;
-}
+
 @end

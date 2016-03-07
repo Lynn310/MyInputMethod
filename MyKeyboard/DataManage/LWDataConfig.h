@@ -33,6 +33,9 @@
 //获得symbol数据
 + (NSDictionary *)getSymbolDictionary;
 
+//获得symbol左边的NavItems
++ (NSArray *)getSymbolNavs;
+
 /**
 * 获得键盘的皮肤
 */
@@ -66,5 +69,4 @@
 +(void)setUserDefaultValue:(id)value withKey:(NSString *)key;
 
 
-+ (NSArray *)getSymbolNavs;
 @end

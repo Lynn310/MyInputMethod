@@ -40,7 +40,7 @@
 @end
 
 //左部符号分类区
-@interface LWSymbolGridView:UICollectionView
+@interface LWSymbolGridView:UICollectionView<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @end
 
@@ -48,5 +48,8 @@
 @interface LWSymbolGridViewCell:UICollectionViewCell
 
 @property(nonatomic, strong) UILabel *textLabel;
+
+//根据text设置Btn
+- (void)setCellBtnWithText:(NSString *)text;
 
 @end

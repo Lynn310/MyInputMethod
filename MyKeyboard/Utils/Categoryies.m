@@ -77,3 +77,42 @@
 }
 
 @end
+
+
+@implementation UIView (Rotation)
+
+//递归的向子视图发送屏幕发生旋转了的消息
+- (void)rotationToInterfaceOrientation:(UIInterfaceOrientation)orientation {
+    for (UIView *v in self.subviews) {
+        [v rotationToInterfaceOrientation:orientation];
+    }
+}
+
+@end
+
+@implementation UIView (NoScrollToTop)
+
+- (void)subViewNOScrollToTopExcludeClass:(Class)clazz {
+
+    for (UIView *v in self.subviews) {
+        if ([v isKindOfClass:[UIScrollView class]]) {
+            UIScrollView *scrollView = (UIScrollView *) v;
+            scrollView.scrollsToTop = clazz == nil ? NO : [v isKindOfClass:clazz];
+        }
+        [v subViewNOScrollToTopExcludeClass:clazz];
+    }
+}
+
+@end
+
+@implementation UIView(updateAppearance)
+
+-(void)updateAppearance{
+
+    for(UIView *v in self.subviews){
+        [v updateAppearance];
+    }
+
+}
+
+@end

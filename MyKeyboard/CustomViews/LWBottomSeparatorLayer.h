@@ -8,6 +8,9 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+@interface LWTopSeparatorLayer : CALayer
+@end
+
 @interface LWRightSeparatorLayer : CALayer
 @end
 

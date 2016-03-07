@@ -8,6 +8,8 @@
 
 #import "LWBottomSeparatorLayer.h"
 
+@implementation LWTopSeparatorLayer
+@end
 
 @implementation LWRightSeparatorLayer
 @end
