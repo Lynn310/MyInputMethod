@@ -36,6 +36,7 @@
 #import "LWDataConfig.h"
 #import "LWSymbolKeyboard.h"
 #import "Categories.h"
+#import "LWPredictiveView.h"
 
 
 @implementation MyKeyboardViewController
@@ -444,7 +445,6 @@
     switch (kbType){
         case Keyboard_PingYingFull: {
             if ([btn isKindOfClass:[LWSpaceFullCharBtn class]]) {
-
                 return;
             }
             if ([btn isKindOfClass:[LWBackBtn class]]) {
@@ -499,14 +499,18 @@
  中文全键盘按键和九宫格键盘按键点击
  */
 - (void)characterButtonTouchUpInside:(LWCharKBBtn *)button keyboardType:(KeyboardType)type {
-    NSString *title = nil;
+    NSString *text = nil;
     if ([button isKindOfClass:[LWNineCharBtn class]]) {
-        title = ((LWNineCharBtn *) button).mainLabel.text;
+        text = ((LWNineCharBtn *) button).mainLabel.text;
     }
     if ([button isKindOfClass:[LWFullCharBtn class]]) {
-        title = ((LWFullCharBtn *) button).mainLabel.text;
+        text = ((LWFullCharBtn *) button).mainLabel.text;
     }
-    [self insertText:title];
+//    //显示预选区
+//    LWPredictiveView *predictiveView = (LWPredictiveView *) [[NSBundle mainBundle] loadNibNamed:@"LWPredictiveView" owner:self.view options:nil][0];
+//    [_topView addSubview:predictiveView];
+
+//    [self insertText:text];
 }
 
 /**

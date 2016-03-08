@@ -30,6 +30,8 @@
 		EA2837291C21300D00927753 /* UIResponder+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2837281C21300D00927753 /* UIResponder+Ext.m */; };
 		EA28372B1C21361600927753 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA28372A1C21361600927753 /* Icon.png */; };
 		EA306DA51B7AF3F20085AC25 /* LWSettingPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */; };
+		EA3122181C8E655200A2461F /* LWPredictiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3122171C8E655200A2461F /* LWPredictiveView.m */; };
+		EA31221A1C8E762300A2461F /* LWPredictiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3122191C8E762300A2461F /* LWPredictiveView.xib */; };
 		EA3E237B1B732B5100349A95 /* LWBaseKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235A1B732B5100349A95 /* LWBaseKBBtn.m */; };
 		EA3E237C1B732B5100349A95 /* LWCharKBBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235C1B732B5100349A95 /* LWCharKBBtn.m */; };
 		EA3E237D1B732B5100349A95 /* LWFullCharBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3E235E1B732B5100349A95 /* LWFullCharBtn.m */; };
@@ -182,6 +184,10 @@
 		EA2837281C21300D00927753 /* UIResponder+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Ext.m"; sourceTree = "<group>"; };
 		EA28372A1C21361600927753 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = MyInputMethod/Images.xcassets/AppIcon.appiconset/Icon.png; sourceTree = "<group>"; };
 		EA306DA41B7AF3F20085AC25 /* LWSettingPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSettingPopView.xib; sourceTree = "<group>"; };
+		EA3122161C8E655200A2461F /* LWPredictiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPredictiveView.h; sourceTree = "<group>"; };
+		EA3122171C8E655200A2461F /* LWPredictiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPredictiveView.m; sourceTree = "<group>"; };
+		EA3122191C8E762300A2461F /* LWPredictiveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPredictiveView.xib; sourceTree = "<group>"; };
+		EA31221B1C8EA97300A2461F /* PYInputCoreService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYInputCoreService.h; sourceTree = "<group>"; };
 		EA3E23591B732B5100349A95 /* LWBaseKBBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseKBBtn.h; sourceTree = "<group>"; };
 		EA3E235A1B732B5100349A95 /* LWBaseKBBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseKBBtn.m; sourceTree = "<group>"; };
 		EA3E235B1B732B5100349A95 /* LWCharKBBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCharKBBtn.h; sourceTree = "<group>"; };
@@ -356,6 +362,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BEF060D46B4B209EFDBB0B0A /* InputEngine */ = {
+			isa = PBXGroup;
+			children = (
+				EA31221B1C8EA97300A2461F /* PYInputCoreService.h */,
+			);
+			path = InputEngine;
+			sourceTree = "<group>";
+		};
+		BEF066DCD663D05017B2A5B4 /* Predictive */ = {
+			isa = PBXGroup;
+			children = (
+				EA3122161C8E655200A2461F /* LWPredictiveView.h */,
+				EA3122171C8E655200A2461F /* LWPredictiveView.m */,
+				EA3122191C8E762300A2461F /* LWPredictiveView.xib */,
+			);
+			path = Predictive;
+			sourceTree = "<group>";
+		};
 		BEF06940B7380B41F58A01F8 /* EmojiPop */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +442,7 @@
 				EA3E236D1B732B5100349A95 /* PopViews */,
 				EA3E23581B732B5100349A95 /* KBBtn */,
 				EA3E23721B732B5100349A95 /* WrapViews */,
+				BEF066DCD663D05017B2A5B4 /* Predictive */,
 				EA3E23651B732B5100349A95 /* LWLeftTabView.h */,
 				EA3E23661B732B5100349A95 /* LWLeftTabView.m */,
 				EA3E23671B732B5100349A95 /* LWNumLeftTabView.h */,
@@ -690,6 +715,7 @@
 				EA3E23571B732B5100349A95 /* CustomViews */,
 				EA56C0891B42E1670076EC00 /* Supporting Files */,
 				EA3E23AD1B732C0300349A95 /* Resource */,
+				BEF060D46B4B209EFDBB0B0A /* InputEngine */,
 			);
 			path = MyKeyboard;
 			sourceTree = "<group>";
@@ -898,6 +924,7 @@
 				EA09272F1C1E59A3001C69B1 /* LWSkinSettingPopView.xib in Resources */,
 				EA3E23BD1B732C0300349A95 /* LWEnFullKeyboard.xib in Resources */,
 				EA4E55871C844B3400A647D9 /* InputBgImg in Resources */,
+				EA31221A1C8E762300A2461F /* LWPredictiveView.xib in Resources */,
 				EA3FA7541C7AE50300FB0E0F /* symbol.plist in Resources */,
 				EA4E55831C83F41500A647D9 /* graphics.plist in Resources */,
 				EA3E23C51B732C0300349A95 /* BubbleTheme.png in Resources */,
@@ -1040,6 +1067,7 @@
 				EA3E23941B732B6800349A95 /* LWKeyboardLogic.m in Sources */,
 				EA3E23BC1B732C0300349A95 /* LWEnFullKeyboard.m in Sources */,
 				EA3E237B1B732B5100349A95 /* LWBaseKBBtn.m in Sources */,
+				EA3122181C8E655200A2461F /* LWPredictiveView.m in Sources */,
 				EA3E23C01B732C0300349A95 /* LWPinYinFullKeyboard.m in Sources */,
 				EA3E23861B732B5100349A95 /* LWSettingPopView.m in Sources */,
 				EA3E23BB1B732C0300349A95 /* LWBaseKeyboard.m in Sources */,
