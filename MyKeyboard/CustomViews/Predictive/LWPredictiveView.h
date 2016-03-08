@@ -8,36 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#pragma mark - 预选词集合视图的布局
-
-@interface LWPredictiveCollectionViewLayout:UICollectionViewFlowLayout
-
-@end
-
-
-#pragma mark - 预选词集合视图
-
-@interface LWPredictiveCollectionView : UICollectionView
-
-@end
-
-
-#pragma mark - 首个预选词(Header View)
-
-@interface LWFirstSuggestionReusableView : UICollectionReusableView
-
-@property(nonatomic, strong) UIButton *firstSuggestionButton;
-
-@end
-
-
-#pragma mark - 末个预选词(Footer View)
-
-@interface LWLoadMoreReusableView : UICollectionReusableView
-
-@property(nonatomic, strong) UIButton *loadMoreButton;
-
-@end
+@class LWPredictiveCollectionView;
+@class LWFirstSuggestionReusableView;
+@class LWLoadMoreReusableView;
 
 
 #pragma mark - 预选词
@@ -54,7 +27,65 @@
 @property(nonatomic, strong) LWLoadMoreReusableView *footerView;
 
 
+//展开更多按下
 - (IBAction)moreBtnTapped:(UIButton *)sender;
 
 
+//插入按键按下传来的字符
+- (void)insertTapedText:(NSString *)lowercaseString;
+
+
 @end
+
+
+#pragma mark - LWPredictiveCell
+
+@interface LWPredictiveCell : UICollectionViewCell
+
+@property(nonatomic, weak) IBOutlet UILabel *suggestionTitleLabel;
+
+@end
+
+
+
+#pragma mark - 首个预选词(Header View)
+
+@interface LWFirstSuggestionReusableView : UICollectionReusableView
+
+@property(nonatomic, strong) UIButton *firstSuggestionButton;
+
+@end
+
+
+
+
+
+#pragma mark - 末个预选词(Footer View)
+
+@interface LWLoadMoreReusableView : UICollectionReusableView
+
+@property(nonatomic, strong) UIButton *loadMoreButton;
+
+@end
+
+
+
+
+
+#pragma mark - 预选词集合视图
+
+@interface LWPredictiveCollectionView : UICollectionView
+
+@end
+
+
+
+
+
+#pragma mark - 预选词集合视图的布局
+
+@interface LWPredictiveCollectionViewLayout:UICollectionViewFlowLayout
+
+@end
+
+

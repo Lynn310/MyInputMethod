@@ -19,6 +19,7 @@
 @class LWTopView;
 @class LWSingleHandView;
 @class LWSymbolKeyboard;
+@class LWPredictiveView;
 
 
 @interface MyKeyboardViewController : UIInputViewController
@@ -42,6 +43,8 @@
 //inputView的约束
 @property(nonatomic, strong) NSMutableArray *inputViewConstraints;
 
+
+@property(nonatomic, strong) LWPredictiveView *predictiveView;
 
 //提交字符串
 - (void)insertText:(NSString *)text;
