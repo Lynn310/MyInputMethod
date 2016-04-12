@@ -130,5 +130,14 @@ Method Swizzling 和 AOP 实践:http://tech.glowing.com/cn/method-swizzling-aop/
 11. 恢复到默认主题设置；
 ```
 
+**其他功能选项**
+```
+1.键盘直接跳到添加键盘设置;
+2.上屏语句加密到随机快捷短语(类似kibo);
+3.
+
+```
+
+
 
 
