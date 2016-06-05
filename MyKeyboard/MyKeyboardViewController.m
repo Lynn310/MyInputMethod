@@ -507,12 +507,12 @@
         text = ((LWFullCharBtn *) button).mainLabel.text;
     }
 
-//    //显示预选区
-//    if(_predictiveView || _predictiveView.superview){
-//        _predictiveView = (LWPredictiveView *) [[NSBundle mainBundle] loadNibNamed:@"LWPredictiveView" owner:self.view options:nil][0];
-//        [_topView addSubview:_predictiveView];
-//    }
-//    [_predictiveView insertTapedText:text.lowercaseString];
+    //显示预选区
+    if(_predictiveView || _predictiveView.superview){
+        _predictiveView = (LWPredictiveView *) [[NSBundle mainBundle] loadNibNamed:@"LWPredictiveView" owner:self.view options:nil][0];
+        [_topView addSubview:_predictiveView];
+    }
+    [_predictiveView insertTapedText:text.lowercaseString];
 }
 
 /**

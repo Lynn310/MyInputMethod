@@ -244,7 +244,7 @@
                 //重新设置新选择的状态
                 cell.selImgView.hidden = NO;
                 _selectedIndexPath = indexPath;
-                StringValueToThemeFileByKey(([NSString stringWithFormat:@"%d,%d", indexPath.section, indexPath.item]), @"skinSetting.selectedIndexPath");
+                StringValueToThemeFileByKey(([NSString stringWithFormat:@"%ld,%ld", (long)indexPath.section, (long)indexPath.item]), @"skinSetting.selectedIndexPath");
                 [self reloadData];
             }
             break;
@@ -290,7 +290,7 @@
                 //重新设置新选择的状态
                 cell.selImgView.hidden = NO;
                 _selectedIndexPath = indexPath;
-                StringValueToThemeFileByKey(([NSString stringWithFormat:@"%d,%d", indexPath.section, indexPath.item]), @"skinSetting.selectedIndexPath");
+                StringValueToThemeFileByKey(([NSString stringWithFormat:@"%ld,%ld", (long)indexPath.section, (long)indexPath.item]), @"skinSetting.selectedIndexPath");
                 [self reloadData];
             }
             break;

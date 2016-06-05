@@ -38,6 +38,18 @@
 @end
 
 
+
+
+#pragma mark - 预选词集合视图的布局
+
+@interface LWPredictiveCollectionViewLayout:UICollectionViewFlowLayout
+
+@end
+
+
+
+
+
 #pragma mark - LWPredictiveCell
 
 @interface LWPredictiveCell : UICollectionViewCell
@@ -75,16 +87,6 @@
 #pragma mark - 预选词集合视图
 
 @interface LWPredictiveCollectionView : UICollectionView
-
-@end
-
-
-
-
-
-#pragma mark - 预选词集合视图的布局
-
-@interface LWPredictiveCollectionViewLayout:UICollectionViewFlowLayout
 
 @end
 

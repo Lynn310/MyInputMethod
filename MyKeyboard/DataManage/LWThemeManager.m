@@ -60,7 +60,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *themeName = [defaults objectForKey:Key_Theme] ?: @"defaultTheme";
 
-    NSString *bundleFilePath = [[NSBundle mainBundle] pathForResource:themeName ofType:@"plist"];
+    //NSString *bundleFilePath = [[NSBundle mainBundle] pathForResource:themeName ofType:@"plist"];
 
     NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString *docFilePath = [documentsDirectory stringByAppendingPathComponent:themeName];

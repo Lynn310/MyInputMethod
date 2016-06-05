@@ -8,46 +8,6 @@
 
 #import "LWPredictiveView.h"
 
-#pragma mark - 首个预选词(Header View)
-
-@implementation LWFirstSuggestionReusableView
-
-@end
-
-
-
-
-#pragma mark - 末个预选词(Footer View)
-
-@implementation LWLoadMoreReusableView
-
-@end
-
-
-
-
-#pragma mark - 预选词集合视图
-
-@implementation LWPredictiveCollectionView
-
-- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
-    self = [super initWithFrame:frame collectionViewLayout:layout];
-    if (self) {
-
-    }
-
-    return self;
-}
-
-
-- (BOOL)touchesShouldCancelInContentView:(UIView *)view {
-    return YES;
-}
-
-@end
-
-
-
 
 
 #pragma mark - 预选词
@@ -89,7 +49,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    LWPredictiveCell *cell = (LWPredictiveCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"DoubleLinePredictiveCell" forIndexPath:indexPath];
+    //LWPredictiveCell *cell = (LWPredictiveCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"DoubleLinePredictiveCell" forIndexPath:indexPath];
     return nil;
 }
 
@@ -155,12 +115,54 @@
 
 
 
+
+#pragma mark - 预选词集合视图
+
+@implementation LWPredictiveCollectionView
+
+- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
+    self = [super initWithFrame:frame collectionViewLayout:layout];
+    if (self) {
+
+    }
+
+    return self;
+}
+
+
+- (BOOL)touchesShouldCancelInContentView:(UIView *)view {
+    return YES;
+}
+
+@end
+
+
+
+
+
+
+
 #pragma mark - LWPredictiveCell
 
 @implementation LWPredictiveCell
 
 @end
 
+
+#pragma mark - 首个预选词(Header View)
+
+@implementation LWFirstSuggestionReusableView
+
+@end
+
+
+
+
+#pragma mark - 末个预选词(Footer View)
+
+@implementation LWLoadMoreReusableView
+
+@end
 
 
 #pragma mark - 预选词集合视图的布局
